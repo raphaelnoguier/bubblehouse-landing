@@ -5,7 +5,12 @@
                 <span>{{heading}}</span>
             </div>
             <div class="title">
-                <h2>{{title}}</h2>
+                <h2
+                    :class="gradient ? 'has-gradient' : ''"
+                    :style="gradient && `background-image: -webkit-linear-gradient(rgba(${gradient}), #333);`"
+                >
+                    {{title}}
+                </h2>
             </div>
             <div class="baseline">
                 <p>{{subtitle}}</p>
@@ -20,6 +25,7 @@ export default {
         heading: String,
         title: String,
         subtitle: String,
+        gradient: String
     }
 }
 </script>

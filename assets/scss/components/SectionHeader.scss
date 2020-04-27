@@ -1,6 +1,6 @@
 .section-header-component {
     .section-header-content {
-        max-width: 50vw;
+        max-width: 56.667vw;
         margin: auto;
         text-align: center;
 
@@ -16,6 +16,14 @@
             margin-top: 2.083vw;
             color: v(white);
             text-transform: capitalize;
+
+            h2 {
+                &.has-gradient {
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: background-image 2500ms v(ease-in-out-quart);
+                }
+            }
         }
 
         .baseline {

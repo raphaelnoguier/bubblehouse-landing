@@ -1,6 +1,26 @@
 .feel-the-content {
     padding-top: 13.125vw;
     border-top: 1px solid v(dark-grey);
+    position: relative;
+    overflow: hidden;
+
+    .section-background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-size: cover;
+        filter: blur(50px);
+        transition: all 500ms v(ease-in-out-quart);
+
+        .gradient {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
     .phone-slider {
         @include flexCenter();
@@ -11,18 +31,32 @@
 
         .slider-controls {
             .prev, .next {
-                width: 40px;
-                height: 40px;
-                background: red;
-                color: white;
+                width: 5.139vw;
+                height: 5.139vw;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
                 border-radius: 10px;
+                outline: none;
+                position: relative;
+                user-select: none;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: v(white);
+                    opacity: 0.1;
+                    border-radius: 6px;
+                }
 
                 &.next {
-                    margin-top: 30px;
+                    margin-top: 2.222vw;
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -33,11 +67,15 @@
             border: 5px solid v(dark-grey);
             border-radius: 40px;
             overflow: hidden;
+            z-index: 1;
 
             .swiper-wrapper {
                 height: 100%;
+                transition-timing-function: v(ease-in-out-quart);
 
                 .screen {
+                    pointer-events: none;
+                    user-select: none;
                     img {
                         width: 100%;
                         height: 100%;
@@ -47,25 +85,28 @@
         }
 
         .slider-pagination {
-            span {
-                display: block;
-                background: blue;
-                width: 50px;
-                height: 50px;
-                border: 1px solid white;
+            border: 3px solid rgba(white, 0.1);
+            border-radius: 100px;
+            overflow: hidden;
 
-                &:first-child {
-                    border-top-left-radius: 30px;
-                    border-top-right-radius: 30px;
+            .thumb {
+                width: 5.139vw;
+                height: 5.139vw;
+                background: black;
+
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0.5;
+                    transition: opacity 300ms ease;
                 }
 
-                &:last-child {
-                    border-bottom-left-radius: 30px;
-                    border-bottom-right-radius: 30px;
-                }
-
-                &.swiper-pagination-bullet-active {
-                    border-color: red;
+                &.active {
+                    img {
+                        opacity: 1;
+                    }
                 }
             }
         }
