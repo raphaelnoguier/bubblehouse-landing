@@ -6,6 +6,7 @@
 		src:
 		url('~assets/fonts/#{$name}/#{$name}.otf') format('opentype'),
 		url('~assets/fonts/#{$name}/#{$name}.ttf') format('truetype'),
+		url('~assets/fonts/#{$name}/#{$name}.woff') format('truetype'),
 		url('~assets/fonts/#{$name}/#{$name}.eot?#iefix') format('embedded-opentype');
 		font-weight: normal;
 		font-display: swap;
@@ -28,6 +29,19 @@
 @mixin between ($b1, $b2) {
 	@media (min-width: #{map-get($breakpoints, $b1)}) and (max-width: #{map-get($breakpoints, $b2)}) {
 		@content;
+	}
+}
+
+@mixin flexCenter () {
+	display: flex;
+	align-items: center;
+}
+
+@function v($var, $fallback: null) {
+	@if ($fallback) {
+		@return var(--#{$var}, #{$fallback});
+	} @else {
+		@return var(--#{$var});
 	}
 }
 

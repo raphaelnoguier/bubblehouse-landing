@@ -1,0 +1,10 @@
+// Colors
+@supports(--css: variables) {
+    :root {
+        --white: #ffffff;
+        --brand-color: #E94E29;
+
+        /* easings */
+        --easing-transform: cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}

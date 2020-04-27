@@ -9,5 +9,7 @@ html {
 }
 
 body {
+	@include proximaRegular(1.806vw);
 	transition: background-color 500ms ease;
+	line-height: 2.778vw;
 }

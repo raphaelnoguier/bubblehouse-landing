@@ -12,9 +12,9 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
-  padding: 0;
+  	padding: 0;
 	border: 0;
-  font: inherit;
+  	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -24,10 +24,9 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
+  	width: 100%;
+  	height: 100%;
 	box-sizing: border-box;
-	overscroll-behavior-y: none;
 }
 ol, ul {
 	list-style: none;
@@ -44,9 +43,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-a{
+a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
+}
+button {
+	border: none;
 }
 
 

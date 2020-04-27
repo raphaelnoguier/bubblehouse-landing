@@ -1,6 +1,9 @@
 /* UTILS */
-@import 'utils/reset', 'utils/mixins', 'utils/fonts', 'utils/sizes', 'utils/general';
+@import 'utils/reset', 'utils/mixins', 'utils/fonts', 'utils/sizes', 'utils/general', 'utils/variables';
 
 /* PAGES */
 @import 'pages/home', 'pages/slider1', 'pages/slider2', 'pages/hero';
+
+/* COMPONENTS */
+@import 'components/Nav', 'components/Wrapper', 'components/Hero';
 

@@ -1,0 +1,33 @@
+.hero-component {
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    width: 100%;
+    background: black;
+
+    .hero-component-content {
+        @include flexCenter();
+        height: 100%;
+        color: v(white);
+
+        .left {
+            max-width: 36.806vw;
+
+            .text {
+                h1 {
+                    @include proximaExtraBold(6.250vw);
+                }
+                p {
+                    margin-top: 2.431vw;
+                }
+            }
+
+            .form {
+                margin-top: 3.681vw;
+
+                button {
+                    background-color: v(brand-color);
+                }
+            }
+        }
+    }
+}
