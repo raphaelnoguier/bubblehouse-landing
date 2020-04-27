@@ -4,6 +4,9 @@
 /* PAGES */
 @import 'pages/home', 'pages/slider1', 'pages/slider2', 'pages/hero';
 
+/* SECTIONS */
+@import 'sections/feelTheContent';
+
 /* COMPONENTS */
-@import 'components/Nav', 'components/Wrapper', 'components/Hero';
+@import 'components/Nav', 'components/Wrapper', 'components/Hero', 'components/SectionHeader';
 

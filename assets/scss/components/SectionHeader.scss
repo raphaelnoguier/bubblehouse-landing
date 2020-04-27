@@ -1,0 +1,29 @@
+.section-header-component {
+    .section-header-content {
+        max-width: 50vw;
+        margin: auto;
+        text-align: center;
+
+        .heading {
+            @include proximaBold(1.111vw, 1.667vw);
+            letter-spacing: 1px;
+            color: v(white);
+            text-transform: uppercase;
+        }
+
+        .title {
+            @include proximaExtraBold(6.250vw,  6.250vw);
+            margin-top: 2.083vw;
+            color: v(white);
+            text-transform: capitalize;
+        }
+
+        .baseline {
+            @include proximaRegular(1.806vw, 2.778vw);
+            width: calc(100% - 7.222vw);
+            margin: auto;
+            margin-top: 1.458vw;
+            color: v(white);
+        }
+    }
+}

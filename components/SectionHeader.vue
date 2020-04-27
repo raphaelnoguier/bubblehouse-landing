@@ -2,13 +2,13 @@
     <div class="section-header-component">
         <div class="section-header-content">
             <div class="heading">
-                <span>{heading}</span>
+                <span>{{heading}}</span>
             </div>
             <div class="title">
-                <h2>{title}</h2>
+                <h2>{{title}}</h2>
             </div>
             <div class="baseline">
-                <p>{subtitle}</p>
+                <p>{{subtitle}}</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,73 @@
+.feel-the-content {
+    padding-top: 13.125vw;
+    border-top: 1px solid v(dark-grey);
+
+    .phone-slider {
+        @include flexCenter();
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 6.250vw auto 0 auto;
+        max-width: 71.389vw;
+
+        .slider-controls {
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                background: red;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 10px;
+
+                &.next {
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .phone {
+            height: 58.403vw;
+            width: 27.222vw;
+            border: 5px solid v(dark-grey);
+            border-radius: 40px;
+            overflow: hidden;
+
+            .swiper-wrapper {
+                height: 100%;
+
+                .screen {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .slider-pagination {
+            span {
+                display: block;
+                background: blue;
+                width: 50px;
+                height: 50px;
+                border: 1px solid white;
+
+                &:first-child {
+                    border-top-left-radius: 30px;
+                    border-top-right-radius: 30px;
+                }
+
+                &:last-child {
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                }
+
+                &.swiper-pagination-bullet-active {
+                    border-color: red;
+                }
+            }
+        }
+    }
+}

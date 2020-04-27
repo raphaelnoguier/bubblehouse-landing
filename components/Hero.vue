@@ -9,7 +9,9 @@
                     </div>
                     <div class="form">
                         <input type="text" name="email" placeholder="Enter your email address" />
-                        <button type="submit">Get early access</button>
+                        <button type="submit">
+                            <span>Get early access</span>
+                        </button>
                     </div>
                 </div>
                 <div class="columns-slider">

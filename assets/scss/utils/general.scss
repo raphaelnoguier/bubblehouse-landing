@@ -6,10 +6,12 @@
 
 html {
 	font-size: 1.6vw;
+	background-color: v(black);
 }
 
 body {
 	@include proximaRegular(1.806vw);
-	transition: background-color 500ms ease;
 	line-height: 2.778vw;
+	transition: background-color 500ms ease;
+	overscroll-behavior-y: none;
 }

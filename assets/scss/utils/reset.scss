@@ -50,5 +50,11 @@ a {
 button {
 	border: none;
 }
+input {
+	border: none;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	outline: none;
+}
 
 

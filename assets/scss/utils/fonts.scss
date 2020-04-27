@@ -1,10 +1,18 @@
 /* FONTS DECLARATION */
 
 @include font-face('ProximaNova', 'ExtraBold');
+@include font-face('ProximaNova', 'Bold');
 @include font-face('ProximaNova', 'Regular');
 
 @mixin proximaExtraBold($size: 0.875vw, $lineHeight: normal, $letterSpacing: 0) {
 	font-family: "ProximaNova-ExtraBold";
+	font-size: $size;
+	line-height: $lineHeight;
+	letter-spacing: $letterSpacing;
+}
+
+@mixin proximaBold($size: 0.875vw, $lineHeight: normal, $letterSpacing: 0) {
+	font-family: "ProximaNova-Bold";
 	font-size: $size;
 	line-height: $lineHeight;
 	letter-spacing: $letterSpacing;
