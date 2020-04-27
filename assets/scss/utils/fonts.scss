@@ -1,0 +1,26 @@
+/* FONTS DECLARATION */
+
+@include font-face('Eksell', 'Large');
+@include font-face('Eksell', 'Stencil');
+@include font-face('Silka', 'Bold');
+
+@mixin eksellLarge($size: 0.875vw, $lineHeight: normal, $letterSpacing: 0) {
+	font-family: "Eksell-Large";
+	font-size: $size;
+	line-height: $lineHeight;
+	letter-spacing: $letterSpacing;
+}
+
+@mixin eksellStencil($size: 0.875vw, $lineHeight: normal, $letterSpacing: 0) {
+	font-family: "Eksell-Stencil";
+	font-size: $size;
+	line-height: $lineHeight;
+	letter-spacing: $letterSpacing;
+}
+
+@mixin silkaBold($size: 0.875vw, $lineHeight: normal, $letterSpacing: 0) {
+	font-family: "Silka-Bold";
+	font-size: $size;
+	line-height: $lineHeight;
+	letter-spacing: $letterSpacing;
+}
