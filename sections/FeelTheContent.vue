@@ -11,7 +11,10 @@
             ref="sectionBackground"
             :style="`background-image: url(${slides[activeIndex].img});`"
         >
-            <div class="gradient" :style="`background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(${slides[activeIndex].gradient}));`" />
+            <div
+                class="gradient"
+                :style="`background-image: linear-gradient(to bottom, rgba(10, 10, 10, 1) 30%, rgba(${slides[activeIndex].gradient}));`"
+            />
         </div>
         <div class="phone-slider">
             <div class="slider-controls">
@@ -22,7 +25,7 @@
                     <img src="~assets/images/icons/arrow.svg" />
                 </div>
             </div>
-            <div class="swiper-container phone" ref="phoneSlider">
+            <div class="swiper-container phone-component" ref="phoneSlider">
                 <div class="swiper-wrapper">
                     <div v-for="(slide, i) in slides" class="swiper-slide screen" :key="i">
                         <img :src="slide.img" />

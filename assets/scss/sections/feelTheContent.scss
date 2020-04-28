@@ -13,8 +13,9 @@
         z-index: -1;
         pointer-events: none;
         background-size: cover;
+        background-position: center;
         filter: blur(50px);
-        transition: all 500ms v(ease-in-out-quart);
+        transition: background-image 500ms v(ease-in-out-quart);
 
         .gradient {
             width: 100%;
@@ -61,14 +62,7 @@
             }
         }
 
-        .phone {
-            height: 58.403vw;
-            width: 27.222vw;
-            border: 5px solid v(dark-grey);
-            border-radius: 40px;
-            overflow: hidden;
-            z-index: 1;
-
+        .phone-component {
             .swiper-wrapper {
                 height: 100%;
                 transition-timing-function: v(ease-in-out-quart);

@@ -1,0 +1,111 @@
+.board-component {
+    margin-top: 6.250vw;
+    position: relative;
+
+    .board-component-grid {
+        background-color: #1A5D6D;
+        padding: 1.111vw;
+        border-radius: 4px;
+        max-width: 71.389vw;
+        margin: auto;
+        position: relative;
+
+        .board-placeholder {
+            position: absolute;
+            width: calc(100% - (2 * 1.111vw));
+            left: auto;
+
+            .media {
+                background: v(white);
+                opacity: 0.1;
+                border-radius: 4px;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+
+            &:last-child {
+                margin-top: 1.111vw;
+            }
+
+            .media {
+                height: 17.5vw;
+                position: relative;
+
+                .media-wrapper {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &.square {
+                    width: 20.069vw;
+                }
+
+                &.portrait {
+                    width: 12.847vw;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 4px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .board-component-slider {
+        margin-top: 6.667vw;
+        min-height: 100vh;
+        width: 100%;
+
+        .board-slider-nav {
+            max-width: 36.597vw;
+            margin: auto;
+
+            .categories {
+                @include flexCenter();
+                height: 4.097vw;
+
+                .single {
+                    @include flexCenter();
+                    @include proximaBold(1.111vw, 1.667vw);
+                    color: v(white);
+                    text-transform: uppercase;
+                    height: 100%;
+                    padding: 0 1.667vw;
+                    position: relative;
+
+                    &.active {
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: v(white);
+                            opacity: 0.1;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .board-slider {
+            position: relative;
+            z-index: 2;
+            margin: 2.917vw auto 0 auto;
+            max-width: 84.653vw;
+            .phone-component {
+                margin: auto;
+                background: black;
+            }
+        }
+    }
+}
