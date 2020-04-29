@@ -11,10 +11,7 @@
             ref="sectionBackground"
             :style="`background-image: url(${slides[activeIndex].img});`"
         >
-            <div
-                class="gradient"
-                :style="`background-image: linear-gradient(to bottom, rgba(10, 10, 10, 1) 30%, rgba(${slides[activeIndex].gradient}));`"
-            />
+            <div class="gradient" />
         </div>
         <div class="phone-slider">
             <div class="slider-controls">

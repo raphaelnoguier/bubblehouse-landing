@@ -3,6 +3,7 @@
     top: 0;
     padding: 3.125vw 6.944vw;
     width: 100%;
+    z-index: 3;
 
     .nav-content {
         @include flexCenter();
