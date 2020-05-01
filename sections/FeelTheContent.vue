@@ -2,7 +2,7 @@
     <div class="section feel-the-content">
         <SectionHeader
             heading="a new way of consuming"
-            title="feel the content"
+            title="Feel the Content"
             :gradient="slides[activeIndex].gradient"
             subtitle="Browse beautiful content one by one to fully express what the content creator is trying to convey."
         />

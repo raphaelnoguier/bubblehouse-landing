@@ -181,16 +181,12 @@ export default {
         });
     },
     methods: {
-        vw(v) {
-            const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-            return (v * w) / 100
-        },
         initSliders(sliders) {
             sliders.forEach((slider, i) => {
                 new Swiper (slider, {
-                    spaceBetween: i === 0 ? this.vw(1.95) : 0,
+                    spaceBetween: i === 0 ? math.vw(1.95) : 0,
                     speed: 500,
-                    initialSlide: 2,
+                    initialSlide: 1,
                     allowTouchMove: false,
                     navigation: {
                         nextEl: '.slider-next',

@@ -3,22 +3,26 @@
 		<Hero />
 		<FeelTheContent />
 		<Boards />
+		<ProfileExample />
+		<InteractiveModules />
 	</main>
 </template>
 
 <script>
-/* Components */
-import Hero from '~/components/Hero';
-
 /* Sections */
+import Hero from '~/sections/Hero';
 import FeelTheContent from '~/sections/FeelTheContent';
 import Boards from '~/sections/Boards';
+import ProfileExample from '~/sections/ProfileExample';
+import InteractiveModules from '~/sections/InteractiveModules';
 
 export default {
 	components: {
 		Hero,
 		FeelTheContent,
-		Boards
+		Boards,
+		ProfileExample,
+		InteractiveModules
 	}
 }
 </script>

@@ -5,8 +5,16 @@
 @import 'pages/home', 'pages/hero';
 
 /* SECTIONS */
-@import 'sections/feelTheContent', 'sections/boards';
+@import 'sections/feelTheContent', 'sections/boards', 'sections/profileExample', 'sections/interactiveModules';
 
 /* COMPONENTS */
-@import 'components/Nav', 'components/Wrapper', 'components/Hero', 'components/SectionHeader', 'components/Board', 'components/Phone';
+@import 'components/Nav',
+        'components/Wrapper',
+        'components/Hero',
+        'components/SectionHeader',
+        'components/Board',
+        'components/Phone',
+        'components/beforeAfter',
+        'components/simpleSlider',
+        'components/panorama';
 

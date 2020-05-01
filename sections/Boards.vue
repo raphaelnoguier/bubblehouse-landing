@@ -2,7 +2,7 @@
     <div class="section boards">
         <SectionHeader
             heading="introducing boards"
-            title="tell the full story"
+            title="Tell the full story"
             subtitle="Boards allows you to go in details with unlimited components because most of the time, one media is not enough. Update them as you want."
         />
         <Board />

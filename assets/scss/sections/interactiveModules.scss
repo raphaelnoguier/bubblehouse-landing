@@ -1,0 +1,43 @@
+.section.interactive-modules {
+    margin-top: 6.667vw;
+
+    .subtitle-component {
+        @include proximaBold(2.222vw, 3.333vw);
+        color: v(white);
+        text-align: center;
+    }
+
+    .modules {
+        margin-top: 5.417vw;
+
+        .modules-components {
+            margin: 1.736vw auto 0 auto;
+            max-width: 86.250vw;
+
+            .row {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .before-after-wrapper, .simple-slider-wrapper {
+                width: calc(50% - 1.042vw);
+
+                .component-name {
+                    margin-top: 1.319vw;
+                    @include proximaBold(1.111vw, 1.667vw);
+                    color: v(white);
+                    text-align: center;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .panorama-wrapper {
+                width: 100%;
+                margin-top: 6.32vw;
+                margin-bottom: 100vh;
+            }
+        }
+    }
+}

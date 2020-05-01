@@ -1,0 +1,39 @@
+.simple-slider-wrapper {
+    height: 27.778vw;
+    position: relative;
+
+    .simple-slider-component {
+        padding: 1.111vw;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+
+        .background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            transition: background-image 300ms v(ease-in-out-quart);
+            filter: blur(50px);
+        }
+
+        .swiper-wrapper {
+            display: inline-flex;
+            overflow: hidden;
+            height: 25.556vw;
+
+            .swiper-slide {
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
