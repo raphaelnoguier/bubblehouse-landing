@@ -1,0 +1,18 @@
+.footer-links-component {
+    margin: 6.597vw auto 0 auto;
+    max-width: 47.986vw;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            span, a {
+                @include proximaBold(1.111vw, 1.667vw);
+                letter-spacing: 1px;
+                color: #535353;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

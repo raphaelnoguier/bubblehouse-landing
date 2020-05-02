@@ -60,9 +60,10 @@
     }
 
     .board-component-slider {
-        margin-top: 6.667vw;
+        margin-top: 1.945vw;
         width: 100%;
         overflow: hidden;
+        transform: translateY(4.722vw);
 
         .board-slider-nav {
             max-width: 36.597vw;
@@ -122,6 +123,7 @@
                         .screen {
                             width: 100%;
                             height: 100%;
+                            opacity: 0.5;
 
                             img {
                                 width: 100%;
