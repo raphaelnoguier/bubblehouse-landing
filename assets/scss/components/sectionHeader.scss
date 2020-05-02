@@ -1,4 +1,11 @@
 .section-header-component {
+    opacity: 0;
+    transition: opacity 350ms v(ease-in-out-quart);
+
+    &.in-view {
+        opacity: 1;
+    }
+
     .section-header-content {
         max-width: 56.667vw;
         margin: auto;

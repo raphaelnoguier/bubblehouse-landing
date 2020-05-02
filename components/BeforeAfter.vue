@@ -20,7 +20,7 @@
 </template>
 <script>
 /* Utils */
-import math from '~/utils/math';
+import Utils from '~/utils';
 
 export default {
     data() {
@@ -37,12 +37,40 @@ export default {
 
         this.calcBounds();
 
-        this.circle.addEventListener('mousedown', this.down, false);
-        this.component.addEventListener('mousemove', this.move, false);
-        this.component.addEventListener('mouseup', this.up, false);
-        this.circle.addEventListener('mouseup', this.up, false);
+        window.addEventListener('resize', this.calcBounds, false);
+
+        this.addListeners();
+    },
+    beforeDestroy() {
+        this.removeListeners();
     },
     methods: {
+        addListeners() {
+            /* Mobile */
+            this.circle.addEventListener('touchstart', this.down, false);
+            this.component.addEventListener('touchmove', this.move, false);
+            this.component.addEventListener('touchend', this.up, false);
+            this.circle.addEventListener('touchend', this.up, false);
+
+            /* Desktop */
+            this.circle.addEventListener('mousedown', this.down, false);
+            this.component.addEventListener('mousemove', this.move, false);
+            this.component.addEventListener('mouseup', this.up, false);
+            this.circle.addEventListener('mouseup', this.up, false);
+        },
+        removeListeners() {
+            /* Mobile */
+            this.circle.removeEventListener('touchstart', this.down, false);
+            this.component.removeEventListener('touchmove', this.move, false);
+            this.component.removeEventListener('touchend', this.up, false);
+            this.circle.removeEventListener('touchend', this.up, false);
+
+            /* Desktop */
+            this.circle.removeEventListener('mousedown', this.down, false);
+            this.component.removeEventListener('mousemove', this.move, false);
+            this.component.removeEventListener('mouseup', this.up, false);
+            this.circle.removeEventListener('mouseup', this.up, false);
+        },
         calcBounds() {
             const { left, width } = this.component.getBoundingClientRect();
             this.componentL = left;
@@ -51,9 +79,10 @@ export default {
         down() { this.isDragging = true },
         move(cursor) {
             if (!this.isDragging) return;
-            const { x, y } = cursor;
+            const x = cursor.x || cursor.touches[0].clientX;
+            const y = cursor.y || cursor.touches[0].clientY
 
-            const mappedX = math.clamp(math.map(x - this.componentL, 0, this.componentW, 100, 0), 0, 100);
+            const mappedX = Utils.clamp(Utils.map(x - this.componentL, 0, this.componentW, 100, 0), 0, 100);
 
             this.revealBlock.style.transform = `translate3d(${-mappedX}%, 0, 0)`;
             this.revealImg.style.transform = `translate3d(${mappedX}%, 0, 0)`;

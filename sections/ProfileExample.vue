@@ -33,7 +33,7 @@
         </div>
         <div class="profile-phones">
             <div class="phones-wrapper">
-                <Phone whiteBorder small>
+                <Phone whiteBorder small >
                     <div class="media full">
                         <div class="layer-wrapper">
                             <div :class="`hero ${activeIndex === 1 || activeIndex === 2 ? 'active' : ''}`" />

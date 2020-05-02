@@ -20,7 +20,15 @@
 </template>
 
 <script>
+/* Utils */
+import reveal from '~/utils/reveal';
 export default {
+    mounted() {
+        this.reveal = reveal({ dom: this.$el, ratioIn: 0.5 })
+    },
+    beforeDestroy() {
+        this.reveal.destroy();
+    },
     props: {
         heading: String,
         title: String,

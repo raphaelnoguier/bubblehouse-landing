@@ -21,7 +21,7 @@
 
 <script>
 /* Utils */
-import math from '~/utils/math';
+import Utils from '~/utils';
 import Swiper from 'swiper';
 
 export default {
@@ -43,14 +43,14 @@ export default {
         initSlider(el) {
             this.slider = new Swiper(el, {
                 slidesPerView: 1.1,
-                spaceBetween: math.vw(1.111),
+                spaceBetween: Utils.vw(1.111),
                 centeredSlides: true,
                 centeredSlidesBounds: true,
                 on: {
                     slideChange: () => this.activeIndex = this.slider.realIndex,
                     progress: (p) => {
                         if (this.slider) {
-                            const newIndex = Math.round(math.map(p, 0, 1, 0, this.slides.length - 1));
+                            const newIndex = Math.round(Utils.map(p, 0, 1, 0, this.slides.length - 1));
                             this.activeIndex = newIndex;
                         }
                     }

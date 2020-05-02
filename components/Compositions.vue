@@ -54,7 +54,16 @@
 </template>
 
 <script>
+/* Utils */
+import reveal from '~/utils/reveal';
+
 export default {
+    mounted() {
+        this.reveal = reveal({ dom: this.$el, ratioIn: 0.8 })
+    },
+    beforeDestroy() {
+        this.reveal.destroy();
+    },
     props: {
         type: String,
         medias: Array

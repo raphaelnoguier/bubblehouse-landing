@@ -146,7 +146,7 @@
 
 <script>
 /* Utils */
-import math from '~/utils/math';
+import Utils from '~/utils';
 import enterView from 'enter-view';
 import Swiper from 'swiper';
 
@@ -184,7 +184,7 @@ export default {
         initSliders(sliders) {
             sliders.forEach((slider, i) => {
                 new Swiper (slider, {
-                    spaceBetween: i === 0 ? math.vw(1.95) : 0,
+                    spaceBetween: i === 0 ? Utils.vw(1.95) : 0,
                     speed: 500,
                     initialSlide: 1,
                     allowTouchMove: false,
@@ -206,7 +206,7 @@ export default {
             });
         },
         transform(progress) {
-            const opacityProgress = math.map(progress, 0.9, 1, 0, 1);
+            const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
             this.boardSliderNav.style.opacity = opacityProgress;
 
             this.mediasBounds.forEach((bounds, i) => {
@@ -214,9 +214,9 @@ export default {
                 const image = this.medias[i].children[0];
 
                 const { x } = bounds;
-                const mappedX = math.map(progress, 0, 1, 0, x);
-                const mappedY = math.map(progress, 0, 1, 0, 50);
-                const mappedWrapperY = math.map(progress, 0, 1, 0, 125);
+                const mappedX = Utils.map(progress, 0, 1, 0, x);
+                const mappedY = Utils.map(progress, 0, 1, 0, 50);
+                const mappedWrapperY = Utils.map(progress, 0, 1, 0, 125);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
                 block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0)`;

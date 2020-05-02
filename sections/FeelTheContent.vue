@@ -7,9 +7,11 @@
             subtitle="Browse beautiful content one by one to fully express what the content creator is trying to convey."
         />
         <div
-            class="section-background"
             ref="sectionBackground"
-            :style="`background-image: url(${slides[activeIndex].img});`"
+            v-for="(slide, i) in slides"
+            :class="`section-background ${i === activeIndex ? 'visible' : ''}`"
+            :key="i"
+            :style="`background-image: url(${slides[i].img});`"
         >
             <div class="gradient" />
         </div>

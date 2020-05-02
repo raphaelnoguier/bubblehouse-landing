@@ -1,7 +1,7 @@
 <template>
     <div class="section footer">
         <footer>
-            <div class="texts">
+            <div class="texts" ref="texts">
                 <h3>Ready to dive-in the creative world?</h3>
                 <p>We’re opening up our Private Beta to more users. If you would like to try out Aura, give us your info!</p>
             </div>
@@ -20,10 +20,19 @@
 </template>
 
 <script>
+/* Utils */
+import reveal from '~/utils/reveal';
+
 /* Components */
 import FooterLinks from '~/components/FooterLinks';
 
 export default {
+    mounted() {
+        this.reveal = reveal({ dom: this.$refs.texts, ratioIn: 0.5 })
+    },
+    beforeDestroy() {
+        this.reveal.destroy();
+    },
     components: {
         FooterLinks
     }

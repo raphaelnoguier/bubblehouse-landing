@@ -16,7 +16,7 @@
 
 <script>
 /* Utils */
-import math from '~/utils/math';
+import Utils from '~/utils';
 
 /* Components */
 import Phone from '~/components/Phone';

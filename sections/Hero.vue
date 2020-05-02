@@ -18,36 +18,17 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
-                            </Phone>
-                        </div>
-                    </div>
-                </div>
-                <div class="column swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="~/assets/images/feed.jpg" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="~/assets/images/feed.jpg" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                     </div>
@@ -56,17 +37,36 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                         <div class="swiper-slide">
                             <Phone>
-                                <img src="~/assets/images/feed.jpg" />
+                                <img src="https://picsum.photos/id/225/500/300" />
+                            </Phone>
+                        </div>
+                    </div>
+                </div>
+                <div class="column swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <Phone>
+                                <img src="https://picsum.photos/id/225/500/300" />
+                            </Phone>
+                        </div>
+                        <div class="swiper-slide">
+                            <Phone>
+                                <img src="https://picsum.photos/id/225/500/300" />
+                            </Phone>
+                        </div>
+                        <div class="swiper-slide">
+                            <Phone>
+                                <img src="https://picsum.photos/id/225/500/300" />
                             </Phone>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
 <script>
 /* Utils */
 import Swiper from 'swiper';
-import math from '~/utils/math';
+import Utils from '~/utils';
 
 /* Components */
 import Phone from '~/components/Phone';
@@ -89,12 +89,15 @@ export default {
     },
     mounted() {
         this.columns = this.$el.querySelectorAll('.column');
+        this.sliders = [];
         this.columns.forEach((column, i) => {
-            new Swiper(column, {
+            this.sliders[i] = new Swiper(column, {
                 direction: 'vertical',
-                spaceBetween: math.vw(2.431),
-                speed: i === 1 ? 6000 : 3000,
+                spaceBetween: Utils.vw(2.431),
                 loop: true,
+                speed: 10000,
+                loopAdditionalSlides: 1,
+                allowTouchMove: false,
                 autoplay: {
                     delay: 0,
                     reverseDirection: i === 1,
@@ -102,6 +105,6 @@ export default {
                 }
             })
         });
-    }
+    },
 }
 </script>
