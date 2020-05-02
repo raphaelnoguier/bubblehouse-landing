@@ -1,0 +1,41 @@
+<template>
+    <div class="section footer">
+        <footer>
+            <div class="texts">
+                <h3>Ready to dive-in the creative world?</h3>
+                <p>We’re opening up our Private Beta to more users. If you would like to try out Aura, give us your info!</p>
+            </div>
+            <div class="form-wrapper">
+                <form>
+                    <input class="input-component" type="email" name="email" placeholder="Mail adress" />
+                    <input class="input-component" type="text" name="name" placeholder="Name" />
+                    <button class="button-component">
+                        <span>Get early access</span>
+                    </button>
+                </form>
+            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <span>Aura,Inc 2020</span>
+                    </li>
+                    <li>
+                        <a href="/terms">
+                            terms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/privacy">
+                            privacy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@aura.com">
+                            contact@aura.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</template>

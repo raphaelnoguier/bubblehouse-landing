@@ -1,0 +1,11 @@
+.section.testimonials {
+    margin: 14.028vw auto 13.889vw auto;
+    max-width: 71.528vw;
+
+    .testimonials-wrapper {
+        margin-top: 6.25vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

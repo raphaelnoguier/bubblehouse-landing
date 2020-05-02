@@ -1,0 +1,45 @@
+.testimonial-component {
+    width: 100%;
+    max-width: 34.722vw;
+    color: v(white);
+    margin-top: 5.903vw;
+
+    .testimonial-content {
+        @include proximaRegular(1.806vw, 2.778vw);
+    }
+
+    .testimonial-footer {
+        @include flexCenter();
+        margin-top: 1.597vw;
+
+        .avatar {
+            width: 3.889vw;
+            height: 3.889vw;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .user-infos {
+            margin-left: 1.111vw;
+
+            span {
+                display: block;
+                text-transform: capitalize;
+            }
+
+            .role {
+                @include proximaBold(1.111vw, 1.667vw);
+            }
+            .name {
+                margin-top: 3px;
+                @include proximaRegular(1.111vw, 1.667vw);
+            }
+        }
+    }
+}

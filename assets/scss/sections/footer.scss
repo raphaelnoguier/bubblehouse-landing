@@ -1,0 +1,67 @@
+.section.footer {
+    border-top: 1px solid #3B3B3B;
+    max-width: 86.111vw;
+    margin: 0 auto 6.528vw auto;
+
+    footer {
+        margin-top: 13.264vw;
+
+        .texts {
+            color: v(white);
+            text-align: center;
+            max-width: 58.472vw;
+            margin: auto;
+
+            h3 {
+                @include proximaExtraBold(6.250vw, 6.250vw);
+            }
+
+            p {
+                max-width: 39.792vw;
+                margin: 1.597vw auto 0 auto;
+                @include proximaRegular(1.806vw, 2.778vw);
+            }
+        }
+
+        .form-wrapper {
+            margin-top: 6.181vw;
+
+            form {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                input {
+                    width: 32.917vw;
+
+                    &:nth-of-type(2) {
+                        margin: 0 2.222vw;
+                    }
+                }
+
+                button {
+                    width: 15.764vw;
+                }
+            }
+        }
+
+        .links {
+            margin: 6.597vw auto 0 auto;
+            max-width: 47.986vw;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+
+                li {
+                    span, a {
+                        @include proximaBold(1.111vw, 1.667vw);
+                        letter-spacing: 1px;
+                        color: #535353;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}

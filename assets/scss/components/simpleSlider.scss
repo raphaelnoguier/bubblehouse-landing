@@ -3,6 +3,7 @@
     position: relative;
 
     .simple-slider-component {
+        height: 100%;
         padding: 1.111vw;
         border-radius: 4px;
         position: relative;
@@ -16,8 +17,13 @@
             height: 100%;
             background-position: center;
             background-size: cover;
-            transition: background-image 300ms v(ease-in-out-quart);
+            transition: opacity 300ms v(ease-in-out-quart);
             filter: blur(50px);
+            opacity: 0;
+
+            &.visible {
+                opacity: 1;
+            }
         }
 
         .swiper-wrapper {

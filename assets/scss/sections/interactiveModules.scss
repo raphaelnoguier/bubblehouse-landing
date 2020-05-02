@@ -22,21 +22,40 @@
 
             .before-after-wrapper, .simple-slider-wrapper {
                 width: calc(50% - 1.042vw);
+            }
 
-                .component-name {
-                    margin-top: 1.319vw;
-                    @include proximaBold(1.111vw, 1.667vw);
-                    color: v(white);
-                    text-align: center;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                }
+            .component-name {
+                margin-top: 1.319vw;
+                @include proximaBold(1.111vw, 1.667vw);
+                color: v(white);
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 1px;
             }
 
             .panorama-wrapper {
                 width: 100%;
                 margin-top: 6.32vw;
-                margin-bottom: 100vh;
+            }
+        }
+
+        .compositions-wrapper {
+            margin: 5.625vw auto 0 auto;
+            max-width: 86.111vw;
+
+            .compositions-list {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 1.736vw;
+
+                .composition {
+                    width: 19.861vw;
+                    height: 19.861vw;
+                }
+
+                &:last-child {
+                    margin-top: 2.222vw;
+                }
             }
         }
     }

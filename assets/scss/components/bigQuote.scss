@@ -1,0 +1,20 @@
+.big-quote-component {
+    width: 100%;
+
+    .big-quote-content {
+        color: v(white);
+        text-align: center;
+        @include proximaExtraBold(6.250vw, 6.250vw);
+
+        h3 {
+            @include proximaExtraBold(6.250vw, 6.250vw);
+        }
+
+        span {
+            @include proximaBold(1.111vw, 1.667vw);
+            display: block;
+            text-transform: uppercase;
+            margin-top: 0.764vw;
+        }
+    }
+}

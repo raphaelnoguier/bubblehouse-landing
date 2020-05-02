@@ -1,7 +1,12 @@
 <template>
     <div class="simple-slider-wrapper">
         <div class="simple-slider-component swiper-container" ref="slider">
-            <div class="background" :style="`background-image: url('${slides[activeIndex]}')`" />
+            <div
+                v-for="(slide, i) in slides"
+                :class="`background ${i === activeIndex ? 'visible': ''}`"
+                :style="`background-image: url('${slides[i]}')`"
+                :key="i"
+            />
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(slide, i) in slides" :key="i">
                     <img :src="slide" />

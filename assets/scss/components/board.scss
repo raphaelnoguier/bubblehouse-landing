@@ -1,0 +1,242 @@
+.board-component {
+    margin-top: 6.250vw;
+    position: relative;
+
+    .board-component-grid {
+        background-color: #1A5D6D;
+        padding: 1.111vw;
+        border-radius: 4px;
+        max-width: 71.389vw;
+        margin: auto;
+        position: relative;
+
+        .board-placeholder {
+            position: absolute;
+            width: calc(100% - (2 * 1.111vw));
+            left: auto;
+
+            .media {
+                background: v(white);
+                opacity: 0.1;
+                border-radius: 4px;
+            }
+        }
+
+        .board-wrapper {
+            &.hidden {
+                visibility: hidden;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+
+            &:last-child {
+                margin-top: 1.111vw;
+            }
+
+            .media {
+                height: 17.5vw;
+                position: relative;
+
+                .media-wrapper {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &.square { width: 20.069vw; }
+                &.portrait { width: 12.847vw; }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 4px;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    .board-component-slider {
+        margin-top: 6.667vw;
+        width: 100%;
+        overflow: hidden;
+
+        .board-slider-nav {
+            max-width: 36.597vw;
+            margin: auto;
+            opacity: 0;
+
+            .categories {
+                @include flexCenter();
+                height: 4.097vw;
+
+                .single {
+                    @include flexCenter();
+                    @include proximaBold(1.111vw, 1.667vw);
+                    color: v(white);
+                    text-transform: uppercase;
+                    height: 100%;
+                    padding: 0 1.667vw;
+                    position: relative;
+                    cursor: pointer;
+
+                    &.active {
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: v(black);
+                            opacity: 0.2;
+                            z-index: -1;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .board-slider {
+            position: relative;
+            z-index: 2;
+            margin: 2.917vw auto 0 auto;
+            max-width: 84.653vw;
+
+            .slider-behind {
+                .swiper-container {
+                    width: 27.222vw;
+                    height: 58.403vw;
+                    margin: auto;
+
+                    .swiper-wrapper {
+                        display: inline-flex;
+                        height: 30.556vw;
+                        overflow: hidden;
+                        transition-timing-function: v(ease-in-out-quart);
+
+                        .screen {
+                            width: 100%;
+                            height: 100%;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 40px;
+                                user-select: none;
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .phone-wrapper {
+                width: 27.222vw;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+
+                .slider-prev, .slider-next {
+                    width: 3.333vw;
+                    height: 3.333vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    outline: none;
+                    position: absolute;
+                    user-select: none;
+                    left: -7.222vw;
+                    bottom: 0;
+                    transform: translateY(-14.444vw) rotate(-90deg);
+
+                    img {
+                        opacity: 1;
+                        width: 1.667vw;
+                        height: 1.181vw;
+                        transition: opacity 300ms ease;
+                    }
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: v(white);
+                        opacity: 0.1;
+                        border-radius: 6px;
+                    }
+
+                    &.slider-next {
+                        left: auto;
+                        right: -7.222vw;
+                        transform: translateY(-14.444vw) rotate(90deg);
+                    }
+
+                    &.swiper-button-disabled {
+                        pointer-events: none;
+                        img {
+                            opacity: 0.1;
+                        }
+                    }
+                }
+
+                .slider-front {
+                    height: 100%;
+                    border-radius: 35px;
+                    position: relative;
+                    z-index: 2;
+                    overflow: hidden;
+
+                    .swiper-container {
+                        height: 100%;
+                    }
+
+                    .swiper-wrapper {
+                        display: inline-flex;
+                        height: 100%;
+                        overflow: hidden;
+                        transition-timing-function: v(ease-in-out-quart);
+
+                        .screen {
+                            width: 100%;
+                            height: 100%;
+                            background: white;
+
+                            .media {
+                                height: 30.556vw;
+                            }
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                user-select: none;
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+
+                .phone-component {
+                    margin: auto;
+                    width: 27.222vw;
+                    border-color: white;
+                    overflow: visible;
+                    position: relative;
+                }
+            }
+        }
+    }
+}

@@ -8,8 +8,8 @@
                         <p>Siena gives you the tools you need to proudly show your crafted content to your audience</p>
                     </div>
                     <div class="form">
-                        <input type="text" name="email" placeholder="Enter your email address" />
-                        <button type="submit">
+                        <input class="input-component" type="text" name="email" placeholder="Enter your email address" />
+                        <button class="button-component">
                             <span>Get early access</span>
                         </button>
                     </div>

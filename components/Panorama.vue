@@ -8,6 +8,9 @@
             </div>
             <Phone whiteBorder half />
         </div>
+        <div class="component-name">
+            <span>panorama</span>
+        </div>
     </div>
 </template>
 
