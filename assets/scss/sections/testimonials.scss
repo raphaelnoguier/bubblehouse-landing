@@ -1,11 +1,73 @@
 .section.testimonials {
     margin: 14.028vw auto 13.889vw auto;
-    max-width: 71.528vw;
+    max-width: v(medium-wrapper);
+
+    @include max(md) {
+        margin: 26.172vw auto 0 auto;
+        max-width: 86.979vw;
+    }
 
     .testimonials-wrapper {
         margin-top: 6.25vw;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+
+        @include max(md) {
+            position: relative;
+            margin-top: 12.760vw;
+            overflow: hidden;
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            @include max(md) {
+                display: inline-flex;
+                flex-wrap: nowrap;
+            }
+
+            @include min(md) {
+                transform: translate3d(0, 0, 0) !important;
+            }
+        }
+
+        .slider-controls {
+            @include flexCenter();
+            justify-content: space-between;
+            max-width: 14.583vw;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: v(black);
+
+            @include min(md) {
+                display: none;
+            }
+
+            .prev, .next {
+                @include flexCenter();
+                justify-content: center;
+                width: 4.688vw;
+                height: 4.688vw;
+                border-radius: v(app-radius);
+                background: #222222;
+                transform: rotate(-90deg);
+                outline: none;
+                transition: opacity 300ms ease;
+
+                &.swiper-button-disabled {
+                    opacity: 0.5;
+                }
+
+                img {
+                    width: 2.083vw;
+                }
+
+                &.next {
+                    transform: rotate(90deg);
+                }
+            }
+        }
     }
 }

@@ -3,20 +3,40 @@
     max-width: 34.722vw;
     color: v(white);
     margin-top: 5.903vw;
+    cursor: initial;
+
+    @include max(md) {
+        max-width: 100%;
+        cursor: pointer;
+    }
 
     .testimonial-content {
         @include proximaRegular(1.806vw, 2.778vw);
+
+        @include max(md) {
+            font-size: 2.865vw;
+            line-height: 4.167vw;
+        }
     }
 
     .testimonial-footer {
         @include flexCenter();
         margin-top: 1.597vw;
 
+        @include max(md) {
+            margin-top: 4.818vw;
+        }
+
         .avatar {
             width: 3.889vw;
             height: 3.889vw;
             border-radius: 50%;
             overflow: hidden;
+
+            @include max(md) {
+                width: 7.292vw;
+                height: 7.292vw;
+            }
 
             img {
                 width: 100%;
@@ -28,6 +48,10 @@
         .user-infos {
             margin-left: 1.111vw;
 
+            @include max(md) {
+                margin-left: 2.083vw;
+            }
+
             span {
                 display: block;
                 text-transform: capitalize;
@@ -35,10 +59,21 @@
 
             .role {
                 @include proximaBold(1.111vw, 1.667vw);
+
+                @include max(md) {
+                    font-size: 2.083vw;
+                    line-height: 3.125vw;
+                }
             }
+
             .name {
                 margin-top: 3px;
                 @include proximaRegular(1.111vw, 1.667vw);
+
+                @include max(md) {
+                    font-size: 2.083vw;
+                    line-height: 3.125vw;
+                }
             }
         }
     }

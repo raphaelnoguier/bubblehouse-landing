@@ -4,6 +4,10 @@
     position: relative;
     overflow: hidden;
 
+    @include max(md) {
+        padding-top: 26.042vw;
+    }
+
     .section-background {
         width: 100%;
         height: 100%;
@@ -33,7 +37,11 @@
         justify-content: space-between;
         flex-direction: row;
         margin: 6.250vw auto 0 auto;
-        max-width: 71.389vw;
+        max-width: v(large-wrapper);
+
+        @include max(md) {
+            margin: 11.719vw auto 0 auto;
+        }
 
         .slider-controls {
             .prev, .next {
@@ -47,6 +55,11 @@
                 outline: none;
                 position: relative;
                 user-select: none;
+
+                @include max(md) {
+                    width: 7.292vw;
+                    height: 7.292vw;
+                }
 
                 &:before {
                     content: '';
@@ -93,6 +106,10 @@
                 height: 5.139vw;
                 background: black;
 
+                @include max(md) {
+                    width: 9.635vw;
+                    height: 9.635vw;
+                }
 
                 img {
                     width: 100%;

@@ -1,10 +1,20 @@
 .section.footer {
     border-top: 1px solid #3B3B3B;
-    max-width: 86.111vw;
+    max-width: v(xl-wrapper);
     margin: 0 auto 6.528vw auto;
+
+    @include max(md) {
+        border-top: 0;
+        max-width: 91.667vw;
+        margin: 0 auto 25.130vw auto;
+    }
 
     footer {
         margin-top: 13.264vw;
+
+        @include max(md) {
+            margin-top: 25.781vw;
+        }
 
         .texts {
             color: v(white);
@@ -12,8 +22,11 @@
             max-width: 58.472vw;
             margin: auto;
             opacity: 0;
-            transform: translate3d(0, 3vw, 0);
             transition: opacity 350ms v(ease-in-out-quart);
+
+            @include max(md) {
+                max-width: 300%;
+            }
 
             &.in-view {
                 opacity: 1;
@@ -21,17 +34,33 @@
 
             h3 {
                 @include proximaExtraBold(6.250vw, 6.250vw);
+
+                @include max(md) {
+                    font-size: 10.417vw;
+                    line-height: 10.417vw;
+                }
             }
 
             p {
                 max-width: 39.792vw;
                 margin: 1.597vw auto 0 auto;
                 @include proximaRegular(1.806vw, 2.778vw);
+
+                @include max(md) {
+                    max-width: 68.099vw;
+                    margin-top: 4.167vw;
+                    font-size: 2.865vw;
+                    line-height: 4.167vw;
+                }
             }
         }
 
         .form-wrapper {
             margin-top: 6.181vw;
+
+            @include max(md) {
+                margin-top: 7.031vw;
+            }
 
             form {
                 width: 100%;
@@ -41,13 +70,25 @@
                 input {
                     width: 32.917vw;
 
+                    @include max(md) {
+                        width: calc(100% / 3);
+                    }
+
                     &:nth-of-type(2) {
                         margin: 0 2.222vw;
+
+                        @include max(md) {
+                            margin: 0 2.083vw;
+                        }
                     }
                 }
 
                 button {
                     width: 15.764vw;
+
+                    @include max(md) {
+                        width: calc(100% / 3);
+                    }
                 }
             }
         }

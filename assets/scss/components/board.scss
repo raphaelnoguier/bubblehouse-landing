@@ -2,18 +2,31 @@
     margin-top: 6.250vw;
     position: relative;
 
+    @include max(md) {
+        margin-top: 12.500vw;
+    }
+
     .board-component-grid {
         background-color: #1A5D6D;
         padding: 1.111vw;
         border-radius: v(app-radius);
-        max-width: 71.389vw;
+        max-width: v(large-wrapper);
         margin: auto;
         position: relative;
+
+        @include max(md) {
+            max-width: 100%;
+            padding: 1.563vw;
+        }
 
         .board-placeholder {
             position: absolute;
             width: calc(100% - (2 * 1.111vw));
             left: auto;
+
+            @include max(md) {
+                width: calc(100% - (2 * 1.563vw));
+            }
 
             .media {
                 background: v(white);
@@ -34,19 +47,39 @@
 
             &:last-child {
                 margin-top: 1.111vw;
+
+                @include max(md) {
+                    margin-top: 1.563vw;
+                }
             }
 
             .media {
                 height: 17.5vw;
                 position: relative;
 
+                @include max(md) {
+                    height: 24.479vw;
+                }
+
                 .media-wrapper {
                     width: 100%;
                     height: 100%;
                 }
 
-                &.square { width: 20.069vw; }
-                &.portrait { width: 12.847vw; }
+                &.square {
+                    width: 20.069vw;
+
+                    @include max(md) {
+                        width: 27.995vw;
+                    }
+                }
+                &.portrait {
+                    width: 12.847vw;
+
+                    @include max(md) {
+                        width: 17.969vw;
+                    }
+                }
 
                 img {
                     width: 100%;
@@ -65,14 +98,27 @@
         overflow: hidden;
         transform: translateY(4.722vw);
 
+        @include max(md) {
+            margin-top: 7.292vw;
+            transform: translateY(0);
+        }
+
         .board-slider-nav {
             max-width: 36.597vw;
             margin: auto;
             opacity: 0;
 
+            @include max(md) {
+                max-width: 68.620vw;
+            }
+
             .categories {
                 @include flexCenter();
                 height: 4.097vw;
+
+                @include max(md) {
+                    height: 7.813vw;
+                }
 
                 .single {
                     @include flexCenter();
@@ -83,6 +129,13 @@
                     padding: 0 1.667vw;
                     position: relative;
                     cursor: pointer;
+                    letter-spacing: 1px;
+
+                    @include max(md) {
+                        font-size: 2.083vw;
+                        line-height: 3.125vw;
+                        padding: 0 3.125vw;
+                    }
 
                     &:before {
                         content: '';
@@ -113,7 +166,12 @@
             position: relative;
             z-index: 2;
             margin: 2.917vw auto 0 auto;
-            max-width: 84.653vw;
+            max-width: v(xl-wrapper);
+
+            @include max(md) {
+                margin: 6.771vw auto 12.370vw auto;
+                max-width: 100%;
+            }
 
             .slider-behind {
                 .swiper-container {
@@ -121,11 +179,20 @@
                     height: 58.403vw;
                     margin: auto;
 
+                    @include max(md) {
+                        width: 41.406vw;
+                        height: 88.802vw;
+                    }
+
                     .swiper-wrapper {
                         display: inline-flex;
                         height: 30.556vw;
                         overflow: hidden;
                         transition-timing-function: v(ease-in-out-quart);
+
+                        @include max(md) {
+                            height: 45.573vw;
+                        }
 
                         .screen {
                             width: 100%;
@@ -153,6 +220,10 @@
                 right: 0;
                 margin: auto;
 
+                @include max(md) {
+                    width: 41.406vw;
+                }
+
                 .slider-prev, .slider-next {
                     width: 3.333vw;
                     height: 3.333vw;
@@ -168,11 +239,23 @@
                     bottom: 0;
                     transform: translateY(-14.444vw) rotate(-90deg);
 
+                    @include max(md) {
+                        width: 7.292vw;
+                        height: 7.292vw;
+                        left: calc(-4.167vw - 7.292vw);
+                        transform: translateY(-16.797vw) rotate(-90deg);
+                    }
+
                     img {
                         opacity: 1;
                         width: 1.667vw;
                         height: 1.181vw;
                         transition: opacity 300ms ease;
+
+                        @include max(md) {
+                            width: 3.125vw;
+                            height: 2.214vw;
+                        }
                     }
 
                     &:before {
@@ -191,6 +274,11 @@
                         left: auto;
                         right: -7.222vw;
                         transform: translateY(-14.444vw) rotate(90deg);
+
+                        @include max(md) {
+                            right: calc(-4.167vw - 7.292vw);
+                            transform: translateY(-16.797vw) rotate(90deg);
+                        }
                     }
 
                     &.swiper-button-disabled {
@@ -225,6 +313,10 @@
 
                             .media {
                                 height: 30.556vw;
+
+                                @include max(md) {
+                                    height: 45.443vw;
+                                }
                             }
 
                             img {
@@ -240,7 +332,7 @@
 
                 .phone-component {
                     margin: auto;
-                    width: 27.222vw;
+                    width: 100%;
                     border-color: white;
                     overflow: visible;
                     position: relative;

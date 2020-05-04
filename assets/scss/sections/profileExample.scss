@@ -2,17 +2,31 @@
     background: v(black);
     width: 100%;
     padding-top: 17.847vw;
-    max-width: 86.111vw;
+    max-width: v(xl-wrapper);
     margin: auto;
+
+    @include max(md) {
+        padding-top: 25.521vw;
+        max-width: 100%;
+    }
 
     .profile-example-nav {
         @include flexCenter();
         justify-content: space-between;
         margin-top: 2.778vw;
 
+        @include max(md) {
+            flex-direction: column;
+            margin-top: 6.120vw;
+        }
+
         &.center {
             justify-content: center;
             margin-top: 3.125vw;
+
+            @include max(md) {
+                display: none;
+            }
         }
 
         .item {
@@ -24,9 +38,24 @@
             padding: 0 3.472vw;
             cursor: pointer;
 
+            @include max(md) {
+                justify-content: center;
+                width: 47.135vw;
+                height: 7.813vw;
+                padding: 0;
+
+                &:not(:first-child) {
+                    margin-top: 3.125vw;
+                }
+            }
+
             .icon {
                 width: 1.667vw;
                 height: 100%;
+
+                @include max(md) {
+                    width: 3.125vw;
+                }
 
                 img {
                     width: 100%;
@@ -38,6 +67,12 @@
                 @include proximaBold(1.111vw, 1.667vw);
                 text-transform: uppercase;
                 margin-left: 2.014vw;
+
+                @include max(md) {
+                    font-size: 2.083vw;
+                    line-height: 3.125vw;
+                    margin-left: 3.255vw;
+                }
             }
         }
     }
@@ -58,16 +93,34 @@
     .profile-phones {
         margin-top: 6.944vw;
 
+        @include max(md) {
+            margin-top: 13.021vw;
+            overflow: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
         .phones-wrapper {
             @include flexCenter();
             justify-content: center;
             position: relative;
+
+            @include max(md) {
+                display: inline-flex;
+                margin-left: 6.510vw;
+            }
 
             .phone-component {
                 position: relative;
 
                 &:nth-of-type(2) {
                     margin: 0 2.222vw;
+
+                    @include max(md) {
+                        margin: 0 2.734vw;
+                    }
                 }
 
                 .video-wrapper {

@@ -7,6 +7,13 @@
 	border-radius: v(app-radius);
 	height: 3.889vw;
 
+	@include max(md) {
+		height: 7.292vw;
+		font-size: 2.865vw;
+		line-height: 4.167vw;
+		padding: 0 2.083vw;
+	}
+
 	&.error {
 		border: 1px solid red;
 	}
@@ -21,10 +28,19 @@
 	outline: none;
 	cursor: pointer;
 
+	@include max(md) {
+		height: 7.292vw;
+	}
+
 	span {
 		@include proximaBold(1.111vw);
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		color: v(white);
+
+		@include max(md) {
+			font-size: 2.083vw;
+			line-height: 3.125vw;
+		}
 	}
 }

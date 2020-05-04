@@ -13,5 +13,14 @@
 
         /* global values */
         --app-radius: 4px;
+
+        /* wrapper values */
+        --xl-wrapper: 86.111vw;
+        --large-wrapper: 71.389vw;
+        --medium-wrapper: 71.528vw;
+
+        @include max(md) {
+            --large-wrapper: 86.979vw;
+        }
     }
 }

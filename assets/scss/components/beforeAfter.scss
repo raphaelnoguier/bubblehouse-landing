@@ -21,6 +21,11 @@
             cursor: grab;
             user-select: none;
 
+            @include max(md) {
+                width: 7.292vw;
+                height: 7.292vw;
+            }
+
             img {
                 user-select: none;
                 pointer-events: none;

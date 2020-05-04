@@ -2,6 +2,11 @@
     margin: 6.597vw auto 0 auto;
     max-width: 47.986vw;
 
+    @include max(md) {
+        margin: 12.109vw auto 0 auto;
+        max-width: 100%;
+    }
+
     ul {
         display: flex;
         justify-content: space-between;
@@ -12,6 +17,11 @@
                 letter-spacing: 1px;
                 color: #535353;
                 text-transform: uppercase;
+
+                @include max(md) {
+                    font-size: 2.083vw;
+                    line-height: 3.125vw;
+                }
             }
         }
     }

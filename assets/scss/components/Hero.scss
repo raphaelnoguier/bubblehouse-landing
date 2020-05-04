@@ -10,22 +10,49 @@
         color: v(white);
         overflow: hidden;
 
+        @include max(md) {
+            flex-direction: column;
+            align-items: unset;
+        }
+
         .left {
             max-width: 36.181vw;
             margin-left: 6.944vw;
 
+            @include max(md) {
+                height: 50%;
+                max-width: 69.010vw;
+                margin-left: 6.510vw;
+                margin-top: 24.740vw;
+            }
+
             .text {
                 h1 {
                     @include proximaExtraBold(6.250vw);
+
+                    @include max(md) {
+                        font-size: 10.417vw;
+                        line-height: 10.417vw;
+                    }
                 }
                 p {
                     margin-top: 2.431vw;
+
+                    @include max(md) {
+                        font-size: 2.865vw;
+                        line-height: 4.167vw;
+                        margin-top: 5.078vw;
+                    }
                 }
             }
 
             form {
                 @include flexCenter();
                 margin-top: 3.681vw;
+
+                @include max(md) {
+                    margin-top: 5.859vw;
+                }
 
                 .input-component {
                     width: 57.55%;
@@ -47,6 +74,16 @@
             position: absolute;
             right: -13.889vw;
             transform: rotate(-15deg);
+
+            @include max(md) {
+                width: 100%;
+                justify-content: center;
+                position: relative;
+                right: 0;
+                height: 50%;
+                overflow: hidden;
+                margin-top: 16.927vw;
+            }
 
             .column {
                 height: 40.903vw;

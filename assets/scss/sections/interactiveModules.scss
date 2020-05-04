@@ -1,18 +1,36 @@
 .section.interactive-modules {
     margin-top: 6.667vw;
 
+    @include max(md) {
+        margin-top: 24.870vw;
+    }
+
     .subtitle-component {
         @include proximaBold(2.222vw, 3.333vw);
         color: v(white);
         text-align: center;
+
+        @include max(md) {
+            font-size: 3.646vw;
+            line-height: 6.250vw;
+        }
     }
 
     .modules {
         margin-top: 5.417vw;
 
+        @include max(md) {
+            margin-top: 10.286vw;
+        }
+
         .modules-components {
             margin: 1.736vw auto 0 auto;
             max-width: 86.250vw;
+
+            @include max(md) {
+                margin: 3.125vw auto 0 auto;
+                max-width: 87.109vw;
+            }
 
             .row {
                 display: flex;
@@ -22,6 +40,10 @@
 
             .before-after-wrapper, .simple-slider-wrapper {
                 width: calc(50% - 1.042vw);
+
+                @include max(md) {
+                    width: calc(50% - 1.953vw);
+                }
             }
 
             .component-name {
@@ -31,30 +53,61 @@
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 1px;
+
+                @include max(md) {
+                    margin-top: 1.432vw;
+                    font-size: 2.083vw;
+                    line-height: 3.125vw;
+                }
             }
 
             .panorama-wrapper {
                 width: 100%;
                 margin-top: 6.32vw;
+
+                @include max(md) {
+                    margin-top: 6.120vw;
+                }
             }
         }
 
         .compositions-wrapper {
             margin: 5.625vw auto 0 auto;
-            max-width: 86.111vw;
+            max-width: v(xl-wrapper);
+
+            @include max(md) {
+                max-width: 100%;
+                margin: 10.547vw auto 0 auto;
+                padding: 0 6.510vw;
+            }
 
             .compositions-list {
                 display: flex;
                 justify-content: space-between;
                 margin-top: 1.736vw;
 
+                @include max(md) {
+                    flex-wrap: wrap;
+                    margin-top: 0;
+                }
+
                 .composition {
                     width: 19.861vw;
                     height: 19.861vw;
+
+                    @include max(md) {
+                        width: calc(50% - 2.0835vw);
+                        height: 41.406vw;
+                        margin-top: 4.167vw;
+                    }
                 }
 
                 &:last-child {
                     margin-top: 2.222vw;
+
+                    @include max(md) {
+                        margin-top: 0;
+                    }
                 }
             }
         }

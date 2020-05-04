@@ -6,6 +6,12 @@
     overflow: hidden;
     z-index: 1;
 
+    @include max(md) {
+        width: 41.406vw;
+        height: 88.802vw;
+        border: none;
+    }
+
     &.white-border {
         border-color: v(white);
     }
@@ -13,6 +19,11 @@
     &.sm {
         width: 21.806vw;
         height: 46.736vw;
+
+        @include max(md) {
+            width: 41.406vw;
+            height: 88.802vw;
+        }
     }
 
     &.half {

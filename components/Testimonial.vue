@@ -1,5 +1,5 @@
 <template>
-    <div class="testimonial-component">
+    <div class="testimonial-component swiper-slide">
         <div class="testimonial-content">
             <p>"{{content}}"</p>
         </div>

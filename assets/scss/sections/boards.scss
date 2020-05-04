@@ -3,4 +3,9 @@
     width: 100%;
     transform: translateY(-4.722vw);
     padding-top: 17.847vw;
+
+    @include max(md) {
+        padding-top: 32.422vw;
+        transform: translateY(-6.510vw);
+    }
 }
