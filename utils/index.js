@@ -22,12 +22,15 @@ const isTouchDevice = () => {
 
     let query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
     return mq(query);
-}
+};
+
+const isValidEmail = (mail) =>  (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
 
 
 export default {
 	map,
 	clamp,
 	vw,
-	isTouchDevice
+	isTouchDevice,
+	isValidEmail
 }

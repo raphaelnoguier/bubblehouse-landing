@@ -6,6 +6,10 @@
 	padding: 0 1.111vw;
 	border-radius: v(app-radius);
 	height: 3.889vw;
+
+	&.error {
+		border: 1px solid red;
+	}
 }
 
 .button-component {
@@ -14,6 +18,8 @@
 	padding: 0 1.111vw;
 	background-color: v(brand-color);
 	border-radius: v(app-radius);
+	outline: none;
+	cursor: pointer;
 
 	span {
 		@include proximaBold(1.111vw);

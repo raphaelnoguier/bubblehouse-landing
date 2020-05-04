@@ -14,6 +14,10 @@ body {
 	line-height: 2.778vw;
 	transition: background-color 500ms ease;
 	overscroll-behavior-y: none;
+
+	&.locked {
+		overflow: hidden;
+	}
 }
 
 .swiper-notification {

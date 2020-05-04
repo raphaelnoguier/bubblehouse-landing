@@ -7,10 +7,22 @@
                     <p>Siena gives you the tools you need to proudly show your crafted content to your audience</p>
                 </div>
                 <div class="form">
-                    <input class="input-component" type="text" name="email" placeholder="Enter your email address" />
-                    <button class="button-component">
-                        <span>Get early access</span>
-                    </button>
+                    <form v-on:submit.prevent="openModal">
+                        <input
+                            :class="`input-component ${error ? 'error' : ''}`"
+                            type="text"
+                            name="email"
+                            placeholder="Enter your email address"
+                            v-model="emailValue"
+                        />
+                        <button
+                            class="button-component"
+                            v-on:click="openModal"
+                            type="submit"
+                        >
+                            <span>Get early access</span>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="columns-slider">
@@ -84,6 +96,12 @@ import Utils from '~/utils';
 import Phone from '~/components/Phone';
 
 export default {
+    data() {
+        return {
+            emailValue: '',
+            error: false
+        }
+    },
     components: {
         Phone
     },
@@ -106,5 +124,14 @@ export default {
             })
         });
     },
+    methods: {
+        openModal() {
+            const { commit } = this.$store;
+            this.error = false;
+
+            if (Utils.isValidEmail(this.emailValue)) commit('SET_MODAL_OPEN', { open: true, inputName: this.emailValue });
+            else this.error = true
+        }
+    }
 }
 </script>
