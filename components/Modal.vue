@@ -20,7 +20,7 @@
                             placeholder="Email"
                             class="input-component"
                             tabIndex="0"
-                            :value="$store.getters.modalInputName"
+                            :value="$store.getters.modalInputEmail"
                         />
                         <input
                             type="text"
@@ -28,7 +28,7 @@
                             placeholder="Name"
                             class="input-component"
                             tabIndex="0"
-                            v-model="nameValue"
+                            :value="$store.getters.modalInputName"
                             required
                         />
                         <button class="button-component" type="submit" v-on:click="changeStep">

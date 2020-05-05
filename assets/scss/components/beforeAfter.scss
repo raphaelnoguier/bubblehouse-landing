@@ -3,6 +3,10 @@
     height: 27.778vw;
     width: 100%;
 
+    @include max(sm) {
+        height: 57.600vw;
+    }
+
     .divider {
         @include flexCenter();
         justify-content: center;
@@ -24,6 +28,11 @@
             @include max(md) {
                 width: 7.292vw;
                 height: 7.292vw;
+            }
+
+            @include max(sm) {
+                width: 17.067vw;
+                height: 17.067vw;
             }
 
             img {

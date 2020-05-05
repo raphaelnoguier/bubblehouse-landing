@@ -17,6 +17,11 @@
             font-size: 2.865vw;
             line-height: 4.167vw;
         }
+
+        @include max(sm) {
+            font-size: 4.800vw;
+            line-height: 7.200vw;
+        }
     }
 
     .testimonial-footer {
@@ -25,6 +30,10 @@
 
         @include max(md) {
             margin-top: 4.818vw;
+        }
+
+        @include max(sm) {
+            margin-top: 18.400vw;
         }
 
         .avatar {
@@ -36,6 +45,11 @@
             @include max(md) {
                 width: 7.292vw;
                 height: 7.292vw;
+            }
+
+            @include max(sm) {
+                width: 14.933vw;
+                height: 14.933vw;
             }
 
             img {
@@ -52,6 +66,10 @@
                 margin-left: 2.083vw;
             }
 
+            @include max(sm) {
+                margin-left: 4.267vw;
+            }
+
             span {
                 display: block;
                 text-transform: capitalize;
@@ -64,6 +82,11 @@
                     font-size: 2.083vw;
                     line-height: 3.125vw;
                 }
+
+                @include max(sm) {
+                    font-size: 3.733vw;
+                    line-height: 5.600vw;
+                }
             }
 
             .name {
@@ -73,6 +96,11 @@
                 @include max(md) {
                     font-size: 2.083vw;
                     line-height: 3.125vw;
+                }
+
+                @include max(sm) {
+                    font-size: 3.733vw;
+                    line-height: 5.600vw;
                 }
             }
         }

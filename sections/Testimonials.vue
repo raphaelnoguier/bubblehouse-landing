@@ -67,7 +67,7 @@ export default {
                 },
                 768: {
                     allowTouchMove: false,
-                }
+                },
             }
         })
     },

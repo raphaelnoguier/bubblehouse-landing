@@ -73,6 +73,7 @@
                         width: 27.995vw;
                     }
                 }
+
                 &.portrait {
                     width: 12.847vw;
 
@@ -103,6 +104,10 @@
             transform: translateY(0);
         }
 
+        @include max(sm) {
+            margin-top: 17.067vw;
+        }
+
         .board-slider-nav {
             max-width: 36.597vw;
             margin: auto;
@@ -112,12 +117,23 @@
                 max-width: 68.620vw;
             }
 
+            @include max(sm) {
+                @include noScrollBar();
+                max-width: 100%;
+                overflow: scroll;
+            }
+
             .categories {
                 @include flexCenter();
                 height: 4.097vw;
 
                 @include max(md) {
                     height: 7.813vw;
+                }
+
+                @include max(sm) {
+                    height: 11.200vw;
+                    margin-left: 6.400vw;
                 }
 
                 .single {
@@ -135,6 +151,12 @@
                         font-size: 2.083vw;
                         line-height: 3.125vw;
                         padding: 0 3.125vw;
+                    }
+
+                    @include max(sm) {
+                        font-size: 3.733vw;
+                        line-height: 5.600vw;
+                        padding: 0 4.267vw;
                     }
 
                     &:before {
@@ -173,7 +195,14 @@
                 max-width: 100%;
             }
 
+            @include max(sm) {
+                margin: 8.533vw auto 48.267vw auto;
+            }
+
             .slider-behind {
+                @include max(sm) {
+                    display: none;
+                }
                 .swiper-container {
                     width: 27.222vw;
                     height: 58.403vw;
@@ -224,6 +253,11 @@
                     width: 41.406vw;
                 }
 
+                @include max(sm) {
+                    position: relative;
+                    width: 69.867vw;
+                }
+
                 .slider-prev, .slider-next {
                     width: 3.333vw;
                     height: 3.333vw;
@@ -246,6 +280,12 @@
                         transform: translateY(-16.797vw) rotate(-90deg);
                     }
 
+                    @include max(sm) {
+                        width: 9.600vw;
+                        height: 9.600vw;
+                        transform: translateY(22.933vw) rotate(-90deg);
+                    }
+
                     img {
                         opacity: 1;
                         width: 1.667vw;
@@ -255,6 +295,11 @@
                         @include max(md) {
                             width: 3.125vw;
                             height: 2.214vw;
+                        }
+
+                        @include max(sm) {
+                            width: 4.267vw;
+                            height: 2.933vw;
                         }
                     }
 
@@ -278,6 +323,11 @@
                         @include max(md) {
                             right: calc(-4.167vw - 7.292vw);
                             transform: translateY(-16.797vw) rotate(90deg);
+                        }
+
+                        @include max(sm) {
+                            right: calc(-9.600vw);
+                            transform: translateY(22.933vw) rotate(90deg);
                         }
                     }
 

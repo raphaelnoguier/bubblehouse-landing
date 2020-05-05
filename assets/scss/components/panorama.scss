@@ -3,6 +3,10 @@
         position: relative;
         height: 28.889vw;
 
+        @include max(sm) {
+            height: 59.733vw;
+        }
+
         .landscape {
             height: 100%;
             position: relative;
@@ -18,6 +22,10 @@
                 opacity: 0.7;
                 background: v(black);
                 z-index: 1;
+
+                @include max(sm) {
+                    width: 25%;
+                }
             }
 
             .right {

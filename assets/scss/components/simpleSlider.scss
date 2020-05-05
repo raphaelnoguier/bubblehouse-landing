@@ -2,12 +2,21 @@
     height: 27.778vw;
     position: relative;
 
+    @include max(sm) {
+        height: 100%;
+        margin-top: 11.733vw;
+    }
+
     .simple-slider-component {
         height: 100%;
         padding: 1.111vw;
         border-radius: v(app-radius);
         position: relative;
         overflow: hidden;
+
+        @include max(sm) {
+            padding: 4.267vw;
+        }
 
         .background {
             position: absolute;
@@ -30,6 +39,10 @@
             display: inline-flex;
             overflow: hidden;
             height: 25.556vw;
+
+            @include max(sm) {
+                height: 49.067vw;
+            }
 
             .swiper-slide {
                 height: 100%;

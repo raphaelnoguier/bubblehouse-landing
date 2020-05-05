@@ -36,6 +36,7 @@
                     class="thumb"
                     v-for="(slide, i) in slides"
                     :key="i"
+                    v-on:click="slideTo(i)"
                     :class="phoneSlider && phoneSlider.realIndex === i ? 'active' : ''"
                 >
                     <img :src="slide.img" />
@@ -101,6 +102,10 @@ export default {
             const { sectionBackground } = this.$refs;
 
             this.activeSlideImg = this.slides[this.activeIndex].img;
+        },
+        slideTo(index) {
+            console.log(index);
+            this.phoneSlider.slideToLoop(index);
         }
 	}
 }

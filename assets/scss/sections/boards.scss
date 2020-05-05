@@ -8,4 +8,9 @@
         padding-top: 32.422vw;
         transform: translateY(-6.510vw);
     }
+
+    @include max(md) {
+        padding-top: 38.133vw;
+        transform: translateY(0);
+    }
 }

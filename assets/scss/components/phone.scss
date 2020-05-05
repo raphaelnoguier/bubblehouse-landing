@@ -12,6 +12,13 @@
         border: none;
     }
 
+    @include max(sm) {
+        width: 69.867vw;
+        height: 149.867vw;
+        border: none;
+        border-radius: 25px;
+    }
+
     &.white-border {
         border-color: v(white);
     }
@@ -24,10 +31,25 @@
             width: 41.406vw;
             height: 88.802vw;
         }
+
+        @include max(sm) {
+            width: 69.867vw;
+            height: 149.867vw;
+            border: none;
+            border-radius: 25px;
+        }
     }
 
     &.half {
         width: 27.778vw;
+
+        @include max(md) {
+            border: 3px solid v(white);
+        }
+
+        @include max(md) {
+            width: 50%;
+        }
     }
 
     .media {

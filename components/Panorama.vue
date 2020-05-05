@@ -29,8 +29,13 @@ export default {
         this.landscape = this.$refs.landscape
     },
     methods: {
+        getMaxTranslate() {
+            return window.innerWidth > 768 ? '50px' : '30px'
+        },
         transform(direction) {
-            this.landscape.style.transform = `translate3d(${direction === -1 ? '-' : ''}50px, 0, 0) scale3d(1.1, 1.1, 1)`;
+            this.landscape.style.transform = `
+                translate3d(${direction === -1 ? '-' : ''}${this.getMaxTranslate()}, 0, 0)
+                scale3d(1.1, 1.1, 1)`;
         },
         reset() {
             this.landscape.style.transform = '';

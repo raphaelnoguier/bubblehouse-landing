@@ -46,6 +46,11 @@ export default {
                 spaceBetween: Utils.vw(1.111),
                 centeredSlides: true,
                 centeredSlidesBounds: true,
+                breakpoints: {
+                    320: {
+                        spaceBetween: Utils.vw(4.267)
+                    }
+                },
                 on: {
                     slideChange: () => this.activeIndex = this.slider.realIndex,
                     progress: (p) => {

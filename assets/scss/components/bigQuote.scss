@@ -13,6 +13,11 @@
                 font-size: 10.417vw;
                 line-height: 10.417vw;
             }
+
+            @include max(sm) {
+                font-size: 12.800vw;
+                line-height: 15.467vw;
+            }
         }
 
         span {
@@ -25,6 +30,12 @@
             @include max(md) {
                 font-size: 2.083vw;
                 line-height: 3.125vw;
+            }
+
+            @include max(sm) {
+                margin-top: 2.933vw;
+                font-size: 3.733vw;
+                line-height: 5.600vw;
             }
         }
     }

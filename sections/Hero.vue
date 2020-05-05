@@ -120,6 +120,12 @@ export default {
                     delay: 0,
                     reverseDirection: i === 1,
                     disableOnInteraction: false,
+                },
+                autoplay: false,
+                breakpoints: {
+                    320: {
+                        spaceBetween: Utils.vw(4.948),
+                    }
                 }
             })
         });
@@ -129,7 +135,7 @@ export default {
             const { commit } = this.$store;
             this.error = false;
 
-            if (Utils.isValidEmail(this.emailValue)) commit('SET_MODAL_OPEN', { open: true, inputName: this.emailValue });
+            if (Utils.isValidEmail(this.emailValue)) commit('SET_MODAL_OPEN', { open: true, inputEmail: this.emailValue });
             else this.error = true
         }
     }

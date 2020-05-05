@@ -15,6 +15,10 @@
             max-width: 89.063vw;
         }
 
+        @include max(md) {
+            max-width: 80vw;
+        }
+
         .heading {
             @include proximaBold(1.111vw, 1.667vw);
             letter-spacing: 1px;
@@ -24,6 +28,11 @@
             @include max(md) {
                 font-size: 2.083vw;
                 line-height: 3.125vw;
+            }
+
+            @include max(sm) {
+                font-size: 3.733vw;
+                line-height: 5.600vw;
             }
         }
 
@@ -36,6 +45,12 @@
                 margin-top: 2.474vw;
                 font-size: 10.417vw;
                 line-height: 10.417vw;
+            }
+
+            @include max(sm) {
+                margin-top: 6.133vw;
+                font-size: 12.800vw;
+                line-height: 15.467vw;
             }
 
             h2 {
@@ -55,9 +70,16 @@
             color: v(white);
 
             @include max(md) {
+                width: 100%;
                 margin-top: 1.693vw;
                 font-size: 2.865vw;
                 line-height: 4.167vw;
+            }
+
+            @include max(sm) {
+                margin-top: 2.667vw;
+                font-size: 4.800vw;
+                line-height: 7.200vw;
             }
         }
     }

@@ -10,6 +10,10 @@
         max-width: 100%;
     }
 
+    @include max(sm) {
+        padding-top: 39.200vw;
+    }
+
     .profile-example-nav {
         @include flexCenter();
         justify-content: space-between;
@@ -18,6 +22,11 @@
         @include max(md) {
             flex-direction: column;
             margin-top: 6.120vw;
+        }
+
+        @include max(sm) {
+            padding: 0 6.4vw;
+            margin-top: 12.8vw;
         }
 
         &.center {
@@ -49,12 +58,21 @@
                 }
             }
 
+            @include max(sm) {
+                width: 100%;
+                height: 16vw;
+            }
+
             .icon {
                 width: 1.667vw;
                 height: 100%;
 
                 @include max(md) {
                     width: 3.125vw;
+                }
+
+                @include max(sm) {
+                    width: 6.400vw;
                 }
 
                 img {
@@ -72,6 +90,12 @@
                     font-size: 2.083vw;
                     line-height: 3.125vw;
                     margin-left: 3.255vw;
+                }
+
+                @include max(sm) {
+                    font-size: 3.733vw;
+                    line-height: 5.600vw;
+                    margin-left: 6.133vw;
                 }
             }
         }
@@ -96,10 +120,7 @@
         @include max(md) {
             margin-top: 13.021vw;
             overflow: scroll;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            @include noScrollBar();
         }
 
         .phones-wrapper {
@@ -109,7 +130,11 @@
 
             @include max(md) {
                 display: inline-flex;
-                margin-left: 6.510vw;
+                margin: 0 6.510vw;
+            }
+
+            @include max(sm) {
+                margin: 0 6.400vw;
             }
 
             .phone-component {
@@ -120,6 +145,10 @@
 
                     @include max(md) {
                         margin: 0 2.734vw;
+                    }
+
+                    @include max(sm) {
+                        margin: 0 8.533vw;
                     }
                 }
 
