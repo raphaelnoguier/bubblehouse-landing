@@ -116,11 +116,11 @@ export default {
                 speed: 10000,
                 loopAdditionalSlides: 1,
                 allowTouchMove: false,
-                // autoplay: {
-                //     delay: 0,
-                //     reverseDirection: i === 1,
-                //     disableOnInteraction: false,
-                // }
+                autoplay: {
+                    delay: 0,
+                    reverseDirection: i === 1,
+                    disableOnInteraction: false,
+                }
             })
         });
     },
