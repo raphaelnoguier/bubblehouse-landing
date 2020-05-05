@@ -23,7 +23,7 @@
                 <div class="compositions-list">
                     <Compositions
                         type="duo-landscape"
-                        :medias="['https://picsum.photos/id/237/500/300','https://www.w3schools.com/html/mov_bbb.mp4']"
+                        :medias="['https://picsum.photos/id/237/500/300','http://www.w3schools.com/html/mov_bbb.mp4']"
                     />
                     <Compositions
                         type="duo-portrait"
@@ -35,7 +35,7 @@
                     />
                     <Compositions
                         type="trio-portrait"
-                        :medias="['https://www.w3schools.com/html/mov_bbb.mp4','https://www.w3schools.com/html/mov_bbb.mp4','https://www.w3schools.com/html/mov_bbb.mp4']"
+                        :medias="['http://www.w3schools.com/html/mov_bbb.mp4','http://www.w3schools.com/html/mov_bbb.mp4','http://www.w3schools.com/html/mov_bbb.mp4']"
                     />
                 </div>
                 <div class="compositions-list">
@@ -45,7 +45,7 @@
                     />
                     <Compositions
                         type="trio-landscape-squares"
-                        :medias="['https://www.w3schools.com/html/mov_bbb.mp4','https://picsum.photos/id/212/500/300', 'https://picsum.photos/id/255/500/300']"
+                        :medias="['http://www.w3schools.com/html/mov_bbb.mp4','https://picsum.photos/id/212/500/300', 'https://picsum.photos/id/255/500/300']"
                     />
                     <Compositions
                         type="quatuor-landscape-portrait"

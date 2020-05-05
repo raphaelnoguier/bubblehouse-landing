@@ -46,7 +46,7 @@
                 <Phone whiteBorder>
                     <div class="media full video">
                         <div class="video-wrapper">
-                            <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay loop muted />
+                            <video src="http://www.w3schools.com/html/mov_bbb.mp4" autoplay loop muted />
                         </div>
                         <div class="layer-wrapper">
                             <div :class="`hero ${activeIndex === 1 || activeIndex === 2 ? 'active' : ''}`" />
