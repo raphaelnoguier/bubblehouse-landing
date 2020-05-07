@@ -36,7 +36,7 @@
                 flex-wrap: nowrap;
             }
 
-            @include min(md) {
+            @media screen and (min-width: 769px) {
                 transform: translate3d(0, 0, 0) !important;
             }
         }
@@ -56,10 +56,11 @@
             }
 
             @include max(sm) {
-                right: 6.400vw;
-                max-width: 25.867vw;
-                align-items: flex-end;
-                bottom: 2.667vw;
+                // right: 6.400vw;
+                // max-width: 25.867vw;
+                // align-items: flex-end;
+                // bottom: 2.667vw;
+                display: none;
             }
 
             .prev, .next {
