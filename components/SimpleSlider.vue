@@ -2,14 +2,14 @@
     <div class="simple-slider-wrapper">
         <div class="simple-slider-component swiper-container" ref="slider">
             <div
-                v-for="(slide, i) in slides"
+                v-for="(slide, i) in items"
                 :class="`background ${i === activeIndex ? 'visible': ''}`"
-                :style="`background-image: url('${slides[i]}')`"
+                :style="`background-image: url('${items[i].slide_image.url}')`"
                 :key="i"
             />
             <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(slide, i) in slides" :key="i">
-                    <img :src="slide" />
+                <div class="swiper-slide" v-for="(slide, i) in items" :key="i">
+                    <img :src="slide.slide_image.url" />
                 </div>
             </div>
         </div>
@@ -27,12 +27,7 @@ import Swiper from 'swiper';
 export default {
     data() {
         return {
-            activeIndex: 0,
-            slides: [
-                "https://picsum.photos/id/237/500/300",
-                "https://picsum.photos/id/238/500/300",
-                "https://picsum.photos/id/299/500/300"
-            ]
+            activeIndex: 0
         }
     },
     mounted() {
@@ -43,25 +38,30 @@ export default {
         initSlider(el) {
             this.slider = new Swiper(el, {
                 slidesPerView: 1.1,
-                spaceBetween: Utils.vw(1.111),
                 centeredSlides: true,
                 centeredSlidesBounds: true,
                 breakpoints: {
                     320: {
                         spaceBetween: Utils.vw(4.267)
+                    },
+                    767: {
+                        spaceBetween: Utils.vw(1.111)
                     }
                 },
                 on: {
                     slideChange: () => this.activeIndex = this.slider.realIndex,
                     progress: (p) => {
                         if (this.slider) {
-                            const newIndex = Math.round(Utils.map(p, 0, 1, 0, this.slides.length - 1));
+                            const newIndex = Math.round(Utils.map(p, 0, 1, 0, this.items.length - 1));
                             this.activeIndex = newIndex;
                         }
                     }
                 }
             });
         }
+    },
+    props: {
+        items: Array
     }
 }
 </script>

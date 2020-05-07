@@ -1,9 +1,9 @@
 <template>
     <div class="section interactive-modules">
         <SectionHeader
-            heading="one size does not fit all"
-            title="Choose how to show your content"
-            subtitle="Based on the number of asset you want to post, choose what component is the right fit for you."
+            :heading="header.heading"
+            :title="header.title"
+            :subtitle="header.subtitle"
         />
         <div class="modules">
             <div class="subtitle-component">
@@ -11,10 +11,10 @@
             </div>
             <div class="modules-components">
                 <div class="row">
-                    <BeforeAfter />
-                    <SimpleSlider />
+                    <BeforeAfter :data="beforeAfter" />
+                    <SimpleSlider :items="simpleSlider" />
                 </div>
-                <Panorama />
+                <Panorama :data="panorama" />
             </div>
             <div class="compositions-wrapper">
                 <div class="subtitle-component">
@@ -22,38 +22,18 @@
                 </div>
                 <div class="compositions-list">
                     <Compositions
-                        type="duo-landscape"
-                        :medias="['https://picsum.photos/id/237/500/300','http://www.w3schools.com/html/mov_bbb.mp4']"
-                    />
-                    <Compositions
-                        type="duo-portrait"
-                        :medias="['https://picsum.photos/id/240/500/300','https://picsum.photos/id/242/500/300']"
-                    />
-                    <Compositions
-                        type="trio-landscape"
-                        :medias="['https://picsum.photos/id/250/500/300','https://picsum.photos/id/253/500/300', 'https://picsum.photos/id/260/500/300']"
-                    />
-                    <Compositions
-                        type="trio-portrait"
-                        :medias="['http://www.w3schools.com/html/mov_bbb.mp4','http://www.w3schools.com/html/mov_bbb.mp4','http://www.w3schools.com/html/mov_bbb.mp4']"
+                        v-for="(composition, i) in compositions.slice(0, 4)"
+                        :key="i"
+                        :type="composition.primary.composition_type"
+                        :items="composition.items"
                     />
                 </div>
                 <div class="compositions-list">
                     <Compositions
-                        type="trio-portrait-squares"
-                        :medias="['https://picsum.photos/id/290/500/300','https://picsum.photos/id/210/500/300', 'https://picsum.photos/id/278/500/300']"
-                    />
-                    <Compositions
-                        type="trio-landscape-squares"
-                        :medias="['http://www.w3schools.com/html/mov_bbb.mp4','https://picsum.photos/id/212/500/300', 'https://picsum.photos/id/255/500/300']"
-                    />
-                    <Compositions
-                        type="quatuor-landscape-portrait"
-                        :medias="['https://picsum.photos/id/230/500/300','https://picsum.photos/id/225/500/300', 'https://picsum.photos/id/206/500/300', 'https://picsum.photos/id/237/500/300']"
-                    />
-                    <Compositions
-                        type="quatuor-squares"
-                        :medias="['https://picsum.photos/id/237/500/300','https://picsum.photos/id/237/500/300', 'https://picsum.photos/id/237/500/300', 'https://picsum.photos/id/237/500/300']"
+                        v-for="(composition, i) in compositions.slice(4, compositions.length)"
+                        :key="i"
+                        :type="composition.primary.composition_type"
+                        :items="composition.items"
                     />
                 </div>
             </div>
@@ -70,6 +50,23 @@ import Panorama from '~/components/Panorama';
 import Compositions from '~/components/Compositions';
 
 export default {
+    computed: {
+        header() {
+            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'header_section').primary;
+        },
+        beforeAfter() {
+            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'before___after').primary;
+        },
+        simpleSlider() {
+            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'simple_slider').items;
+        },
+        panorama() {
+            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'panorama').primary;
+        },
+        compositions() {
+            return this.$store.state.homepage.body3.filter(slice => slice.slice_type === 'composition');
+        }
+    },
     components: {
         SectionHeader,
         BeforeAfter,

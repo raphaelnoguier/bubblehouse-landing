@@ -1,17 +1,16 @@
 <template>
-    <div class="section feel-the-content">
+    <div class="section feed">
         <SectionHeader
-            heading="a new way of consuming"
-            title="Feel the Content"
-            :gradient="slides[activeIndex].gradient"
-            subtitle="Browse beautiful content one by one to fully express what the content creator is trying to convey."
+            :heading="header.heading"
+            :title="header.title"
+            :subtitle="header.subtitle"
         />
         <div
             ref="sectionBackground"
-            v-for="(slide, i) in slides"
+            v-for="(slide, i) in verticalSlides"
             :class="`section-background ${i === activeIndex ? 'visible' : ''}`"
             :key="i"
-            :style="`background-image: url(${slides[i].img});`"
+            :style="`background-image: url(${slide.blurred_image.url});`"
         >
             <div class="gradient" />
         </div>
@@ -26,20 +25,20 @@
             </div>
             <div class="swiper-container phone-component" ref="phoneSlider">
                 <div class="swiper-wrapper">
-                    <div v-for="(slide, i) in slides" class="swiper-slide screen" :key="i">
-                        <img :src="slide.img" />
+                    <div v-for="(slide, i) in verticalSlides" class="swiper-slide screen" :key="i">
+                        <img :src="slide.slide_image.url" />
                     </div>
                 </div>
             </div>
             <div class="slider-pagination">
                 <div
                     class="thumb"
-                    v-for="(slide, i) in slides"
+                    v-for="(slide, i) in verticalSlides"
                     :key="i"
                     v-on:click="slideTo(i)"
                     :class="phoneSlider && phoneSlider.realIndex === i ? 'active' : ''"
                 >
-                    <img :src="slide.img" />
+                    <img :src="slide.slide_image.url" />
                 </div>
             </div>
         </div>
@@ -54,36 +53,25 @@ import Swiper from 'swiper';
 export default {
     data() {
 		return {
-            activeSlideImg: null,
             activeIndex: 0,
             phoneSlider: null,
             sectionBackground: null,
-            slides: [
-                {
-                    img: "https://picsum.photos/id/235/300/800",
-                    gradient: "156, 210, 255, 0.3"
-                },
-                {
-                    img: "https://picsum.photos/id/236/300/800",
-                    gradient: "0, 210, 255, 0.3"
-                },
-                {
-                    img: "https://picsum.photos/id/237/300/800",
-                    gradient: "200, 150, 36, 0.3"
-                }
-            ]
 		}
 	},
     components: {
         SectionHeader
     },
+    computed: {
+        header () {
+            return this.$store.state.homepage.body[0].primary;
+        },
+        verticalSlides () {
+            return this.$store.state.homepage.body[1].items;
+        }
+    },
     mounted() {
         this.initSlider(this.$refs.phoneSlider);
-
-        this.phoneSlider.on('slideChange', () => {
-            this.activeIndex = this.phoneSlider.realIndex;
-            this.handleSlideChanged();
-		});
+        this.phoneSlider.on('slideChange', () => this.activeIndex = this.phoneSlider.realIndex);
 	},
 	methods: {
 		initSlider (el) {
@@ -98,13 +86,7 @@ export default {
 				},
             })
         },
-        handleSlideChanged() {
-            const { sectionBackground } = this.$refs;
-
-            this.activeSlideImg = this.slides[this.activeIndex].img;
-        },
         slideTo(index) {
-            console.log(index);
             this.phoneSlider.slideToLoop(index);
         }
 	}

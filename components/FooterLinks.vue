@@ -1,24 +1,26 @@
 <template>
     <div class="footer-links-component">
         <ul>
-            <li>
-                <span>Aura, Inc 2020</span>
-            </li>
-            <li>
-                <a href="/terms">
-                    terms
-                </a>
-            </li>
-            <li>
-                <a href="/privacy">
-                    privacy
-                </a>
-            </li>
-            <li>
-                <a href="mailto:contact@aura.com">
-                    contact@aura.com
+            <li v-for="(link, i) in links" :key="i">
+                <a :href="getLink(link)">
+                    {{link.link_text}}
                 </a>
             </li>
         </ul>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        getLink(link) {
+            if (link.link_url.url.includes('#')) return '#';
+
+            return link.link_url.url;
+        }
+    },
+    props: {
+        links: Array
+    }
+}
+</script>

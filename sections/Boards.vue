@@ -1,11 +1,11 @@
 <template>
     <div class="section boards">
         <SectionHeader
-            heading="introducing boards"
-            title="Tell the full story"
-            subtitle="Boards allows you to go in details with unlimited components because most of the time, one media is not enough. Update them as you want."
+            :heading="header.heading"
+            :title="header.title"
+            :subtitle="header.subtitle"
         />
-        <Board />
+        <Board :boardItems="board" :horizontalSliders="horizontalSliders" />
     </div>
 </template>
 
@@ -15,6 +15,17 @@ import SectionHeader from '~/components/SectionHeader';
 import Board from '~/components/Board';
 
 export default {
+    computed: {
+        header () {
+            return this.$store.state.homepage.body1[0].primary;
+        },
+        board () {
+            return this.$store.state.homepage.body1[1].items;
+        },
+        horizontalSliders () {
+            return this.$store.state.homepage.body1.filter(element => element.slice_type === 'horizontal_phone_slider');
+        },
+    },
     components: {
         SectionHeader,
         Board

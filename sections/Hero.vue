@@ -1,10 +1,10 @@
 <template>
-    <div class="hero-component">
+    <div class="hero-component" :style="getHeroStyle()">
         <div class="hero-component-content">
             <div class="left">
                 <div class="text">
-                    <h1>It's time to get creative</h1>
-                    <p>Siena gives you the tools you need to proudly show your crafted content to your audience</p>
+                    <h1>{{store.hero_title}}</h1>
+                    <p>{{store.hero_description}}</p>
                 </div>
                 <div class="form">
                     <form v-on:submit.prevent="openModal">
@@ -20,7 +20,7 @@
                             v-on:click="openModal"
                             type="submit"
                         >
-                            <span>Get early access</span>
+                            <span>{{store.global_cta_name}}</span>
                         </button>
                     </form>
                 </div>
@@ -28,57 +28,36 @@
             <div class="columns-slider">
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div
+                            class="swiper-slide"
+                            v-for="(slide, i) in slidingColumns.slice(0, 3)" :key="i"
+                        >
                             <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
+                                <img :src="slide.image.url" />
                             </Phone>
                         </div>
                     </div>
                 </div>
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div
+                            class="swiper-slide"
+                            v-for="(slide, i) in slidingColumns.slice(3, 6)" :key="i"
+                        >
                             <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
+                                <img :src="slide.image.url" />
                             </Phone>
                         </div>
                     </div>
                 </div>
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div
+                            class="swiper-slide"
+                            v-for="(slide, i) in slidingColumns.slice(6, slidingColumns.length)" :key="i"
+                        >
                             <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
-                            </Phone>
-                        </div>
-                        <div class="swiper-slide">
-                            <Phone>
-                                <img src="https://picsum.photos/id/225/500/300" />
+                                <img :src="slide.image.url" />
                             </Phone>
                         </div>
                     </div>
@@ -91,6 +70,7 @@
 /* Utils */
 import Swiper from 'swiper';
 import Utils from '~/utils';
+import enterView from 'enter-view';
 
 /* Components */
 import Phone from '~/components/Phone';
@@ -105,9 +85,19 @@ export default {
     components: {
         Phone
     },
+    computed: {
+        store () {
+            return this.$store.state.homepage;
+        },
+        slidingColumns () {
+            return this.$store.state.homepage.body6.find(slice => slice.slice_type === 'auto_sliding_columns').items
+        }
+    },
     mounted() {
         this.columns = this.$el.querySelectorAll('.column');
+
         this.sliders = [];
+
         this.columns.forEach((column, i) => {
             this.sliders[i] = new Swiper(column, {
                 direction: 'vertical',
@@ -117,11 +107,11 @@ export default {
                 loopAdditionalSlides: 1,
                 allowTouchMove: false,
                 autoplay: {
+                    waitForTransition: false,
                     delay: 0,
                     reverseDirection: i === 1,
                     disableOnInteraction: false,
                 },
-                autoplay: false,
                 breakpoints: {
                     320: {
                         spaceBetween: Utils.vw(4.948),
@@ -129,8 +119,25 @@ export default {
                 }
             })
         });
+
+        const self = this;
+        enterView({
+            selector: '.section.feed',
+            enter: () => {
+                console.log('stop');
+                self.sliders[0].autoplay.stop();
+            },
+            exit: () => {
+                console.log('start');
+                self.sliders[0].autoplay.start();
+            },
+        });
     },
     methods: {
+        getHeroStyle() {
+            const { hero_background_color } = this.store;
+            return `background-color: ${hero_background_color}`;
+        },
         openModal() {
             const { commit } = this.$store;
             this.error = false;

@@ -3,68 +3,42 @@
         <div class="board-component-grid" ref="board">
             <div class="board-placeholder">
                 <div class="row">
-                    <div class="media square">
-                    </div>
-                    <div class="media portrait">
-                    </div>
-                    <div class="media square">
-                    </div>
-                    <div class="media portrait">
+                    <div
+                        v-for="(media, i) in boardItems.slice(0, nbItemsInRows)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
                     </div>
                 </div>
                 <div class="row">
-                    <div class="media portrait">
-                    </div>
-                    <div class="media square">
-                    </div>
-                    <div class="media portrait">
-                    </div>
-                    <div class="media square">
+                    <div
+                        v-for="(media, i) in boardItems.slice(nbItemsInRows, boardItems.length)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
                     </div>
                 </div>
             </div>
             <div :class="`board-wrapper ${!boardImagesVisible ? 'hidden' : ''}`" ref="boardWrapper">
                 <div class="row">
-                    <div class="media square">
+                    <div
+                        v-for="(media, i) in boardItems.slice(0, nbItemsInRows)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
                         <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/235/300/800" />
-                        </div>
-                    </div>
-                    <div class="media portrait">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/220/300/800" />
-                        </div>
-                    </div>
-                    <div class="media square">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/255/300/800" />
-                        </div>
-                    </div>
-                    <div class="media portrait">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/265/300/800" />
+                            <img :src="media.image.url" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="media portrait">
+                    <div
+                        v-for="(media, i) in boardItems.slice(nbItemsInRows, boardItems.length)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
                         <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/275/300/800" />
-                        </div>
-                    </div>
-                    <div class="media square">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/276/300/800" />
-                        </div>
-                    </div>
-                    <div class="media portrait" style="z-index: 9">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/295/300/800" />
-                        </div>
-                    </div>
-                    <div class="media square">
-                        <div class="media-wrapper">
-                            <img src="https://picsum.photos/id/305/300/800" />
+                            <img :src="media.image.url" />
                         </div>
                     </div>
                 </div>
@@ -77,7 +51,7 @@
                         :class="`single ${i === activeCategory ? 'active' : ''}`"
                         v-for="(category, i) in categories"
                         :key="i"
-                        v-on:click="activeCategory = i"
+                        v-on:click="changeCategories(i)"
                     >
                         {{category}}
                     </div>
@@ -87,14 +61,12 @@
                 <div class="slider-behind">
                     <div class="swiper-container" ref="sliderBehind">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide screen">
-                                <img src="https://picsum.photos/id/235/200/300" />
-                            </div>
-                            <div class="swiper-slide screen">
-                                <img src="https://picsum.photos/id/236/200/300" />
-                            </div>
-                            <div class="swiper-slide screen">
-                                <img src="https://picsum.photos/id/237/200/300" />
+                            <div
+                                class="swiper-slide screen"
+                                v-for="(slide, index) in horizontalSliders[activeCategory].items"
+                                :key="index"
+                            >
+                                <img class="swiper-lazy" :data-src="slide.image.url" />
                             </div>
                         </div>
                     </div>
@@ -110,29 +82,18 @@
                         <div class="slider-front">
                             <div class="swiper-container" ref="sliderInFront">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide screen">
-                                        <div class="media">
-                                            <img src="https://picsum.photos/id/235/200/300" />
-                                        </div>
-                                        <div class="content">
-                                            <img src="~/assets/images/slider-placeholder.png" />
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide screen">
-                                        <div class="media">
-                                            <img src="https://picsum.photos/id/236/200/300" />
-                                        </div>
-                                        <div class="content">
-                                            <img src="~/assets/images/slider-placeholder.png" />
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide screen">
-                                        <div class="media">
-                                            <img src="https://picsum.photos/id/237/200/300" />
-                                        </div>
-                                        <div class="content">
-                                            <img src="~/assets/images/slider-placeholder.png" />
-                                        </div>
+                                    <div
+                                        :class="`swiper-slide screen`"
+                                        v-for="(slide, index) in horizontalSliders[activeCategory].items"
+                                        :key="index"
+                                    >
+                                        <div :class="`slide-loader ${fetchingImages ? 'visible' : ''}`" />
+                                        <video
+                                            class="swiper-lazy"
+                                            :data-src="slide.board_video.url"
+                                            muted
+                                            loop
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -153,11 +114,14 @@ import Swiper from 'swiper';
 export default {
     data () {
         return {
+            nbItemsInRows: 4,
             medias: [],
             mediasBounds: [],
+            categories: [],
             activeCategory: 0,
+            slidersInstance: [],
             boardImagesVisible: true,
-            categories: ['photographer', 'brand', 'artist', 'individual']
+            fetchingImages: false
         }
     },
     mounted() {
@@ -165,10 +129,10 @@ export default {
         this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
         this.boardSliderNav = this.$refs.boardSliderNav;
-        this.sliders = [this.$refs.sliderBehind, this.$refs.sliderInFront];
-
+        this.slidersEls = [this.$refs.sliderBehind, this.$refs.sliderInFront];
         this.calcBounds();
-        this.initSliders(this.sliders);
+        this.buildCategories();
+        this.initSliders(this.slidersEls);
 
         window.addEventListener('resize', this.calcBounds, false);
 
@@ -181,20 +145,6 @@ export default {
         });
     },
     methods: {
-        initSliders(sliders) {
-            sliders.forEach((slider, i) => {
-                new Swiper (slider, {
-                    spaceBetween: i === 0 ? Utils.vw(1.95) : 0,
-                    speed: 500,
-                    initialSlide: 1,
-                    allowTouchMove: false,
-                    navigation: {
-                        nextEl: '.slider-next',
-                        prevEl: '.slider-prev',
-                    },
-                });
-            });
-        },
         calcBounds() {
             this.mediasBounds = [];
             this.medias.forEach((media) => {
@@ -204,6 +154,40 @@ export default {
                     x: (window.innerWidth / 2) - (left + (width / 2) )
                 });
             });
+        },
+        buildCategories() {
+            this.horizontalSliders.forEach((slider, i) => {
+                if (!this.categories.includes(slider.primary.category)) {
+                    this.categories.push(slider.primary.category);
+                }
+            });
+        },
+        initSliders(slidersEls) {
+            slidersEls.forEach((slider, i) => {
+                this.slidersInstance.push(new Swiper (slider, {
+                    spaceBetween: i === 0 ? Utils.vw(1.95) : 0,
+                    speed: 500,
+                    initialSlide: 1,
+                    allowTouchMove: false,
+                    preloadImages: false,
+                    lazy: {
+                        loadPrevNext: true
+                    },
+                    navigation: {
+                        nextEl: '.slider-next',
+                        prevEl: '.slider-prev',
+                    },
+                }));
+            });
+        },
+        changeCategories(index) {
+            if (index === this.activeCategory) return;
+            // this.fetchingImages = true;
+
+            // setTimeout(() => {
+                this.activeCategory = index;
+            //     this.fetchingImages = false;
+            // }, 300);
         },
         transform(progress) {
             const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
@@ -223,6 +207,10 @@ export default {
                 this.boardWrapper.style.transform = `translate3d(0px, ${mappedWrapperY}%, 0)`;
             })
         }
+    },
+    props: {
+        boardItems: Array,
+        horizontalSliders: Array
     }
 }
 </script>

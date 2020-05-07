@@ -2,8 +2,8 @@
     <div class="section footer">
         <footer>
             <div class="texts" ref="texts">
-                <h3>Ready to dive-in the creative world?</h3>
-                <p>We’re opening up our Private Beta to more users. If you would like to try out Aura, give us your info!</p>
+                <h3>{{footer.footer_baseline}}</h3>
+                <p>{{footer.footer_subtitle}}</p>
             </div>
             <div class="form-wrapper">
                 <form v-on:submit.prevent="openModal">
@@ -22,11 +22,11 @@
                         v-model="nameValue"
                     />
                     <button class="button-component" type="submit">
-                        <span>Get early access</span>
+                        <span>{{footer.global_cta_name}}</span>
                     </button>
                 </form>
             </div>
-            <FooterLinks />
+            <FooterLinks :links="footerLinks" />
         </footer>
     </div>
 </template>
@@ -40,6 +40,14 @@ import Utils from '~/utils';
 import FooterLinks from '~/components/FooterLinks';
 
 export default {
+    computed: {
+        footer() {
+            return this.$store.state.homepage;
+        },
+        footerLinks() {
+            return this.$store.state.homepage.body5.find(slice => slice.slice_type === 'footer_links').items;
+        }
+    },
     data() {
         return {
             emailValue: '',
@@ -48,7 +56,7 @@ export default {
         }
     },
     mounted() {
-        this.reveal = reveal({ dom: this.$refs.texts, ratioIn: 0.5 })
+        this.reveal = reveal({ dom: this.$refs.texts, ratioIn: 0.5 });
     },
     beforeDestroy() {
         this.reveal.destroy();

@@ -110,6 +110,7 @@
             position: absolute;
             right: -13.889vw;
             transform: rotate(-15deg);
+            pointer-events: none;
 
             @include max(md) {
                 width: 100%;

@@ -1,35 +1,19 @@
 <template>
     <div class="section testimonials">
         <BigQuote
-            content="Aura changed the way I post content online"
-            author="angela mayer"
-            role="photographer"
+            :content="bigQuote.content"
+            :author="bigQuote.author"
+            :role="bigQuote.role"
         />
         <div class="testimonials-wrapper swiper-container" ref="testimonialSlider">
             <div class="swiper-wrapper">
                 <Testimonial
-                    content="The first time I used Aura I really felt I had ownership over my content and the way I show it to my growing audience!"
-                    author="lindsey adler"
-                    role="photographer"
-                    avatar="https://picsum.photos/id/230/500/300"
-                />
-                <Testimonial
-                    content="The first time I used Aura I really felt I had ownership over my content and the way I show it to my growing audience!"
-                    author="lindsey adler"
-                    role="photographer"
-                    avatar="https://picsum.photos/id/230/500/300"
-                />
-                <Testimonial
-                    content="The first time I used Aura I really felt I had ownership over my content and the way I show it to my growing audience!"
-                    author="lindsey adler"
-                    role="photographer"
-                    avatar="https://picsum.photos/id/230/500/300"
-                />
-                <Testimonial
-                    content="The first time I used Aura I really felt I had ownership over my content and the way I show it to my growing audience!"
-                    author="lindsey adler"
-                    role="photographer"
-                    avatar="https://picsum.photos/id/230/500/300"
+                    v-for="(testimonial, i) in testimonials"
+                    :key="i"
+                    :content="testimonial.primary.content"
+                    :author="testimonial.primary.author"
+                    :role="testimonial.primary.role"
+                    :avatar="testimonial.primary.avatar.url"
                 />
             </div>
             <div class="slider-controls">
@@ -53,6 +37,14 @@ import BigQuote from '~/components/BigQuote';
 import Testimonial from '~/components/Testimonial';
 
 export default {
+    computed: {
+        bigQuote() {
+            return this.$store.state.homepage.body4.find(slice => slice.slice_type === 'big_quote').primary;
+        },
+        testimonials() {
+            return this.$store.state.homepage.body4.filter(slice => slice.slice_type === 'testimonial');
+        }
+    },
     mounted() {
         this.testimonialSlider = new Swiper(this.$refs.testimonialSlider, {
             speed: 500,

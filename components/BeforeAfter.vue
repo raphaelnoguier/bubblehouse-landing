@@ -7,10 +7,10 @@
                 </div>
             </div>
             <div class="initial">
-                <img src="~/assets/images/before.jpg" />
+                <img :src="data.initial_image.url" />
             </div>
             <div class="reveal" ref="revealBlock">
-                <img src="~/assets/images/after.jpg" ref="revealImg" />
+                <img :src="data.reveal_image.url" ref="revealImg" />
             </div>
         </div>
         <div class="component-name">
@@ -89,6 +89,9 @@ export default {
             this.divider.style.transform = `translate3d(${(-mappedX + 50)}%, 0, 0)`;
         },
         up() { this.isDragging = false }
+    },
+    props: {
+        data: Object
     }
 }
 </script>

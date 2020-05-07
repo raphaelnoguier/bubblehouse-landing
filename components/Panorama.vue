@@ -3,7 +3,7 @@
         <div class="panorama-component">
             <div class="landscape">
                 <div class="left" @mouseover="transform(-1)" @mouseleave="reset()" />
-                <img src="https://picsum.photos/id/240/1200/300.jpg" ref="landscape" />
+                <img :src="data.image.url" ref="landscape" />
                 <div class="right" @mouseover="transform(1)" @mouseleave="reset()" />
             </div>
             <Phone whiteBorder half />
@@ -40,6 +40,9 @@ export default {
         reset() {
             this.landscape.style.transform = '';
         }
+    },
+    props: {
+        data: Object
     }
 }
 </script>
