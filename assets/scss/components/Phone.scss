@@ -9,13 +9,11 @@
     @include max(md) {
         width: 41.406vw;
         height: 88.802vw;
-        border: none;
     }
 
     @include max(sm) {
         width: 69.867vw;
         height: 149.867vw;
-        border: none;
         border-radius: 25px;
     }
 
@@ -35,7 +33,6 @@
         @include max(sm) {
             width: 69.867vw;
             height: 149.867vw;
-            border: none;
             border-radius: 25px;
         }
     }

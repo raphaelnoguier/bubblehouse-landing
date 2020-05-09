@@ -71,6 +71,9 @@
 </template>
 
 <script>
+/* Utils */
+import enterView from 'enter-view';
+
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
 import Phone from '~/components/Phone';
@@ -103,6 +106,16 @@ export default {
     },
     mounted() {
         this.checkMobile();
+
+        enterView({
+            selector: '.section.profile-example',
+            offset: 1,
+            enter: () => {
+                this.$store.commit('SET_NAV_CTA_BG_COLOR',
+                    'var(--brand-color)'
+                );
+            }
+        });
 
         window.addEventListener('resize', this.checkMobile, false);
     },

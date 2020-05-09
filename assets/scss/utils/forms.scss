@@ -6,6 +6,7 @@
 	padding: 0 1.111vw;
 	border-radius: v(app-radius);
 	height: 3.889vw;
+	transition: border 500ms ease;
 
 	@include max(md) {
 		height: 7.292vw;

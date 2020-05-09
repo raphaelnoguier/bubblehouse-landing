@@ -7,7 +7,10 @@ export const state = () => ({
 	modalOpen: false,
 	modalInputEmail: '',
 	modalInputName: '',
-	homepage: {}
+	homepage: {},
+	navCtaVisible: false,
+	navCtaBgColor: '',
+	boardSectionBgColor: ''
 });
 
 export const getters = {
@@ -23,18 +26,40 @@ export const getters = {
 	homepage(state) {
 		return state.homepage
 	},
+	navCtaVisible(state) {
+		return state.navCtaVisible
+	},
+	navCtaBgColor(state) {
+		return state.navCtaBgColor
+	},
+	boardSectionBgColor(state) {
+		return state.boardSectionBgColor
+	},
 };
 
 export const mutations = {
-	SET_MODAL_OPEN(state, { open, inputEmail, inputName }) {
-		state.modalOpen = open;
-		state.modalInputEmail = inputEmail;
-		state.modalInputName = inputName;
-		if (open) document.body.classList.add('locked');
+	SET_MODAL_OPEN(state, bool) {
+		state.modalOpen = bool;
+		if (bool) document.body.classList.add('locked');
 		else document.body.classList.remove('locked');
+	},
+	SET_MODAL_INPUT_EMAIL(state, email) {
+		state.modalInputEmail = email;
+	},
+	SET_MODAL_INPUT_NAME(state, name) {
+		state.modalInputName = name;
 	},
 	SET_HOMEPAGE(state, homepage) {
 		state.homepage = homepage;
+	},
+	SET_NAV_CTA_VISIBLE(state, bool) {
+		state.navCtaVisible = bool;
+	},
+	SET_NAV_CTA_BG_COLOR(state, color) {
+		// state.navCtaBgColor = color;
+	},
+	SET_BOARD_SECTION_BG_COLOR(state, color) {
+		state.boardSectionBgColor = color;
 	},
 };
 
@@ -52,7 +77,7 @@ export const actions = {
 
 
 		if (homepage) {
-			commit('SET_HOMEPAGE', homepage)
+			commit('SET_HOMEPAGE', homepage);
 			return { homepage };
 		}
 	},

@@ -21,6 +21,17 @@ import Testimonials from '~/sections/Testimonials';
 import Footer from '~/sections/Footer';
 
 export default {
+	computed: {
+		app() {
+			return this.$store.state.homepage
+		}
+	},
+	head() {
+		return {
+			title: this.app.meta_title,
+			description: this.app.meta_description
+		}
+	},
 	components: {
 		Hero,
 		Feed,

@@ -120,6 +120,7 @@ export default {
             categories: [],
             activeCategory: 0,
             slidersInstance: [],
+            hasEnteredView: false,
             boardImagesVisible: true,
             fetchingImages: false
         }
@@ -134,8 +135,22 @@ export default {
         this.buildCategories();
         this.initSliders(this.slidersEls);
 
+        this.setSectionBgColor();
+
         window.addEventListener('resize', this.calcBounds, false);
 
+        enterView({
+            selector: '.section.boards',
+            offset: 1,
+            enter: () => {
+                this.hasEnteredView = true;
+                this.setCTABgColor();
+            },
+            exit: () => {
+                this.hasEnteredView = true;
+                this.setCTABgColor();
+            },
+        });
         enterView({
             selector: '.board-component-slider',
             progress: (el, progress) => {
@@ -173,12 +188,38 @@ export default {
                     lazy: {
                         loadPrevNext: true
                     },
+                    on: {
+                        slideChange: () => {
+                            this.setSectionBgColor();
+                            this.setCTABgColor();
+                        }
+                    },
                     navigation: {
                         nextEl: '.slider-next',
                         prevEl: '.slider-prev',
                     },
                 }));
             });
+        },
+        setSectionBgColor() {
+            const currentSlider = this.horizontalSliders[this.activeCategory];
+            const currentSliderInstance = this.slidersInstance[this.activeCategory];
+
+            if (currentSliderInstance) {
+                this.$store.commit('SET_BOARD_SECTION_BG_COLOR',
+                    currentSlider.items[currentSliderInstance.activeIndex].background_color
+                );
+            }
+        },
+        setCTABgColor() {
+            const currentSlider = this.horizontalSliders[this.activeCategory];
+            const currentSliderInstance = this.slidersInstance[this.activeCategory];
+
+            if (currentSliderInstance && this.hasEnteredView) {
+                this.$store.commit('SET_NAV_CTA_BG_COLOR',
+                    currentSlider.items[currentSliderInstance.activeIndex].cta_background_color
+                );
+            }
         },
         changeCategories(index) {
             if (index === this.activeCategory) return;
@@ -200,7 +241,7 @@ export default {
                 const { x } = bounds;
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
-                const mappedWrapperY = Utils.map(progress, 0, 1, 0, 125);
+                const mappedWrapperY = Utils.map(progress, 0, 1, 0, window.innerWidth <= 768 ? 200 : 125);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
                 block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0)`;

@@ -66,11 +66,11 @@ export default {
             const { commit } = this.$store;
             this.error = false;
 
-            if (Utils.isValidEmail(this.emailValue)) commit('SET_MODAL_OPEN', {
-                open: true,
-                inputEmail: this.emailValue,
-                inputName: this.nameValue
-            });
+            if (Utils.isValidEmail(this.emailValue) && this.nameValue.length > 0) {
+                commit('SET_MODAL_OPEN', true);
+                commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
+                commit('SET_MODAL_INPUT_NAME', this.nameValue);
+            }
             else this.error = true
         }
     },

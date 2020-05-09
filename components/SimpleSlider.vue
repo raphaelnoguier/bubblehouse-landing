@@ -49,7 +49,6 @@ export default {
                     }
                 },
                 on: {
-                    slideChange: () => this.activeIndex = this.slider.realIndex,
                     progress: (p) => {
                         if (this.slider) {
                             const newIndex = Math.round(Utils.map(p, 0, 1, 0, this.items.length - 1));

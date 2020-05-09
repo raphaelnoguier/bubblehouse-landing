@@ -7,12 +7,12 @@
     }
 
     .board-component-grid {
-        background-color: #1A5D6D;
         padding: 1.111vw;
         border-radius: v(app-radius);
         max-width: v(large-wrapper);
         margin: auto;
         position: relative;
+        background: rgba(255, 255, 255, 0.1);
 
         @include max(md) {
             max-width: 100%;
@@ -209,7 +209,7 @@
             }
 
             @include max(sm) {
-                margin: 8.533vw auto 48.267vw auto;
+                margin: 8.533vw auto 28.267vw auto;
             }
 
             .slider-behind {
@@ -296,9 +296,10 @@
                     }
 
                     @include max(sm) {
+                        left: calc(-13.6vw);
                         width: 9.600vw;
                         height: 9.600vw;
-                        transform: translateY(22.933vw) rotate(-90deg);
+                        transform: translateY(-69vw) rotate(-90deg);
                     }
 
                     img {
@@ -313,8 +314,8 @@
                         }
 
                         @include max(sm) {
-                            width: 4.267vw;
-                            height: 2.933vw;
+                            width: 5.267vw;
+                            height: 3.933vw;
                         }
                     }
 
@@ -341,15 +342,15 @@
                         }
 
                         @include max(sm) {
-                            right: calc(-9.600vw);
-                            transform: translateY(22.933vw) rotate(90deg);
+                            right: calc(-13.600vw);
+                            transform: translateY(-69vw) rotate(90deg);
                         }
                     }
 
                     &.swiper-button-disabled {
                         pointer-events: none;
                         img {
-                            opacity: 0.1;
+                            opacity: 0.3;
                         }
                     }
                 }
@@ -360,6 +361,10 @@
                     position: relative;
                     z-index: 2;
                     overflow: hidden;
+
+                    @include max(sm) {
+                        border-radius: 20px;
+                    }
 
                     .swiper-container {
                         height: 100%;

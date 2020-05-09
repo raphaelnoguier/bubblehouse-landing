@@ -34,6 +34,12 @@
         cursor: pointer;
         transition: opacity 300ms v(ease-in-out-quad);
 
+        &:not(.load-more) {
+            @include max(sm) {
+                pointer-events: none;
+            }
+        }
+
         &:not(.load-more):before {
             content: '';
             position: absolute;

@@ -30,7 +30,11 @@ export default {
     },
     methods: {
         getMaxTranslate() {
-            return window.innerWidth > 768 ? '50px' : '30px'
+            const ww = window.innerWidth;
+            if (ww >= 768) return '30px';
+            else if(ww >= 375) return '15px';
+
+            return '50px';
         },
         transform(direction) {
             this.landscape.style.transform = `

@@ -144,6 +144,7 @@
             border: 3px solid rgba(white, 0.1);
             border-radius: 100px;
             overflow: hidden;
+            transform: translate3d(0, 0, 0);
 
             @include max(sm) {
                 display: inline-flex;
@@ -158,8 +159,10 @@
             .thumb {
                 width: 5.139vw;
                 height: 5.139vw;
-                background: black;
                 cursor: pointer;
+                overflow: hidden;
+                background-color: black;
+                -webkit-mask-image: -webkit-radial-gradient(white, black);
 
                 @include max(md) {
                     width: 9.635vw;

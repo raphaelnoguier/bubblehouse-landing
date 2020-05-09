@@ -106,6 +106,10 @@
                     height: 100%;
                     width: 100%;
 
+                    @include max(sm) {
+                        display: none;
+                    }
+
                     .hero, .middle, .bottom {
                         width: 100%;
                         background: v(black);

@@ -101,13 +101,12 @@ export default {
         this.columns.forEach((column, i) => {
             this.sliders[i] = new Swiper(column, {
                 direction: 'vertical',
-                spaceBetween: Utils.vw(2.431),
                 loop: true,
                 speed: 10000,
-                loopAdditionalSlides: 1,
+                freeMode: true,
+                loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
                 allowTouchMove: false,
                 autoplay: {
-                    waitForTransition: false,
                     delay: 0,
                     reverseDirection: i === 1,
                     disableOnInteraction: false,
@@ -115,6 +114,9 @@ export default {
                 breakpoints: {
                     320: {
                         spaceBetween: Utils.vw(4.948),
+                    },
+                    780: {
+                        spaceBetween: Utils.vw(2.431),
                     }
                 }
             })
@@ -122,14 +124,15 @@ export default {
 
         const self = this;
         enterView({
-            selector: '.section.feed',
+            selector: '.feed .section-header-component',
+            offset: 1,
             enter: () => {
-                console.log('stop');
-                self.sliders[0].autoplay.stop();
+                console.log('stop autolay on hero');
+                self.sliders.forEach(slider => slider.autoplay.stop());
             },
             exit: () => {
-                console.log('start');
-                self.sliders[0].autoplay.start();
+                console.log('restart autoplay on hero');
+                self.sliders.forEach(slider => slider.autoplay.start());
             },
         });
     },
@@ -142,7 +145,10 @@ export default {
             const { commit } = this.$store;
             this.error = false;
 
-            if (Utils.isValidEmail(this.emailValue)) commit('SET_MODAL_OPEN', { open: true, inputEmail: this.emailValue });
+            if (Utils.isValidEmail(this.emailValue) || window.innerWidth <= 415) {
+                commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
+                commit('SET_MODAL_OPEN', true);
+            }
             else this.error = true
         }
     }

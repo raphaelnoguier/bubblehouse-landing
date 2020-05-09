@@ -46,6 +46,9 @@
 </template>
 
 <script>
+/* Utils */
+import enterView from 'enter-view';
+
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
 import Swiper from 'swiper';
@@ -71,7 +74,20 @@ export default {
     },
     mounted() {
         this.initSlider(this.$refs.phoneSlider);
-        this.phoneSlider.on('slideChange', () => this.activeIndex = this.phoneSlider.realIndex);
+
+        const self = this;
+        enterView({
+            selector: '.section.feed',
+            offset: 1,
+            enter: () => {
+                this.setCTABgColor();
+                self.$store.commit('SET_NAV_CTA_VISIBLE', true);
+            },
+            exit: () => {
+                this.setCTABgColor();
+                self.$store.commit('SET_NAV_CTA_VISIBLE', false);
+            }
+        });
 	},
 	methods: {
 		initSlider (el) {
@@ -84,10 +100,21 @@ export default {
 					nextEl: '.slider-controls .next',
 					prevEl: '.slider-controls .prev',
 				},
-            })
+            });
+
+            this.phoneSlider.on('slideChange', () => this.onSlideChange());
         },
         slideTo(index) {
             this.phoneSlider.slideToLoop(index);
+        },
+        setCTABgColor() {
+            this.$store.commit('SET_NAV_CTA_BG_COLOR',
+                this.verticalSlides[this.activeIndex].cta_background_color
+            );
+        },
+        onSlideChange() {
+            this.activeIndex = this.phoneSlider.realIndex
+            this.setCTABgColor();
         }
 	}
 }

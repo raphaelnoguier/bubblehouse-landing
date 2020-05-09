@@ -28,6 +28,7 @@
             background-size: cover;
             transition: opacity 300ms v(ease-in-out-quart);
             filter: blur(50px);
+            transform: translate3d(0, 0, 0);
             opacity: 0;
 
             &.visible {
