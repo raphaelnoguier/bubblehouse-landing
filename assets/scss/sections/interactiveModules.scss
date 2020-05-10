@@ -11,7 +11,7 @@
 
     .subtitle-component {
         @include proximaBold(2.222vw, 3.333vw);
-        color: v(white);
+        color: v(whiteColor);
         text-align: center;
 
         @include max(md) {
@@ -72,7 +72,7 @@
             .component-name {
                 margin-top: 1.319vw;
                 @include proximaBold(1.111vw, 1.667vw);
-                color: v(white);
+                color: v(whiteColor);
                 text-align: center;
                 text-transform: uppercase;
                 letter-spacing: 1px;

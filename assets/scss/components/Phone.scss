@@ -18,7 +18,7 @@
     }
 
     &.white-border {
-        border-color: v(white);
+        border-color: v(whiteColor);
     }
 
     &.sm {
@@ -41,7 +41,7 @@
         width: 27.778vw;
 
         @include max(md) {
-            border: 3px solid v(white);
+            border: 3px solid v(whiteColor);
         }
 
         @include max(md) {

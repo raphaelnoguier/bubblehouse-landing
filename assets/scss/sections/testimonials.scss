@@ -48,7 +48,7 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            background-color: v(black);
+            background-color: v(blackColor);
             display: none;
 
             @include max(md) {

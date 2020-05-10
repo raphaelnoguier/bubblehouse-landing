@@ -1,11 +1,11 @@
 // Colors
 @supports(--css: variables) {
     :root {
-        --white: #ffffff;
+        --whiteColor: #ffffff;
         --brand-color: #E94E29;
         --dark-grey: #1F1F1F;
         --light-grey: #828282;
-        --black: #0A0A0A;
+        --blackColor: #0A0A0A;
 
         /* easings */
         --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);

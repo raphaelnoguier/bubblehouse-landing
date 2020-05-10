@@ -26,7 +26,7 @@
         height: 100%;
         left: 0;
         right: 0;
-        background: v(black);
+        background: v(blackColor);
         opacity: 0;
         z-index: 2;
         cursor: pointer;
@@ -42,7 +42,7 @@
         background-color: v(dark-grey);
         border-radius: v(app-radius);
         padding: 4.722vw 5vw 5vw 5vw;
-        color: v(white);
+        color: v(whiteColor);
         text-align: center;
         height: 36.042vw;
         transform: translate3d(0, 20vw, 0);
@@ -134,7 +134,7 @@
             }
 
             .input-component {
-                background-color: v(black);
+                background-color: v(blackColor);
                 width: 100%;
 
                 &:last-of-type {
@@ -167,7 +167,7 @@
                 justify-content: center;
                 width: 4.167vw;
                 height: 4.167vw;
-                background: v(black);
+                background: v(blackColor);
                 border-radius: 13px;
 
                 &:nth-of-type(2) {
