@@ -66,6 +66,12 @@
             }
         }
 
+        &.load-more {
+            img {
+                transition: transform 500ms v(ease-in-out-quart) 100ms;
+            }
+        }
+
         &.disabled {
             user-select: none;
             pointer-events: none;

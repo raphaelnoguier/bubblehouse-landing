@@ -93,19 +93,6 @@
         }
     }
 
-    .slide-loader {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: v(light-grey);
-        opacity: 0;
-        transition: opacity 300ms ease;
-
-        &.visible {
-            opacity: 1;
-        }
-    }
     .board-component-slider {
         margin-top: 1.945vw;
         width: 100%;

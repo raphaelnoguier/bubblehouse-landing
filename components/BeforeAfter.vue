@@ -79,6 +79,7 @@ export default {
         down() { this.isDragging = true },
         move(cursor) {
             if (!this.isDragging) return;
+            cursor.preventDefault();
             const x = cursor.x || cursor.touches[0].clientX;
             const y = cursor.y || cursor.touches[0].clientY
 

@@ -1,0 +1,19 @@
+.lazy-img-component {
+    width: 100%;
+    height: 100%;
+}
+
+.lazy-placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 500ms ease;
+    background: v(black);
+}
+
+.lazy-placeholder.active {
+    opacity: 1;
+}

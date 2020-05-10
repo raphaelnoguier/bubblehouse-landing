@@ -16,5 +16,13 @@ module.exports = {
 	css: [
 		'~/assets/scss/main.scss'
 	],
-	plugins: []
+	/*
+		Plugins
+	*/
+	plugins: [
+		{
+			src: '~/plugins/vue-lazyload',
+			ssr: false
+		},
+	],
 }

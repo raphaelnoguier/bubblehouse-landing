@@ -43,7 +43,7 @@
                         <div :class="`media full ${profile.is_big ? 'video' : ''}`">
                             <template v-if="profile.is_big">
                                 <div class="video-wrapper">
-                                    <video :src="profile.video.url" autoplay loop muted />
+                                    <Video :url="profile.video.url" />
                                 </div>
                             </template>
                             <div class="layer-wrapper">
@@ -51,15 +51,15 @@
                                 <div :class="`middle ${activeIndex === 0 || activeIndex === 2 ? 'active' : ''}`" />
                                 <div :class="`bottom ${activeIndex === 0 || activeIndex === 1 ? 'active' : ''}`" />
                             </div>
-                            <img :src="profile.image.url" />
+                            <LazyImg :url="profile.image.url" :loading="fetchingImages" />
                         </div>
                     </Phone>
                 </div>
             </template>
             <div class="profile-example-nav center">
-                <div :class="`item load-more ${hasNoMoreExample ? 'disabled' : ''}`" v-on:click="loadMoreExamples()">
+                <div class="item load-more" v-on:click="loadMoreExamples()">
                     <div class="icon">
-                        <img src="~/assets/images/icons/refresh.svg" />
+                        <img src="~/assets/images/icons/refresh.svg" :style="`transform: rotate(${this.rotate}deg)`" />
                     </div>
                     <div class="text">
                         <span>more examples</span>
@@ -80,6 +80,8 @@ import Phone from '~/components/Phone';
 import ImageIcon from '~/components/Svgs/ImageIcon';
 import BoardIcon from '~/components/Svgs/BoardIcon';
 import GridIcon from '~/components/Svgs/GridIcon';
+import LazyImg from '~/components/LazyImg';
+import Video from '~/components/Video';
 
 export default {
     components: {
@@ -87,7 +89,9 @@ export default {
         Phone,
         ImageIcon,
         BoardIcon,
-        GridIcon
+        GridIcon,
+        LazyImg,
+        Video
     },
     computed: {
         header() {
@@ -101,7 +105,8 @@ export default {
         return {
             activeIndex: null,
             activeExampleIndex: 0,
-            hasNoMoreExample: false
+            rotate: 0,
+            fetchingImages: false
         }
     },
     mounted() {
@@ -128,8 +133,19 @@ export default {
             this.activeIndex = id;
         },
         loadMoreExamples() {
-            this.activeExampleIndex += 1
-            if (this.activeExampleIndex === (this.profileExamples.length - 1)) this.hasNoMoreExample = true;
+            this.fetchingImages = true;
+            this.rotate += 360;
+
+            if (this.activeExampleIndex === this.profileExamples.length - 1) this.rotate = 0;
+
+            setTimeout(() => {
+                this.activeExampleIndex += 1;
+                if (this.activeExampleIndex === this.profileExamples.length) {
+                    this.activeExampleIndex = 0;
+                }
+            }, 500);
+
+            this.$Lazyload.$on('loaded', () => this.fetchingImages = false );
         },
     }
 }

@@ -66,7 +66,7 @@
                                 v-for="(slide, index) in horizontalSliders[activeCategory].items"
                                 :key="index"
                             >
-                                <img class="swiper-lazy" :data-src="slide.image.url" />
+                                <LazyImg :url="slide.image.url" :loading="fetchingImages" />
                             </div>
                         </div>
                     </div>
@@ -87,13 +87,8 @@
                                         v-for="(slide, index) in horizontalSliders[activeCategory].items"
                                         :key="index"
                                     >
-                                        <div :class="`slide-loader ${fetchingImages ? 'visible' : ''}`" />
-                                        <video
-                                            class="swiper-lazy"
-                                            :data-src="slide.board_video.url"
-                                            muted
-                                            loop
-                                        />
+                                        <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
+                                        <Video :url="slide.board_video.url" />
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +106,15 @@ import Utils from '~/utils';
 import enterView from 'enter-view';
 import Swiper from 'swiper';
 
+/* Components */
+import LazyImg from '~/components/LazyImg';
+import Video from '~/components/Video';
+
 export default {
+    components: {
+        LazyImg,
+        Video
+    },
     data () {
         return {
             nbItemsInRows: 4,
@@ -184,10 +187,6 @@ export default {
                     speed: 500,
                     initialSlide: 1,
                     allowTouchMove: false,
-                    preloadImages: false,
-                    lazy: {
-                        loadPrevNext: true
-                    },
                     on: {
                         slideChange: () => {
                             this.setSectionBgColor();
@@ -223,12 +222,11 @@ export default {
         },
         changeCategories(index) {
             if (index === this.activeCategory) return;
-            // this.fetchingImages = true;
+            this.fetchingImages = true;
 
-            // setTimeout(() => {
-                this.activeCategory = index;
-            //     this.fetchingImages = false;
-            // }, 300);
+            setTimeout(() => this.activeCategory = index, 500);
+
+            this.$Lazyload.$on('loaded', () => this.fetchingImages = false );
         },
         transform(progress) {
             const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
