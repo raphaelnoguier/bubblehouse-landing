@@ -14,7 +14,7 @@
 export default {
     methods: {
         getLink(link) {
-            if (link.link_url.url.includes('#')) return '#';
+            if (!link || link.link_url.url.includes('#')) return '#';
 
             return link.link_url.url;
         }

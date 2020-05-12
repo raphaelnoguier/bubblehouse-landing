@@ -58,8 +58,8 @@
             </template>
             <div class="profile-example-nav center">
                 <div class="item load-more" v-on:click="loadMoreExamples()">
-                    <div class="icon">
-                        <img src="~/assets/images/icons/refresh.svg" :style="`transform: rotate(${this.rotate}deg)`" />
+                    <div class="icon" :style="`transform: rotate(${this.rotate}deg)`">
+                        <RefreshIcon />
                     </div>
                     <div class="text">
                         <span>more examples</span>
@@ -80,6 +80,7 @@ import Phone from '~/components/Phone';
 import ImageIcon from '~/components/Svgs/ImageIcon';
 import BoardIcon from '~/components/Svgs/BoardIcon';
 import GridIcon from '~/components/Svgs/GridIcon';
+import RefreshIcon from '~/components/Svgs/RefreshIcon';
 import LazyImg from '~/components/LazyImg';
 import Video from '~/components/Video';
 
@@ -90,6 +91,7 @@ export default {
         ImageIcon,
         BoardIcon,
         GridIcon,
+        RefreshIcon,
         LazyImg,
         Video
     },

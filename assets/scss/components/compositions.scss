@@ -1,6 +1,6 @@
 .composition {
     opacity: 0;
-    transition: opacity 350ms v(ease-in-out-quart);
+    transition: opacity 450ms v(ease-in-out-quart);
 
     @for $i from 1 through 9 {
         &:nth-child(#{$i}) {

@@ -40,7 +40,7 @@
             }
         }
 
-        &:not(.load-more):before {
+        &:before {
             content: '';
             position: absolute;
             left: 0;
@@ -54,7 +54,7 @@
             transition: transform 300ms v(ease-in-out-quad);
         }
 
-        &:not(.load-more):hover {
+        &:hover {
             color: v(blackColor);
 
             svg path {
@@ -67,7 +67,7 @@
         }
 
         &.load-more {
-            img {
+            .icon {
                 transition: transform 500ms v(ease-in-out-quart) 100ms;
             }
         }
