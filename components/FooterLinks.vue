@@ -14,9 +14,10 @@
 export default {
     methods: {
         getLink(link) {
-            if (!link || link.link_url.url.includes('#')) return '#';
+            const { url } = link.link_url;
+            if (!url) return '#';
 
-            return link.link_url.url;
+            return url;
         }
     },
     props: {
