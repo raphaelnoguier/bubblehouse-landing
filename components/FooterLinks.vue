@@ -2,7 +2,7 @@
     <div class="footer-links-component">
         <ul>
             <li v-for="(link, i) in links" :key="i">
-                <a :href="getLink(link)">
+                <a :href="getLink(link)" v-on:click="(e) => getLink(link) === '#' ? e.preventDefault() : null">
                     {{link.link_text}}
                 </a>
             </li>

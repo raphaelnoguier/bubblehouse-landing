@@ -1,7 +1,7 @@
 .section.profile-example {
     background: v(blackColor);
     width: 100%;
-    padding-top: 17.847vw;
+    padding-top: 13.889vw;
     max-width: v(xl-wrapper);
     margin: auto;
 
@@ -14,21 +14,8 @@
         padding-top: 39.200vw;
     }
 
-    .more-examples {
-        @include flexCenter();
-        justify-content: center;
-
-        .button {
-            height: 4.861vw;
-            border: 1px solid #222222;
-            border-radius: v(app-radius);
-            color: v(whiteColor);
-            padding: 0 3.472vw;
-        }
-    }
-
     .profile-phones {
-        margin-top: 6.944vw;
+        margin-top: 3.472vw;
 
         @include max(md) {
             margin-top: 13.021vw;
@@ -63,6 +50,14 @@
 
             .phone-component {
                 position: relative;
+
+                @for $i from 1 through 3 {
+                    &:nth-of-type(#{$i}) {
+                        .lazy-placeholder {
+                            transition-delay: $i * 100ms;
+                        }
+                    }
+                }
 
                 &:nth-of-type(2) {
                     margin: 0 2.222vw;

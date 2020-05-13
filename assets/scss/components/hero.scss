@@ -170,6 +170,7 @@
                     .phone-component {
                         height: 100%;
                         width: 100%;
+                        border-color: v(whiteColor);
 
                         @include max(sm) {
                             border-radius: 20px;

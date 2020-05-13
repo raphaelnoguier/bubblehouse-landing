@@ -52,6 +52,8 @@
         }
 
         .slider-controls {
+            transform: translateY(-2.575vw);
+
             @include max(sm) {
                 @include flexCenter();
                 position: absolute;
@@ -59,9 +61,10 @@
                 bottom: 23.5vw;
                 width: calc(100% - 12.8vw);
             }
+
             .prev, .next {
-                width: 5.139vw;
-                height: 5.139vw;
+                width: 4.444vw;
+                height: 4.444vw;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -70,6 +73,14 @@
                 outline: none;
                 position: relative;
                 user-select: none;
+
+                &:active:before {
+                    transform: scale3d(0.95, 0.95, 1);
+                }
+
+                img {
+                    width: 27%;
+                }
 
                 @include max(md) {
                     width: 7.292vw;
@@ -93,9 +104,11 @@
                     top: 0;
                     width: 100%;
                     height: 100%;
-                    backdrop-filter: blur(100px);
+                    background-color: v(whiteColor);
                     border-radius: 6px;
+                    opacity: 0.2;
                     z-index: -1;
+                    transition: transform 100ms v(ease-in-out-quad);
                 }
 
                 &.prev {
@@ -105,7 +118,7 @@
                 }
 
                 &.next {
-                    margin-top: 2.222vw;
+                    margin-top: 1.667vw;
                     transform: rotate(180deg);
 
                     @include max(md) {
@@ -121,9 +134,12 @@
         }
 
         .phone-component {
+            border-color: v(whiteColor);
+
             @include max(sm) {
                 margin: auto;
             }
+
             .swiper-wrapper {
                 height: 100%;
                 transition-timing-function: v(ease-in-out-quart);
@@ -144,7 +160,7 @@
             border: 3px solid rgba(white, 0.1);
             border-radius: 100px;
             overflow: hidden;
-            transform: translate3d(0, 0, 0);
+            transform: translate3d(0, -2.575vw, 0);
 
             @include max(sm) {
                 display: inline-flex;
@@ -179,7 +195,7 @@
                     height: 100%;
                     object-fit: cover;
                     opacity: 0.5;
-                    transition: opacity 300ms ease;
+                    transition: opacity 500ms v(ease-in-out-quart);
                 }
 
                 &.active {

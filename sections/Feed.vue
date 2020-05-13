@@ -38,7 +38,7 @@
                     v-on:click="slideTo(i)"
                     :class="phoneSlider && phoneSlider.realIndex === i ? 'active' : ''"
                 >
-                    <img :src="slide.slide_image.url" />
+                    <img :src="slide.thumb_image.url" />
                 </div>
             </div>
         </div>

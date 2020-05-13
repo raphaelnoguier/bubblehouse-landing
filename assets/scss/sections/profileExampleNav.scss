@@ -25,16 +25,22 @@
 
     .item {
         @include flexCenter();
+        justify-content: center;
         position: relative;
         height: 4.861vw;
         border: 1px solid #222222;
         border-radius: v(app-radius);
         color: v(whiteColor);
-        padding: 0 3.472vw;
+        padding: 0 1.667vw;
         cursor: pointer;
         transition: opacity 300ms v(ease-in-out-quad);
 
+        &:nth-child(2) {
+            margin: 0 2.222vw;
+        }
+
         &:not(.load-more) {
+            width: 100%;
             @include max(sm) {
                 pointer-events: none;
             }

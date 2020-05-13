@@ -45,6 +45,12 @@
             display: flex;
             justify-content: space-between;
 
+            &:first-child {
+                .media:nth-of-type(2) {
+                    z-index: 2;
+                }
+            }
+
             &:last-child {
                 margin-top: 1.111vw;
 
@@ -204,8 +210,8 @@
                     display: none;
                 }
                 .swiper-container {
-                    width: 27.222vw;
-                    height: 58.403vw;
+                    width: 24.514vw;
+                    height: 52.222vw;
                     margin: auto;
 
                     @include max(md) {
@@ -215,7 +221,7 @@
 
                     .swiper-wrapper {
                         display: inline-flex;
-                        height: 30.556vw;
+                        height: 27.153vw;
                         overflow: hidden;
                         transition-timing-function: v(ease-in-out-quart);
 
@@ -244,7 +250,7 @@
             }
 
             .phone-wrapper {
-                width: 27.222vw;
+                width: 24.514vw;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -261,8 +267,8 @@
                 }
 
                 .slider-prev, .slider-next {
-                    width: 3.333vw;
-                    height: 3.333vw;
+                    width: 4.444vw;
+                    height: 4.444vw;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -271,9 +277,13 @@
                     outline: none;
                     position: absolute;
                     user-select: none;
-                    left: -7.222vw;
+                    left: -8.6vw;
                     bottom: 0;
                     transform: translateY(-14.444vw) rotate(-90deg);
+
+                    &:active:before {
+                        transform: scale3d(0.95, 0.95, 1);
+                    }
 
                     @include max(md) {
                         width: 7.292vw;
@@ -316,11 +326,12 @@
                         background: v(whiteColor);
                         opacity: 0.1;
                         border-radius: 6px;
+                        transition: transform 100ms v(ease-in-out-quad);
                     }
 
                     &.slider-next {
                         left: auto;
-                        right: -7.222vw;
+                        right: -8.6vw;
                         transform: translateY(-14.444vw) rotate(90deg);
 
                         @include max(md) {

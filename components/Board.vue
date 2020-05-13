@@ -183,7 +183,8 @@ export default {
         initSliders(slidersEls) {
             slidersEls.forEach((slider, i) => {
                 this.slidersInstance.push(new Swiper (slider, {
-                    spaceBetween: i === 0 ? Utils.vw(1.95) : 0,
+                    spaceBetween: i === 0 ? Utils.vw(3.611) : 0,
+                    slideToClickedSlide: i === 0,
                     speed: 500,
                     initialSlide: 1,
                     allowTouchMove: false,
@@ -240,10 +241,11 @@ export default {
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
                 const mappedWrapperY = Utils.map(progress, 0, 1, 0, window.innerWidth <= 768 ? 200 : 125);
+                const rotate = Utils.map(progress, 0, 1, 0, 5);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
                 block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0)`;
-                this.boardWrapper.style.transform = `translate3d(0px, ${mappedWrapperY}%, 0)`;
+                this.boardWrapper.style.transform = `translate3d(0px, ${mappedWrapperY}%, 0) rotate3d(0, 0, 1, ${rotate}deg)`;
             })
         }
     },

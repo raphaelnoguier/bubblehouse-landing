@@ -30,6 +30,8 @@
 .button-component {
 	height: 3.889vw;
 	width: 42.45%;
+	max-width: 26vw;
+	max-height: 9.5vw;
 	padding: 0 1.111vw;
 	background-color: v(brand-color);
 	border-radius: v(app-radius);
