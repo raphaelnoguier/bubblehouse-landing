@@ -63,6 +63,7 @@
             .button-component {
                 width: 15.625vw;
                 transition: background-color 300ms v(ease-in-out-quad);
+                background-color: unset;
 
                 @include max(sm) {
                     width: 47.200vw;

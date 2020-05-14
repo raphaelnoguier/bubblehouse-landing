@@ -123,7 +123,6 @@ export default {
             categories: [],
             activeCategory: 0,
             slidersInstance: [],
-            hasEnteredView: false,
             boardImagesVisible: true,
             fetchingImages: false
         }
@@ -146,12 +145,7 @@ export default {
             selector: '.section.boards',
             offset: 1,
             enter: () => {
-                this.hasEnteredView = true;
-                this.setCTABgColor();
-            },
-            exit: () => {
-                this.hasEnteredView = true;
-                this.setCTABgColor();
+                this.setCTABgColor('rgba(10, 10, 10, 0.3)');
             },
         });
         enterView({
@@ -163,6 +157,9 @@ export default {
         });
     },
     methods: {
+        setCTABgColor(color) {
+            this.$store.commit('SET_NAV_CTA_BG_COLOR', color);
+        },
         calcBounds() {
             this.mediasBounds = [];
             this.medias.forEach((media) => {
@@ -189,10 +186,7 @@ export default {
                     initialSlide: 1,
                     allowTouchMove: false,
                     on: {
-                        slideChange: () => {
-                            this.setSectionBgColor();
-                            this.setCTABgColor();
-                        }
+                        slideChange: () => this.setSectionBgColor()
                     },
                     navigation: {
                         nextEl: '.slider-next',
@@ -208,16 +202,6 @@ export default {
             if (currentSliderInstance) {
                 this.$store.commit('SET_BOARD_SECTION_BG_COLOR',
                     currentSlider.items[currentSliderInstance.activeIndex].background_color
-                );
-            }
-        },
-        setCTABgColor() {
-            const currentSlider = this.horizontalSliders[this.activeCategory];
-            const currentSliderInstance = this.slidersInstance[this.activeCategory];
-
-            if (currentSliderInstance && this.hasEnteredView) {
-                this.$store.commit('SET_NAV_CTA_BG_COLOR',
-                    currentSlider.items[currentSliderInstance.activeIndex].cta_background_color
                 );
             }
         },

@@ -29,7 +29,18 @@ export default {
 	head() {
 		return {
 			title: this.app.meta_title,
-			description: this.app.meta_description
+			description: this.app.meta_description,
+			meta: [
+				{ charset: 'utf-8' },
+				{ name: 'author', content: this.app.meta_author }
+			],
+			link: [
+				{
+				rel: 'icon',
+				type: 'image/png',
+				href: this.app.favicon.url
+				},
+			],
 		}
 	},
 	components: {

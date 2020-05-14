@@ -52,7 +52,7 @@
         }
 
         .slider-controls {
-            transform: translateY(-2.575vw);
+            transform: translateY(-2.375vw);
 
             @include max(sm) {
                 @include flexCenter();
@@ -78,8 +78,8 @@
                     transform: scale3d(0.95, 0.95, 1);
                 }
 
-                img {
-                    width: 27%;
+                img {
+                    width: 25%;
                 }
 
                 @include max(md) {
@@ -160,7 +160,7 @@
             border: 3px solid rgba(white, 0.1);
             border-radius: 100px;
             overflow: hidden;
-            transform: translate3d(0, -2.575vw, 0);
+            transform: translate3d(0, -2.375vw, 0);
 
             @include max(sm) {
                 display: inline-flex;

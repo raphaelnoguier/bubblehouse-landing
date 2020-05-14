@@ -84,9 +84,8 @@ export default {
                 self.$store.commit('SET_NAV_CTA_VISIBLE', true);
             },
             exit: () => {
-                this.setCTABgColor();
                 self.$store.commit('SET_NAV_CTA_VISIBLE', false);
-            }
+            },
         });
 	},
 	methods: {

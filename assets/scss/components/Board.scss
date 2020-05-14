@@ -301,8 +301,7 @@
 
                     img {
                         opacity: 1;
-                        width: 1.667vw;
-                        height: 1.181vw;
+                        width: 25%;
                         transition: opacity 300ms ease;
 
                         @include max(md) {

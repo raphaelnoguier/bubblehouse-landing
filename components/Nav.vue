@@ -8,7 +8,11 @@
                 <span>{{nav.site_name}}</span>
             </div>
             <div :class="`right ${$store.getters.navCtaVisible ? 'visible': ''}`">
-                <button v-on:click="$store.commit('SET_MODAL_OPEN', true);" class="button-component" :style="`background-color: ${$store.getters.navCtaBgColor}`">
+                <button
+                    v-on:click="$store.commit('SET_MODAL_OPEN', true);"
+                    class="button-component"
+                    :style="`background-color:${$store.getters.navCtaBgColor}`"
+                >
                     <span>{{nav.global_cta_name}}</span>
                 </button>
             </div>

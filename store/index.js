@@ -10,7 +10,8 @@ export const state = () => ({
 	homepage: {},
 	navCtaVisible: false,
 	navCtaBgColor: '',
-	boardSectionBgColor: ''
+	prevNavCtaBgColor: '',
+	boardSectionBgColor: '',
 });
 
 export const getters = {
@@ -31,6 +32,9 @@ export const getters = {
 	},
 	navCtaBgColor(state) {
 		return state.navCtaBgColor
+	},
+	prevNavCtaBgColor(state) {
+		return state.prevNavCtaBgColor
 	},
 	boardSectionBgColor(state) {
 		return state.boardSectionBgColor
@@ -56,7 +60,8 @@ export const mutations = {
 		state.navCtaVisible = bool;
 	},
 	SET_NAV_CTA_BG_COLOR(state, color) {
-		// state.navCtaBgColor = color;
+		state.prevNavCtaBgColor = color;
+		state.navCtaBgColor = color;
 	},
 	SET_BOARD_SECTION_BG_COLOR(state, color) {
 		state.boardSectionBgColor = color;
