@@ -21,7 +21,7 @@
                         placeholder="Name"
                         v-model="nameValue"
                     />
-                    <button class="button-component" type="submit">
+                    <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit">
                         <span>{{footer.global_cta_name}}</span>
                     </button>
                 </form>
@@ -35,6 +35,8 @@
 /* Utils */
 import reveal from '~/utils/reveal';
 import Utils from '~/utils';
+import axios from 'axios';
+import qs from 'querystring';
 
 /* Components */
 import FooterLinks from '~/components/FooterLinks';
@@ -52,6 +54,7 @@ export default {
         return {
             emailValue: '',
             nameValue: '',
+            isLoading: false,
             error: false
         }
     },
@@ -64,12 +67,30 @@ export default {
     methods: {
         openModal() {
             const { commit } = this.$store;
+            const self = this;
             this.error = false;
+            const config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }
+
+            const body = {
+                email: self.emailValue,
+                name: self.nameValue
+            };
 
             if (Utils.isValidEmail(this.emailValue) && this.nameValue.length > 0) {
+                axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
+                .then(function (response) {
+                    self.$store.commit('SET_MODAL_BYPASS', true);
+                    self.isLoading = false;
+                })
+                .catch(function (error) {
+                    self.isLoading = false;
+                    console.log(error);
+                });
                 commit('SET_MODAL_OPEN', true);
-                commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
-                commit('SET_MODAL_INPUT_NAME', this.nameValue);
             }
             else this.error = true
         }

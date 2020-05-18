@@ -94,33 +94,11 @@ export default {
         }
     },
     mounted() {
+        this.columnsWrapper = this.$el.querySelector('.columns-slider');
         this.columns = this.$el.querySelectorAll('.column');
 
         this.sliders = [];
-
-        this.columns.forEach((column, i) => {
-            this.sliders[i] = new Swiper(column, {
-                direction: 'vertical',
-                loop: true,
-                speed: 10000,
-                freeMode: true,
-                loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
-                allowTouchMove: false,
-                autoplay: {
-                    delay: 0,
-                    reverseDirection: i === 1,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    320: {
-                        spaceBetween: Utils.vw(4.948),
-                    },
-                    780: {
-                        spaceBetween: Utils.vw(2.431),
-                    }
-                }
-            })
-        });
+        this.initSlidingColumns();
 
         const self = this;
         enterView({
@@ -137,6 +115,32 @@ export default {
         });
     },
     methods: {
+        initSlidingColumns() {
+            this.columns.forEach((column, i) => {
+                this.sliders[i] = new Swiper(column, {
+                    direction: 'vertical',
+                    loop: true,
+                    speed: 10000,
+                    freeMode: true,
+                    loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
+                    allowTouchMove: false,
+                    autoplay: {
+                        delay: 0,
+                        reverseDirection: i === 1,
+                        disableOnInteraction: false,
+                    },
+                    on: { init: () => this.columnsWrapper.style.opacity = 1 },
+                    breakpoints: {
+                        320: {
+                            spaceBetween: Utils.vw(4.948),
+                        },
+                        780: {
+                            spaceBetween: Utils.vw(2.431),
+                        }
+                    },
+                })
+            });
+        },
         getHeroStyle() {
             const { hero_background_color } = this.store;
             return `background-color: ${hero_background_color}`;

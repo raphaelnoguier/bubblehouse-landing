@@ -80,12 +80,11 @@ export default {
             selector: '.section.feed',
             offset: 1,
             enter: () => {
-                this.setCTABgColor();
+                self.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
+                this.$store.commit('SET_PREV_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
                 self.$store.commit('SET_NAV_CTA_VISIBLE', true);
             },
-            exit: () => {
-                self.$store.commit('SET_NAV_CTA_VISIBLE', false);
-            },
+            exit: () => self.$store.commit('SET_NAV_CTA_VISIBLE', false),
         });
 	},
 	methods: {
@@ -106,14 +105,10 @@ export default {
         slideTo(index) {
             this.phoneSlider.slideToLoop(index);
         },
-        setCTABgColor() {
-            this.$store.commit('SET_NAV_CTA_BG_COLOR',
-                this.verticalSlides[this.activeIndex].cta_background_color
-            );
-        },
         onSlideChange() {
-            this.activeIndex = this.phoneSlider.realIndex
-            this.setCTABgColor();
+            this.activeIndex = this.phoneSlider.realIndex;
+            this.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
+            this.$store.commit('SET_PREV_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
         }
 	}
 }

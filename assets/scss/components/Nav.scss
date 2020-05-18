@@ -1,12 +1,12 @@
 .nav-component {
     position: fixed;
     top: 0;
-    padding: 2.847vw 6.944vw;
+    padding: 2.847vw 6.944vw 0 6.944vw;
     width: 100%;
     z-index: 2;
 
     @include max(sm) {
-        padding: 8vw 6.400vw;
+        padding: 8vw 6.400vw 0 6.400vw;
     }
 
     .nav-content {
@@ -23,6 +23,10 @@
             @include max(sm) {
                 font-size: 3.733vw;
                 line-height: 5.600vw;
+            }
+
+            a {
+                @include flexCenter();
             }
 
             .logo {
@@ -62,8 +66,14 @@
 
             .button-component {
                 width: 15.625vw;
+                max-width: 225px;
+                max-height: 56px;
                 transition: background-color 300ms v(ease-in-out-quad);
                 background-color: unset;
+
+                @include max(md) {
+                    width: 25.786vw;
+                }
 
                 @include max(sm) {
                     width: 47.200vw;

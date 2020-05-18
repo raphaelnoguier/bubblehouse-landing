@@ -2,7 +2,7 @@
     <video
         :src="url"
         muted
-        autoplay
+        :autoplay="autoplay"
         loop
         playsinline
     />
@@ -11,7 +11,8 @@
 <script>
 export default {
     props: {
-        url: String
+        url: String,
+        autoplay: Boolean
     }
 }
 </script>

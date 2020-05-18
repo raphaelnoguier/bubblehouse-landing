@@ -65,6 +65,8 @@
             .prev, .next {
                 width: 4.444vw;
                 height: 4.444vw;
+                max-height: 64px;
+                max-width: 64px;
                 display: flex;
                 align-items: center;
                 justify-content: center;

@@ -35,6 +35,12 @@
 	border-radius: v(app-radius);
 	outline: none;
 	cursor: pointer;
+	transition: opacity 300ms v(ease-in-out-quad);
+
+	&.loading {
+		opacity: 0.5;
+		pointer-events: none;
+	}
 
 	@include max(md) {
 		height: 7.292vw;

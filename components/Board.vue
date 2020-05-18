@@ -88,7 +88,7 @@
                                         :key="index"
                                     >
                                         <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :url="slide.board_video.url" />
+                                        <Video :url="slide.board_video.url" :autoplay="false" />
                                     </div>
                                 </div>
                             </div>
@@ -144,10 +144,10 @@ export default {
         enterView({
             selector: '.section.boards',
             offset: 1,
-            enter: () => {
-                this.setCTABgColor('rgba(10, 10, 10, 0.3)');
-            },
+            enter: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'rgba(10, 10, 10, 0.5)'),
+            exit: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', this.$store.state.prevNavCtaBgColor),
         });
+
         enterView({
             selector: '.board-component-slider',
             progress: (el, progress) => {
@@ -157,9 +157,6 @@ export default {
         });
     },
     methods: {
-        setCTABgColor(color) {
-            this.$store.commit('SET_NAV_CTA_BG_COLOR', color);
-        },
         calcBounds() {
             this.mediasBounds = [];
             this.medias.forEach((media) => {
@@ -189,11 +186,15 @@ export default {
                         slideChange: () => this.setSectionBgColor()
                     },
                     navigation: {
-                        nextEl: '.slider-next',
-                        prevEl: '.slider-prev',
+                        nextEl: i === 0 ? '.slider-next' : null,
+                        prevEl: i === 0 ? '.slider-prev' : null,
                     },
                 }));
             });
+
+            // Assign each other controls
+            this.slidersInstance[0].controller.control = this.slidersInstance[1];
+            this.slidersInstance[1].controller.control = this.slidersInstance[0];
         },
         setSectionBgColor() {
             const currentSlider = this.horizontalSliders[this.activeCategory];

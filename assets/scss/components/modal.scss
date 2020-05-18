@@ -4,6 +4,7 @@
     pointer-events: none;
     position: fixed;
     z-index: 3;
+    top: 0;
     height: 100%;
     width: 100%;
 
@@ -45,9 +46,9 @@
         color: v(whiteColor);
         text-align: center;
         height: 36.042vw;
-        transform: translate3d(0, 20vw, 0);
+        transform: translate3d(0, 10vw, 0);
         opacity: 0;
-        transition: opacity 300ms v(ease-in-out-quad), height 600ms v(ease-in-out-quad), transform 500ms v(ease-in-out-quart);
+        transition: opacity 400ms v(ease-in-out-quad) 100ms, height 600ms v(ease-in-out-quad) 100ms, transform 500ms v(ease-in-out-quad) 100ms;
         overflow: hidden;
 
         @include max(sm) {
@@ -101,6 +102,12 @@
         position: relative;
         width: 100%;
         height: 100%;
+
+        &.no-transition {
+            .step {
+                transition-duration: 0ms;
+            }
+        }
 
         @include max(sm) {
             margin-top: 6.400vw;

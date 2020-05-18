@@ -5,8 +5,8 @@
             <div class="modal-close" v-on:click="closeModal()">
                 <img src="~/assets/images/icons/close.svg" />
             </div>
-            <div class="modal-content">
-                <div :class="`step ${currentStep === 1 ? 'visible' : ''}`">
+            <div :class="`modal-content ${$store.state.modalByPass ? 'no-transition' : ''}`">
+                <div :class="`step ${!$store.state.modalByPass && currentStep === 1 ? 'visible' : ''}`">
                     <div class="title">
                         <h2>{{modal.modal_title}}</h2>
                     </div>
@@ -31,12 +31,12 @@
                             v-model="$store.state.modalInputName"
                             required
                         />
-                        <button class="button-component" type="submit" v-on:click="changeStep">
+                        <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit" v-on:click="changeStep">
                             <span>{{modal.global_cta_name}}</span>
                         </button>
                     </form>
                 </div>
-                <div :class="`step step-2 ${currentStep === 2 ? 'visible' : ''}`">
+                <div :class="`step step-2 ${currentStep === 2 || $store.state.modalByPass ? 'visible' : ''}`">
                     <div class="title">
                         <h2>{{modal.modal_form_complete_title}}</h2>
                     </div>
@@ -80,12 +80,15 @@ export default {
     },
     data() {
         return {
-            currentStep: 1
+            currentStep: 1,
+            isLoading: false
         }
     },
     methods: {
         changeStep() {
             if (this.$store.state.modalInputName.length) {
+                const self = this;
+                self.isLoading = true;
                 const config = {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -99,10 +102,11 @@ export default {
 
                 axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
-                    this.currentStep = 2;
-                    console.log(response);
+                    self.currentStep = 2;
+                    self.isLoading = false;
                 })
                 .catch(function (error) {
+                    self.isLoading = false;
                     console.log(error);
                 });
             }

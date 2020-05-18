@@ -1,0 +1,56 @@
+#simple-page {
+    margin-top: 13.333vw;
+
+    .page-wrapper {
+        max-width: 49.306vw;
+        padding-left: 6.944vw;
+        color: v(whiteColor);
+
+        @include max(md) {
+            max-width: 100%;
+            padding: 0 6.510vw;
+        }
+
+        .header {
+            @include proximaBold(2.222vw, 3.333vw);
+
+            @include max(md) {
+                font-size: 4.167vw;
+                line-height: 6.250vw;
+            }
+        }
+
+        .content {
+            margin-top: 2.986vw;
+            margin-bottom: 4.514vw;
+
+            p {
+                @include proximaRegular(1.389vw, 2.083vw);
+                margin-top: 2.431vw;
+
+                @include max(md) {
+                    font-size: 2.865vw;
+                    line-height: 4.167vw;
+                    margin-top: 4.557vw;
+                }
+            }
+
+            strong {
+                @include proximaBold(1.389vw, 2.083vw);
+
+                @include max(md) {
+                    font-size: 3.646vw;
+                    line-height: 6.250vw;
+                }
+            }
+        }
+    }
+
+    .footer-links-component {
+        margin-bottom: 4.167vw;
+
+        a {
+            color: v(whiteColor);
+        }
+    }
+}

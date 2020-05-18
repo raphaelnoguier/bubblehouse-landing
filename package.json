@@ -18,6 +18,7 @@
     "intersection-observer": "^0.10.0",
     "lazy-load": "^0.0.2",
     "nuxt": "^2.0.0",
+    "prismic-dom": "^2.2.3",
     "prismic-javascript": "^2.7.1",
     "swiper": "^5.3.8",
     "vue": "^2.6.11",

@@ -2,16 +2,18 @@
     <div class="nav-component">
         <div class="nav-content">
             <div class="left">
-                <div class="logo">
-                    <img :src="nav.logo.url" />
-                </div>
-                <span>{{nav.site_name}}</span>
+                <a href="/">
+                    <div class="logo">
+                        <img :src="nav.logo.url" />
+                    </div>
+                    <span>{{nav.site_name}}</span>
+                </a>
             </div>
-            <div :class="`right ${$store.getters.navCtaVisible ? 'visible': ''}`">
+            <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' ? 'visible': ''}`">
                 <button
                     v-on:click="$store.commit('SET_MODAL_OPEN', true);"
                     class="button-component"
-                    :style="`background-color:${$store.getters.navCtaBgColor}`"
+                    :style="`background-color:${$route.name !== 'terms' ? $store.getters.navCtaBgColor : 'var(--brand-color)'}`"
                 >
                     <span>{{nav.global_cta_name}}</span>
                 </button>

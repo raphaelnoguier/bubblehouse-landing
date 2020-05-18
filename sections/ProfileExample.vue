@@ -117,11 +117,8 @@ export default {
         enterView({
             selector: '.section.profile-example',
             offset: 1,
-            enter: () => {
-                this.$store.commit('SET_NAV_CTA_BG_COLOR',
-                    'var(--brand-color)'
-                );
-            }
+            enter: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'var(--brand-color)'),
+            exit: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'rgba(10, 10, 10, 0.5)'),
         });
 
         window.addEventListener('resize', this.checkMobile, false);
