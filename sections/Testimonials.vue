@@ -16,7 +16,7 @@
                     :avatar="testimonial.primary.avatar.url"
                 />
             </div>
-            <div class="slider-controls">
+            <div class="slider-controls-testimonial">
                 <div class="prev">
                     <img src="~assets/images/icons/arrow.svg" />
                 </div>
@@ -49,8 +49,8 @@ export default {
         this.testimonialSlider = new Swiper(this.$refs.testimonialSlider, {
             speed: 500,
             navigation: {
-                nextEl: '.slider-controls .next',
-                prevEl: '.slider-controls .prev',
+                nextEl: '.slider-controls-testimonial .next',
+                prevEl: '.slider-controls-testimonial .prev',
             },
             breakpoints: {
                 375: {

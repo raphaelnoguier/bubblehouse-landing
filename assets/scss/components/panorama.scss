@@ -23,7 +23,7 @@
                 background: v(blackColor);
                 z-index: 1;
 
-                @include max(sm) {
+                @include max(md) {
                     width: 25%;
                 }
             }

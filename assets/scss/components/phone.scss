@@ -6,6 +6,11 @@
     overflow: hidden;
     z-index: 1;
 
+    @include min(xl) {
+        border-width: 8px;
+        border-radius: 60px;
+    }
+
     @include max(md) {
         width: 41.406vw;
         height: 88.802vw;

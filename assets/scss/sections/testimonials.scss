@@ -41,7 +41,7 @@
             }
         }
 
-        .slider-controls {
+        .slider-controls-testimonial {
             justify-content: space-between;
             max-width: 14.583vw;
             width: 100%;
@@ -56,10 +56,6 @@
             }
 
             @include max(sm) {
-                // right: 6.400vw;
-                // max-width: 25.867vw;
-                // align-items: flex-end;
-                // bottom: 2.667vw;
                 display: none;
             }
 

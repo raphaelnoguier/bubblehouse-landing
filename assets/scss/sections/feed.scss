@@ -54,6 +54,10 @@
         .slider-controls {
             transform: translateY(-2.375vw);
 
+            @include max(md) {
+                transform: translateY(-10.8vw);
+            }
+
             @include max(sm) {
                 @include flexCenter();
                 position: absolute;
@@ -163,6 +167,10 @@
             border-radius: 100px;
             overflow: hidden;
             transform: translate3d(0, -2.375vw, 0);
+
+            @include max(md) {
+                transform: translate3d(0, -10.8vw, 0);
+            }
 
             @include max(sm) {
                 display: inline-flex;

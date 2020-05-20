@@ -106,11 +106,15 @@ export default {
             offset: 1,
             enter: () => {
                 console.log('stop autolay on hero');
-                self.sliders.forEach(slider => slider.autoplay.stop());
+                self.sliders.forEach(slider => {
+                    slider.autoplay.stop();
+                });
             },
             exit: () => {
                 console.log('restart autoplay on hero');
-                self.sliders.forEach(slider => slider.autoplay.start());
+                self.sliders.forEach(slider => {
+                    slider.autoplay.start();
+                });
             },
         });
     },
@@ -121,11 +125,11 @@ export default {
                     direction: 'vertical',
                     loop: true,
                     speed: 10000,
-                    freeMode: true,
                     loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
                     allowTouchMove: false,
                     autoplay: {
                         delay: 0,
+                        stopOnLastSlide: false,
                         reverseDirection: i === 1,
                         disableOnInteraction: false,
                     },

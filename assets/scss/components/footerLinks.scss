@@ -38,7 +38,7 @@
                     line-height: 3.125vw;
                 }
 
-                @include max(md) {
+                @include max(sm) {
                     font-size: 3.733vw;
                     line-height: 5.600vw;
                 }

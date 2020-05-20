@@ -67,6 +67,7 @@
     .trio-portrait-squares {
         .full-col {
             height: 100%;
+            width: 50%;
 
             video, img {
                 width: 100%;
@@ -78,6 +79,7 @@
         .splitted-col {
             display: flex;
             flex-direction: column;
+            width: 50%;
 
             img, video {
                 width: 100%;

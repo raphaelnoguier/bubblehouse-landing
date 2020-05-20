@@ -6,12 +6,14 @@
 
     @include max(md) {
         flex-direction: column;
-        margin-top: 6.120vw;
+        max-width: 47.135vw;
+        margin: 6.120vw auto 0 auto;
     }
 
     @include max(sm) {
         padding: 0 6.4vw;
         margin-top: 12.8vw;
+        max-width: 100%;
     }
 
     &.center {

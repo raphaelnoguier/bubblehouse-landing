@@ -4,10 +4,13 @@
     .big-quote-content {
         color: v(whiteColor);
         text-align: center;
-        @include proximaExtraBold(6.250vw, 6.250vw);
 
         h3 {
             @include proximaExtraBold(6.250vw, 6.250vw);
+
+            @include min(xl) {
+                font-size: 130px;
+            }
 
             @include max(md) {
                 font-size: 10.417vw;

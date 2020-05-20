@@ -87,7 +87,13 @@
                     position: absolute;
                     top:0;
                     width: 100%;
-                    height: 35.7%;
+                    height: 35.6%;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
 
                     video {
                         width: 100%;
@@ -121,7 +127,7 @@
                     }
 
                     .middle {
-                        height: 39.31%;
+                        height: 39%;
                     }
 
                     .bottom {

@@ -45,6 +45,10 @@
             h3 {
                 @include proximaExtraBold(6.250vw, 6.250vw);
 
+                @include min(xl) {
+                    font-size: 130px;
+                }
+
                 @include max(md) {
                     font-size: 10.417vw;
                     line-height: 10.417vw;
@@ -60,6 +64,10 @@
                 max-width: 39.792vw;
                 margin: 1.597vw auto 0 auto;
                 @include proximaRegular(1.806vw, 2.778vw);
+
+                @include min(xl) {
+                    font-size: 30px;
+                }
 
                 @include max(md) {
                     max-width: 68.099vw;

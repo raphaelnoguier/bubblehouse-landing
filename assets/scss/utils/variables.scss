@@ -22,5 +22,9 @@
         @include max(md) {
             --large-wrapper: 86.979vw;
         }
+
+        @include min(xl) {
+            --app-radius: 8px;
+        }
     }
 }

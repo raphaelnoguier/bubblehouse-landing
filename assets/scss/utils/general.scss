@@ -15,8 +15,20 @@ body {
 	transition: background-color 500ms ease;
 	overscroll-behavior-y: none;
 
+	@include min(xl) {
+		font-size: 30px;
+	}
+
 	&.locked {
 		overflow: hidden;
+	}
+
+	.app {
+		opacity: 0;
+		transition: opacity 500ms v(ease-in-out-quad);
+		&.loaded {
+			opacity: 1;
+		}
 	}
 }
 

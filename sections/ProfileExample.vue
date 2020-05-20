@@ -43,7 +43,8 @@
                         <div :class="`media full ${profile.is_big ? 'video' : ''}`">
                             <template v-if="profile.is_big">
                                 <div class="video-wrapper">
-                                    <Video :url="profile.video.url" />
+                                    <img :src="profile.header_overlay.url" alt="profile-header" />
+                                    <Video :url="profile.video.url" autoplay />
                                 </div>
                             </template>
                             <div class="layer-wrapper">

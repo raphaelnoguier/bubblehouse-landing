@@ -44,8 +44,8 @@
                 </div>
             </div>
         </div>
-        <div class="board-component-slider" ref="boardSlider">
-            <div class="board-slider-nav" ref="boardSliderNav">
+        <div :class="`board-component-slider ${fetchingImages ? 'no-events' : ''}`" ref="boardSlider">
+            <div class="board-slider-nav">
                 <div class="categories">
                     <div
                         :class="`single ${i === activeCategory ? 'active' : ''}`"
@@ -88,7 +88,7 @@
                                         :key="index"
                                     >
                                         <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :url="slide.board_video.url" :autoplay="false" />
+                                        <Video :src="slide.board_video.url" :autoplay="false" />
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,6 @@ export default {
         this.medias = this.$el.querySelectorAll('.media-wrapper');
         this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
-        this.boardSliderNav = this.$refs.boardSliderNav;
         this.slidersEls = [this.$refs.sliderBehind, this.$refs.sliderInFront];
         this.calcBounds();
         this.buildCategories();
@@ -192,8 +191,8 @@ export default {
                         }
                     },
                     navigation: {
-                        nextEl: i === 0 ? '.slider-next' : null,
-                        prevEl: i === 0 ? '.slider-prev' : null,
+                        nextEl: i === 0 && '.slider-next',
+                        prevEl: i === 0 && '.slider-prev',
                     },
                 }));
             });
@@ -212,8 +211,7 @@ export default {
         },
         setSectionBgColor() {
             const currentSlider = this.horizontalSliders[this.activeCategory];
-            const currentSliderInstance = this.slidersInstance[this.activeCategory];
-
+            const currentSliderInstance = this.slidersInstance[1];
             if (currentSliderInstance) {
                 this.$store.commit('SET_BOARD_SECTION_BG_COLOR',
                     currentSlider.items[currentSliderInstance.activeIndex].background_color
@@ -227,17 +225,16 @@ export default {
             setTimeout(() => this.activeCategory = index, 500);
 
             this.$Lazyload.$on('loaded', () => {
-                this.setSectionBgColor();
-                this.playFirstVideo();
-                this.fetchingImages = false;
+                this.activeCategory = index
+                const videos = this.$refs.sliderInFront.querySelectorAll('video');
+                videos[this.slidersInstance[1].activeIndex].oncanplaythrough = (e) => {
+                    this.setSectionBgColor();
+                    this.fetchingImages = false;
+                    e.target.play();
+                };
             });
         },
         transform(progress) {
-            const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
-            this.boardSliderNav.style.opacity = opacityProgress;
-
-            if (progress === 1) this.boardSliderNav.style.opacity = 1;
-
             this.mediasBounds.forEach((bounds, i) => {
                 const block = this.medias[i];
                 const image = this.medias[i].children[0];
