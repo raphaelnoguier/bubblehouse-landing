@@ -41,7 +41,9 @@
 
         &:not(.load-more) {
             width: 100%;
+
             @include max(sm) {
+                border: none;
                 pointer-events: none;
             }
         }

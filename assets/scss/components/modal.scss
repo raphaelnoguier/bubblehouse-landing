@@ -51,6 +51,11 @@
         transition: opacity 400ms v(ease-in-out-quad) 100ms, height 600ms v(ease-in-out-quad) 100ms, transform 500ms v(ease-in-out-quad) 100ms;
         overflow: hidden;
 
+        @include max(md) {
+            width: calc(100% - 28.646vw);
+            height: 67.578vw;
+        }
+
         @include max(sm) {
             width: calc(100% - 12.8vw);
             padding: 6.400vw;
@@ -59,6 +64,14 @@
 
         &.small {
             height: 30.139vw;
+
+            @include max(md) {
+                height: 56.510vw;
+            }
+
+            @include max(sm) {
+                height: 127.467vw;
+            }
         }
 
         .modal-close {
@@ -66,6 +79,11 @@
             position: absolute;
             top: 1.806vw;
             right: 1.944vw;
+
+            @include max(md) {
+                top: 3.255vw;
+                right: 3.255vw;
+            }
 
             @include max(sm) {
                 top: 7.200vw;
@@ -86,9 +104,27 @@
 
         &.step-2 {
             transform: translate3d(100%, -50%, 0);
+
+            .title {
+                @include max(sm) {
+                    font-size: 12.800vw;
+                    line-height: 15.467vw;
+                }
+            }
+
             .form .button-component {
                 margin-top: 2.292vw;
                 width: 19.861vw;
+
+                @include max(md) {
+                    width: 37.240vw;
+                    margin-top: 4.036vw;
+                }
+
+                @include max(sm) {
+                    width: 100%;
+                    margin-top: 12vw;
+                }
             }
         }
 
@@ -116,6 +152,11 @@
         .title {
             @include proximaBold(2.222vw, 3.333vw);
 
+            @include max(md) {
+                font-size: 3.646vw;
+                line-height: 6.250vw;
+            }
+
             @include max(sm) {
                 font-size: 6.400vw;
                 line-height: 9.600vw;
@@ -126,6 +167,12 @@
             @include proximaRegular(1.389vw, 2.083vw);
             margin-top: 0.486vw;
 
+            @include max(md) {
+                font-size: 2.604vw;
+                line-height: 4.167vw;
+                margin-top: 0.781vw;
+            }
+
             @include max(sm) {
                 font-size: 4.800vw;
                 line-height: 7.200vw;
@@ -135,6 +182,10 @@
 
         form {
             margin-top: 2.778vw;
+
+            @include max(md) {
+                margin-top: 4.688vw;
+            }
 
             @include max(sm) {
                 margin-top: 18.667vw;
@@ -147,6 +198,10 @@
                 &:last-of-type {
                     margin-top: 1.667vw;
 
+                    @include max(md) {
+                        margin-top: 3.125vw;
+                    }
+
                     @include max(sm) {
                         margin-top: 4.267vw;
                     }
@@ -156,6 +211,10 @@
             .button-component {
                 margin-top: 1.667vw;
                 width: 100%;
+
+                @include max(md) {
+                    margin-top: 3.125vw;
+                }
 
                 @include max(sm) {
                     margin-top: 4.267vw;
@@ -169,6 +228,14 @@
             margin-top: 2.847vw;
             width: 100%;
 
+            @include max(md) {
+                margin-top: 5.339vw;
+            }
+
+            @include max(sm) {
+                margin-top: 8.533vw;
+            }
+
             a {
                 @include flexCenter();
                 justify-content: center;
@@ -177,13 +244,37 @@
                 background: v(blackColor);
                 border-radius: 13px;
 
+                @include max(md) {
+                    width: 7.813vw;
+                    height: 7.813vw;
+                }
+
+                @include max(sm) {
+                    width: 16vw;
+                    height: 16vw;
+                }
+
                 &:nth-of-type(2) {
                     margin: 0 3.542vw;
+
+                    @include max(md) {
+                        margin: 0 6.510vw;
+                    }
                 }
 
                 img {
                     max-width: 1.667vw;
                     max-height: 1.597vw;
+
+                    @include max(md) {
+                        max-width: 3.906vw;
+                        max-height: 3.125vw;
+                    }
+
+                    @include max(sm) {
+                        max-width: 7.467vw;
+                        max-height: 6.4vw;
+                    }
                 }
             }
         }

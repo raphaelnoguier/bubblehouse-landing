@@ -2,7 +2,7 @@
     <video
         :src="url"
         muted
-        :autoplay="autoplay"
+        :autoplay="autoplay ? true : false"
         loop
         playsinline
     />

@@ -218,6 +218,8 @@ export default {
             const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
             this.boardSliderNav.style.opacity = opacityProgress;
 
+            if (progress === 1) this.boardSliderNav.style.opacity = 1;
+
             this.mediasBounds.forEach((bounds, i) => {
                 const block = this.medias[i];
                 const image = this.medias[i].children[0];

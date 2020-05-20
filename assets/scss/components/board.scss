@@ -140,6 +140,7 @@
                 @include max(sm) {
                     height: 11.200vw;
                     margin-left: 6.400vw;
+                    display: inline-flex;
                 }
 
                 .single {
@@ -163,6 +164,12 @@
                         font-size: 3.733vw;
                         line-height: 5.600vw;
                         padding: 0 4.267vw;
+                    }
+
+                    &:last-child {
+                        @include max(sm) {
+                            margin-right: 6.400vw;
+                        }
                     }
 
                     &:before {

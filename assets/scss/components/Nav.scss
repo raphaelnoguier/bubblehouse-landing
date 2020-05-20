@@ -5,6 +5,10 @@
     width: 100%;
     z-index: 2;
 
+    @include max(md) {
+        padding: 6.510vw 6.510vw 0 6.510vw;
+    }
+
     @include max(sm) {
         padding: 8vw 6.400vw 0 6.400vw;
     }
@@ -20,6 +24,10 @@
             @include proximaBold(1.111vw, 1);
             letter-spacing: 1px;
 
+            @include max(md) {
+                font-size: 2.083vw;
+            }
+
             @include max(sm) {
                 font-size: 3.733vw;
                 line-height: 5.600vw;
@@ -34,6 +42,11 @@
                 height: 1.111vw;
 
                 @include max(md) {
+                    width: 2.083vw;
+                    height: 2.083vw;
+                }
+
+                @include max(sm) {
                     width: 6.400vw;
                     height: 6.400vw;
                 }
