@@ -8,11 +8,12 @@
             <div class="form-wrapper">
                 <form v-on:submit.prevent="openModal">
                     <input
-                        :class="`input-component ${error ? 'error' : ''}`"
+                        class="input-component"
                         type="email"
                         name="email"
                         placeholder="Mail adress"
                         v-model="emailValue"
+                        required
                     />
                     <input
                         class="input-component"
@@ -20,6 +21,7 @@
                         name="name"
                         placeholder="Name"
                         v-model="nameValue"
+                        required
                     />
                     <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit">
                         <span>{{footer.global_cta_name}}</span>
@@ -34,7 +36,6 @@
 <script>
 /* Utils */
 import reveal from '~/utils/reveal';
-import Utils from '~/utils';
 import axios from 'axios';
 import qs from 'querystring';
 
@@ -68,7 +69,8 @@ export default {
         openModal() {
             const { commit } = this.$store;
             const self = this;
-            this.error = false;
+
+            self.isLoading = true;
             const config = {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -80,19 +82,20 @@ export default {
                 name: self.nameValue
             };
 
-            if (Utils.isValidEmail(this.emailValue) && this.nameValue.length > 0) {
+            if (this.nameValue.length > 0) {
                 axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
                     self.$store.commit('SET_MODAL_BYPASS', true);
-                    self.isLoading = false;
+                    setTimeout(() => {
+                        commit('SET_MODAL_OPEN', true);
+                        self.isLoading = false;
+                    }, 500);
                 })
                 .catch(function (error) {
                     self.isLoading = false;
                     console.log(error);
                 });
-                commit('SET_MODAL_OPEN', true);
             }
-            else this.error = true
         }
     },
     components: {

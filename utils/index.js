@@ -24,13 +24,9 @@ const isTouchDevice = () => {
     return mq(query);
 };
 
-const isValidEmail = (mail) =>  (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
-
-
 export default {
 	map,
 	clamp,
 	vw,
-	isTouchDevice,
-	isValidEmail
+	isTouchDevice
 }

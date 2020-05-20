@@ -10,6 +10,7 @@ export const state = () => ({
 	modalByPass: false,
 	homepage: {},
 	termsPage: {},
+	privacyPage: {},
 	navCtaVisible: false,
 	navCtaBgColor: '',
 	prevNavCtaBgColor: '',
@@ -34,6 +35,9 @@ export const getters = {
 	},
 	termsPage(state) {
 		return state.termsPage
+	},
+	privacyPage(state) {
+		return state.privacyPage
 	},
 	navCtaVisible(state) {
 		return state.navCtaVisible
@@ -70,6 +74,9 @@ export const mutations = {
 	SET_TERMSPAGE(state, termsPage) {
 		state.termsPage = termsPage
 	},
+	SET_PRIVACYPAGE(state, privacyPage) {
+		state.privacyPage = privacyPage
+	},
 	SET_NAV_CTA_VISIBLE(state, bool) {
 		state.navCtaVisible = bool;
 	},
@@ -99,6 +106,21 @@ export const actions = {
 		if (homepage) {
 			commit('SET_HOMEPAGE', homepage);
 			return { homepage };
+		}
+	},
+	async GET_PRIVACY ({ commit }) {
+		let privacyPage = null;
+
+	  	await Prismic.getApi(prismicConfig.apiEndpoint, { accessToken: prismicConfig.accessToken }).then((api) => {
+			return api.query(Prismic.Predicates.at('document.type', 'privacy'))
+			.then((response) => {
+				privacyPage = response.results[0].data
+			});
+	  	});
+
+		if (privacyPage) {
+			commit('SET_PRIVACYPAGE', privacyPage);
+			return { privacyPage };
 		}
 	},
 	async GET_TERMS ({ commit }) {

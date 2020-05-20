@@ -7,13 +7,14 @@
                     <p>{{store.hero_description}}</p>
                 </div>
                 <div class="form">
-                    <form v-on:submit.prevent="openModal">
+                    <form v-on:submit.prevent="openModal" ref="form">
                         <input
-                            :class="`input-component ${error ? 'error' : ''}`"
-                            type="text"
+                            class="input-component"
+                            type="email"
                             name="email"
                             placeholder="Enter your email address"
                             v-model="emailValue"
+                            required
                         />
                         <button
                             class="button-component"
@@ -78,8 +79,7 @@ import Phone from '~/components/Phone';
 export default {
     data() {
         return {
-            emailValue: '',
-            error: false
+            emailValue: ''
         }
     },
     components: {
@@ -147,13 +147,11 @@ export default {
         },
         openModal() {
             const { commit } = this.$store;
-            this.error = false;
 
-            if (Utils.isValidEmail(this.emailValue) || window.innerWidth <= 415) {
+            if (this.$refs.form.checkValidity()) {
                 commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
                 commit('SET_MODAL_OPEN', true);
             }
-            else this.error = true
         }
     }
 }

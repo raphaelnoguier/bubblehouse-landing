@@ -1,25 +1,26 @@
 <template>
     <div :class="`modal-wrapper ${visible ? 'visible' : ''}`">
         <div class="modal-overlay" v-on:click="closeModal()" />
-        <div :class="`modal-component ${currentStep === 2 ? 'small' : ''}`">
+        <div :class="`modal-component ${state.currentStep === 2 ? 'small' : ''}`">
             <div class="modal-close" v-on:click="closeModal()">
                 <img src="~/assets/images/icons/close.svg" />
             </div>
-            <div :class="`modal-content ${$store.state.modalByPass ? 'no-transition' : ''}`">
-                <div :class="`step ${!$store.state.modalByPass && currentStep === 1 ? 'visible' : ''}`">
+            <div class="modal-content">
+                <div :class="`step ${state.currentStep === 1 ? 'visible' : ''}`">
                     <div class="title">
                         <h2>{{modal.modal_title}}</h2>
                     </div>
                     <div class="description">
                         <p>{{modal.modal_subtitle}}</p>
                     </div>
-                    <form v-on:submit.prevent="changeStep">
+                    <form v-on:submit.prevent="changeStep" ref="form">
                         <input
                             type="email"
                             name="email"
                             placeholder="Email"
                             class="input-component"
                             tabIndex="0"
+                            required
                             v-model="$store.state.modalInputEmail"
                         />
                         <input
@@ -31,12 +32,12 @@
                             v-model="$store.state.modalInputName"
                             required
                         />
-                        <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit" v-on:click="changeStep">
+                        <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit">
                             <span>{{modal.global_cta_name}}</span>
                         </button>
                     </form>
                 </div>
-                <div :class="`step step-2 ${currentStep === 2 || $store.state.modalByPass ? 'visible' : ''}`">
+                <div :class="`step step-2 ${state.currentStep === 2 ? 'visible' : ''}`">
                     <div class="title">
                         <h2>{{modal.modal_form_complete_title}}</h2>
                     </div>
@@ -73,22 +74,28 @@ import axios from 'axios';
 import qs from 'querystring';
 
 export default {
+    data() {
+        return {
+            isLoading: false
+        }
+    },
     computed: {
         modal() {
             return this.$store.state.homepage
-        }
-    },
-    data() {
-        return {
-            currentStep: 2,
-            isLoading: false
+        },
+        state() {
+            return {
+                currentStep: this.$store.state.modalByPass ? 2 : 1,
+                isLoading: false
+            }
         }
     },
     methods: {
         changeStep() {
-            if (this.$store.state.modalInputName.length) {
+            if (this.$refs.form.checkValidity()) {
                 const self = this;
                 self.isLoading = true;
+
                 const config = {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
@@ -107,7 +114,6 @@ export default {
                 })
                 .catch(function (error) {
                     self.isLoading = false;
-                    console.log(error);
                 });
             }
         },

@@ -6,7 +6,6 @@
 	padding: 0 1.111vw;
 	border-radius: v(app-radius);
 	height: 3.889vw;
-	transition: border 500ms ease;
 
 	@include max(md) {
 		height: 7.292vw;
@@ -20,10 +19,6 @@
 		font-size: 4.800vw;
 		line-height: 7.200vw;
 		padding: 0 4vw;
-	}
-
-	&.error {
-		border: 1px solid red;
 	}
 }
 

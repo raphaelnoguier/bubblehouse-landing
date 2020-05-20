@@ -151,7 +151,10 @@ export default {
         enterView({
             selector: '.board-component-slider',
             progress: (el, progress) => {
-                if (progress === 1) this.boardImagesVisible = false;
+                if (progress === 1) {
+                    this.boardImagesVisible = false;
+                    this.playFirstVideo();
+                }
                 if(this.boardImagesVisible) this.transform(progress);
             }
         });
@@ -183,7 +186,10 @@ export default {
                     initialSlide: 1,
                     allowTouchMove: false,
                     on: {
-                        slideChange: () => this.setSectionBgColor()
+                        slideChange: () => {
+                            this.setSectionBgColor();
+                            this.playFirstVideo();
+                        }
                     },
                     navigation: {
                         nextEl: i === 0 ? '.slider-next' : null,
@@ -195,6 +201,14 @@ export default {
             // Assign each other controls
             this.slidersInstance[0].controller.control = this.slidersInstance[1];
             this.slidersInstance[1].controller.control = this.slidersInstance[0];
+        },
+        playFirstVideo() {
+            if (!this.slidersInstance[1]) return;
+            const videos = this.$refs.sliderInFront.querySelectorAll('video');
+            const currentVideo = videos[this.slidersInstance[1].activeIndex];
+
+            currentVideo.currentTime = 0;
+            currentVideo.play();
         },
         setSectionBgColor() {
             const currentSlider = this.horizontalSliders[this.activeCategory];
@@ -212,7 +226,11 @@ export default {
 
             setTimeout(() => this.activeCategory = index, 500);
 
-            this.$Lazyload.$on('loaded', () => this.fetchingImages = false );
+            this.$Lazyload.$on('loaded', () => {
+                this.setSectionBgColor();
+                this.playFirstVideo();
+                this.fetchingImages = false;
+            });
         },
         transform(progress) {
             const opacityProgress = Utils.map(progress, 0.9, 1, 0, 1);
@@ -228,11 +246,11 @@ export default {
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
                 const mappedWrapperY = Utils.map(progress, 0, 1, 0, window.innerWidth <= 768 ? 200 : 125);
-                const rotate = Utils.map(progress, 0, 1, 0, 5);
+                const rotate = Utils.map(progress, 0, 1, 0, i % 2 ? 5 : -5);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
-                block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0)`;
-                this.boardWrapper.style.transform = `translate3d(0px, ${mappedWrapperY}%, 0) rotate3d(0, 0, 1, ${rotate}deg)`;
+                block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0) rotate3d(0, 0, 1, ${rotate}deg)`;
+                this.boardWrapper.style.transform = `translate3d(0px, ${mappedWrapperY}%, 0)`;
             })
         }
     },
