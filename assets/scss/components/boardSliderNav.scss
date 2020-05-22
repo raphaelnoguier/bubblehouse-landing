@@ -1,0 +1,87 @@
+.board-slider-nav {
+    max-width: 36.597vw;
+    margin: auto;
+    position: relative;
+    z-index: -1;
+
+    @include max(md) {
+        max-width: 68.620vw;
+    }
+
+    @include max(sm) {
+        @include noScrollBar();
+        max-width: 100%;
+        overflow: scroll;
+    }
+
+    .categories {
+        @include flexCenter();
+        height: 4.097vw;
+
+        @include max(md) {
+            height: 7.813vw;
+        }
+
+        @include max(sm) {
+            height: 11.200vw;
+            margin-left: 6.400vw;
+            display: inline-flex;
+        }
+
+        .single {
+            @include flexCenter();
+            @include proximaBold(1.111vw, 1.667vw);
+            color: v(whiteColor);
+            text-transform: uppercase;
+            height: 100%;
+            padding: 0 1.667vw;
+            position: relative;
+            cursor: pointer;
+            letter-spacing: 1px;
+
+            @include min(xl) {
+                font-size: 18px;
+            }
+
+            @include max(md) {
+                font-size: 2.083vw;
+                line-height: 3.125vw;
+                padding: 0 3.125vw;
+            }
+
+            @include max(sm) {
+                font-size: 3.733vw;
+                line-height: 5.600vw;
+                padding: 0 4.267vw;
+            }
+
+            &:last-child {
+                @include max(sm) {
+                    margin-right: 6.400vw;
+                }
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: v(blackColor);
+                opacity: 0;
+                z-index: -1;
+                border-radius: v(app-radius);
+                transform: scale3d(0.8, 0.8, 1);
+                transition: opacity 250ms v(ease-in-out-quart), transform 250ms v(ease-in-out-quart);
+            }
+
+            &.active {
+                &:before {
+                    transform: scale3d(1, 1, 1);
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

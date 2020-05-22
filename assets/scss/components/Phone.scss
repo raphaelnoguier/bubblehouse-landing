@@ -9,6 +9,8 @@
     @include min(xl) {
         border-width: 8px;
         border-radius: 60px;
+        max-width: 533px;
+        max-height: 1136px;
     }
 
     @include max(md) {

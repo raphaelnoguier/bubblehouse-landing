@@ -190,6 +190,11 @@
                 background-color: black;
                 -webkit-mask-image: -webkit-radial-gradient(white, black);
 
+                @include min(xl) {
+                    max-width: 100px;
+                    max-height: 100px;
+                }
+
                 @include max(md) {
                     width: 9.635vw;
                     height: 9.635vw;

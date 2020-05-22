@@ -85,8 +85,9 @@
                 background-color: unset;
 
                 @include min(xl) {
-                    max-width: 15vw;
-                    max-height: 3.5vw;
+                    width: 280px;
+                    height: 70px;
+                    border-radius: 4px;
                 }
 
                 @include max(md) {

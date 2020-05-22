@@ -17,6 +17,7 @@ body {
 
 	@include min(xl) {
 		font-size: 30px;
+		line-height: 45px;
 	}
 
 	&.locked {

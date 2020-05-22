@@ -47,6 +47,7 @@
 
                 @include min(xl) {
                     font-size: 130px;
+                    line-height: 140px;
                 }
 
                 @include max(md) {
@@ -67,6 +68,10 @@
 
                 @include min(xl) {
                     font-size: 30px;
+                    line-height: 45px;
+                    max-width: 900px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
                 @include max(md) {

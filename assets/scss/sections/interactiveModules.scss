@@ -77,6 +77,10 @@
                 text-transform: uppercase;
                 letter-spacing: 1px;
 
+                @include min(xl) {
+                    font-size: 18px;
+                }
+
                 @include max(md) {
                     margin-top: 1.432vw;
                     font-size: 2.083vw;
