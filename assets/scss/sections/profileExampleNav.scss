@@ -4,6 +4,11 @@
     justify-content: space-between;
     margin-top: 2.778vw;
 
+    @include min(xl) {
+        width: 70%;
+        margin: 100px auto 0 auto;
+    }
+
     @include max(md) {
         flex-direction: column;
         max-width: 47.135vw;
@@ -88,6 +93,10 @@
             opacity: 0.5;
         }
 
+        @include min(xl) {
+            height: 90px;
+        }
+
         @include max(md) {
             justify-content: center;
             width: 47.135vw;
@@ -109,6 +118,10 @@
             height: 100%;
             position: relative;
             z-index: 1;
+
+            @include min(xl) {
+                width: 32px;
+            }
 
             @include max(md) {
                 width: 3.125vw;

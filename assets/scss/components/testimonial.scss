@@ -33,6 +33,10 @@
         @include flexCenter();
         margin-top: 1.597vw;
 
+        @include min(xl) {
+            margin-top: 25px;
+        }
+
         @include max(md) {
             margin-top: 4.818vw;
         }
@@ -46,6 +50,11 @@
             height: 3.889vw;
             border-radius: 50%;
             overflow: hidden;
+
+            @include min(xl) {
+                width: 80px;
+                height: 80px;
+            }
 
             @include max(md) {
                 width: 7.292vw;

@@ -152,6 +152,10 @@
         .title {
             @include proximaBold(2.222vw, 3.333vw);
 
+            @include min(xl) {
+                font-size: 40px;
+            }
+
             @include max(md) {
                 font-size: 3.646vw;
                 line-height: 6.250vw;

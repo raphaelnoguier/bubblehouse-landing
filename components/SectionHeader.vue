@@ -5,10 +5,10 @@
                 <span>{{heading}}</span>
             </div>
             <div class="title">
-                <h2
-                    :class="gradient ? 'has-gradient' : ''"
-                    :style="gradient && `background-image: -webkit-linear-gradient(rgba(${gradient}), #333);`"
-                >
+                <h2 v-if="dynamicColor" :style="`color: ${$store.getters.navCtaBgColor}`">
+                    {{title}}
+                </h2>
+                <h2 v-else>
                     {{title}}
                 </h2>
             </div>
@@ -33,7 +33,7 @@ export default {
         heading: String,
         title: String,
         subtitle: String,
-        gradient: String
+        dynamicColor: Boolean
     }
 }
 </script>

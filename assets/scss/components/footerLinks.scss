@@ -2,6 +2,10 @@
     margin: 6.597vw auto 0 auto;
     max-width: 47.986vw;
 
+    @include min(xl) {
+        margin: 100px auto 0 auto;
+    }
+
     @include max(md) {
         margin: 12.109vw auto 0 auto;
         max-width: 100%;

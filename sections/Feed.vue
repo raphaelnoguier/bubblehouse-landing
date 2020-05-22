@@ -4,6 +4,7 @@
             :heading="header.heading"
             :title="header.title"
             :subtitle="header.subtitle"
+            :dynamicColor="true"
         />
         <div
             ref="sectionBackground"

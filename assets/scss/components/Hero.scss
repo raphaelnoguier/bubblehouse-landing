@@ -19,6 +19,10 @@
             max-width: 36.181vw;
             margin-left: 6.944vw;
 
+            @include min(xl) {
+                max-width: 31.181vw;
+            }
+
             @include max(md) {
                 display: flex;
                 flex-direction: column;
@@ -43,7 +47,7 @@
 
                     @include min(xl) {
                         font-size: 130px;
-                        line-height: 140px;
+                        line-height: 130px;
                     }
 
                     @include max(md) {
@@ -58,6 +62,10 @@
                 }
                 p {
                     margin-top: 2.431vw;
+
+                    @include min(xl) {
+                        margin-top: 60px;
+                    }
 
                     @include max(md) {
                         font-size: 2.865vw;
@@ -77,6 +85,10 @@
                 @include flexCenter();
                 margin-top: 3.681vw;
 
+                @include min(xl) {
+                    margin-top: 80px;
+                }
+
                 @include max(md) {
                     margin-top: 5.859vw;
                 }
@@ -90,6 +102,10 @@
                     border-top-right-radius: 0;
                     border-bottom-right-radius: 0;
 
+                    @include min(xl) {
+                        width: 50%;
+                    }
+
                     @include max(sm) {
                         display: none;
                     }
@@ -102,6 +118,11 @@
                     border-bottom-right-radius: v(app-radius);
                     border-top-left-radius: 0;
                     border-bottom-left-radius: 0;
+
+                    @include min(xl) {
+                        width: 270px;
+                        padding: 0;
+                    }
 
                     @include max(sm) {
                         width: 100%;
