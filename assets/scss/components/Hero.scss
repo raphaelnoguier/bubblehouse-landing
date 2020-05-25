@@ -31,6 +31,7 @@
                 height: calc((100% / 3) * 2);
                 max-width: 66.667vw;
                 margin-left: 6.510vw;
+                padding-top: 10vw;
             }
 
             @include max(sm) {
@@ -139,7 +140,6 @@
             position: absolute;
             right: -13.889vw;
             transform: rotate3d(0, 0, 1, -15deg);
-            pointer-events: none;
             backface-visibility: hidden;
             opacity: 0;
             transition: opacity 500ms v(ease-in-out-quad);
@@ -163,6 +163,15 @@
             .column {
                 height: 40.903vw;
                 width: 19.028vw;
+                pointer-events: none;
+
+                &.reverse {
+                    transform: rotate3d(1, 0, 0, 180deg);
+
+                    .swiper-slide {
+                        transform: rotate3d(1, 0, 0, -180deg);
+                    }
+                }
 
                 &.swiper-container-initialized {
                     opacity: 1;

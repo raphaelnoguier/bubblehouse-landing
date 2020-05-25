@@ -190,6 +190,11 @@ export default {
                             this.playFirstVideo();
                         }
                     },
+                    breakpoints: {
+                        1824: {
+                            spaceBetween: 50
+                        }
+                    },
                     navigation: {
                         nextEl: i === 0 && '.slider-next',
                         prevEl: i === 0 && '.slider-prev',

@@ -26,7 +26,7 @@
                     </form>
                 </div>
             </div>
-            <div class="columns-slider">
+            <div class="columns-slider" @mouseover="toggleSpeed" @mouseleave="toggleSpeed(true)">
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
                         <div
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="column swiper-container">
+                <div class="column swiper-container reverse">
                     <div class="swiper-wrapper">
                         <div
                             class="swiper-slide"
@@ -106,31 +106,32 @@ export default {
             offset: 1,
             enter: () => {
                 console.log('stop autolay on hero');
-                self.sliders.forEach(slider => {
-                    slider.autoplay.stop();
-                });
+                this.sliders.forEach(slider => slider.autoplay.stop());
             },
             exit: () => {
                 console.log('restart autoplay on hero');
-                self.sliders.forEach(slider => {
-                    slider.autoplay.start();
-                });
+                this.sliders.forEach(slider => slider.autoplay.start());
             },
         });
     },
     methods: {
+        toggleSpeed(isOut = false) {
+            console.log('reduce speed');
+            // this.sliders.forEach(slider => {
+            //     console.log(slider);
+            //     slider.speed = isOut ? 10000 : 500;
+            // });
+        },
         initSlidingColumns() {
             this.columns.forEach((column, i) => {
                 this.sliders[i] = new Swiper(column, {
+                    speed: 10000,
                     direction: 'vertical',
                     loop: true,
-                    speed: 10000,
                     loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
                     allowTouchMove: false,
                     autoplay: {
                         delay: 0,
-                        stopOnLastSlide: false,
-                        reverseDirection: i === 1,
                         disableOnInteraction: false,
                     },
                     on: { init: () => this.columnsWrapper.style.opacity = 1 },

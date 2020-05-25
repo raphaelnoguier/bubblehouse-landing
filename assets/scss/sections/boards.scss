@@ -5,8 +5,8 @@
     transition: background-color 300ms v(ease-in-out-quad);
 
     @include max(md) {
-        padding-top: 32.422vw;
-        transform: translateY(-21.6vw);
+        padding-top: 42vw;
+        transform: translateY(-7.8vw);
     }
 
     @include max(sm) {

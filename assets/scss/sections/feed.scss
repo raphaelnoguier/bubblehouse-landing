@@ -59,7 +59,7 @@
             transform: translateY(-2.375vw);
 
             @include max(md) {
-                transform: translateY(-10.8vw);
+                transform: translateY(-3.9vw);
             }
 
             @include max(sm) {
@@ -177,7 +177,7 @@
             transform: translate3d(0, -2.375vw, 0);
 
             @include max(md) {
-                transform: translate3d(0, -10.8vw, 0);
+                transform: translate3d(0, -3.9vw, 0);
             }
 
             @include max(sm) {
