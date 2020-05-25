@@ -108,11 +108,13 @@ export default {
                 };
 
                 axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
-                .then(function (response) {
-                    self.currentStep = 2;
+                .then(response => {
+                    console.log('helloooooo');
+                    self.state.currentStep = 2;
                     self.isLoading = false;
                 })
-                .catch(function (error) {
+                .catch(error => {
+                    console.log('error', error);
                     self.isLoading = false;
                 });
             }
@@ -123,7 +125,7 @@ export default {
             this.$store.commit('SET_MODAL_INPUT_NAME', '');
 
             setTimeout(() => {
-                this.currentStep = 1;
+                this.state.currentStep = 1;
             }, 500);
         }
     },

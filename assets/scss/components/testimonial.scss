@@ -5,6 +5,10 @@
     margin-top: 5.903vw;
     cursor: initial;
 
+    @include min(xl) {
+        margin-top: 85px;
+    }
+
     @include max(md) {
         max-width: 100%;
         cursor: pointer;
@@ -75,6 +79,10 @@
 
         .user-infos {
             margin-left: 1.111vw;
+
+            @include min(xl) {
+                margin-left: 16px;
+            }
 
             @include max(md) {
                 margin-left: 2.083vw;

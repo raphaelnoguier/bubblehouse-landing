@@ -1,6 +1,10 @@
 .section.interactive-modules {
     margin-top: 13.889vw;
 
+    @include min(xl) {
+        margin-top: 200px;
+    }
+
     @include max(md) {
         margin-top: 24.870vw;
     }
@@ -32,6 +36,10 @@
     .modules {
         margin-top: 5.417vw;
 
+        @include min(xl) {
+            margin-top: 78px;
+        }
+
         @include max(md) {
             margin-top: 10.286vw;
         }
@@ -43,6 +51,10 @@
         .modules-components {
             margin: 1.736vw auto 0 auto;
             max-width: 86.250vw;
+
+            @include min(xl) {
+                margin: 25px auto 0 auto;
+            }
 
             @include max(md) {
                 margin: 3.125vw auto 0 auto;
@@ -83,6 +95,7 @@
 
                 @include min(xl) {
                     font-size: 18px;
+                    margin-top: 19px;
                 }
 
                 @include max(md) {
@@ -116,6 +129,10 @@
             margin: 5.625vw auto 0 auto;
             max-width: v(xl-wrapper);
 
+            @include min(xl) {
+                margin: 81px auto 0 auto;
+            }
+
             @include max(md) {
                 max-width: 100%;
                 margin: 10.547vw auto 0 auto;
@@ -132,6 +149,10 @@
                 display: flex;
                 justify-content: space-between;
                 margin-top: 1.736vw;
+
+                @include min(xl) {
+                    margin-top: 25px;
+                }
 
                 @include max(md) {
                     flex-wrap: wrap;
@@ -157,6 +178,10 @@
 
                 &:last-child {
                     margin-top: 2.222vw;
+
+                    @include min(xl) {
+                        margin-top: 32px;
+                    }
 
                     @include max(md) {
                         margin-top: 0;

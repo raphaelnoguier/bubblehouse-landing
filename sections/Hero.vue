@@ -152,7 +152,7 @@ export default {
         openModal() {
             const { commit } = this.$store;
 
-            if (this.$refs.form.checkValidity()) {
+            if (this.$refs.form.checkValidity() || window.innerWidth < 768) {
                 commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
                 commit('SET_MODAL_OPEN', true);
             }

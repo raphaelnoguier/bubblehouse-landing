@@ -5,10 +5,7 @@
                 <span>{{heading}}</span>
             </div>
             <div class="title">
-                <h2 v-if="dynamicColor" :style="`color: ${$store.getters.navCtaBgColor}`">
-                    {{title}}
-                </h2>
-                <h2 v-else>
+                <h2 :style="`color: ${dynamicColor ? $store.getters.navCtaBgColor : 'inherit'}`">
                     {{title}}
                 </h2>
             </div>
@@ -26,6 +23,9 @@ export default {
     mounted() {
         this.reveal = reveal({ dom: this.$el, ratioIn: 0.5 })
     },
+    updated() {
+        this.reveal = reveal({ dom: this.$el, ratioIn: 0.5 })
+    },
     beforeDestroy() {
         this.reveal.destroy();
     },
@@ -33,7 +33,10 @@ export default {
         heading: String,
         title: String,
         subtitle: String,
-        dynamicColor: Boolean
+        dynamicColor: {
+            type: Boolean,
+            default: false
+        }
     }
 }
 </script>

@@ -43,12 +43,16 @@
         margin: 6.250vw auto 0 auto;
         max-width: v(large-wrapper);
 
+        @include min(xl) {
+            margin: 90px auto 0 auto;
+        }
+
         @include max(md) {
             margin: 11.719vw auto 0 auto;
         }
 
         @include max(sm) {
-            margin: 18.4vw auto 57.067vw auto;
+            margin: 18.4vw auto 44vw auto;
         }
 
         .slider-controls {
@@ -62,7 +66,7 @@
                 @include flexCenter();
                 position: absolute;
                 justify-content: space-between;
-                bottom: 23.5vw;
+                bottom: 12vw;
                 width: calc(100% - 12.8vw);
             }
 
@@ -127,6 +131,10 @@
                     margin-top: 1.667vw;
                     transform: rotate(180deg);
 
+                    @include min(xl) {
+                        margin-top: 24px;
+                    }
+
                     @include max(md) {
                         margin-top: 5.208vw;
                     }
@@ -175,7 +183,7 @@
             @include max(sm) {
                 display: inline-flex;
                 position: absolute;
-                bottom: 19.733vw;
+                bottom: 9vw;
                 left: 0;
                 right: 0;
                 margin: auto;

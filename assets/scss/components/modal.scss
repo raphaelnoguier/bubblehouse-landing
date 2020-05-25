@@ -116,6 +116,10 @@
                 margin-top: 2.292vw;
                 width: 19.861vw;
 
+                @include min(xl) {
+                    margin-top: 33px;
+                }
+
                 @include max(md) {
                     width: 37.240vw;
                     margin-top: 4.036vw;
@@ -171,6 +175,10 @@
             @include proximaRegular(1.389vw, 2.083vw);
             margin-top: 0.486vw;
 
+            @include min(xl) {
+                margin-top: 7px;
+            }
+
             @include max(md) {
                 font-size: 2.604vw;
                 line-height: 4.167vw;
@@ -187,6 +195,10 @@
         form {
             margin-top: 2.778vw;
 
+            @include min(xl) {
+                margin-top: 40px;
+            }
+
             @include max(md) {
                 margin-top: 4.688vw;
             }
@@ -202,6 +214,10 @@
                 &:last-of-type {
                     margin-top: 1.667vw;
 
+                    @include min(xl) {
+                        margin-top: 24px;
+                    }
+
                     @include max(md) {
                         margin-top: 3.125vw;
                     }
@@ -215,6 +231,10 @@
             .button-component {
                 margin-top: 1.667vw;
                 width: 100%;
+
+                @include min(xl) {
+                    margin-top: 24px;
+                }
 
                 @include max(md) {
                     margin-top: 3.125vw;
@@ -231,6 +251,10 @@
             justify-content: center;
             margin-top: 2.847vw;
             width: 100%;
+
+            @include min(xl) {
+                margin-top: 41px;
+            }
 
             @include max(md) {
                 margin-top: 5.339vw;
@@ -260,6 +284,10 @@
 
                 &:nth-of-type(2) {
                     margin: 0 3.542vw;
+
+                    @include min(xl) {
+                        margin: 0 51px;
+                    }
 
                     @include max(md) {
                         margin: 0 6.510vw;

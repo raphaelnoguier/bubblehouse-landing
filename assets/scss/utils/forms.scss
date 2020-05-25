@@ -7,6 +7,10 @@
 	border-radius: v(app-radius);
 	height: 3.889vw;
 
+	@include min(xl) {
+		font-size: 24px;
+	}
+
 	@include max(md) {
 		height: 7.292vw;
 		font-size: 2.865vw;

@@ -22,6 +22,7 @@
         width: 69.867vw;
         height: 149.867vw;
         border-radius: 25px;
+        border-width: 3px;
     }
 
     &.white-border {
@@ -49,7 +50,7 @@
         border: none;
 
         @include max(md) {
-            border: 3px solid v(whiteColor);
+            border: 0;
         }
 
         @include max(md) {

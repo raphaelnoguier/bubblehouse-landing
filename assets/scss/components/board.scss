@@ -2,8 +2,16 @@
     margin-top: 6.250vw;
     position: relative;
 
+    @include min(xl) {
+        margin-top: 90px;
+    }
+
     @include max(md) {
         margin-top: 12.500vw;
+    }
+
+    @include max(sm) {
+        margin-top: 20vw;
     }
 
     .board-component-slider {
@@ -14,6 +22,10 @@
 
         &.no-events {
             pointer-events: none;
+        }
+
+        @include min(xl) {
+            margin-top: 28px;
         }
 
         @include max(md) {
@@ -31,13 +43,17 @@
             margin: 2.917vw auto 0 auto;
             max-width: v(xl-wrapper);
 
+            @include min(xl) {
+                margin: 42px auto 0 auto;
+            }
+
             @include max(md) {
                 margin: 6.771vw auto 12.370vw auto;
                 max-width: 100%;
             }
 
             @include max(sm) {
-                margin: 8.533vw auto 28.267vw auto;
+                margin: 8.533vw auto 20vw auto;
             }
 
             .slider-behind {
@@ -211,7 +227,7 @@
                     }
 
                     @include max(sm) {
-                        border-radius: 20px;
+                        border-radius: 22px;
                     }
 
                     .swiper-container {

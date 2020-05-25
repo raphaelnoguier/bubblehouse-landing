@@ -3,6 +3,10 @@
     max-width: v(xl-wrapper);
     margin: 0 auto 6.528vw auto;
 
+    @include min(xl) {
+        margin: 0 auto 94px auto;
+    }
+
     @include max(md) {
         border-top: 0;
         max-width: 91.667vw;
@@ -17,6 +21,10 @@
 
     footer {
         margin-top: 13.264vw;
+
+        @include min(xl) {
+            margin-top: 191px;
+        }
 
         @include max(md) {
             margin-top: 25.781vw;
@@ -129,6 +137,10 @@
 
                     &:nth-of-type(2) {
                         margin: 0 2.222vw;
+
+                        @include min(xl) {
+                            margin: 0 32px;
+                        }
 
                         @include max(md) {
                             margin: 0 2.083vw;

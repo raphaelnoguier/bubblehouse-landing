@@ -63,6 +63,11 @@
                 display: block;
                 margin-left: 0.694vw;
 
+                @include min(xl) {
+                    font-size: 18px;
+                    margin-left: 10px;
+                }
+
                 @include max(sm) {
                     margin-left: 2.133vw;
                 }

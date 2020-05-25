@@ -19,6 +19,10 @@
     .testimonials-wrapper {
         margin-top: 6.25vw;
 
+        @include min(xl) {
+            margin-top: 115px;
+        }
+
         @include max(md) {
             position: relative;
             margin-top: 12.760vw;

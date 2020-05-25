@@ -10,15 +10,7 @@
     }
 
     @include max(md) {
-        flex-direction: column;
-        max-width: 47.135vw;
-        margin: 6.120vw auto 0 auto;
-    }
-
-    @include max(sm) {
-        padding: 0 6.4vw;
-        margin-top: 12.8vw;
-        max-width: 100%;
+        display: none;
     }
 
     &.center {
@@ -44,15 +36,14 @@
 
         &:nth-child(2) {
             margin: 0 2.222vw;
+
+            @include min(xl) {
+                margin: 0 32px;
+            }
         }
 
         &:not(.load-more) {
             width: 100%;
-
-            @include max(sm) {
-                border: none;
-                pointer-events: none;
-            }
         }
 
         &:before {
@@ -97,22 +88,6 @@
             height: 90px;
         }
 
-        @include max(md) {
-            justify-content: center;
-            width: 47.135vw;
-            height: 7.813vw;
-            padding: 0;
-
-            &:not(:first-child) {
-                margin-top: 3.125vw;
-            }
-        }
-
-        @include max(sm) {
-            width: 100%;
-            height: 16vw;
-        }
-
         .icon {
             width: 1.667vw;
             height: 100%;
@@ -121,14 +96,6 @@
 
             @include min(xl) {
                 width: 32px;
-            }
-
-            @include max(md) {
-                width: 3.125vw;
-            }
-
-            @include max(sm) {
-                width: 6.400vw;
             }
 
             svg, img {
@@ -151,18 +118,7 @@
 
             @include min(xl) {
                 font-size: 18px;
-            }
-
-            @include max(md) {
-                font-size: 2.083vw;
-                line-height: 3.125vw;
-                margin-left: 3.255vw;
-            }
-
-            @include max(sm) {
-                font-size: 3.733vw;
-                line-height: 5.600vw;
-                margin-left: 6.133vw;
+                margin-left: 29px;
             }
         }
     }
