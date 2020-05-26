@@ -134,7 +134,7 @@
             max-width: v(xl-wrapper);
 
             @include min(xl) {
-                margin: 100px auto 0 auto;
+                margin: 50px auto 0 auto;
             }
 
             @include max(md) {

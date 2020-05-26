@@ -144,12 +144,6 @@
             opacity: 0;
             transition: opacity 500ms v(ease-in-out-quad);
 
-            &.reduced {
-                .swiper-wrapper {
-                    transition-duration: 1000ms !important;
-                }
-            }
-
             @include max(md) {
                 width: 100%;
                 justify-content: center;

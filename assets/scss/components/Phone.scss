@@ -33,6 +33,11 @@
         width: 22.083vw;
         height: 47.014vw;
 
+        @include min(xl) {
+            max-width: 498px;
+            max-height: 1061px;
+        }
+
         @include max(md) {
             width: 41.406vw;
             height: 88.802vw;
