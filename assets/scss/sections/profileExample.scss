@@ -5,8 +5,12 @@
     max-width: v(xl-wrapper);
     margin: auto;
 
+    @include min(xl) {
+        padding-top: 200px;
+    }
+
     @include max(md) {
-        padding-top: 25.521vw;
+        padding-top: calc(26.042vw - 7.8vw);
         max-width: 100%;
     }
 

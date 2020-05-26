@@ -37,7 +37,7 @@
             @include max(sm) {
                 max-width: 100%;
                 margin-left: 0;
-                padding: 16vw 6.667vw 0 6.667vw;
+                padding: 13vw 6.667vw 0 6.667vw;
             }
 
             .text {
@@ -144,6 +144,12 @@
             opacity: 0;
             transition: opacity 500ms v(ease-in-out-quad);
 
+            &.reduced {
+                .swiper-wrapper {
+                    transition-duration: 1000ms !important;
+                }
+            }
+
             @include max(md) {
                 width: 100%;
                 justify-content: center;
@@ -167,6 +173,10 @@
 
                 &.reverse {
                     transform: rotate3d(1, 0, 0, 180deg);
+
+                    @include max(md) {
+                        transform: rotateX(180deg) rotateZ(15deg);
+                    }
 
                     .swiper-slide {
                         transform: rotate3d(1, 0, 0, -180deg);

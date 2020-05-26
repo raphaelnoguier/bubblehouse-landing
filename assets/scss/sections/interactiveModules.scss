@@ -115,6 +115,10 @@
                 width: 100%;
                 margin-top: 6.32vw;
 
+                @include min(xl) {
+                    margin-top: 75px;
+                }
+
                 @include max(md) {
                     margin-top: 6.120vw;
                 }
@@ -130,7 +134,7 @@
             max-width: v(xl-wrapper);
 
             @include min(xl) {
-                margin: 81px auto 0 auto;
+                margin: 100px auto 0 auto;
             }
 
             @include max(md) {

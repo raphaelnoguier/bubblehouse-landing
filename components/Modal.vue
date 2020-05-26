@@ -123,10 +123,6 @@ export default {
             this.$store.commit('SET_MODAL_OPEN', false);
             this.$store.commit('SET_MODAL_INPUT_EMAIL', '');
             this.$store.commit('SET_MODAL_INPUT_NAME', '');
-
-            setTimeout(() => {
-                this.state.currentStep = 1;
-            }, 500);
         }
     },
     props: {

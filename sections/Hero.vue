@@ -26,7 +26,7 @@
                     </form>
                 </div>
             </div>
-            <div class="columns-slider" @mouseover="toggleSpeed" @mouseleave="toggleSpeed(true)">
+            <div class="columns-slider" @mouseover="toggleSpeed" @mouseleave="toggleSpeed">
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
                         <div
@@ -115,12 +115,9 @@ export default {
         });
     },
     methods: {
-        toggleSpeed(isOut = false) {
+        toggleSpeed() {
             console.log('reduce speed');
-            // this.sliders.forEach(slider => {
-            //     console.log(slider);
-            //     slider.speed = isOut ? 10000 : 500;
-            // });
+            this.columnsWrapper.classList.toggle('reduced');
         },
         initSlidingColumns() {
             this.columns.forEach((column, i) => {
@@ -133,6 +130,7 @@ export default {
                     autoplay: {
                         delay: 0,
                         disableOnInteraction: false,
+                        waitForTransition: false
                     },
                     on: { init: () => this.columnsWrapper.style.opacity = 1 },
                     breakpoints: {

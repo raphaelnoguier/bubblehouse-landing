@@ -76,6 +76,9 @@ export default {
     mounted() {
         this.initSlider(this.$refs.phoneSlider);
 
+        // Init first cta bg color
+        this.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
+
         const self = this;
         enterView({
             selector: '.section.feed',
