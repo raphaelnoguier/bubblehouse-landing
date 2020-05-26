@@ -1,16 +1,18 @@
 .board-slider-nav {
     max-width: 36.597vw;
-    margin: auto;
+    margin: 100px auto 0 auto;
     position: relative;
     z-index: -1;
 
     @include max(md) {
         max-width: 68.620vw;
+        margin-top: 7.292vw;
     }
 
     @include max(sm) {
         @include noScrollBar();
         max-width: 100%;
+        margin-top: 17.067vw;
         overflow: scroll;
     }
 

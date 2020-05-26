@@ -105,13 +105,6 @@
         &.step-2 {
             transform: translate3d(100%, -50%, 0);
 
-            .title {
-                @include max(sm) {
-                    font-size: 12.800vw;
-                    line-height: 15.467vw;
-                }
-            }
-
             .form .button-component {
                 margin-top: 2.292vw;
                 width: 19.861vw;
@@ -304,8 +297,8 @@
                     }
 
                     @include max(sm) {
-                        max-width: 7.467vw;
-                        max-height: 6.4vw;
+                        max-width: 5.333vw;
+                        max-height: 5.333vw;
                     }
                 }
             }

@@ -44,19 +44,19 @@
                 </div>
             </div>
         </div>
-        <div :class="`board-component-slider ${fetchingImages ? 'no-events' : ''}`" ref="boardSlider">
-            <div class="board-slider-nav">
-                <div class="categories">
-                    <div
-                        :class="`single ${i === activeCategory ? 'active' : ''}`"
-                        v-for="(category, i) in categories"
-                        :key="i"
-                        v-on:click="changeCategories(i)"
-                    >
-                        {{category}}
-                    </div>
+        <div class="board-slider-nav">
+            <div class="categories">
+                <div
+                    :class="`single ${i === activeCategory ? 'active' : ''}`"
+                    v-for="(category, i) in categories"
+                    :key="i"
+                    v-on:click="changeCategories(i)"
+                >
+                    {{category}}
                 </div>
             </div>
+        </div>
+        <div :class="`board-component-slider ${fetchingImages ? 'no-events' : ''}`" ref="boardSlider">
             <div class="board-slider">
                 <div class="slider-behind">
                     <div class="swiper-container" ref="sliderBehind">
@@ -88,7 +88,7 @@
                                         :key="index"
                                     >
                                         <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :src="slide.board_video.url" :autoplay="false" />
+                                        <Video :url="slide.board_video.url" :autoplay="false" />
                                     </div>
                                 </div>
                             </div>
@@ -230,12 +230,12 @@ export default {
             setTimeout(() => this.activeCategory = index, 500);
 
             this.$Lazyload.$on('loaded', () => {
-                this.activeCategory = index
+                this.activeCategory = index;
                 const videos = this.$refs.sliderInFront.querySelectorAll('video');
                 videos[this.slidersInstance[1].activeIndex].oncanplaythrough = (e) => {
+                    this.playFirstVideo();
                     this.setSectionBgColor();
                     this.fetchingImages = false;
-                    e.target.play();
                 };
             });
         },

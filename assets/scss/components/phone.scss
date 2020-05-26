@@ -7,7 +7,7 @@
     z-index: 1;
 
     @include min(xl) {
-        border-width: 8px;
+        border-width: 6px;
         border-radius: 60px;
         max-width: 533px;
         max-height: 1136px;
@@ -34,8 +34,8 @@
         height: 47.014vw;
 
         @include min(xl) {
-            max-width: 498px;
-            max-height: 1061px;
+            max-width: 479px;
+            max-height: 1020px;
         }
 
         @include max(md) {

@@ -6,7 +6,7 @@
     z-index: 2;
     pointer-events: none;
 
-    @include max(md) {
+    @include min(xl) {
         padding: 2.847vw 6.85vw 0 6.85vw;
     }
 

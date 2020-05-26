@@ -128,7 +128,7 @@ export default {
         initSlidingColumns() {
             this.columns.forEach((column, i) => {
                 this.sliders[i] = new Swiper(column, {
-                    speed: 1000,
+                    speed: 10000,
                     loop: true,
                     direction: 'vertical',
                     loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,

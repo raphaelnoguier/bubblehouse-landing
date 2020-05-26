@@ -1,6 +1,7 @@
 .board-component {
     margin-top: 6.250vw;
     position: relative;
+    z-index: -1;
 
     @include min(xl) {
         margin-top: 90px;
@@ -15,40 +16,30 @@
     }
 
     .board-component-slider {
-        margin-top: 1.945vw;
         width: 100%;
         overflow: hidden;
-        transform: translateY(4.722vw);
+        transform: translateY(50px);
 
         &.no-events {
             pointer-events: none;
         }
 
-        @include min(xl) {
-            margin-top: 28px;
-        }
-
         @include max(md) {
-            margin-top: 7.292vw;
             transform: translateY(0);
-        }
-
-        @include max(sm) {
-            margin-top: 17.067vw;
         }
 
         .board-slider {
             position: relative;
             z-index: 2;
-            margin: 2.917vw auto 0 auto;
+            margin: 0 auto;
             max-width: v(xl-wrapper);
 
             @include min(xl) {
-                margin: 42px auto 0 auto;
+                margin: 0 auto;
             }
 
             @include max(md) {
-                margin: 6.771vw auto 12.370vw auto;
+                margin: 7.292vw auto 12.370vw auto;
                 max-width: 100%;
             }
 
@@ -67,6 +58,10 @@
                     height: 52.222vw;
                     margin: auto;
 
+                    @include min(xl) {
+                        max-width: 533px;
+                    }
+
                     @include max(md) {
                         width: 41.406vw;
                         height: 88.802vw;
@@ -77,6 +72,10 @@
                         height: 27.153vw;
                         overflow: hidden;
                         transition-timing-function: v(ease-in-out-quart);
+
+                        @include min(xl) {
+                            height: 598px;
+                        }
 
                         @include max(md) {
                             height: 45.573vw;
@@ -268,11 +267,6 @@
                     border-color: white;
                     overflow: visible;
                     position: relative;
-
-                    @include min(xl) {
-                        max-width: 100%;
-                        max-height: 100%;
-                    }
                 }
             }
         }
