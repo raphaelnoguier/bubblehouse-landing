@@ -133,12 +133,14 @@ export default {
         this.boardWrapper = this.$refs.boardWrapper;
         this.slidersEls = [this.$refs.sliderBehind, this.$refs.sliderInFront];
         this.calcBounds();
+        this.resolveDistanceY();
         this.buildCategories();
         this.initSliders(this.slidersEls);
 
         this.setSectionBgColor();
 
         window.addEventListener('resize', this.calcBounds, false);
+        window.addEventListener('resize', this.resolveDistanceY, false);
 
         enterView({
             selector: '.section.boards',
@@ -148,7 +150,7 @@ export default {
         });
 
         enterView({
-            selector: '.board-component-slider',
+            selector: '.slider-front',
             progress: (el, progress) => {
                 if (progress === 1) {
                     this.boardImagesVisible = false;
@@ -240,6 +242,12 @@ export default {
                 });
             });
         },
+        resolveDistanceY() {
+            if (window.innerWidth <= 768) return this.distanceY = 200;
+            if (window.innerWidth >= 1824) return this.distanceY = 120;
+
+            return this.distanceY = 130;
+        },
         transform(progress) {
             this.mediasBounds.forEach((bounds, i) => {
                 const block = this.medias[i];
@@ -248,8 +256,8 @@ export default {
                 const { x } = bounds;
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
-                const mappedWrapperY = Utils.map(progress, 0, 1, 0, window.innerWidth <= 768 ? 200 : 125);
-                const rotate = Utils.map(progress, 0, 1, 0, i % 2 ? 5 : -5);
+                const mappedWrapperY = Utils.map(progress, 0, 1, 0, this.distanceY);
+                const rotate = Utils.map(progress, 0, 1, 0, i % 2 ? 3 : -3);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
                 block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0) rotate3d(0, 0, 1, ${rotate}deg)`;

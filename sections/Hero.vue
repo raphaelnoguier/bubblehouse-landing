@@ -117,12 +117,12 @@ export default {
     methods: {
         toggleSpeed(event = null, isOut = false) {
             console.log('reduce speed', isOut);
+            // document.querySelector('.column .swiper-wrapper').style.transition = 'transform 500ms linear !important';
             // this.sliders.forEach(slider => {
             //     slider.animating = false;
             //     slider.params.speed = isOut ? 10000 : 20000;
-            //     slider.autoplay.pause();
             //     slider.autoplay.enabled = false;
-            //     slider.autoplay.run();
+            //     slider.update();
             // });
         },
         initSlidingColumns() {

@@ -64,7 +64,7 @@
         @include max(sm) {
             width: calc(100% - 12.8vw);
             padding: 8.533vw 6.400vw;
-            height: 133.333vw;
+            height: 127vw;
         }
 
         &.small {
@@ -167,7 +167,7 @@
 
             @include max(sm) {
                 font-size: 6.400vw;
-                line-height: 9.600vw;
+                line-height: 1;
             }
         }
 

@@ -69,17 +69,9 @@
 
                     .swiper-wrapper {
                         display: inline-flex;
-                        height: 27.153vw;
+                        height: 52.2%;
                         overflow: hidden;
                         transition-timing-function: v(ease-in-out-quart);
-
-                        @include min(xl) {
-                            height: 598px;
-                        }
-
-                        @include max(md) {
-                            height: 45.573vw;
-                        }
 
                         @include max(sm) {
                             transition-duration: 0ms !important;
