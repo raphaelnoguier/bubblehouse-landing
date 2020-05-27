@@ -206,12 +206,14 @@ export default {
             this.slidersInstance[0].controller.control = this.slidersInstance[1];
             this.slidersInstance[1].controller.control = this.slidersInstance[0];
         },
+        getCurrentVideo() {
+            const videos = this.$refs.sliderInFront.querySelectorAll('video');
+            return videos[this.slidersInstance[1].activeIndex];
+        },
         playFirstVideo() {
             if (!this.slidersInstance[1]) return;
-            const videos = this.$refs.sliderInFront.querySelectorAll('video');
-            const currentVideo = videos[this.slidersInstance[1].activeIndex];
+            const currentVideo = this.getCurrentVideo();
 
-            currentVideo.currentTime = 0;
             currentVideo.play();
         },
         setSectionBgColor() {
@@ -230,13 +232,12 @@ export default {
             setTimeout(() => this.activeCategory = index, 500);
 
             this.$Lazyload.$on('loaded', () => {
-                this.activeCategory = index;
-                const videos = this.$refs.sliderInFront.querySelectorAll('video');
-                videos[this.slidersInstance[1].activeIndex].oncanplaythrough = (e) => {
-                    this.playFirstVideo();
-                    this.setSectionBgColor();
+                const currentVideo = this.getCurrentVideo();
+                currentVideo.addEventListener('canplay', () => {
                     this.fetchingImages = false;
-                };
+                    this.setSectionBgColor();
+                    this.playFirstVideo();
+                });
             });
         },
         transform(progress) {

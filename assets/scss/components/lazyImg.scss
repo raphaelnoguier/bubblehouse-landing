@@ -11,9 +11,9 @@
     height: 100%;
     opacity: 0;
     transition: opacity 500ms ease;
-    background: v(blackColor);
+    background: v(dark-grey);
 }
 
 .lazy-placeholder.active {
-    opacity: 1;
+    opacity: 1 !important;
 }

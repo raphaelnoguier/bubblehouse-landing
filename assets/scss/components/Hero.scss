@@ -196,7 +196,7 @@
                     margin: 0 2.431vw;
 
                     @include min(xl) {
-                        margin: 0 35px;
+                        margin: 0 62px;
                     }
 
                     @include max(md) {
@@ -217,13 +217,14 @@
                 }
 
                 .swiper-slide {
-                    @include min(xl) {
-                        margin-top: 35px !important;
-                    }
                     .phone-component {
                         height: 100%;
                         width: 100%;
                         border-color: v(whiteColor);
+
+                        @include max(md) {
+                            border-radius: 25px;
+                        }
 
                         @include max(sm) {
                             border-radius: 15px;

@@ -51,6 +51,11 @@
         transition: opacity 400ms v(ease-in-out-quad) 100ms, height 600ms v(ease-in-out-quad) 100ms, transform 500ms v(ease-in-out-quad) 100ms;
         overflow: hidden;
 
+        @include min(xl) {
+            height: 33vw;
+            width: 31vw;
+        }
+
         @include max(md) {
             width: calc(100% - 28.646vw);
             height: 67.578vw;
@@ -58,12 +63,16 @@
 
         @include max(sm) {
             width: calc(100% - 12.8vw);
-            padding: 6.400vw;
+            padding: 8.533vw 6.400vw;
             height: 133.333vw;
         }
 
         &.small {
             height: 30.139vw;
+
+            @include min(xl) {
+                height: 26vw;
+            }
 
             @include max(md) {
                 height: 56.510vw;
@@ -111,6 +120,8 @@
 
                 @include min(xl) {
                     margin-top: 33px;
+                    width: 280px;
+                    height: 100px;
                 }
 
                 @include max(md) {
@@ -142,10 +153,6 @@
             }
         }
 
-        @include max(sm) {
-            margin-top: 6.400vw;
-        }
-
         .title {
             @include proximaBold(2.222vw, 3.333vw);
 
@@ -170,6 +177,8 @@
 
             @include min(xl) {
                 margin-top: 7px;
+                font-size: 30px;
+                line-height: 45px;
             }
 
             @include max(md) {
@@ -197,7 +206,7 @@
             }
 
             @include max(sm) {
-                margin-top: 18.667vw;
+                margin-top: 8.533vw;
             }
 
             .input-component {
