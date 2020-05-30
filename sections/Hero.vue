@@ -79,7 +79,8 @@ import Phone from '~/components/Phone';
 export default {
     data() {
         return {
-            emailValue: ''
+            emailValue: '',
+            autoplaySpeed: 10000
         }
     },
     components: {
@@ -105,8 +106,12 @@ export default {
             selector: '.feed .section-header-component',
             offset: 1,
             enter: () => {
-                console.log('stop autolay on hero');
-                this.sliders.forEach(slider => slider.autoplay.stop());
+                console.log('stop autolay on hero 1');
+                this.sliders.forEach(slider => {
+                    slider.setTranslate(slider.getTranslate());
+                    slider.animating = false;
+                    slider.autoplay.stop();
+                });
             },
             exit: () => {
                 console.log('restart autoplay on hero');
@@ -116,26 +121,26 @@ export default {
     },
     methods: {
         toggleSpeed(event = null, isOut = false) {
-            console.log('reduce speed', isOut);
-            // document.querySelector('.column .swiper-wrapper').style.transition = 'transform 500ms linear !important';
-            // this.sliders.forEach(slider => {
-            //     slider.animating = false;
-            //     slider.params.speed = isOut ? 10000 : 20000;
-            //     slider.autoplay.enabled = false;
-            //     slider.update();
-            // });
+            this.sliders.forEach((slider, i) => {
+                slider.animating = false;
+
+                const currentTranslate = slider.getTranslate() - 400;
+                slider.setTranslate(currentTranslate);
+                slider.setTransition(isOut ? this.autoplaySpeed : this.autoplaySpeed * 2);
+                slider.params.speed = isOut ? this.autoplaySpeed : this.autoplaySpeed * 2;
+            });
         },
         initSlidingColumns() {
             this.columns.forEach((column, i) => {
                 this.sliders[i] = new Swiper(column, {
-                    speed: 10000,
+                    speed: this.autoplaySpeed,
                     loop: true,
                     direction: 'vertical',
                     loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
                     allowTouchMove: false,
                     autoplay: {
                         delay: 0,
-                        disableOnInteraction: false,
+                        disableOnInteraction: false
                     },
                     on: { init: () => this.columnsWrapper.style.opacity = 1 },
                     breakpoints: {

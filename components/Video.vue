@@ -3,6 +3,7 @@
         :src="url"
         muted
         :autoplay="autoplay ? true : false"
+        :controls="controls ? true : false"
         loop
         playsinline
     />
@@ -12,6 +13,7 @@
 export default {
     props: {
         url: String,
+        controls: Boolean,
         autoplay: Boolean
     }
 }

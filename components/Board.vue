@@ -88,7 +88,7 @@
                                         :key="index"
                                     >
                                         <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :url="slide.board_video.url" :autoplay="false" />
+                                        <Video :url="slide.board_video.url" :autoplay="false" :controls="true" />
                                     </div>
                                 </div>
                             </div>

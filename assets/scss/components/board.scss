@@ -73,6 +73,10 @@
                         overflow: hidden;
                         transition-timing-function: v(ease-in-out-quart);
 
+                        @include min(xl) {
+                            height: 44.4%;
+                        }
+
                         @include max(sm) {
                             transition-duration: 0ms !important;
                         }
@@ -250,7 +254,6 @@
                                 height: 100%;
                                 object-fit: cover;
                                 user-select: none;
-                                pointer-events: none;
                             }
                         }
                     }

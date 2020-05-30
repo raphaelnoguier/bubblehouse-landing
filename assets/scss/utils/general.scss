@@ -9,6 +9,10 @@ html {
 	background-color: v(blackColor);
 }
 
+*::selection {
+	background: v(brand-color);
+}
+
 body {
 	@include proximaRegular(1.806vw);
 	line-height: 2.778vw;
