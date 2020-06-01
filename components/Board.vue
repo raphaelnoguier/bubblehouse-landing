@@ -88,7 +88,7 @@
                                         :key="index"
                                     >
                                         <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :url="slide.board_video.url" :autoplay="false" :controls="true" />
+                                        <Video :url="slide.board_video.url" :autoplay="false" />
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ export default {
                     on: {
                         slideChange: () => {
                             this.setSectionBgColor();
-                            this.playFirstVideo();
+                            this.playFirstVideo(true);
                         }
                     },
                     breakpoints: {
@@ -212,9 +212,11 @@ export default {
             const videos = this.$refs.sliderInFront.querySelectorAll('video');
             return videos[this.slidersInstance[1].activeIndex];
         },
-        playFirstVideo() {
+        playFirstVideo(needReset = false) {
             if (!this.slidersInstance[1]) return;
             const currentVideo = this.getCurrentVideo();
+
+            if (needReset) currentVideo.currentTime = 0;
 
             currentVideo.play();
         },

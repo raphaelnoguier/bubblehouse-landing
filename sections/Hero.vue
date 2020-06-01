@@ -80,7 +80,7 @@ export default {
     data() {
         return {
             emailValue: '',
-            autoplaySpeed: 10000
+            autoplaySpeed: 8000
         }
     },
     components: {
@@ -122,12 +122,7 @@ export default {
     methods: {
         toggleSpeed(event = null, isOut = false) {
             this.sliders.forEach((slider, i) => {
-                slider.animating = false;
-
-                const currentTranslate = slider.getTranslate() - 400;
-                slider.setTranslate(currentTranslate);
-                slider.setTransition(isOut ? this.autoplaySpeed : this.autoplaySpeed * 2);
-                slider.params.speed = isOut ? this.autoplaySpeed : this.autoplaySpeed * 2;
+                isOut ? this.columns[i].classList.remove('slowmo') : this.columns[i].classList.add('slowmo');
             });
         },
         initSlidingColumns() {

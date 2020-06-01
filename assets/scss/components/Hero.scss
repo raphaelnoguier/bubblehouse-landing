@@ -141,6 +141,7 @@
             right: -13.889vw;
             transform: rotate3d(0, 0, 1, -15deg);
             backface-visibility: hidden;
+            overflow: visible;
             opacity: 0;
             transition: opacity 500ms v(ease-in-out-quad);
 
@@ -163,10 +164,18 @@
             .column {
                 height: 40.903vw;
                 width: 19.028vw;
-                pointer-events: none;
+                // pointer-events: none;
+                transition: transform 24s linear;
+                animation: slowmo 24s linear infinite both;
+                animation-play-state: paused;
+
+                &.slowmo {
+                    animation-play-state: running;
+                }
 
                 &.reverse {
                     transform: rotate3d(1, 0, 0, 180deg);
+                    animation-name: slowmo-reverse;
 
                     @include max(md) {
                         transform: rotateX(180deg) rotateZ(15deg);
@@ -174,6 +183,24 @@
 
                     .swiper-slide {
                         transform: rotate3d(1, 0, 0, -180deg);
+                    }
+                }
+
+                @keyframes slowmo {
+                    from {
+                        transform: translate3d(0, 0%, 0);
+                    }
+                    to {
+                        transform: translate3d(0, 100%, 0);
+                    }
+                }
+
+                @keyframes slowmo-reverse {
+                    from {
+                        transform: rotate3d(1, 0, 0, 180deg) translate3d(0, -100%, 0);
+                    }
+                    to {
+                        transform: rotate3d(1, 0, 0, 180deg) translate3d(0, 100%, 0);
                     }
                 }
 
