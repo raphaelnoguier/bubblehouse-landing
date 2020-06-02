@@ -169,6 +169,11 @@
                 animation: slowmo 24s linear infinite both;
                 animation-play-state: paused;
 
+                @include max(md) {
+                    animation: none;
+                    pointer-events: none;
+                }
+
                 &.slowmo {
                     animation-play-state: running;
                 }

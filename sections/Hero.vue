@@ -108,14 +108,14 @@ export default {
             enter: () => {
                 console.log('stop autolay on hero 1');
                 this.sliders.forEach(slider => {
-                    slider.setTranslate(slider.getTranslate());
-                    slider.animating = false;
-                    slider.autoplay.stop();
+                    slider.wrapperEl.style.visibility = 'hidden';
                 });
             },
             exit: () => {
                 console.log('restart autoplay on hero');
-                this.sliders.forEach(slider => slider.autoplay.start());
+                this.sliders.forEach(slider => {
+                    slider.wrapperEl.style.visibility = 'visible';
+                });
             },
         });
     },
