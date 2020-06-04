@@ -59,6 +59,7 @@ export default {
                     allowTouchMove: true
                 },
                 780: {
+                    slidesPerView: 2,
                     allowTouchMove: false,
                 },
             }

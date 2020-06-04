@@ -106,13 +106,11 @@ export default {
             selector: '.feed .section-header-component',
             offset: 1,
             enter: () => {
-                console.log('stop autolay on hero 1');
                 this.sliders.forEach(slider => {
                     slider.wrapperEl.style.visibility = 'hidden';
                 });
             },
             exit: () => {
-                console.log('restart autoplay on hero');
                 this.sliders.forEach(slider => {
                     slider.wrapperEl.style.visibility = 'visible';
                 });

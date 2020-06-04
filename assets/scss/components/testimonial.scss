@@ -9,6 +9,11 @@
         margin-top: 85px;
     }
 
+    @include min(md) {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
     @include max(md) {
         max-width: 100%;
         cursor: pointer;

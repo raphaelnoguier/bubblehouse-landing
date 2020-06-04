@@ -109,7 +109,6 @@ export default {
 
                 axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
                 .then(response => {
-                    console.log('helloooooo');
                     self.state.currentStep = 2;
                     self.isLoading = false;
                 })
