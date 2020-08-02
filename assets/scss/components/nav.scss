@@ -1,10 +1,19 @@
 .nav-component {
     position: fixed;
     top: 0;
-    padding: 2.847vw 6.944vw 0 6.944vw;
+    padding: 1.847vw 6.944vw;
     width: 100%;
     z-index: 2;
     pointer-events: none;
+    transition: background-color 300ms ease;
+
+    &.with-bg {
+        background: white;
+
+        .nav-content {
+            color: black;
+        }
+    }
 
     @include min(xl) {
         padding: 2.847vw 6.85vw 0 6.85vw;
@@ -15,7 +24,7 @@
     }
 
     @include max(sm) {
-        padding: 8vw 6.400vw 0 6.400vw;
+        padding: 6vw 4.400vw;
     }
 
     .nav-content {
@@ -23,6 +32,11 @@
         justify-content: space-between;
         color: white;
         text-transform: uppercase;
+        transition: color 300ms ease;
+
+        .white-theme & {
+            color: v(black-color);
+        }
 
         .left {
             @include flexCenter();

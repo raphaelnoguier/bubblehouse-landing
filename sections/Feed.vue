@@ -6,41 +6,23 @@
             :subtitle="header.subtitle"
             :dynamicColor="true"
         />
-        <div
-            ref="sectionBackground"
-            v-for="(slide, i) in verticalSlides"
-            :class="`section-background ${i === activeIndex ? 'visible' : ''}`"
-            :key="i"
-            :style="`background-image: url(${slide.blurred_image.url});`"
-        >
-            <div class="gradient" />
-        </div>
-        <div class="phone-slider">
-            <div class="slider-controls">
-                <div class="prev">
-                    <img src="~assets/images/icons/arrow.svg" />
-                </div>
-                <div class="next">
-                    <img src="~assets/images/icons/arrow.svg" />
-                </div>
-            </div>
-            <div class="swiper-container phone-component" ref="phoneSlider">
-                <div class="swiper-wrapper">
-                    <div v-for="(slide, i) in verticalSlides" class="swiper-slide screen" :key="i">
-                        <img :src="slide.slide_image.url" />
-                    </div>
-                </div>
-            </div>
-            <div class="slider-pagination">
-                <div
-                    class="thumb"
-                    v-for="(slide, i) in verticalSlides"
-                    :key="i"
-                    v-on:click="slideTo(i)"
-                    :class="phoneSlider && phoneSlider.realIndex === i ? 'active' : ''"
+        <div class="profile-phones">
+            <div class="phones-wrapper">
+                <Phone
+                    v-for="(profile, index) in feeds"
+                    :key="index"
+                    whiteBorder
                 >
-                    <img :src="slide.thumb_image.url" />
-                </div>
+                    <div :class="`media full ${profile.is_big ? 'video' : ''}`">
+                        <template v-if="profile.is_big">
+                            <div class="video-wrapper">
+                                <img :src="profile.header_overlay.url" alt="profile-header" />
+                                <Video :url="profile.video.url" autoplay />
+                            </div>
+                        </template>
+                        <LazyImg :url="profile.image.url" />
+                    </div>
+                </Phone>
             </div>
         </div>
     </div>
@@ -53,6 +35,8 @@ import enterView from 'enter-view';
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
 import Swiper from 'swiper';
+import Phone from '~/components/Phone';
+import LazyImg from '~/components/LazyImg';
 
 export default {
     data() {
@@ -63,57 +47,17 @@ export default {
 		}
 	},
     components: {
-        SectionHeader
+        SectionHeader,
+        Phone,
+        LazyImg
     },
     computed: {
         header () {
             return this.$store.state.homepage.body[0].primary;
         },
-        verticalSlides () {
-            return this.$store.state.homepage.body[1].items;
+        feeds () {
+            return this.$store.state.homepage.body.find(slice => slice.slice_type === 'profiles_examples').items;
         }
     },
-    mounted() {
-        this.initSlider(this.$refs.phoneSlider);
-
-        // Init first cta bg color
-        this.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
-
-        const self = this;
-        enterView({
-            selector: '.section.feed',
-            offset: 1,
-            enter: () => {
-                self.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
-                this.$store.commit('SET_PREV_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
-                self.$store.commit('SET_NAV_CTA_VISIBLE', true);
-            },
-            exit: () => self.$store.commit('SET_NAV_CTA_VISIBLE', false),
-        });
-	},
-	methods: {
-		initSlider (el) {
-			this.phoneSlider = new Swiper (el, {
-                allowTouchMove: false,
-				direction: 'vertical',
-                loop: true,
-                speed: 500,
-				navigation: {
-					nextEl: '.slider-controls .next',
-					prevEl: '.slider-controls .prev',
-				},
-            });
-
-            this.phoneSlider.on('slideChange', () => this.onSlideChange());
-        },
-        slideTo(index) {
-            this.phoneSlider.slideToLoop(index);
-        },
-        onSlideChange() {
-            this.activeIndex = this.phoneSlider.realIndex;
-            this.$store.commit('SET_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
-            this.$store.commit('SET_PREV_NAV_CTA_BG_COLOR', this.verticalSlides[this.activeIndex].cta_background_color);
-        }
-	}
 }
 </script>

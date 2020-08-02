@@ -1,6 +1,8 @@
 .feed {
     padding-top: 13.125vw;
     border-top: 1px solid v(dark-grey);
+    max-width: v(large-wrapper);
+    margin: auto;
     position: relative;
     overflow: hidden;
 
@@ -118,7 +120,7 @@
                     top: 0;
                     width: 100%;
                     height: 100%;
-                    background-color: v(whiteColor);
+                    background-color: v(white-color);
                     border-radius: 6px;
                     opacity: 0.2;
                     z-index: -1;
@@ -152,7 +154,7 @@
         }
 
         .phone-component {
-            border-color: v(whiteColor);
+            border-color: v(white-color);
 
             @include max(sm) {
                 margin: auto;

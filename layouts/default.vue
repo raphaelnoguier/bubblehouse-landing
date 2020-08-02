@@ -1,7 +1,6 @@
 <template>
 	<div :class="`app ${loaded ? 'loaded' : ''}`">
 		<Nav />
-		<Modal :visible="$store.getters.modalOpen" />
 		<nuxt/>
 	</div>
 </template>
@@ -9,7 +8,6 @@
 <script>
 /* Components */
 import Nav from '~/components/Nav';
-import Modal from '~/components/Modal';
 
 export default {
 	data() {
@@ -19,10 +17,13 @@ export default {
 	},
 	mounted() {
 		window.addEventListener('load', () => this.loaded = true);
+		this.$store.commit('SET_NAV_CTA_BG_COLOR', 'var(--brand-color)');
+
+		const currentRoute = this.$route.name;
+		if (currentRoute === 'terms' || currentRoute === 'privacy') document.body.classList.add('white-theme');
 	},
 	components: {
-		Nav,
-		Modal
+		Nav
 	}
 }
 </script>

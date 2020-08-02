@@ -1,11 +1,11 @@
 // Colors
 @supports(--css: variables) {
     :root {
-        --whiteColor: #ffffff;
+        --white-color: #ffffff;
+        --black-color: #0A0A0A;
         --brand-color: #E94E29;
         --dark-grey: #1F1F1F;
         --light-grey: #828282;
-        --blackColor: #0A0A0A;
 
         /* easings */
         --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
@@ -13,6 +13,7 @@
 
         /* global values */
         --app-radius: 4px;
+        --button-radius: 20px;
 
         /* wrapper values */
         --xl-wrapper: 86.111vw;

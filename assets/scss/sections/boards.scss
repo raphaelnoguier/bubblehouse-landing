@@ -1,8 +1,10 @@
 .section.boards {
     width: 100%;
-    transform: translateY(-4.75vw);
     padding-top: 17.847vw;
     transition: background-color 300ms v(ease-in-out-quad);
+    max-width: v(large-wrapper);
+    margin: auto;
+
 
     @include min(xl) {
         padding-top: calc(200px + 4.75vw);
@@ -10,11 +12,9 @@
 
     @include max(md) {
         padding-top: 26.042vw;
-        transform: translateY(-7.8vw);
     }
 
     @include max(sm) {
         padding-top: 38.133vw;
-        transform: translateY(0);
     }
 }

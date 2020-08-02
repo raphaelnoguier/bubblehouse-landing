@@ -6,7 +6,6 @@
 
 html {
 	font-size: 1.6vw;
-	background-color: v(blackColor);
 }
 
 *::selection {
@@ -18,6 +17,11 @@ body {
 	line-height: 2.778vw;
 	transition: background-color 500ms ease;
 	overscroll-behavior-y: none;
+	background-color: #dedede;
+
+	&.white-theme {
+		background-color: white;
+	}
 
 	@include min(xl) {
 		font-size: 30px;

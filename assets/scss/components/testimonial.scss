@@ -1,16 +1,22 @@
 .testimonial-component {
     width: 100%;
-    max-width: 34.722vw;
-    color: v(whiteColor);
+    // min-width: 34.722vw;
+    color: v(white-color);
     margin-top: 5.903vw;
     cursor: initial;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px 30px;
+
+    &:not(:first-child) {
+        margin-left: 50px;
+    }
 
     @include min(xl) {
         margin-top: 85px;
     }
 
     @include min(md) {
-        width: 100% !important;
         margin-right: 0 !important;
     }
 

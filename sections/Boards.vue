@@ -5,7 +5,7 @@
             :title="header.title"
             :subtitle="header.subtitle"
         />
-        <Board :boardItems="board" :horizontalSliders="horizontalSliders" />
+        <Board :boardItems="board" :timerSlider="timerSlider" />
     </div>
 </template>
 
@@ -22,8 +22,8 @@ export default {
         board () {
             return this.$store.state.homepage.body1[1].items;
         },
-        horizontalSliders () {
-            return this.$store.state.homepage.body1.filter(element => element.slice_type === 'horizontal_phone_slider');
+        timerSlider () {
+            return this.$store.state.homepage.body1.find(element => element.slice_type === 'timer_slider');
         },
     },
     components: {

@@ -1,8 +1,7 @@
 .section.profile-example {
-    background: v(blackColor);
     width: 100%;
     padding-top: 13.889vw;
-    max-width: v(xl-wrapper);
+    max-width: v(large-wrapper);
     margin: auto;
 
     @include min(xl) {
@@ -17,134 +16,102 @@
     @include max(sm) {
         padding-top: 39.200vw;
     }
+}
 
-    .profile-phones {
-        margin-top: 3.472vw;
 
-        @include min(xl) {
-            margin-top: 50px;
+.profile-phones {
+    margin-top: 3.472vw;
+
+    @include min(xl) {
+        margin-top: 50px;
+    }
+
+    @include max(md) {
+        margin-top: 13.021vw;
+        overflow: scroll;
+        display: flex;
+        @include noScrollBar();
+    }
+
+    .phones-wrapper {
+        @include flexCenter();
+        justify-content: center;
+        position: relative;
+        transition: opacity 300ms ease;
+
+        &.fade-out {
+            opacity: 0;
         }
 
         @include max(md) {
-            margin-top: 13.021vw;
-            overflow: scroll;
-            display: flex;
-            @include noScrollBar();
+            display: inline-flex;
+
+            &:first-child {
+                margin-left: 6.510vw;
+            }
         }
 
-        .phones-wrapper {
-            @include flexCenter();
-            justify-content: center;
-            position: relative;
-            transition: opacity 300ms ease;
+        @include max(sm) {
+            &:first-child {
+                margin-left: 6.400vw;
+            }
+        }
 
-            &.fade-out {
-                opacity: 0;
+        .phone-component {
+            position: relative;
+
+            @for $i from 1 through 3 {
+                &:nth-of-type(#{$i}) {
+                    .lazy-placeholder {
+                        transition-delay: $i * 100ms;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                margin: 0 2.222vw;
+
+                @include min(xl) {
+                    margin: 0 32px;
+                }
+
+                @include max(md) {
+                    margin: 0 2.734vw;
+                }
+
+                @include max(sm) {
+                    margin: 0 8.533vw;
+                }
             }
 
             @include max(md) {
-                display: inline-flex;
-
-                &:first-child {
-                    margin-left: 6.510vw;
+                &:last-child{
+                    margin-right: 2.734vw;
                 }
             }
 
             @include max(sm) {
-                &:first-child {
-                    margin-left: 6.400vw;
+                &:last-child{
+                    margin-right: 8.533vw;
                 }
             }
 
-            .phone-component {
-                position: relative;
+            .video-wrapper {
+                position: absolute;
+                top:0;
+                width: 100%;
+                height: 35.6%;
 
-                @for $i from 1 through 3 {
-                    &:nth-of-type(#{$i}) {
-                        .lazy-placeholder {
-                            transition-delay: $i * 100ms;
-                        }
-                    }
-                }
-
-                &:nth-of-type(2) {
-                    margin: 0 2.222vw;
-
-                    @include min(xl) {
-                        margin: 0 32px;
-                    }
-
-                    @include max(md) {
-                        margin: 0 2.734vw;
-                    }
-
-                    @include max(sm) {
-                        margin: 0 8.533vw;
-                    }
-                }
-
-                @include max(md) {
-                    &:last-child{
-                        margin-right: 2.734vw;
-                    }
-                }
-
-                @include max(sm) {
-                    &:last-child{
-                        margin-right: 8.533vw;
-                    }
-                }
-
-                .video-wrapper {
+                img {
                     position: absolute;
-                    top:0;
+                    top: 0;
+                    left: 0;
+                }
+
+                video {
                     width: 100%;
-                    height: 35.6%;
-
-                    img {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-
-                    video {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
-
-                .layer-wrapper {
-                    position: absolute;
                     height: 100%;
-                    width: 100%;
-
-                    @include max(sm) {
-                        display: none;
-                    }
-
-                    .hero, .middle, .bottom {
-                        width: 100%;
-                        background: v(blackColor);
-                        opacity: 0;
-                        transition: opacity 300ms v(ease-in-out-quad);
-
-                        &.active {
-                            opacity: 0.6;
-                        }
-                    }
-
-                    .hero {
-                        height: 35.4%;
-                    }
-
-                    .middle {
-                        height: 39%;
-                    }
-
-                    .bottom {
-                        height: calc(100% - (38.31% + 35.72%));
-                    }
+                    object-fit: cover;
                 }
             }
         }

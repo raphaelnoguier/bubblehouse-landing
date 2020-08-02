@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-component">
+    <div class="nav-component" :class="`${$store.getters.navCtaVisible ? 'with-bg' : ''}`">
         <div class="nav-content">
             <div class="left">
                 <a href="/">
@@ -9,9 +9,8 @@
                     <span>{{nav.site_name}}</span>
                 </a>
             </div>
-            <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' ? 'visible': ''}`">
+            <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
                 <button
-                    v-on:click="$store.commit('SET_MODAL_OPEN', true);"
                     class="button-component"
                     :style="`background-color:${$route.name !== 'terms' ? $store.getters.navCtaBgColor : 'var(--brand-color)'}`"
                 >

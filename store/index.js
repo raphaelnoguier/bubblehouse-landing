@@ -4,10 +4,6 @@ import Prismic from 'prismic-javascript';
 import prismicConfig from '../prismic.config.js';
 
 export const state = () => ({
-	modalOpen: false,
-	modalInputEmail: '',
-	modalInputName: '',
-	modalByPass: false,
 	homepage: {},
 	termsPage: {},
 	privacyPage: {},
@@ -18,18 +14,6 @@ export const state = () => ({
 });
 
 export const getters = {
-	modalOpen(state) {
-		return state.modalOpen
-	},
-	modalInputEmail(state) {
-		return state.modalInputEmail
-	},
-	modalInputName(state) {
-		return state.modalInputName
-	},
-	modalByPass(state) {
-		return state.modalByPass
-	},
 	homepage(state) {
 		return state.homepage
 	},
@@ -54,20 +38,6 @@ export const getters = {
 };
 
 export const mutations = {
-	SET_MODAL_OPEN(state, bool) {
-		state.modalOpen = bool;
-		if (bool) document.body.classList.add('locked');
-		else document.body.classList.remove('locked');
-	},
-	SET_MODAL_INPUT_EMAIL(state, email) {
-		state.modalInputEmail = email;
-	},
-	SET_MODAL_INPUT_NAME(state, name) {
-		state.modalInputName = name;
-	},
-	SET_MODAL_BYPASS(state, bool) {
-		state.modalByPass = bool;
-	},
 	SET_HOMEPAGE(state, homepage) {
 		state.homepage = homepage;
 	},

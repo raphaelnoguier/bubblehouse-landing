@@ -1,10 +1,10 @@
 #simple-page {
-    margin-top: 13.333vw;
+    padding-top: 13.333vw;
 
     .page-wrapper {
         max-width: 49.306vw;
         padding-left: 6.944vw;
-        color: v(whiteColor);
+        color: v(black-color);
 
         @include max(md) {
             max-width: 100%;

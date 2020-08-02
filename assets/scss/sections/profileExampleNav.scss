@@ -33,7 +33,7 @@
         height: 4.861vw;
         border: 1px solid #222222;
         border-radius: v(app-radius);
-        color: v(whiteColor);
+        color: v(white-color);
         padding: 0 1.667vw;
         cursor: pointer;
         transition: opacity 300ms v(ease-in-out-quad);
@@ -65,10 +65,10 @@
         }
 
         &:hover {
-            color: v(blackColor);
+            color: v(black-color);
 
             svg path {
-                fill: v(blackColor);
+                fill: v(black-color);
             }
 
             &:before {

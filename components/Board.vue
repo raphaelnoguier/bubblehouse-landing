@@ -44,58 +44,8 @@
                 </div>
             </div>
         </div>
-        <div class="board-slider-nav">
-            <div class="categories">
-                <div
-                    :class="`single ${i === activeCategory ? 'active' : ''}`"
-                    v-for="(category, i) in categories"
-                    :key="i"
-                    v-on:click="changeCategories(i)"
-                >
-                    {{category}}
-                </div>
-            </div>
-        </div>
-        <div :class="`board-component-slider ${fetchingImages ? 'no-events' : ''}`" ref="boardSlider">
-            <div class="board-slider">
-                <div class="slider-behind">
-                    <div class="swiper-container" ref="sliderBehind">
-                        <div class="swiper-wrapper">
-                            <div
-                                class="swiper-slide screen"
-                                v-for="(slide, index) in horizontalSliders[activeCategory].items"
-                                :key="index"
-                            >
-                                <LazyImg :url="slide.image.url" :loading="fetchingImages" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-wrapper">
-                    <div class="phone-component">
-                        <div class="slider-prev">
-                            <img src="~assets/images/icons/arrow.svg" />
-                        </div>
-                        <div class="slider-next">
-                            <img src="~assets/images/icons/arrow.svg" />
-                        </div>
-                        <div class="slider-front">
-                            <div class="swiper-container" ref="sliderInFront">
-                                <div class="swiper-wrapper">
-                                    <div
-                                        :class="`swiper-slide screen`"
-                                        v-for="(slide, index) in horizontalSliders[activeCategory].items"
-                                        :key="index"
-                                    >
-                                        <div :class="`lazy-placeholder ${fetchingImages ? 'active' : ''}`" />
-                                        <Video :url="slide.board_video.url" :autoplay="false" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="board-component-slider" ref="boardSlider">
+            <TimerSlider :items="timerSlider.items" :playing="!boardImagesVisible" />
         </div>
     </div>
 </template>
@@ -108,105 +58,58 @@ import Swiper from 'swiper';
 
 /* Components */
 import LazyImg from '~/components/LazyImg';
-import Video from '~/components/Video';
+import TimerSlider from '~/components/TimerSlider';
 
 export default {
     components: {
         LazyImg,
-        Video
+        TimerSlider
     },
     data () {
         return {
             nbItemsInRows: 4,
             medias: [],
             mediasBounds: [],
-            categories: [],
-            activeCategory: 0,
             slidersInstance: [],
-            boardImagesVisible: true,
-            fetchingImages: false
+            boardImagesVisible: true
         }
     },
     mounted() {
         this.medias = this.$el.querySelectorAll('.media-wrapper');
         this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
-        this.slidersEls = [this.$refs.sliderBehind, this.$refs.sliderInFront];
         this.calcBounds();
         this.resolveDistanceY();
-        this.buildCategories();
-        this.initSliders(this.slidersEls);
-
-        this.setSectionBgColor();
 
         window.addEventListener('resize', this.calcBounds, false);
         window.addEventListener('resize', this.resolveDistanceY, false);
 
-        enterView({
-            selector: '.section.boards',
-            offset: 1,
-            enter: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'rgba(10, 10, 10, 0.5)'),
-            exit: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', this.$store.state.prevNavCtaBgColor),
-        });
+        // enterView({
+        //     selector: '.board-component-slider',
+        //     offset: 1,
+        //     enter: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'rgba(10, 10, 10, 0.5)'),
+        //     exit: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', this.$store.state.prevNavCtaBgColor),
+        // });
 
         enterView({
-            selector: '.slider-front',
+            selector: '.board-component-slider',
             progress: (el, progress) => {
-                if (progress === 1) {
-                    this.boardImagesVisible = false;
-                    this.playFirstVideo();
-                }
-                if(this.boardImagesVisible) this.transform(progress);
+                if (progress === 1) this.boardImagesVisible = false;
+                if (this.boardImagesVisible) this.transform(progress);
             }
         });
     },
     methods: {
         calcBounds() {
             this.mediasBounds = [];
+            const sectionLeft = this.$el.querySelector('.timer-slider-wrapper').getBoundingClientRect();
             this.medias.forEach((media) => {
                 const { left, width, top, height } = media.getBoundingClientRect();
 
                 this.mediasBounds.push({
-                    x: (window.innerWidth / 2) - (left + (width / 2) )
+                    x: sectionLeft.left - left
                 });
             });
-        },
-        buildCategories() {
-            this.horizontalSliders.forEach((slider, i) => {
-                if (!this.categories.includes(slider.primary.category)) {
-                    this.categories.push(slider.primary.category);
-                }
-            });
-        },
-        initSliders(slidersEls) {
-            slidersEls.forEach((slider, i) => {
-                this.slidersInstance.push(new Swiper (slider, {
-                    spaceBetween: i === 0 ? Utils.vw(3.611) : 0,
-                    slideToClickedSlide: i === 0,
-                    speed: 500,
-                    initialSlide: 1,
-                    allowTouchMove: false,
-                    on: {
-                        slideChange: () => {
-                            this.setSectionBgColor();
-                            this.playFirstVideo(true);
-                        }
-                    },
-                    breakpoints: {
-                        1824: {
-                            spaceBetween: 50
-                        }
-                    },
-                    navigation: {
-                        nextEl: i === 0 && '.slider-next',
-                        prevEl: i === 0 && '.slider-prev',
-                    },
-                }));
-            });
-
-            // Assign each other controls
-            this.slidersInstance[0].controller.control = this.slidersInstance[1];
-            this.slidersInstance[1].controller.control = this.slidersInstance[0];
         },
         getCurrentVideo() {
             const videos = this.$refs.sliderInFront.querySelectorAll('video');
@@ -220,35 +123,11 @@ export default {
 
             currentVideo.play();
         },
-        setSectionBgColor() {
-            const currentSlider = this.horizontalSliders[this.activeCategory];
-            const currentSliderInstance = this.slidersInstance[1];
-            if (currentSliderInstance) {
-                this.$store.commit('SET_BOARD_SECTION_BG_COLOR',
-                    currentSlider.items[currentSliderInstance.activeIndex].background_color
-                );
-            }
-        },
-        changeCategories(index) {
-            if (index === this.activeCategory) return;
-            this.fetchingImages = true;
-
-            setTimeout(() => this.activeCategory = index, 500);
-
-            this.$Lazyload.$on('loaded', () => {
-                const currentVideo = this.getCurrentVideo();
-                currentVideo.addEventListener('canplay', () => {
-                    this.fetchingImages = false;
-                    this.setSectionBgColor();
-                    this.playFirstVideo();
-                });
-            });
-        },
         resolveDistanceY() {
             if (window.innerWidth <= 768) return this.distanceY = 200;
             if (window.innerWidth >= 1824) return this.distanceY = 120;
 
-            return this.distanceY = 130;
+            return this.distanceY = 140;
         },
         transform(progress) {
             this.mediasBounds.forEach((bounds, i) => {
@@ -259,7 +138,8 @@ export default {
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
                 const mappedWrapperY = Utils.map(progress, 0, 1, 0, this.distanceY);
-                const rotate = Utils.map(progress, 0, 1, 0, i % 2 ? 3 : -3);
+                const degree = i === 0 || i === 4 ? 0 : -3;
+                const rotate = Utils.map(progress, 0, 1, 0, degree);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;
                 block.style.transform = `translate3d(0px, ${i >= 4 ? '-' : ''}${mappedY}%, 0) rotate3d(0, 0, 1, ${rotate}deg)`;
@@ -269,7 +149,7 @@ export default {
     },
     props: {
         boardItems: Array,
-        horizontalSliders: Array
+        timerSlider: Object
     }
 }
 </script>

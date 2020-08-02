@@ -1,5 +1,5 @@
 <template>
-    <div :class="`phone-component ${whiteBorder ? 'white-border' : ''} ${small ? 'sm' : ''} ${half ? 'half' : ''}`">
+    <div :class="`phone-component ${whiteBorder ? 'white-border' : ''} ${half ? 'half' : ''}`">
         <slot />
     </div>
 </template>
@@ -8,7 +8,6 @@
 export default {
     props: {
         whiteBorder: Boolean,
-        small: Boolean,
         half: Boolean
     }
 }

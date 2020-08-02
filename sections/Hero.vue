@@ -7,18 +7,25 @@
                     <p>{{store.hero_description}}</p>
                 </div>
                 <div class="form">
-                    <form v-on:submit.prevent="openModal" ref="form">
+                    <form v-on:submit.prevent="console.log('hello')" ref="form">
                         <input
                             class="input-component"
                             type="email"
                             name="email"
-                            placeholder="Enter your email address"
+                            placeholder="Mail address"
+                            v-model="emailValue"
+                            required
+                        />
+                        <input
+                            class="input-component"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
                             v-model="emailValue"
                             required
                         />
                         <button
                             class="button-component"
-                            v-on:click="openModal"
                             type="submit"
                         >
                             <span>{{store.global_cta_name}}</span>
@@ -26,7 +33,7 @@
                     </form>
                 </div>
             </div>
-            <div class="columns-slider" @mouseover="toggleSpeed" @mouseleave="toggleSpeed($event, true)">
+            <div class="columns-slider">
                 <div class="column swiper-container">
                     <div class="swiper-wrapper">
                         <div
@@ -43,19 +50,7 @@
                     <div class="swiper-wrapper">
                         <div
                             class="swiper-slide"
-                            v-for="(slide, i) in slidingColumns.slice(3, 6)" :key="i"
-                        >
-                            <Phone>
-                                <img :src="slide.image.url" />
-                            </Phone>
-                        </div>
-                    </div>
-                </div>
-                <div class="column swiper-container">
-                    <div class="swiper-wrapper">
-                        <div
-                            class="swiper-slide"
-                            v-for="(slide, i) in slidingColumns.slice(6, slidingColumns.length)" :key="i"
+                            v-for="(slide, i) in slidingColumns.slice(3, slidingColumns.length)" :key="i"
                         >
                             <Phone>
                                 <img :src="slide.image.url" />
@@ -80,7 +75,7 @@ export default {
     data() {
         return {
             emailValue: '',
-            autoplaySpeed: 8000
+            autoplaySpeed: 10000
         }
     },
     components: {
@@ -101,28 +96,24 @@ export default {
         this.sliders = [];
         this.initSlidingColumns();
 
-        const self = this;
         enterView({
-            selector: '.feed .section-header-component',
+            selector: '.section.boards',
             offset: 1,
             enter: () => {
                 this.sliders.forEach(slider => {
                     slider.wrapperEl.style.visibility = 'hidden';
                 });
+                this.$store.commit('SET_NAV_CTA_VISIBLE', true);
             },
             exit: () => {
                 this.sliders.forEach(slider => {
                     slider.wrapperEl.style.visibility = 'visible';
                 });
+                this.$store.commit('SET_NAV_CTA_VISIBLE', false)
             },
         });
     },
     methods: {
-        toggleSpeed(event = null, isOut = false) {
-            this.sliders.forEach((slider, i) => {
-                isOut ? this.columns[i].classList.remove('slowmo') : this.columns[i].classList.add('slowmo');
-            });
-        },
         initSlidingColumns() {
             this.columns.forEach((column, i) => {
                 this.sliders[i] = new Swiper(column, {
@@ -141,7 +132,7 @@ export default {
                             spaceBetween: Utils.vw(4.948),
                         },
                         780: {
-                            spaceBetween: Utils.vw(2.431),
+                            spaceBetween: Utils.vw(1.431),
                         }
                     },
                 })
@@ -151,14 +142,6 @@ export default {
             const { hero_background_color } = this.store;
             return `background-color: ${hero_background_color}`;
         },
-        openModal() {
-            const { commit } = this.$store;
-
-            if (this.$refs.form.checkValidity() || window.innerWidth < 768) {
-                commit('SET_MODAL_INPUT_EMAIL', this.emailValue);
-                commit('SET_MODAL_OPEN', true);
-            }
-        }
     }
 }
 </script>
