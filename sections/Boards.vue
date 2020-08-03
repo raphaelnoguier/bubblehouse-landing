@@ -1,5 +1,5 @@
 <template>
-    <div class="section boards" :style="`background-color: ${this.$store.getters.boardSectionBgColor}`">
+    <div class="section boards">
         <div class="large-wrapper">
             <SectionHeader
                 :heading="header.heading"

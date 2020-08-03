@@ -46,6 +46,9 @@
             .icon {
                 position: relative;
                 display: inline-flex;
+                border: 1px solid #E7E7E7;
+                border-radius: 50%;
+                transition: border-color 500ms ease;
             }
 
             .icon-wrapper {
@@ -72,8 +75,11 @@
                 .progress-ring .progress-ring__circle {
                     fill: #F24875;
                 }
-                .icon svg g {
-                    fill: white;
+                .icon {
+                    border-color: transparent;
+                    svg g {
+                        fill: white;
+                    }
                 }
                 .content {
                     @include max(md) {

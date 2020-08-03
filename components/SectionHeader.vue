@@ -2,7 +2,7 @@
     <div class="section-header-component" :class="whiteTheme ? 'white-theme' : ''">
         <div class="section-header-content" :class="large ? 'lg' : ''">
             <div class="title">
-                <span class="labelUpper" :style="`color: ${dynamicColor ? $store.getters.navCtaBgColor : 'inherit'}`">
+                <span class="labelUpper">
                     {{title}}
                 </span>
             </div>

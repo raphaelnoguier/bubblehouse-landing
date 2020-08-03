@@ -84,13 +84,6 @@ export default {
         window.addEventListener('resize', this.calcBounds, false);
         window.addEventListener('resize', this.resolveDistanceY, false);
 
-        // enterView({
-        //     selector: '.board-component-slider',
-        //     offset: 1,
-        //     enter: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', 'rgba(10, 10, 10, 0.5)'),
-        //     exit: () => this.$store.commit('SET_NAV_CTA_BG_COLOR', this.$store.state.prevNavCtaBgColor),
-        // });
-
         enterView({
             selector: '.board-component-slider',
             progress: (el, progress) => {

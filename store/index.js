@@ -8,9 +8,6 @@ export const state = () => ({
 	termsPage: {},
 	privacyPage: {},
 	navCtaVisible: false,
-	navCtaBgColor: '',
-	prevNavCtaBgColor: '',
-	boardSectionBgColor: '',
 });
 
 export const getters = {
@@ -25,16 +22,7 @@ export const getters = {
 	},
 	navCtaVisible(state) {
 		return state.navCtaVisible
-	},
-	navCtaBgColor(state) {
-		return state.navCtaBgColor
-	},
-	prevNavCtaBgColor(state) {
-		return state.prevNavCtaBgColor
-	},
-	boardSectionBgColor(state) {
-		return state.boardSectionBgColor
-	},
+	}
 };
 
 export const mutations = {
@@ -49,16 +37,7 @@ export const mutations = {
 	},
 	SET_NAV_CTA_VISIBLE(state, bool) {
 		state.navCtaVisible = bool;
-	},
-	SET_NAV_CTA_BG_COLOR(state, color) {
-		state.navCtaBgColor = color;
-	},
-	SET_PREV_NAV_CTA_BG_COLOR(state, color) {
-		state.prevNavCtaBgColor = color;
-	},
-	SET_BOARD_SECTION_BG_COLOR(state, color) {
-		state.boardSectionBgColor = color;
-	},
+	}
 };
 
 export const actions = {
