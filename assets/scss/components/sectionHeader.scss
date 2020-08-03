@@ -6,9 +6,21 @@
         opacity: 1;
     }
 
+    &.white-theme {
+        .section-header-content {
+            .title, .baseline {
+                color: white;
+            }
+        }
+    }
+
     .section-header-content {
-        max-width: 56.667vw;
+        max-width: 34.722vw;
         text-align: left;
+
+        &.lg {
+            max-width: 41.944vw;
+        }
 
         @include min(xl) {
             max-width: 1120px;
@@ -23,50 +35,23 @@
         }
 
         .title {
-            @include proximaBold(1.111vw, 1.667vw);
-            letter-spacing: 1px;
             color: v(brand-color);
-            text-transform: uppercase;
-
-            @include min(xl) {
-                font-size: 18px;
-            }
-
-            @include max(md) {
-                font-size: 2.083vw;
-                line-height: 3.125vw;
-            }
-
-            @include max(sm) {
-                font-size: 3.733vw;
-                line-height: 5.600vw;
-            }
         }
 
         .baseline {
-            @include proximaRegular(1.806vw, 2.778vw);
-            width: calc(100% - 7.222vw);
             margin-top: 1.458vw;
-            color: v(white-color);
+            color: v(black-color);
 
             @include min(xl) {
-                font-size: 30px;
-                line-height: 45px;
-                max-width: 900px;
                 margin-top: 10px;
             }
 
             @include max(md) {
-                width: 100%;
                 margin-top: 1.693vw;
-                font-size: 2.865vw;
-                line-height: 4.167vw;
             }
 
             @include max(sm) {
                 margin-top: 2.667vw;
-                font-size: 4.800vw;
-                line-height: 7.200vw;
             }
         }
     }

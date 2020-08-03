@@ -1,11 +1,13 @@
 <template>
     <div class="section interactive-modules">
-        <SectionHeader
-            :heading="header.heading"
-            :title="header.title"
-            :subtitle="header.subtitle"
-        />
-        <TimerSlider :items="timerSlider.items" :playing="enteredSection" />
+        <div class="large-wrapper">
+            <SectionHeader
+                :heading="header.heading"
+                :title="header.title"
+                :subtitle="header.subtitle"
+            />
+            <TimerSlider :items="timerSlider.items" :playing="enteredSection" />
+        </div>
     </div>
 </template>
 

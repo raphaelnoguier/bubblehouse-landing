@@ -1,40 +1,43 @@
 <template>
     <div class="section profile-example">
-        <SectionHeader
-            :heading="header.heading"
-            :title="header.title"
-            :subtitle="header.subtitle"
-        />
-        <div class="profile-phones">
-            <template v-for="(row, i) in profileExamples">
-                <div class="phones-wrapper" :key="i" v-if="activeExampleIndex === i || activeExampleIndex === -1">
-                    <Phone
-                        v-for="(profile, index) in row.items"
-                        :key="index"
-                        whiteBorder
-                    >
-                        <div :class="`media full ${profile.is_big ? 'video' : ''}`">
-                            <template v-if="profile.is_big">
-                                <div class="video-wrapper">
-                                    <img :src="profile.header_overlay.url" alt="profile-header" />
-                                    <Video :url="profile.video.url" autoplay />
-                                </div>
-                            </template>
-                            <LazyImg :url="profile.image.url" :loading="fetchingImages" />
+        <div class="large-wrapper">
+            <SectionHeader
+                :heading="header.heading"
+                :title="header.title"
+                :subtitle="header.subtitle"
+                :whiteTheme="true"
+            />
+            <div class="profile-phones">
+                <template v-for="(row, i) in profileExamples">
+                    <div class="phones-wrapper" :key="i" v-if="activeExampleIndex === i || activeExampleIndex === -1">
+                        <Phone
+                            v-for="(profile, index) in row.items"
+                            :key="index"
+                            whiteBorder
+                        >
+                            <div :class="`media full ${profile.is_big ? 'video' : ''}`">
+                                <template v-if="profile.is_big">
+                                    <div class="video-wrapper">
+                                        <img :src="profile.header_overlay.url" alt="profile-header" />
+                                        <Video :url="profile.video.url" autoplay />
+                                    </div>
+                                </template>
+                                <LazyImg :url="profile.image.url" :loading="fetchingImages" />
+                            </div>
+                        </Phone>
+                    </div>
+                </template>
+                <!-- <div class="profile-example-nav center">
+                    <div class="item load-more" v-on:click="loadMoreExamples()">
+                        <div class="icon" :style="`transform: rotate(${this.rotate}deg)`">
+                            <RefreshIcon />
                         </div>
-                    </Phone>
-                </div>
-            </template>
-            <!-- <div class="profile-example-nav center">
-                <div class="item load-more" v-on:click="loadMoreExamples()">
-                    <div class="icon" :style="`transform: rotate(${this.rotate}deg)`">
-                        <RefreshIcon />
+                        <div class="text">
+                            <span>more examples</span>
+                        </div>
                     </div>
-                    <div class="text">
-                        <span>more examples</span>
-                    </div>
-                </div>
-            </div> -->
+                </div> -->
+            </div>
         </div>
     </div>
 </template>

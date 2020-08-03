@@ -4,9 +4,10 @@
             <div class="left">
                 <a href="/">
                     <div class="logo">
-                        <img :src="nav.logo.url" />
+                        <Logo />
+                        <span class="site-name">{{nav.site_name}}</span>
+                        <span class="beta-pill">beta</span>
                     </div>
-                    <span>{{nav.site_name}}</span>
                 </a>
             </div>
             <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
@@ -14,7 +15,7 @@
                     class="button-component"
                     :style="`background-color:${$route.name !== 'terms' ? $store.getters.navCtaBgColor : 'var(--brand-color)'}`"
                 >
-                    <span>{{nav.global_cta_name}}</span>
+                    <span class="labelUpper">{{nav.global_cta_name}}</span>
                 </button>
             </div>
         </div>
@@ -22,7 +23,13 @@
 </template>
 
 <script>
+/* Components */
+import Logo from '~/components/Svgs/Logo';
+
 export default {
+    components: {
+        Logo
+    },
     computed: {
         nav() {
             return this.$store.state.homepage

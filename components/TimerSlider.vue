@@ -3,10 +3,7 @@
         <div class="timer-slider-component swiper-container" ref="slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(slide, i) in items" :key="i">
-                    <Phone
-                        :key="i"
-                        whiteBorder
-                    >
+                    <Phone :key="i">
                         <div class="media full">
                             <Video :key="i" :url="slide.board_video.url" :loop="false" />
                         </div>
@@ -17,7 +14,7 @@
         <div class="timer-slider-navigation">
            <div class="slide-infos" v-for="(slide, i) in items" :key="i" @click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
                <div class="icon">
-                    <svg class="progress-ring" :stroke-dasharray="circleOffset" :stroke-dashoffset="circleOffset">
+                    <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
                         <circle
                             class="progress-ring__circle"
                             stroke="black"
@@ -30,8 +27,8 @@
                     <div class="icon-wrapper"><SVGIcon :name="'picture'" /></div>
                 </div>
                 <div class="content">
-                    <span>{{slide.slide_title}}</span>
-                    <span>{{slide.slide_description}}</span>
+                    <span class="header3">{{slide.slide_title}}</span>
+                    <span class="bodyRegular">{{slide.slide_description}}</span>
                 </div>
             </div>
         </div>
@@ -91,6 +88,7 @@ export default {
         initSlider(el) {
             this.slider = new Swiper(el, {
                 slidesPerView: 1,
+                allowTouchMove: false,
                 effect: 'fade'
             });
 

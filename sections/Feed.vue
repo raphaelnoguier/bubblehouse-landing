@@ -1,28 +1,29 @@
 <template>
     <div class="section feed">
-        <SectionHeader
-            :heading="header.heading"
-            :title="header.title"
-            :subtitle="header.subtitle"
-            :dynamicColor="true"
-        />
-        <div class="profile-phones">
-            <div class="phones-wrapper">
-                <Phone
-                    v-for="(profile, index) in feeds"
-                    :key="index"
-                    whiteBorder
-                >
-                    <div :class="`media full ${profile.is_big ? 'video' : ''}`">
-                        <template v-if="profile.is_big">
-                            <div class="video-wrapper">
-                                <img :src="profile.header_overlay.url" alt="profile-header" />
-                                <Video :url="profile.video.url" autoplay />
-                            </div>
-                        </template>
-                        <LazyImg :url="profile.image.url" />
-                    </div>
-                </Phone>
+        <div class="large-wrapper">
+            <SectionHeader
+                :heading="header.heading"
+                :title="header.title"
+                :subtitle="header.subtitle"
+                :large="true"
+            />
+            <div class="profile-phones">
+                <div class="phones-wrapper">
+                    <Phone
+                        v-for="(profile, index) in feeds"
+                        :key="index"
+                    >
+                        <div :class="`media full ${profile.is_big ? 'video' : ''}`">
+                            <template v-if="profile.is_big">
+                                <div class="video-wrapper">
+                                    <img :src="profile.header_overlay.url" alt="profile-header" />
+                                    <Video :url="profile.video.url" autoplay />
+                                </div>
+                            </template>
+                            <LazyImg :url="profile.image.url" />
+                        </div>
+                    </Phone>
+                </div>
             </div>
         </div>
     </div>

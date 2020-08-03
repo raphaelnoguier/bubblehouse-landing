@@ -1,7 +1,5 @@
 .section.footer {
-    border-top: 1px solid #3B3B3B;
-    max-width: v(xl-wrapper);
-    margin: 0 auto 6.528vw auto;
+    background: v(app-gradient);
 
     @include min(xl) {
         margin: 0 auto 94px auto;
@@ -20,81 +18,13 @@
     }
 
     footer {
-        margin-top: 13.264vw;
-
-        @include min(xl) {
-            margin-top: 191px;
-        }
-
-        @include max(md) {
-            margin-top: 25.781vw;
-        }
-
-        @include max(sm) {
-            margin-top: 40vw;
-        }
-
+        padding: 10.417vw 0 8.125vw 0;
         .texts {
-            color: v(white-color);
-            text-align: center;
-            max-width: 58.472vw;
-            margin: auto;
             opacity: 0;
             transition: opacity 350ms v(ease-in-out-quart);
 
-            @include max(md) {
-                max-width: 300%;
-            }
-
             &.in-view {
                 opacity: 1;
-            }
-
-            h3 {
-                @include proximaExtraBold(6.250vw, 6.250vw);
-
-                @include min(xl) {
-                    font-size: 130px;
-                    line-height: 130px;
-                }
-
-                @include max(md) {
-                    font-size: 10.417vw;
-                    line-height: 10.417vw;
-                }
-
-                @include max(sm) {
-                    font-size: 12.800vw;
-                    line-height: 15.467vw;
-                }
-            }
-
-            p {
-                max-width: 39.792vw;
-                margin: 1.597vw auto 0 auto;
-                @include proximaRegular(1.806vw, 2.778vw);
-
-                @include min(xl) {
-                    font-size: 30px;
-                    line-height: 45px;
-                    max-width: 900px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-
-                @include max(md) {
-                    max-width: 68.099vw;
-                    margin-top: 4.167vw;
-                    font-size: 2.865vw;
-                    line-height: 4.167vw;
-                }
-
-                @include max(sm) {
-                    max-width: 100%;
-                    margin-top: 6.933vw;
-                    font-size: 4.800vw;
-                    line-height: 7.200vw;
-                }
             }
         }
 
@@ -124,7 +54,7 @@
                 }
 
                 input {
-                    width: 32.917vw;
+                    width: 25.625vw;
 
                     @include max(md) {
                         width: calc(100% / 3);
@@ -159,7 +89,7 @@
                 }
 
                 button {
-                    width: 15.764vw;
+                    width: 15.625vw;
 
                     @include max(md) {
                         width: calc(100% / 3);

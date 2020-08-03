@@ -1,11 +1,13 @@
 <template>
     <div class="section boards" :style="`background-color: ${this.$store.getters.boardSectionBgColor}`">
-        <SectionHeader
-            :heading="header.heading"
-            :title="header.title"
-            :subtitle="header.subtitle"
-        />
-        <Board :boardItems="board" :timerSlider="timerSlider" />
+        <div class="large-wrapper">
+            <SectionHeader
+                :heading="header.heading"
+                :title="header.title"
+                :subtitle="header.subtitle"
+            />
+            <Board :boardItems="board" :timerSlider="timerSlider" />
+        </div>
     </div>
 </template>
 

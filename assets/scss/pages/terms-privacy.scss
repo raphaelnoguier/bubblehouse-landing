@@ -12,7 +12,7 @@
         }
 
         .header {
-            @include proximaBold(2.222vw, 3.333vw);
+            @include geomanistBold(2.222vw, 3.333vw);
 
             @include min(xl) {
                 font-size: 40px;
@@ -34,7 +34,7 @@
             }
 
             p {
-                @include proximaRegular(1.389vw, 2.083vw);
+                @include geomanistRegular(1.389vw, 2.083vw);
                 margin-top: 2.431vw;
 
                 @include min(xl) {
@@ -49,7 +49,7 @@
             }
 
             strong {
-                @include proximaBold(1.389vw, 2.083vw);
+                @include geomanistBold(1.389vw, 2.083vw);
 
                 @include max(md) {
                     font-size: 3.646vw;

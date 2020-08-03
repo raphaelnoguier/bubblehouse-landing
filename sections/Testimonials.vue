@@ -1,22 +1,29 @@
 <template>
     <div class="section testimonials">
-        <div class="testimonials-wrapper swiper-container" ref="testimonialSlider">
-            <div class="swiper-wrapper">
-                <Testimonial
-                    v-for="(testimonial, i) in testimonials"
-                    :key="i"
-                    :content="testimonial.primary.content"
-                    :author="testimonial.primary.author"
-                    :role="testimonial.primary.role"
-                    :avatar="testimonial.primary.avatar.url"
-                />
-            </div>
-            <div class="slider-controls-testimonial">
-                <div class="prev">
-                    <img src="~assets/images/icons/arrow.svg" />
+        <div class="large-wrapper">
+            <SectionHeader
+                :title="header.title"
+                :subtitle="header.subtitle"
+                :whiteTheme="true"
+            />
+            <div class="testimonials-wrapper swiper-container" ref="testimonialSlider">
+                <div class="swiper-wrapper">
+                    <Testimonial
+                        v-for="(testimonial, i) in testimonials"
+                        :key="i"
+                        :content="testimonial.primary.content"
+                        :author="testimonial.primary.author"
+                        :role="testimonial.primary.role"
+                        :avatar="testimonial.primary.avatar.url"
+                    />
                 </div>
-                <div class="next">
-                    <img src="~assets/images/icons/arrow.svg" />
+                <div class="slider-controls-testimonial">
+                    <div class="prev">
+                        <img src="~assets/images/icons/arrow.svg" />
+                    </div>
+                    <div class="next">
+                        <img src="~assets/images/icons/arrow.svg" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,16 +35,21 @@
 import Swiper from 'swiper';
 
 /* Components */
+import SectionHeader from '~/components/SectionHeader';
 import Testimonial from '~/components/Testimonial';
 
 export default {
     computed: {
+        header () {
+            return this.$store.state.homepage.body4[0].primary;
+        },
         testimonials() {
             return this.$store.state.homepage.body4.filter(slice => slice.slice_type === 'testimonial');
         }
     },
     components: {
-        Testimonial
+        Testimonial,
+        SectionHeader
     },
     mounted() {
         this.testimonialSlider = new Swiper(this.$refs.testimonialSlider, {

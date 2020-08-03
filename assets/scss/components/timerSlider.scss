@@ -1,6 +1,5 @@
 .timer-slider-wrapper {
     @include flexCenter();
-    margin-bottom: 200px;
 
     @include max(md) {
         flex-direction: column;
@@ -65,7 +64,7 @@
 
                 svg g {
                     fill: black;
-                    transition: fill 300ms ease;
+                    transition: fill 500ms ease;
                 }
             }
 
@@ -89,7 +88,7 @@
                 overflow: visible;
 
                 .progress-ring__circle {
-                    transition: stroke-dashoffset 300ms ease, fill 300ms ease;
+                    transition: stroke-dashoffset 200ms ease, fill 500ms ease;
                     transform: rotate(-90deg);
                     transform-origin: 50% 50%;
                     fill: white;

@@ -5,7 +5,7 @@
 }
 
 html {
-	font-size: 1.6vw;
+	@include geomanistRegular(1.111vw, 1.667vw);
 }
 
 *::selection {
@@ -13,11 +13,8 @@ html {
 }
 
 body {
-	@include proximaRegular(1.806vw);
-	line-height: 2.778vw;
 	transition: background-color 500ms ease;
 	overscroll-behavior-y: none;
-	background-color: #dedede;
 
 	&.white-theme {
 		background-color: white;
@@ -51,4 +48,9 @@ body {
 
 #home {
 	overflow-x: hidden;
+}
+
+.large-wrapper {
+    max-width: v(large-wrapper);
+    margin: auto;
 }

@@ -1,12 +1,12 @@
 .testimonial-component {
     width: 100%;
-    // min-width: 34.722vw;
     color: v(white-color);
     margin-top: 5.903vw;
     cursor: initial;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    padding: 20px 30px;
+    padding: 1.389vw 2.083vw;
+    max-width: 34.583vw;
 
     &:not(:first-child) {
         margin-left: 50px;
@@ -23,25 +23,6 @@
     @include max(md) {
         max-width: 100%;
         cursor: pointer;
-    }
-
-    .testimonial-content {
-        @include proximaRegular(1.806vw, 2.778vw);
-
-        @include min(xl) {
-            font-size: 30px;
-            line-height: 45px;
-        }
-
-        @include max(md) {
-            font-size: 2.865vw;
-            line-height: 4.167vw;
-        }
-
-        @include max(sm) {
-            font-size: 4.800vw;
-            line-height: 7.200vw;
-        }
     }
 
     .testimonial-footer {
@@ -109,7 +90,7 @@
             }
 
             .role {
-                @include proximaBold(1.111vw, 1.667vw);
+                @include geomanistBold(1.111vw, 1.667vw);
 
                 @include min(xl) {
                     font-size: 18px;
@@ -128,7 +109,7 @@
 
             .name {
                 margin-top: 3px;
-                @include proximaRegular(1.111vw, 1.667vw);
+                @include geomanistRegular(1.111vw, 1.667vw);
 
                 @include max(md) {
                     font-size: 2.083vw;

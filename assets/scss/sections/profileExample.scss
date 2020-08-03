@@ -1,8 +1,7 @@
 .section.profile-example {
     width: 100%;
-    padding-top: 13.889vw;
-    max-width: v(large-wrapper);
-    margin: auto;
+    padding: 10.417vw 0;
+    background: v(app-gradient);
 
     @include min(xl) {
         padding-top: 200px;
@@ -20,7 +19,7 @@
 
 
 .profile-phones {
-    margin-top: 3.472vw;
+    margin-top: 5.208vw;
 
     @include min(xl) {
         margin-top: 50px;

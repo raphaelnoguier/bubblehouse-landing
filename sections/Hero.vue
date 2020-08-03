@@ -1,10 +1,10 @@
 <template>
-    <div class="hero-component" :style="getHeroStyle()">
+    <div class="hero-component">
         <div class="hero-component-content">
             <div class="left">
                 <div class="text">
-                    <h1>{{store.hero_title}}</h1>
-                    <p>{{store.hero_description}}</p>
+                    <h1 class="bigText">{{store.hero_title}}</h1>
+                    <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
                 <div class="form">
                     <form v-on:submit.prevent="console.log('hello')" ref="form">
@@ -21,14 +21,14 @@
                             type="text"
                             name="name"
                             placeholder="Name"
-                            v-model="emailValue"
+                            v-model="nameValue"
                             required
                         />
                         <button
-                            class="button-component"
+                            class="button-component reverse-theme"
                             type="submit"
                         >
-                            <span>{{store.global_cta_name}}</span>
+                            <span class="labelUpper">{{store.global_cta_name}}</span>
                         </button>
                     </form>
                 </div>
@@ -75,6 +75,7 @@ export default {
     data() {
         return {
             emailValue: '',
+            nameValue: '',
             autoplaySpeed: 10000
         }
     },
@@ -132,16 +133,12 @@ export default {
                             spaceBetween: Utils.vw(4.948),
                         },
                         780: {
-                            spaceBetween: Utils.vw(1.431),
+                            spaceBetween: Utils.vw(0.972),
                         }
                     },
                 })
             });
-        },
-        getHeroStyle() {
-            const { hero_background_color } = this.store;
-            return `background-color: ${hero_background_color}`;
-        },
+        }
     }
 }
 </script>

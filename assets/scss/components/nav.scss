@@ -1,18 +1,22 @@
 .nav-component {
     position: fixed;
     top: 0;
-    padding: 1.847vw 6.944vw;
+    padding: 1.111vw 6.944vw;
     width: 100%;
     z-index: 2;
     pointer-events: none;
     transition: background-color 300ms ease;
 
-    &.with-bg {
-        background: white;
-
-        .nav-content {
-            color: black;
-        }
+    &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: white;
+        opacity: 0;
+        transition: opacity 300ms ease;
     }
 
     @include min(xl) {
@@ -33,6 +37,7 @@
         color: white;
         text-transform: uppercase;
         transition: color 300ms ease;
+        position: relative;
 
         .white-theme & {
             color: v(black-color);
@@ -40,7 +45,7 @@
 
         .left {
             @include flexCenter();
-            @include proximaBold(1.111vw, 1);
+            @include geomanistBold(1.111vw, 1);
             letter-spacing: 1px;
             pointer-events: auto;
 
@@ -58,28 +63,17 @@
             }
 
             .logo {
-                width: 1.111vw;
-                height: 1.111vw;
-
-                @include max(md) {
-                    width: 2.083vw;
-                    height: 2.083vw;
-                }
-
-                @include max(sm) {
-                    width: 6.400vw;
-                    height: 6.400vw;
-                }
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
+                @include flexCenter();
             }
 
             span {
                 display: block;
-                margin-left: 0.694vw;
+            }
+
+            .site-name {
+                @include geomanistBold(1.667vw, 1.667vw);
+                text-transform: initial;
+                margin-left: 1.111vw;
 
                 @include min(xl) {
                     font-size: 18px;
@@ -89,6 +83,16 @@
                 @include max(sm) {
                     margin-left: 2.133vw;
                 }
+            }
+
+            .beta-pill {
+                @include geomanistBold(0.972vw, 1.250vw);
+                border: 2px solid;
+                transition: border-color 300ms ease;
+                border-color: white;
+                border-radius: 4px;
+                padding: 0.347vw 0.625vw;
+                margin-left: 0.972vw;
             }
         }
 
@@ -123,6 +127,26 @@
                     font-size: 3.733vw;
                     line-height: 5.600vw;
                 }
+            }
+        }
+    }
+
+    &.with-bg {
+        &:before {
+            opacity: 1;
+        }
+        .nav-content {
+            color: black;
+
+            .logo {
+                svg g {
+                    fill: v(brand-color)
+                }
+            }
+
+            .beta-pill {
+                color: v(brand-color);
+                border-color: v(brand-color);
             }
         }
     }

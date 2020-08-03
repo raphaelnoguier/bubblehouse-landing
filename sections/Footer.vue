@@ -1,34 +1,39 @@
 <template>
     <div class="section footer">
         <footer>
-            <div class="texts" ref="texts">
-                <h3>{{footer.footer_baseline}}</h3>
-                <p>{{footer.footer_subtitle}}</p>
-            </div>
-            <div class="form-wrapper">
-                <form v-on:submit.prevent="openModal">
-                    <input
-                        class="input-component"
-                        type="email"
-                        name="email"
-                        placeholder="Mail adress"
-                        v-model="emailValue"
-                        required
+            <div class="large-wrapper">
+                <div class="texts" ref="texts">
+                    <SectionHeader
+                        :title="footer.footer_baseline"
+                        :subtitle="footer.footer_subtitle"
+                        :whiteTheme="true"
                     />
-                    <input
-                        class="input-component"
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                        v-model="nameValue"
-                        required
-                    />
-                    <button :class="`button-component ${isLoading ? 'loading' : ''}`" type="submit">
-                        <span>{{footer.global_cta_name}}</span>
-                    </button>
-                </form>
+                </div>
+                <div class="form-wrapper">
+                    <form v-on:submit.prevent="openModal">
+                        <input
+                            class="input-component"
+                            type="email"
+                            name="email"
+                            placeholder="Mail adress"
+                            v-model="emailValue"
+                            required
+                        />
+                        <input
+                            class="input-component"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            v-model="nameValue"
+                            required
+                        />
+                        <button :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`" type="submit">
+                            <span class="labelUpper">{{footer.global_cta_name}}</span>
+                        </button>
+                    </form>
+                </div>
+                <FooterLinks :links="footerLinks" />
             </div>
-            <FooterLinks :links="footerLinks" />
         </footer>
     </div>
 </template>
@@ -40,6 +45,7 @@ import axios from 'axios';
 import qs from 'querystring';
 
 /* Components */
+import SectionHeader from '~/components/SectionHeader';
 import FooterLinks from '~/components/FooterLinks';
 
 export default {
@@ -99,7 +105,8 @@ export default {
         }
     },
     components: {
-        FooterLinks
+        FooterLinks,
+        SectionHeader
     }
 }
 </script>

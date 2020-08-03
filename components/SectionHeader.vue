@@ -1,13 +1,13 @@
 <template>
-    <div class="section-header-component">
-        <div class="section-header-content">
+    <div class="section-header-component" :class="whiteTheme ? 'white-theme' : ''">
+        <div class="section-header-content" :class="large ? 'lg' : ''">
             <div class="title">
-                <h2 :style="`color: ${dynamicColor ? $store.getters.navCtaBgColor : 'inherit'}`">
+                <span class="labelUpper" :style="`color: ${dynamicColor ? $store.getters.navCtaBgColor : 'inherit'}`">
                     {{title}}
-                </h2>
+                </span>
             </div>
             <div class="baseline">
-                <p>{{subtitle}}</p>
+                <h2 class="header2">{{subtitle}}</h2>
             </div>
         </div>
     </div>
@@ -30,10 +30,8 @@ export default {
     props: {
         title: String,
         subtitle: String,
-        dynamicColor: {
-            type: Boolean,
-            default: false
-        }
+        whiteTheme: Boolean,
+        large: Boolean
     }
 }
 </script>

@@ -1,8 +1,5 @@
 .section.interactive-modules {
-    margin-top: 13.889vw;
-    max-width: v(large-wrapper);
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10.417vw 0;
 
     @include min(xl) {
         margin-top: 200px;
