@@ -12,19 +12,27 @@
             </div>
         </div>
         <div class="timer-slider-navigation">
-           <div class="slide-infos" v-for="(slide, i) in items" :key="i" @click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
+            <div class="slide-infos" v-for="(slide, i) in items" :key="i" @click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
                <div class="icon">
                     <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
                         <circle
                             class="progress-ring__circle"
                             stroke="black"
                             stroke-width="4"
-                            r="30"
-                            cx="30"
-                            cy="30"
+                            r="32"
+                            cx="32"
+                            cy="32"
                         />
+                        <defs>
+                            <linearGradient spreadMethod="pad" :id="`appGradient${i + 1}`" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" />
+                                <stop offset="100%" />
+                            </linearGradient>
+                        </defs>
                     </svg>
-                    <div class="icon-wrapper"><SVGIcon :name="'picture'" /></div>
+                    <div class="icon-wrapper">
+                        <SVGIcon :name="slide.icon" />
+                    </div>
                 </div>
                 <div class="content">
                     <span class="header3">{{slide.slide_title}}</span>
@@ -45,7 +53,6 @@ import Swiper from 'swiper';
 import Phone from '~/components/Phone';
 import Video from '~/components/Video';
 import SVGIcon from '~/components/SVGIcon';
-import BoardIcon from '~/components/Svgs/BoardIcon';
 
 export default {
     components: {
@@ -87,7 +94,6 @@ export default {
     methods: {
         initSlider(el) {
             this.slider = new Swiper(el, {
-                slidesPerView: 1,
                 allowTouchMove: false,
                 effect: 'fade'
             });

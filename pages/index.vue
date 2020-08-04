@@ -7,6 +7,7 @@
 		<Feed />
 		<Testimonials />
 		<Footer />
+        <WaitingListConfirmation />
 	</main>
 </template>
 
@@ -19,6 +20,7 @@ import InteractiveModules from '~/sections/InteractiveModules';
 import Feed from '~/sections/Feed';
 import Testimonials from '~/sections/Testimonials';
 import Footer from '~/sections/Footer';
+import WaitingListConfirmation from '~/components/WaitingListConfirmation';
 
 export default {
 	computed: {
@@ -50,7 +52,8 @@ export default {
 		InteractiveModules,
 		Feed,
 		Testimonials,
-		Footer
+        Footer,
+        WaitingListConfirmation
 	}
 }
 </script>

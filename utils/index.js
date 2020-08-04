@@ -1,8 +1,3 @@
-/* SVG */
-import ImageIcon from '~/components/Svgs/ImageIcon';
-import BoardIcon from '~/components/Svgs/BoardIcon';
-import GridIcon from '~/components/Svgs/GridIcon';
-
 const map = (value, start1, stop1, start2, stop2) => (
 	start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1))
 );

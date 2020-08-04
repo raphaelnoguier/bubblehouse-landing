@@ -19,12 +19,22 @@
 
     footer {
         padding: 10.417vw 0 8.125vw 0;
+
         .texts {
             opacity: 0;
             transition: opacity 350ms v(ease-in-out-quart);
 
             &.in-view {
                 opacity: 1;
+            }
+
+            svg {
+                width: 4.444vw;
+                height: 4.444vw;
+            }
+
+            .section-header-component {
+                margin-top: 2.083vw;
             }
         }
 

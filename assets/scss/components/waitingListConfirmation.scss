@@ -1,0 +1,62 @@
+.waiting-list-confirmation-component {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.10), inset 0 -1px 0 0 rgba(0,0,0,0.10);
+    transform: translate3d(0, 100%, 0);
+    transition: transform 300ms ease;
+
+    &.visible {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .waiting-list-confirmation-wrapper {
+        @include flexCenter();
+        justify-content: space-between;
+        padding: 1.944vw 6.944vw;
+
+        .left {
+            max-width: 20.278vw;
+            .confirmation-title {
+                @include geomanistMedium(1.389vw, 1.667vw);
+            }
+
+            p {
+                margin-top: 0.694vw;
+
+                span {
+                    @include geomanistBold(1.111vw, 1.667vw);
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+
+            .button-component {
+                border: 1px solid #E7E7E7;
+
+                &:not(:first-child) {
+                    margin-left: 1.389vw;
+                    
+                    span {
+                        color: black;
+                    }
+                }
+            }
+
+            .close {
+                @include flexCenter();
+                margin-left: 1.389vw;
+                border: 1px solid #E7E7E7;
+                justify-content: center;
+                border-radius: 50%;
+                width: 3.889vw;
+                height: 3.889vw;
+            }
+        }
+    }
+}
