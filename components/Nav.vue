@@ -13,6 +13,7 @@
             <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
                 <button
                     class="button-component"
+                    v-on:click="scrollToBottom"
                     :style="`background-color:${$route.name !== 'terms' ? $store.getters.navCtaBgColor : 'var(--brand-color)'}`"
                 >
                     <span class="labelUpper">{{nav.global_cta_name}}</span>
@@ -33,6 +34,11 @@ export default {
     computed: {
         nav() {
             return this.$store.state.homepage
+        }
+    },
+    methods: {
+        scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     }
 }

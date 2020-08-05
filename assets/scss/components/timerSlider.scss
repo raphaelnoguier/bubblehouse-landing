@@ -4,19 +4,25 @@
 
     @include max(md) {
         flex-direction: column;
+        margin-left: 1px;
     }
 
     .timer-slider-component {
         width: 22.153vw;
 
-        @include max(md) {
-            width: 100%;
+        @include max(sm) {
+            width: 53.333vw;
         }
 
         .swiper-wrapper {
             display: flex;
             position: relative;
             height: 47.222vw;
+
+            @include max(sm) {
+                width: 100%;
+                height: 113.867vw;
+            }
 
             .swiper-slide {
                 width: 100%;
@@ -32,11 +38,11 @@
     }
 
     .timer-slider-navigation {
-        @include max(md) {
+        @include max(sm) {
             display: flex;
             position: relative;
             width: 100%;
-            margin-top: 30px;
+            margin-top: 13.333vw;
         }
 
         .slide-infos {
@@ -49,8 +55,9 @@
 
             @include max(md) {
                 margin-top: 0;
+
                 &:not(:first-child) {
-                    margin-left: 20px;
+                    margin-left: 6.400vw;
                 }
             }
 
@@ -87,6 +94,11 @@
                 height: 4.444vw;
                 overflow: visible;
 
+                @include max(sm) {
+                    width: 17.067vw;
+                    height: 17.067vw;
+                }
+
                 .progress-ring__circle {
                     transition: stroke-dashoffset 200ms ease;
                     transform: rotate(-90deg);
@@ -98,14 +110,6 @@
                     stop-color: white;
                 }
             }
-
-            @for $i from 1 through 5 {
-                &:nth-child(#{$i}) {
-                    .progress-ring__circle {
-                        fill: url(#appGradient#{$i});
-                    }
-                }
-            } 
 
             &.active {
                 .progress-ring defs stop {
@@ -137,12 +141,8 @@
             .content {
                 margin-left: 1.389vw;
 
-                @include max(md) {
-                    opacity: 0;
-                    position: absolute;
-                    bottom: -50px;
-                    left: 0;
-                    margin: 0;
+                @include max(sm) {
+                    display: none;
                 }
 
                 span {
@@ -151,6 +151,25 @@
                     &:last-child {
                         margin-top: 0.903vw;
                     }
+                }
+            }
+        }
+    }
+
+    .mobile-active-infos {
+        display: none; 
+
+        @include max(sm) {
+            display: block;
+            width: 100%;
+            margin-top: 7.200vw;
+            min-height: 19.200vw;
+
+            span {
+                display: block;
+
+                &:last-child {
+                    margin-top: 1.600vw;
                 }
             }
         }

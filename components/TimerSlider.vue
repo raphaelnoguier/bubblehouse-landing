@@ -24,7 +24,7 @@
                             cy="32"
                         />
                         <defs>
-                            <linearGradient spreadMethod="pad" :id="`appGradient${i + 1}`" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <linearGradient spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" />
                                 <stop offset="100%" />
                             </linearGradient>
@@ -39,6 +39,10 @@
                     <span class="bodyRegular">{{slide.slide_description}}</span>
                 </div>
             </div>
+        </div>
+        <div class="mobile-active-infos">
+            <span class="header3">{{activeSlideTitle}}</span>
+            <span class="bodyRegular">{{activeSlideDescription}}</span>
         </div>
     </div>
 </template>
@@ -64,6 +68,8 @@ export default {
         return {
             activeIndex: 0,
             activeVideo: null,
+            activeSlideTitle: '',
+            activeSlideDescription: '',
             progress: 0,
             circleOffset: 250
         }
@@ -76,6 +82,7 @@ export default {
         this.activeInfos = this.slideInfos[0];
 
         this.initSlider(this.sliderEl);
+        this.setMobileInfos();
 
         enterView({
             selector: '.section.profile-example',
@@ -111,7 +118,13 @@ export default {
 
                 this.activeVideo = newSlideVideo;
                 this.activeInfos = newSlideInfos;
+                
+                this.setMobileInfos();
             });
+        },
+        setMobileInfos() {
+            this.activeSlideTitle = this.items[this.slider.activeIndex].slide_title;
+            this.activeSlideDescription = this.items[this.slider.activeIndex].slide_description;
         },
         startSlider() {
             this.activeVideo.play();

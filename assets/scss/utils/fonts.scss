@@ -34,28 +34,58 @@
 
 .bigText {
     @include geomanistUltra(11.806vw, 11.111vw);
+
+    @include max(sm) {
+        font-size: 19.200vw;
+        line-height: 19.200vw;
+    }
 }
 
 .labelUpper {
     @include geomanistBold(1.111vw, 1.667vw);
     letter-spacing: 1px;
     text-transform: uppercase;
+
+    @include max(sm) {
+        font-size: 3.733vw;
+        line-height: 5.600vw;
+    }
 }
 
 .bodyRegular {
     @include geomanistRegular(1.111vw, 1.667vw);
+
+    @include max(sm) {
+        font-size: 3.733vw;
+        line-height: 4.800vw;
+    }
 }
 
 .bodyRegularLG {
     @include geomanistRegular(1.389vw, 2.083vw);
+
+    @include max(sm) {
+        font-size: 4.800vw;
+        line-height: 7.200vw;
+    }
 }
 
 .header2 {
     @include geomanistBold(2.222vw, 2.917vw);
+
+    @include max(sm) {
+        font-size: 6.933vw;
+        line-height: 9.867vw;
+    }
 }
 
 .header3 {
     @include geomanistBold(1.389vw, 1.667vw);
+
+    @include max(sm) {
+        font-size: 5.333vw;
+        line-height: 8vw;
+    }
 }
 
 .header5 {

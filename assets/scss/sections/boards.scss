@@ -3,15 +3,7 @@
     margin: 10.417vw auto;
     transition: background-color 300ms v(ease-in-out-quad);
 
-    @include min(xl) {
-        padding-top: calc(200px + 4.75vw);
-    }
-
-    @include max(md) {
-        padding-top: 26.042vw;
-    }
-
     @include max(sm) {
-        padding-top: 38.133vw;
+        margin: 26.667vw auto;
     }
 }

@@ -57,6 +57,10 @@
                 height: 24.479vw;
             }
 
+            @include max(md) {
+                height: 22.133vw;
+            }
+
             .media-wrapper {
                 width: 100%;
                 height: 100%;
@@ -68,6 +72,10 @@
                 @include max(md) {
                     width: 27.995vw;
                 }
+
+                @include max(sm) {
+                    width: 25.333vw;
+                }
             }
 
             &.portrait {
@@ -75,6 +83,10 @@
 
                 @include max(md) {
                     width: 17.969vw;
+                }
+
+                @include max(sm) {
+                    width: 16vw;
                 }
             }
 

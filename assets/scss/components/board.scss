@@ -11,12 +11,16 @@
     }
 
     @include max(sm) {
-        margin-top: 20vw;
+        margin-top: 12.800vw;
     }
 
     .board-component-slider {
         width: 100%;
         overflow: hidden;
-        margin: 100px auto 0 auto;
+        margin: 5.208vw auto 0 auto;
+
+        @include max(sm) {
+            margin-top: 13.333vw;
+        }
     }
 }

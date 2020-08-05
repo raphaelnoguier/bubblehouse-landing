@@ -20,6 +20,10 @@
 
         &.lg {
             max-width: 41.944vw;
+
+            @include max(md) {
+                max-width: 100%;
+            }
         }
 
         @include min(xl) {
@@ -31,7 +35,7 @@
         }
 
         @include max(md) {
-            max-width: 80vw;
+            max-width: 100%;
         }
 
         .title {

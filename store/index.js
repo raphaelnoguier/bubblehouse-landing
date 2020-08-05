@@ -7,7 +7,8 @@ export const state = () => ({
 	homepage: {},
 	termsPage: {},
 	privacyPage: {},
-	navCtaVisible: false,
+    navCtaVisible: false,
+    waitingConfirmation: false
 });
 
 export const getters = {
@@ -22,6 +23,9 @@ export const getters = {
 	},
 	navCtaVisible(state) {
 		return state.navCtaVisible
+    },
+    waitingConfirmation(state) {
+		return state.waitingConfirmation
 	}
 };
 
@@ -37,6 +41,9 @@ export const mutations = {
 	},
 	SET_NAV_CTA_VISIBLE(state, bool) {
 		state.navCtaVisible = bool;
+    },
+    SET_WAITING_CONFIRMATION_VISIBLE(state, bool) {
+		state.waitingConfirmation = bool;
 	}
 };
 

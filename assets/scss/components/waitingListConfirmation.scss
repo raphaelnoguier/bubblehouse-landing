@@ -37,12 +37,21 @@
             display: flex;
 
             .button-component {
+                @include flexCenter();
+                justify-content: center;
                 border: 1px solid #E7E7E7;
 
                 &:not(:first-child) {
                     margin-left: 1.389vw;
-                    
+
+                    img {
+                        width: 1.667vw;
+                        height: 1.667vw;
+                    }
                     span {
+                        margin-left: 1.736vw;
+                        position: relative;
+                        top: 2px;
                         color: black;
                     }
                 }
@@ -56,6 +65,7 @@
                 border-radius: 50%;
                 width: 3.889vw;
                 height: 3.889vw;
+                cursor: pointer;
             }
         }
     }

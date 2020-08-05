@@ -7,24 +7,7 @@
                 :subtitle="header.subtitle"
                 :large="true"
             />
-            <div class="profile-phones">
-                <div class="phones-wrapper">
-                    <Phone
-                        v-for="(profile, index) in feeds"
-                        :key="index"
-                    >
-                        <div :class="`media full ${profile.is_big ? 'video' : ''}`">
-                            <template v-if="profile.is_big">
-                                <div class="video-wrapper">
-                                    <img :src="profile.header_overlay.url" alt="profile-header" />
-                                    <Video :url="profile.video.url" autoplay />
-                                </div>
-                            </template>
-                            <LazyImg :url="profile.image.url" />
-                        </div>
-                    </Phone>
-                </div>
-            </div>
+            <PhoneSlider :items="feeds" :whiteBorder="false" />
         </div>
     </div>
 </template>
@@ -35,22 +18,12 @@ import enterView from 'enter-view';
 
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
-import Swiper from 'swiper';
-import Phone from '~/components/Phone';
-import LazyImg from '~/components/LazyImg';
+import PhoneSlider from '~/components/PhoneSlider';
 
 export default {
-    data() {
-		return {
-            activeIndex: 0,
-            phoneSlider: null,
-            sectionBackground: null,
-		}
-	},
     components: {
         SectionHeader,
-        Phone,
-        LazyImg
+        PhoneSlider
     },
     computed: {
         header () {

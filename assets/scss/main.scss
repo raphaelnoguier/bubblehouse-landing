@@ -1,5 +1,5 @@
 /* UTILS */
-@import 'utils/reset', 'utils/mixins', 'utils/fonts', 'utils/sizes', 'utils/general', 'utils/variables', 'utils/forms';
+@import 'utils/reset', 'utils/mixins', 'utils/sizes', 'utils/fonts', 'utils/general', 'utils/variables', 'utils/forms';
 
 /* PAGES */
 @import 'pages/home', 'pages/terms-privacy';
@@ -24,5 +24,6 @@
         'components/footerLinks',
         'components/lazyImg',
         'components/timerSlider',
+        'components/phoneSlider',
         'components/waitingListConfirmation';
 

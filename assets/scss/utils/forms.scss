@@ -17,7 +17,8 @@
 
 	@include max(sm) {
 		height: 14.933vw;
-		padding: 0 4vw;
+        padding: 0 4.800vw;
+        width: 100%;
 	}
 }
 
@@ -49,7 +50,8 @@
 	}
 
 	@include max(sm) {
-		height: 14.933vw;
+        height: 14.933vw;
+        width: 100%;
 	}
 
 	span {

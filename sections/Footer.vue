@@ -11,7 +11,7 @@
                     />
                 </div>
                 <div class="form-wrapper">
-                    <form v-on:submit.prevent="openModal">
+                    <form v-on:submit.prevent="submitForm">
                         <input
                             class="input-component"
                             type="email"
@@ -74,11 +74,12 @@ export default {
         this.reveal.destroy();
     },
     methods: {
-        openModal() {
+        submitForm() {
             const { commit } = this.$store;
             const self = this;
 
             self.isLoading = true;
+
             const config = {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -90,18 +91,14 @@ export default {
                 name: self.nameValue
             };
 
-            if (this.nameValue.length > 0) {
+            if (self.emailValue.length > 0 && self.nameValue.length > 0) {
                 axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
-                    self.$store.commit('SET_MODAL_BYPASS', true);
-                    setTimeout(() => {
-                        commit('SET_MODAL_OPEN', true);
-                        self.isLoading = false;
-                    }, 500);
+                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
                 })
                 .catch(function (error) {
+                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
                     self.isLoading = false;
-                    console.log(error);
                 });
             }
         }

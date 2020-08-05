@@ -7,6 +7,10 @@
     pointer-events: none;
     transition: background-color 300ms ease;
 
+    @include max(sm) {
+        padding: 13.333vw 6.667vw;
+    }
+
     &:before {
         content: '';
         width: 100%;
@@ -17,6 +21,7 @@
         background-color: white;
         opacity: 0;
         transition: opacity 300ms ease;
+        box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.10);
     }
 
     @include min(xl) {
@@ -64,6 +69,13 @@
 
             .logo {
                 @include flexCenter();
+
+                svg {
+                    @include max(sm) {
+                        width: 8.267vw;
+                        height: 8.267vw;
+                    }
+                }
             }
 
             span {
@@ -82,6 +94,8 @@
 
                 @include max(sm) {
                     margin-left: 2.133vw;
+                    font-size: 4.800vw;
+                    line-height: 6.400vw;
                 }
             }
 
@@ -93,6 +107,10 @@
                 border-radius: 4px;
                 padding: 0.347vw 0.625vw;
                 margin-left: 0.972vw;
+
+                @include max(sm) {
+                    display: none;
+                }
             }
         }
 
@@ -122,10 +140,9 @@
                 }
 
                 @include max(sm) {
-                    width: 47.200vw;
+                    width: 40vw;
                     height: 10.667vw;
-                    font-size: 3.733vw;
-                    line-height: 5.600vw;
+                    border-radius: 10px;
                 }
             }
         }

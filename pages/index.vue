@@ -44,7 +44,19 @@ export default {
 				},
 			],
 		}
-	},
+    },
+    mounted() {
+        this.resolveGradientsCircle();
+    },
+    methods: {
+        resolveGradientsCircle() {
+            const gradients = document.querySelectorAll('defs linearGradient');
+            const circlesProgress = document.querySelectorAll('.progress-ring__circle');
+
+            gradients && gradients.forEach((gradient, i) => gradient.setAttribute('id', `appGradient${i + 1}`));
+            circlesProgress && circlesProgress.forEach((circle, i) => circle.setAttribute('fill', `url(#appGradient${i + 1})`));
+        }
+    },
 	components: {
 		Hero,
 		Boards,

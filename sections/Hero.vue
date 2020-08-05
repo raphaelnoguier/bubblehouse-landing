@@ -7,7 +7,7 @@
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
                 <div class="form">
-                    <form v-on:submit.prevent="console.log('hello')" ref="form">
+                    <form v-on:submit.prevent="submitForm" ref="form">
                         <input
                             class="input-component"
                             type="email"
@@ -25,7 +25,7 @@
                             required
                         />
                         <button
-                            class="button-component reverse-theme"
+                            :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`"
                             type="submit"
                         >
                             <span class="labelUpper">{{store.global_cta_name}}</span>
@@ -64,6 +64,8 @@
 </template>
 <script>
 /* Utils */
+import axios from 'axios';
+import qs from 'querystring';
 import Swiper from 'swiper';
 import Utils from '~/utils';
 import enterView from 'enter-view';
@@ -76,6 +78,7 @@ export default {
         return {
             emailValue: '',
             nameValue: '',
+            isLoading: false,
             autoplaySpeed: 10000
         }
     },
@@ -138,6 +141,34 @@ export default {
                     },
                 })
             });
+        },
+        submitForm() {
+            const { commit } = this.$store;
+            const self = this;
+
+            self.isLoading = true;
+
+            const config = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }
+
+            const body = {
+                email: self.emailValue,
+                name: self.nameValue
+            };
+
+            if (self.emailValue.length > 0 && self.nameValue.length > 0) {
+                axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
+                .then(function (response) {
+                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                })
+                .catch(function (error) {
+                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                    self.isLoading = false;
+                });
+            }
         }
     }
 }
