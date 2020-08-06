@@ -37,8 +37,13 @@ body {
 
 	.app {
 		opacity: 0;
-		transition: opacity 500ms v(ease-in-out-quad);
+        transition: opacity 500ms v(ease-in-out-quad);
+        overflow: hidden;
+        height: 100vh;
+
 		&.loaded {
+            overflow: auto;
+            height: auto;
 			opacity: 1;
 		}
 	}
