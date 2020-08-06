@@ -26,12 +26,14 @@ export default {
     },
     methods: {
         initApp() {
-            console.log('la');
-            window.addEventListener('load', () => this.loaded = true);
-            smoothscroll.polyfill();
-
             const currentRoute = this.$route.name;
-            if (currentRoute === 'terms' || currentRoute === 'privacy') document.body.classList.add('white-theme');
+            if (currentRoute === 'terms' || currentRoute === 'privacy') {
+                this.loaded = true;
+                document.body.classList.add('white-theme');
+                smoothscroll.polyfill();
+            } else {
+                window.addEventListener('load', () => this.loaded = true);
+            }
         }
     },
 	components: {
