@@ -1,6 +1,6 @@
 .hero-component {
     height: 100vh;
-    min-height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
     width: 100%;
     background: v(app-gradient);
 

@@ -21,6 +21,10 @@
             flex-direction: column;
         }
 
+        @include max(sm) {
+            margin-top: 13.333vw;
+        }
+
         .phone-component {
             margin-left: auto;
 
