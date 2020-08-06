@@ -5,7 +5,7 @@
                 <div class="swiper-slide" v-for="(slide, i) in items" :key="i">
                     <Phone :key="i">
                         <div class="media full">
-                            <Video :key="i" :url="slide.board_video.url" :loop="false" />
+                            <Video :key="i" :autoplay="false" :url="slide.board_video.url" :loop="false" :poster="slide.video_poster.url" />
                         </div>
                     </Phone>
                 </div>
@@ -108,7 +108,7 @@ export default {
             this.slider.on('slideChange', () => {
                 this.activeIndex = this.slider.activeIndex;
 
-                const newSlide = this.slider.slides[this.slider.activeIndex];
+                const newSlide = this.slider.slides[this.activeIndex];
                 const newSlideVideo = newSlide.querySelector('video');
                 const newSlideInfos = this.slideInfos[this.slider.activeIndex];
 
@@ -118,6 +118,8 @@ export default {
 
                 this.activeVideo = newSlideVideo;
                 this.activeInfos = newSlideInfos;
+
+                console.log(this.activeVideo);
                 
                 this.setMobileInfos();
             });
@@ -152,10 +154,9 @@ export default {
         activeVideo() { // Every time active video change
             if (!this.playing) return;
             this.activeVideo.currentTime = 0;
-            this.activeInfos.querySelector('svg').style.strokeDashoffset = 0;
             this.activeVideo.play();
             this.activeVideo.addEventListener('ended', this.resetVideo);
-            this.activeVideo.addEventListener('timeupdate', () => this.updateProgress());
+            this.activeVideo.addEventListener('timeupdate', this.updateProgress);
         }
     },
     props: {

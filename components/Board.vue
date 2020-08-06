@@ -95,12 +95,13 @@ export default {
     methods: {
         calcBounds() {
             this.mediasBounds = [];
+            const isMobile = window.innerWidth <= 768;
             const sectionLeft = this.$el.querySelector('.timer-slider-wrapper').getBoundingClientRect();
             this.medias.forEach((media) => {
                 const { left, width, top, height } = media.getBoundingClientRect();
 
                 this.mediasBounds.push({
-                    x: sectionLeft.left - left
+                    x: !isMobile ? (sectionLeft.left - left) : (window.innerWidth / 2) - (left + (width / 2) )
                 });
             });
         },

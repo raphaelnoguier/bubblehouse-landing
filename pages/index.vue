@@ -54,7 +54,7 @@ export default {
             const circlesProgress = document.querySelectorAll('.progress-ring__circle');
 
             gradients && gradients.forEach((gradient, i) => gradient.setAttribute('id', `appGradient${i + 1}`));
-            circlesProgress && circlesProgress.forEach((circle, i) => circle.setAttribute('fill', `url(#appGradient${i + 1})`));
+            circlesProgress && circlesProgress.forEach((circle, i) => circle.setAttribute('fill', `url(${window.location.href}#appGradient${i + 1})`));
         }
     },
 	components: {

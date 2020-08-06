@@ -5,6 +5,7 @@
         :autoplay="autoplay ? true : false"
         :loop="loop ? true : false"
         playsinline
+        :poster="poster"
     />
 </template>
 
@@ -13,7 +14,8 @@ export default {
     props: {
         url: String,
         autoplay: Boolean,
-        loop: Boolean
+        loop: Boolean,
+        poster: String
     }
 }
 </script>
