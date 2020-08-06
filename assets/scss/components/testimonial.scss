@@ -8,21 +8,14 @@
     padding: 1.389vw 2.083vw;
     max-width: 34.583vw;
 
-    &:not(:first-child) {
-        margin-left: 50px;
-    }
-
-    @include min(xl) {
-        margin-top: 85px;
-    }
-
-    @include min(md) {
-        margin-right: 0 !important;
-    }
-
-    @include max(md) {
+    @include max(sm) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         max-width: 100%;
         cursor: pointer;
+        padding: 6.400vw;
+        border-radius: 16px;
     }
 
     .testimonial-footer {
@@ -33,12 +26,8 @@
             margin-top: 25px;
         }
 
-        @include max(md) {
-            margin-top: 4.818vw;
-        }
-
         @include max(sm) {
-            margin-top: 18.400vw;
+            margin-top: 5.867vw;
         }
 
         .avatar {

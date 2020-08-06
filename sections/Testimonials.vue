@@ -17,14 +17,6 @@
                         :avatar="testimonial.primary.avatar.url"
                     />
                 </div>
-                <div class="slider-controls-testimonial">
-                    <div class="prev">
-                        <img src="~assets/images/icons/arrow.svg" />
-                    </div>
-                    <div class="next">
-                        <img src="~assets/images/icons/arrow.svg" />
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -60,12 +52,14 @@ export default {
                 nextEl: '.slider-controls-testimonial .next',
                 prevEl: '.slider-controls-testimonial .prev',
             },
-            // breakpoints: {
-            //     375: {
-            //         slidesPerView: 1.1,
-            //         spaceBetween: 20
-            //     }
-            // }
+            breakpoints: {
+                350: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 8,
+                    centeredSlides: true,
+                    centeredSlidesBounds: true
+                }
+            }
         })
     }
 }

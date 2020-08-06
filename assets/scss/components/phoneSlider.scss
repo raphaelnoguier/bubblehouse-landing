@@ -22,8 +22,9 @@
     .slider-controls {
         display: none;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        min-width: 12.800vw;
+        width: 12.800vw;
+        height: 12.800vw;
         outline: none;
         background-color: rgba(255, 255, 255, 0.2);
 
@@ -37,7 +38,7 @@
             justify-content: center;
         }
 
-        img {
+        svg {
             width: 4.533vw;
             height: 3.733vw;
         }

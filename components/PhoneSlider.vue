@@ -1,7 +1,7 @@
 <template>
     <div class="phone-slider-component">
         <div :class="`slider-controls prev ${whiteBorder ? '' : 'dark'}`">
-            <img src="~/assets/images/icons/arrow.svg">
+            <Arrow :white="whiteBorder" />
         </div>
         <div class="phones-wrapper" ref="slider">
             <div class="swiper-wrapper">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div :class="`slider-controls next ${whiteBorder ? '' : 'dark'}`">
-            <img src="~/assets/images/icons/arrow.svg">
+            <Arrow :white="whiteBorder" />
         </div>
     </div>
 </template>
@@ -36,12 +36,14 @@ import Swiper from 'swiper';
 import Phone from '~/components/Phone';
 import LazyImg from '~/components/LazyImg';
 import Video from '~/components/Video';
+import Arrow from '~/components/Svgs/Arrow';
 
 export default {
     components: {
         Phone,
         LazyImg,
-        Video
+        Video,
+        Arrow
     },
     mounted() {
         this.checkNeedSlider();

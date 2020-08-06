@@ -6,6 +6,9 @@
 </template>
 
 <script>
+/* Utils */
+import smoothscroll from 'smoothscroll-polyfill';
+
 /* Components */
 import Nav from '~/components/Nav';
 
@@ -16,7 +19,8 @@ export default {
 		}
 	},
 	mounted() {
-		window.addEventListener('load', () => this.loaded = true);
+        window.addEventListener('load', () => this.loaded = true);
+        smoothscroll.polyfill();
 
 		const currentRoute = this.$route.name;
 		if (currentRoute === 'terms' || currentRoute === 'privacy') document.body.classList.add('white-theme');

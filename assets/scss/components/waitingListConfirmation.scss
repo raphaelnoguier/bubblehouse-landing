@@ -18,10 +18,17 @@
         justify-content: space-between;
         padding: 1.944vw 6.944vw;
 
+        @include max(sm) {
+            position: relative;
+            flex-direction: column;
+            padding: 13.333vw 6.667vw;
+        }
+
         .left {
             max-width: 20.278vw;
-            .confirmation-title {
-                @include geomanistMedium(1.389vw, 1.667vw);
+
+            @include max(sm) {
+                max-width: 100%;
             }
 
             p {
@@ -29,6 +36,11 @@
 
                 span {
                     @include geomanistBold(1.111vw, 1.667vw);
+
+                    @include max(sm) {
+                        font-size: 3.733vw;
+                        line-height: 5.600vw;
+                    }
                 }
             }
         }
@@ -36,23 +48,54 @@
         .actions {
             display: flex;
 
+            @include max(sm) {
+                width: 100%;
+                margin-top: 5.333vw;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
             .button-component {
                 @include flexCenter();
                 justify-content: center;
                 border: 1px solid #E7E7E7;
 
+                @include max(sm) {
+                    width: calc(50% - 2.133vw);
+                }
+
+                &:first-child {
+                    @include max(sm) {
+                        width: 100%;
+                    }
+                }
+
                 &:not(:first-child) {
                     margin-left: 1.389vw;
+
+                    @include max(sm) {
+                        margin-top: 4.267vw;
+                        margin-left: 0;
+                    }
 
                     img {
                         width: 1.667vw;
                         height: 1.667vw;
+
+                        @include max(sm) {
+                            width: 6.400vw;
+                            height: 6.400vw;
+                        }
                     }
                     span {
                         margin-left: 1.736vw;
                         position: relative;
                         top: 2px;
                         color: black;
+
+                        @include max(sm) {
+                            margin-left: 4vw;
+                        }
                     }
                 }
             }
@@ -66,6 +109,13 @@
                 width: 3.889vw;
                 height: 3.889vw;
                 cursor: pointer;
+
+                @include max(sm) {
+                    position: absolute;
+                    top: 6.667vw;
+                    right: 6.667vw;
+                    border: none;
+                }
             }
         }
     }

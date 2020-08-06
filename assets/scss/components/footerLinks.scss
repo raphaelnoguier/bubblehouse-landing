@@ -6,13 +6,8 @@
         margin: 100px auto 0 auto;
     }
 
-    @include max(md) {
-        margin: 12.109vw auto 0 auto;
-        max-width: 100%;
-    }
-
     @include max(sm) {
-        margin: 19.733vw auto 0 auto;
+        margin: 13.333vw auto 0 auto;
         max-width: 100%;
     }
 

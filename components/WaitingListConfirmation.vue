@@ -2,7 +2,7 @@
     <div :class="`waiting-list-confirmation-component ${$store.getters.waitingConfirmation ? 'visible' : ''}`">
         <div class="waiting-list-confirmation-wrapper">
             <div class="left">
-                <span class="confirmation-title">You are on the waiting list</span>
+                <span class="header3">You are on the waiting list</span>
                 <p class="bodyRegular">Complete the survey to be on top of the waitlist and <span class="">reserve your username</span>!</p>
             </div>
             <div class="actions">

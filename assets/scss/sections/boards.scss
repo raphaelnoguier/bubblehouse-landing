@@ -4,6 +4,7 @@
     transition: background-color 300ms v(ease-in-out-quad);
 
     @include max(sm) {
-        margin: 26.667vw auto;
+        margin: 0 auto;
+        padding: 26.667vw auto;
     }
 }

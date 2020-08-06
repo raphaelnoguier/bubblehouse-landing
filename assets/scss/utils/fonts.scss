@@ -91,4 +91,9 @@
 .header5 {
     @include geomanistBold(0.833vw, 1.667vw);
     letter-spacing: 2px;
+
+    @include max(sm) {
+        font-size: 3.200vw;
+        line-height: 6.400vw;
+    }
 }
