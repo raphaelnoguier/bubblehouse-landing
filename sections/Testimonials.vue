@@ -58,6 +58,10 @@ export default {
                     spaceBetween: 8,
                     centeredSlides: true,
                     centeredSlidesBounds: true
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 32
                 }
             }
         })
