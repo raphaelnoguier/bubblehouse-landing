@@ -14,7 +14,8 @@ html, input {
 }
 
 *::selection {
-	background: v(brand-color);
+    background: v(brand-color);
+    color: white;
 }
 
 body {

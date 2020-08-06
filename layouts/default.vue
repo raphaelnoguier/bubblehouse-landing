@@ -24,7 +24,7 @@ export default {
 
 		const currentRoute = this.$route.name;
 		if (currentRoute === 'terms' || currentRoute === 'privacy') document.body.classList.add('white-theme');
-	},
+    },
 	components: {
 		Nav
 	}

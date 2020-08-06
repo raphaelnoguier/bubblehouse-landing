@@ -1,5 +1,8 @@
 <template>
-    <div class="nav-component" :class="`${$store.getters.navCtaVisible ? 'with-bg' : ''}`">
+    <div 
+        class="nav-component"
+        :class="`${$store.getters.navCtaVisible || this.$route.name === 'terms' || this.$route.name === 'privacy' ? 'with-bg' : ''}`"
+    >
         <div class="nav-content">
             <div class="left">
                 <a href="/">

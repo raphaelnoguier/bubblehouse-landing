@@ -118,8 +118,6 @@ export default {
 
                 this.activeVideo = newSlideVideo;
                 this.activeInfos = newSlideInfos;
-
-                console.log(this.activeVideo);
                 
                 this.setMobileInfos();
             });

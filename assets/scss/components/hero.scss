@@ -76,12 +76,6 @@
                         width: 62%;
                     }
 
-                    &:first-child {
-                        @include max(sm) {
-                            font-family: "Geomanist-Bold";
-                        }
-                    }
-
                     &:last-of-type {
                         @include max(sm) {
                             margin-top: 4.267vw;

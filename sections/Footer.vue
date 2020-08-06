@@ -92,13 +92,13 @@ export default {
             };
 
             if (self.emailValue.length > 0 && self.nameValue.length > 0) {
-                axios.post('https://blurr-staging.herokuapp.com/v1/leads/', qs.stringify(body), config)
+                axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
                     self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                    self.isLoading = false;
                 })
                 .catch(function (error) {
-                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
-                    self.isLoading = false;
+                    console.error(error);
                 });
             }
         }
