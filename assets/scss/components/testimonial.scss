@@ -22,10 +22,6 @@
         @include flexCenter();
         margin-top: 1.597vw;
 
-        @include min(xl) {
-            margin-top: 25px;
-        }
-
         @include max(sm) {
             margin-top: 5.867vw;
         }
@@ -35,11 +31,6 @@
             height: 3.889vw;
             border-radius: 50%;
             overflow: hidden;
-
-            @include min(xl) {
-                width: 80px;
-                height: 80px;
-            }
 
             @include max(md) {
                 width: 7.292vw;
@@ -61,10 +52,6 @@
         .user-infos {
             margin-left: 1.111vw;
 
-            @include min(xl) {
-                margin-left: 16px;
-            }
-
             @include max(md) {
                 margin-left: 2.083vw;
             }
@@ -80,10 +67,6 @@
 
             .role {
                 @include geomanistBold(1.111vw, 1.667vw);
-
-                @include min(xl) {
-                    font-size: 18px;
-                }
 
                 @include max(md) {
                     font-size: 2.083vw;

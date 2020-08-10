@@ -6,13 +6,6 @@
     overflow: hidden;
     z-index: 1;
 
-    @include min(xl) {
-        border-width: 6px;
-        border-radius: 60px;
-        max-width: 533px;
-        max-height: 1136px;
-    }
-
     @include max(md) {
         width: 41.406vw;
         height: 88.802vw;
@@ -32,11 +25,6 @@
     &.sm {
         width: 22.083vw;
         height: 47.014vw;
-
-        @include min(xl) {
-            max-width: 479px;
-            max-height: 1020px;
-        }
 
         @include max(md) {
             width: 41.406vw;

@@ -17,11 +17,12 @@
                     <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
                         <circle
                             class="progress-ring__circle"
-                            stroke="black"
+                            stroke="transparent"
                             stroke-width="4"
-                            r="32"
-                            cx="32"
-                            cy="32"
+                            :r="circleRadius"
+                            preserveAspectRatio="xMinYMin meet"
+                            cx="50%"
+                            cy="50%"
                         />
                         <defs>
                             <linearGradient spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -71,6 +72,7 @@ export default {
             activeSlideTitle: '',
             activeSlideDescription: '',
             progress: 0,
+            circleRadius: 32,
             circleOffset: 250
         }
     },
@@ -83,6 +85,9 @@ export default {
 
         this.initSlider(this.sliderEl);
         this.setMobileInfos();
+        this.resizeSvg();
+
+        window.addEventListener('resize', this.resizeSvg);
 
         enterView({
             selector: '.section.profile-example',
@@ -99,6 +104,9 @@ export default {
         });
     },
     methods: {
+        resizeSvg() {
+            window.innerWidth >= 1824 ? this.circleRadius = 40 : this.circleRadius = 32;
+        },
         initSlider(el) {
             this.slider = new Swiper(el, {
                 allowTouchMove: false,

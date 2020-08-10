@@ -26,10 +26,6 @@
             }
         }
 
-        @include min(xl) {
-            max-width: 1120px;
-        }
-
         @include max(md) {
             max-width: 89.063vw;
         }
@@ -45,10 +41,6 @@
         .baseline {
             margin-top: 1.458vw;
             color: v(black-color);
-
-            @include min(xl) {
-                margin-top: 10px;
-            }
 
             @include max(md) {
                 margin-top: 1.693vw;

@@ -26,11 +26,6 @@ body {
 		background-color: white;
 	}
 
-	@include min(xl) {
-		font-size: 30px;
-		line-height: 45px;
-	}
-
 	&.locked {
 		overflow: hidden;
 	}

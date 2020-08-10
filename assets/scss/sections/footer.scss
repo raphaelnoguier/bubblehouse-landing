@@ -1,10 +1,6 @@
 .section.footer {
     background: v(app-gradient);
 
-    @include min(xl) {
-        margin: 0 auto 94px auto;
-    }
-
     footer {
         padding: 10.417vw 0 8.125vw 0;
 
@@ -42,10 +38,6 @@
 
         .form-wrapper {
             margin-top: 6.181vw;
-
-            @include min(xl) {
-                margin-top: 100px;
-            }
 
             @include max(sm) {
                 margin-top: 13.333vw;

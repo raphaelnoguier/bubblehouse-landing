@@ -1,10 +1,6 @@
 .phone-slider-component {
     margin-top: 5.208vw;
 
-    @include min(xl) {
-        margin-top: 50px;
-    }
-
     @include max(sm) {
         margin-top: 13.333vw;
         @include flexCenter();
@@ -97,10 +93,6 @@
 
             &:nth-of-type(2) {
                 margin: 0 2.222vw;
-
-                @include min(xl) {
-                    margin: 0 32px;
-                }
 
                 @include max(md) {
                     margin: 0 2.734vw;

@@ -14,10 +14,6 @@
         .header {
             @include geomanistBold(2.222vw, 3.333vw);
 
-            @include min(xl) {
-                font-size: 40px;
-            }
-
             @include max(md) {
                 font-size: 4.167vw;
                 line-height: 6.250vw;
@@ -28,18 +24,9 @@
             margin-top: 2.986vw;
             margin-bottom: 4.514vw;
 
-            @include min(xl) {
-                margin-top: 43px;
-                margin-bottom: 65px;
-            }
-
             p {
                 @include geomanistRegular(1.389vw, 2.083vw);
                 margin-top: 2.431vw;
-
-                @include min(xl) {
-                    margin-top: 35px;
-                }
 
                 @include max(md) {
                     font-size: 2.865vw;
@@ -61,9 +48,5 @@
 
     .footer-links-component {
         margin-bottom: 4.167vw;
-
-        @include min(xl) {
-            margin-bottom: 60px;
-        }
     }
 }

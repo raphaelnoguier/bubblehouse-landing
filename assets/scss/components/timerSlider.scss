@@ -95,6 +95,11 @@
                 height: 4.444vw;
                 overflow: visible;
 
+                @include min(xl) {
+                    width: 80px;
+                    height: 80px;
+                }
+
                 @include max(sm) {
                     width: 17.067vw;
                     height: 17.067vw;
@@ -113,6 +118,9 @@
             }
 
             &.active {
+                .progress-ring__circle {
+                    stroke: black;
+                }
                 .progress-ring defs stop {
                     &:first-child {
                         stop-color: rgb(253, 60, 8);

@@ -14,10 +14,6 @@
         margin: 6.250vw auto 0 auto;
         max-width: v(large-wrapper);
 
-        @include min(xl) {
-            margin: 90px auto 0 auto;
-        }
-
         @include max(md) {
             margin: 11.719vw auto 0 auto;
         }
@@ -102,10 +98,6 @@
                     margin-top: 1.667vw;
                     transform: rotate(180deg);
 
-                    @include min(xl) {
-                        margin-top: 24px;
-                    }
-
                     @include max(md) {
                         margin-top: 5.208vw;
                     }
@@ -168,11 +160,6 @@
                 overflow: hidden;
                 background-color: black;
                 -webkit-mask-image: -webkit-radial-gradient(white, black);
-
-                @include min(xl) {
-                    max-width: 100px;
-                    max-height: 100px;
-                }
 
                 @include max(md) {
                     width: 9.635vw;

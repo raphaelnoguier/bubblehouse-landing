@@ -2,10 +2,6 @@
     background: v(app-gradient);
     padding: 10.417vw 0;
 
-    @include min(xl) {
-        margin: 200px auto;
-    }
-
     @include max(sm) {
         padding: 26.667vw 0;
     }

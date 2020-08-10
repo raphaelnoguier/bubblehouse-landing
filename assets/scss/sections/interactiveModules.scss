@@ -1,10 +1,6 @@
 .section.interactive-modules {
     margin: 10.417vw 0;
 
-    @include min(xl) {
-        margin-top: 200px;
-    }
-
     @include max(md) {
         margin-top: 24.870vw;
     }

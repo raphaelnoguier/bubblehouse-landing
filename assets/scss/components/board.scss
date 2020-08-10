@@ -2,10 +2,6 @@
     margin-top: 3.958vw;
     position: relative;
 
-    @include min(xl) {
-        margin-top: 90px;
-    }
-
     @include max(md) {
         margin-top: 12.500vw;
     }

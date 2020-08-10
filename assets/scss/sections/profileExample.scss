@@ -3,10 +3,6 @@
     padding: 10.417vw 0;
     background: v(app-gradient);
 
-    @include min(xl) {
-        padding-top: 200px;
-    }
-
     @include max(md) {
         padding-top: calc(26.042vw - 7.8vw);
         max-width: 100%;

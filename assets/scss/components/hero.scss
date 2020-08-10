@@ -21,11 +21,6 @@
             max-width: 57.153vw;
             margin-left: 6.250vw;
 
-            @include min(xl) {
-                max-width: 31.181vw;
-                margin-left: 100px;
-            }
-
             @include max(sm) {
                 max-width: 100%;
                 padding: 0 6.400vw;
@@ -38,10 +33,6 @@
                 }
                 p {
                     margin-top: 1.458vw;
-
-                    @include min(xl) {
-                        margin-top: 60px;
-                    }
 
                     @include max(md) {
                         margin-top: 5.078vw;
@@ -58,10 +49,6 @@
                 justify-content: space-between;
                 margin-top: 5.208vw;
 
-                @include min(xl) {
-                    margin-top: 80px;
-                }
-
                 @include max(md) {
                     margin-top: 5.859vw;
                 }
@@ -72,10 +59,6 @@
                 }
 
                 .input-component {
-                    @include min(xl) {
-                        width: 62%;
-                    }
-
                     &:last-of-type {
                         @include max(sm) {
                             margin-top: 4.267vw;
@@ -84,10 +67,6 @@
                 }
 
                 button {
-                    @include min(xl) {
-                        width: 270px;
-                    }
-
                     @include max(sm) {
                         width: 100%;
                         margin-top: 4.267vw;
@@ -143,10 +122,6 @@
 
                 &:nth-of-type(2) {
                     margin: 0 0.972vw;
-
-                    @include min(xl) {
-                        margin: 0 62px;
-                    }
 
                     @include max(md) {
                         margin: 0 4.948vw;
