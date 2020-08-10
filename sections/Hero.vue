@@ -102,7 +102,7 @@ export default {
 
         enterView({
             selector: '.section.boards',
-            offset: 1,
+            offset: 0.8,
             enter: () => {
                 this.sliders.forEach(slider => {
                     slider.wrapperEl.style.visibility = 'hidden';

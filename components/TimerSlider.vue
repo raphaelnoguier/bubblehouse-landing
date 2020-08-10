@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="timer-slider-navigation">
-            <div class="slide-infos" v-for="(slide, i) in items" :key="i" @click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
+            <div class="slide-infos" v-for="(slide, i) in items" :key="i" @mouseover="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
                <div class="icon">
                     <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
                         <circle
@@ -97,7 +97,7 @@ export default {
         });
 
         enterView({
-            selector: '.section.feed',
+            selector: '.section.testimonials',
             offset: 1,
             enter: () => this.activeVideo && this.activeVideo.pause(),
             exit: () => this.activeVideo && this.activeVideo.play(),

@@ -6,6 +6,11 @@
     overflow: hidden;
     z-index: 1;
 
+    @include min(xl) {
+        width: 353px;
+        height: 752px;
+    }
+
     @include max(md) {
         width: 41.406vw;
         height: 88.802vw;
@@ -20,35 +25,6 @@
 
     &.white-border {
         border-color: v(white-color);
-    }
-
-    &.sm {
-        width: 22.083vw;
-        height: 47.014vw;
-
-        @include max(md) {
-            width: 41.406vw;
-            height: 88.802vw;
-        }
-
-        @include max(sm) {
-            width: 69.867vw;
-            height: 149.867vw;
-            border-radius: 25px;
-        }
-    }
-
-    &.half {
-        width: 27.778vw;
-        border: none;
-
-        @include max(md) {
-            border: 0;
-        }
-
-        @include max(md) {
-            width: 50%;
-        }
     }
 
     .media {

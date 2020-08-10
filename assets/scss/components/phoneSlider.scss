@@ -47,7 +47,7 @@
 
     .swiper-wrapper {
         @include flexCenter();
-        justify-content: center;
+        justify-content: space-between;
         position: relative;
 
         @include max(sm) {
@@ -55,7 +55,8 @@
         }
 
         .swiper-slide {
-            width: 100%;
+            width: auto;
+            display: inline-flex;
             height: 100%;
 
             &:nth-child(2) {

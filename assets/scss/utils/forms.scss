@@ -12,6 +12,11 @@
         font-family: "Geomanist-Regular";
     }
 
+    @include min(xl) {	
+        height: 70px;	
+        border-radius: 20px;	
+    }
+
 	@include max(md) {
 		height: 7.292vw;
 		padding: 0 2.083vw;
@@ -45,7 +50,13 @@
 	&.loading {
 		opacity: 0.5;
 		pointer-events: none;
-	}
+    }
+    
+    @include min(xl) {	
+        width: 280px;	
+        height: 70px;	
+        border-radius: 20px;	
+    }
 
 	@include max(md) {
 		height: 7.292vw;

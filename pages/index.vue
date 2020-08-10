@@ -4,7 +4,7 @@
 		<Boards />
 		<ProfileExample />
 		<InteractiveModules />
-		<Feed />
+		<!-- <Feed /> -->
 		<Testimonials />
 		<Footer />
         <WaitingListConfirmation />

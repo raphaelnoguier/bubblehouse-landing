@@ -11,12 +11,11 @@
         position: absolute;
         width: 100%;
         left: auto;
-        background: rgba(0, 0, 0, 0.1);
         border-radius: v(app-radius);
+        z-index: 0;
 
         .media {
-            background: v(white-color);
-            opacity: 0.1;
+            background: #e7e7e7;
             border-radius: v(app-radius);
         }
     }
