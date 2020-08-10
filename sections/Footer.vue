@@ -41,7 +41,6 @@
 
 <script>
 /* Utils */
-import reveal from '~/utils/reveal';
 import axios from 'axios';
 import qs from 'querystring';
 
@@ -66,12 +65,6 @@ export default {
             isLoading: false,
             error: false
         }
-    },
-    mounted() {
-        this.reveal = reveal({ dom: this.$refs.texts, ratioIn: 0.5 });
-    },
-    beforeDestroy() {
-        this.reveal.destroy();
     },
     methods: {
         submitForm() {

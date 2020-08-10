@@ -9,13 +9,6 @@
         }
 
         .texts {
-            opacity: 0;
-            transition: opacity 350ms v(ease-in-out-quart);
-
-            &.in-view {
-                opacity: 1;
-            }
-
             svg {
                 width: 4.444vw;
                 height: 4.444vw;
