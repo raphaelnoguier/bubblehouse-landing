@@ -1,4 +1,4 @@
-.section.interactive-modules {
+.section.profiles {
     margin: 10.417vw 0;
 
     @include max(md) {
@@ -11,6 +11,7 @@
 
     .timer-slider-wrapper {
         margin-top: 5.208vw;
+        flex-direction: row-reverse;
 
         @include max(md) {
             flex-direction: column;

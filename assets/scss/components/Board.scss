@@ -1,22 +1,27 @@
 .board-component {
-    margin-top: 6.250vw;
+    margin-top: 3.958vw;
     position: relative;
-
-    @include min(xl) {
-        margin-top: 90px;
-    }
 
     @include max(md) {
         margin-top: 12.500vw;
     }
 
     @include max(sm) {
-        margin-top: 20vw;
+        margin-top: 12.800vw;
     }
 
-    .board-component-slider {
+    .board-component-phone-video {
         width: 100%;
-        overflow: hidden;
-        margin: 100px auto 0 auto;
+        margin: 5.208vw auto 0 auto;
+        z-index: 1;
+        position: relative;
+
+        @include max(sm) {
+            margin-top: 13.333vw;
+        }
+
+        .phone-component {
+            margin: 0 auto;
+        }
     }
 }

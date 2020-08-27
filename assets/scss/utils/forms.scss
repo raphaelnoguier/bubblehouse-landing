@@ -6,15 +6,15 @@
     height: 3.889vw;
     background-color: rgba(255, 255, 255, 0.3);
     font-family: "Geomanist-Bold";
-    
+
     &::placeholder {
         color: white;
         font-family: "Geomanist-Regular";
     }
 
-    @include min(xl) {	
-        height: 70px;	
-        border-radius: 20px;	
+    @include min(xl) {
+        height: 70px;
+        border-radius: 20px;
     }
 
 	@include max(md) {
@@ -33,13 +33,14 @@
 	height: 3.889vw;
 	width: 14.514vw;
 	padding: 1.042vw 0;
-	background-color: v(brand-color);
+	background-image: v(app-gradient);
 	border-radius: v(button-radius);
 	outline: none;
 	cursor: pointer;
     transition: opacity 300ms v(ease-in-out-quad);
-    
+
     &.reverse-theme {
+        background-image: none;
         background-color: white;
 
         span {
@@ -51,11 +52,11 @@
 		opacity: 0.5;
 		pointer-events: none;
     }
-    
-    @include min(xl) {	
-        width: 280px;	
-        height: 70px;	
-        border-radius: 20px;	
+
+    @include min(xl) {
+        width: 280px;
+        height: 70px;
+        border-radius: 20px;
     }
 
 	@include max(md) {
@@ -68,6 +69,8 @@
 	}
 
 	span {
-		color: v(white-color);
+        color: v(white-color);
+        position: relative;
+        top: 3px;
 	}
 }

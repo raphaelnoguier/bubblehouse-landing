@@ -44,8 +44,12 @@
                 </div>
             </div>
         </div>
-        <div class="board-component-slider" ref="boardSlider">
-            <TimerSlider :items="timerSlider.items" :playing="!boardImagesVisible" />
+        <div class="board-component-phone-video">
+            <Phone>
+                <div class="media full">
+                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="!boardImagesVisible" />
+                </div>
+            </Phone>
         </div>
     </div>
 </template>
@@ -58,12 +62,14 @@ import Swiper from 'swiper';
 
 /* Components */
 import LazyImg from '~/components/LazyImg';
-import TimerSlider from '~/components/TimerSlider';
+import Phone from '~/components/Phone';
+import Video from '~/components/Video';
 
 export default {
     components: {
         LazyImg,
-        TimerSlider
+        Phone,
+        Video
     },
     data () {
         return {
@@ -85,7 +91,7 @@ export default {
         window.addEventListener('resize', this.resolveDistanceY, false);
 
         enterView({
-            selector: '.board-component-slider',
+            selector: '.board-component-phone-video',
             progress: (el, progress) => {
                 if (progress === 1) this.boardImagesVisible = false;
                 if (this.boardImagesVisible) this.transform(progress);
@@ -96,26 +102,13 @@ export default {
         calcBounds() {
             this.mediasBounds = [];
             const isMobile = window.innerWidth <= 768;
-            const sectionLeft = this.$el.querySelector('.timer-slider-wrapper').getBoundingClientRect();
             this.medias.forEach((media) => {
                 const { left, width, top, height } = media.getBoundingClientRect();
 
                 this.mediasBounds.push({
-                    x: !isMobile ? (sectionLeft.left - left) : (window.innerWidth / 2) - (left + (width / 2) )
+                    x: (window.innerWidth / 2) - (left + (width / 2) )
                 });
             });
-        },
-        getCurrentVideo() {
-            const videos = this.$refs.sliderInFront.querySelectorAll('video');
-            return videos[this.slidersInstance[1].activeIndex];
-        },
-        playFirstVideo(needReset = false) {
-            if (!this.slidersInstance[1]) return;
-            const currentVideo = this.getCurrentVideo();
-
-            if (needReset) currentVideo.currentTime = 0;
-
-            currentVideo.play();
         },
         resolveDistanceY() {
             if (window.innerWidth <= 768) return this.distanceY = 200;
@@ -143,7 +136,7 @@ export default {
     },
     props: {
         boardItems: Array,
-        timerSlider: Object
+        phoneVideo: Object
     }
 }
 </script>

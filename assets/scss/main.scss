@@ -5,11 +5,9 @@
 @import 'pages/home', 'pages/terms-privacy';
 
 /* SECTIONS */
-@import 'sections/feed',
-        'sections/boards',
-        'sections/profileExample',
+@import 'sections/boards',
+        'sections/profiles',
         'sections/interactiveModules',
-        'sections/testimonials',
         'sections/footer';
 
 /* COMPONENTS */
@@ -20,10 +18,8 @@
         'components/board',
         'components/boardGrid',
         'components/phone',
-        'components/testimonial',
         'components/footerLinks',
         'components/lazyImg',
         'components/timerSlider',
-        'components/phoneSlider',
         'components/waitingListConfirmation';
 

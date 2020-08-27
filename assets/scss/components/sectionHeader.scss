@@ -1,8 +1,11 @@
 .section-header-component {
     &.white-theme {
         .section-header-content {
-            .title, .baseline {
+            .title span, .baseline {
                 color: white;
+                background: none;
+                -webkit-text-fill-color: unset;
+                -webkit-background-clip: unset;
             }
         }
     }
@@ -20,7 +23,7 @@
         }
 
         @include max(md) {
-            max-width: 89.063vw; 
+            max-width: 89.063vw;
         }
 
         @include max(md) {
@@ -28,7 +31,11 @@
         }
 
         .title {
-            color: v(brand-color);
+            span {
+                background: v(app-gradient-right);
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+            }
         }
 
         .baseline {

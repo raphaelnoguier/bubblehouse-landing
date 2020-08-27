@@ -31,6 +31,22 @@
                 @include max(sm) {
                     max-width: 95%;
                 }
+
+                .filling-text {
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: white;
+                    color: transparent;
+                    position: relative;
+
+                    .copy {
+                        position: absolute;
+                        width: 40%;
+                        height: 100%;
+                        color: white;
+                        overflow: hidden;
+                    }
+                }
+
                 p {
                     margin-top: 1.458vw;
 
@@ -55,7 +71,7 @@
 
                 @include max(sm) {
                     margin-top: 10.667vw;
-                    flex-direction: column; 
+                    flex-direction: column;
                 }
 
                 .input-component {
@@ -77,110 +93,8 @@
                 }
             }
         }
+        .preview-slider {
 
-        .columns-slider {
-            display: flex;
-            max-width: 30.347vw;
-            backface-visibility: hidden;
-            overflow: visible;
-            opacity: 0;
-            transition: opacity 500ms v(ease-in-out-quad);
-            margin-right: 0.903vw;
-
-            @include min(xl) {
-                max-width: unset;
-                margin-left: 72px;
-                margin-right: 0;
-            } 
-
-            @include max(md) {
-                display: none;
-            }
-
-            .column {
-                height: 30.972vw;
-                min-width: 14.306vw;
-                pointer-events: none;
-
-                &.reverse {
-                    transform: rotate3d(1, 0, 0, 180deg);
-
-                    @include max(md) {
-                        transform: rotateX(180deg) rotateZ(15deg);
-                    }
-
-                    .swiper-slide {
-                        transform: rotate3d(1, 0, 0, -180deg);
-                    }
-                }
-
-                &.swiper-container-initialized {
-                    opacity: 1;
-                }
-
-                @include min(xl) {
-                    width: 353px;
-                    height: 752px;
-                }
-
-                @include max(md) {
-                    width: 25.651vw;
-                    height: 55.208vw;
-                }
-
-                @include max(sm) {
-                    width: 33.867vw;
-                    height: 72.533vw;
-                }
-
-                &:nth-of-type(2) {
-                    margin: 0 0.972vw;
-
-                    @include max(md) {
-                        margin: 0 4.948vw;
-                    }
-
-                    @include max(sm) {
-                        margin: 0 6.267vw;
-                    }
-                }
-
-                .swiper-wrapper {
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    transition-timing-function: linear;
-                    will-change: transform;
-                }
-
-                .swiper-slide {
-                    .phone-component {
-                        height: 100%;
-                        width: 100%;
-                        border-color: v(white-color);
-                        border-radius: 16px;
-
-                        @include min(xl) {
-                            border-radius: 32px;
-                        }
-
-                        @include max(md) {
-                            border-radius: 25px;
-                        }
-
-                        @include max(sm) {
-                            border-radius: 15px;
-                            border-width: 2px;
-                        }
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                }
-            }
         }
     }
 }

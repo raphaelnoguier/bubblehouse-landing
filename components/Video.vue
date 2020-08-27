@@ -11,9 +11,19 @@
 
 <script>
 export default {
+    watch: {
+        playing() {
+            if (this.playing) this.$el.play();
+            else this.$el.pause();
+        },
+    },
     props: {
         url: String,
         autoplay: Boolean,
+        playing: {
+            type: Boolean,
+            default: false
+        },
         loop: Boolean,
         poster: String
     }

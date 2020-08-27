@@ -88,20 +88,6 @@ export default {
         this.resizeSvg();
 
         window.addEventListener('resize', this.resizeSvg);
-
-        enterView({
-            selector: '.section.profile-example',
-            offset: 1,
-            enter: () => this.activeVideo && this.activeVideo.pause(),
-            exit: () => this.activeVideo && this.activeVideo.play(),
-        });
-
-        enterView({
-            selector: '.section.testimonials',
-            offset: 1,
-            enter: () => this.activeVideo && this.activeVideo.pause(),
-            exit: () => this.activeVideo && this.activeVideo.play(),
-        });
     },
     methods: {
         resizeSvg() {
@@ -126,7 +112,7 @@ export default {
 
                 this.activeVideo = newSlideVideo;
                 this.activeInfos = newSlideInfos;
-                
+
                 this.setMobileInfos();
             });
         },
@@ -157,6 +143,10 @@ export default {
         playing() {
             if (this.playing) this.startSlider();
         },
+        pauseSlider() {
+            if (this.pauseSlider) this.activeVideo && this.activeVideo.pause();
+            else this.activeVideo && this.activeVideo.play();
+        },
         activeVideo() { // Every time active video change
             if (!this.playing) return;
             this.activeVideo.currentTime = 0;
@@ -167,7 +157,8 @@ export default {
     },
     props: {
         items: Array,
-        playing: Boolean
+        playing: Boolean,
+        pauseSlider: Boolean
     }
 }
 </script>

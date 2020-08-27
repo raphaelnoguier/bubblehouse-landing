@@ -6,7 +6,7 @@
                 :title="header.title"
                 :subtitle="header.subtitle"
             />
-            <Board :boardItems="board" :timerSlider="timerSlider" />
+            <Board :boardItems="board" :phoneVideo="phoneVideo" />
         </div>
     </div>
 </template>
@@ -24,9 +24,9 @@ export default {
         board () {
             return this.$store.state.homepage.body1[1].items;
         },
-        timerSlider () {
-            return this.$store.state.homepage.body1.find(element => element.slice_type === 'timer_slider');
-        },
+        phoneVideo () {
+            return this.$store.state.homepage.body1[1].primary.phone_video;
+        }
     },
     components: {
         SectionHeader,

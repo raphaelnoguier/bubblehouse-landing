@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
         class="nav-component"
         :class="`${$store.getters.navCtaVisible || this.$route.name === 'terms' || this.$route.name === 'privacy' ? 'with-bg' : ''}`"
     >
@@ -17,7 +17,6 @@
                 <button
                     class="button-component"
                     v-on:click="scrollToBottom"
-                    :style="`background-color:${$route.name !== 'terms' ? $store.getters.navCtaBgColor : 'var(--brand-color)'}`"
                 >
                     <span class="labelUpper">{{nav.global_cta_name}}</span>
                 </button>

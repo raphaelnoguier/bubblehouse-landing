@@ -3,9 +3,7 @@
         <footer>
             <div class="large-wrapper">
                 <div class="texts" ref="texts">
-                    <AppIcon />
                     <SectionHeader
-                        :title="footer.footer_baseline"
                         :subtitle="footer.footer_subtitle"
                         :whiteTheme="true"
                     />
@@ -47,7 +45,6 @@ import qs from 'querystring';
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
 import FooterLinks from '~/components/FooterLinks';
-import AppIcon from '~/components/Svgs/AppIcon';
 
 export default {
     computed: {
@@ -97,7 +94,6 @@ export default {
         }
     },
     components: {
-        AppIcon,
         SectionHeader,
         FooterLinks
     }

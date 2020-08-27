@@ -1,17 +1,25 @@
 .section-header-component {
-    opacity: 0;
-    transition: opacity 350ms v(ease-in-out-quart);
-
-    &.in-view {
-        opacity: 1;
+    &.white-theme {
+        .section-header-content {
+            .title span, .baseline {
+                color: white;
+                background: none;
+                -webkit-text-fill-color: unset;
+                -webkit-background-clip: unset;
+            }
+        }
     }
 
     .section-header-content {
-        max-width: 56.667vw;
+        max-width: 34.722vw;
         text-align: left;
 
-        @include min(xl) {
-            max-width: 1120px;
+        &.lg {
+            max-width: 41.944vw;
+
+            @include max(md) {
+                max-width: 100%;
+            }
         }
 
         @include max(md) {
@@ -19,54 +27,27 @@
         }
 
         @include max(md) {
-            max-width: 80vw;
+            max-width: 100%;
         }
 
         .title {
-            @include proximaBold(1.111vw, 1.667vw);
-            letter-spacing: 1px;
-            color: v(brand-color);
-            text-transform: uppercase;
-
-            @include min(xl) {
-                font-size: 18px;
-            }
-
-            @include max(md) {
-                font-size: 2.083vw;
-                line-height: 3.125vw;
-            }
-
-            @include max(sm) {
-                font-size: 3.733vw;
-                line-height: 5.600vw;
+            span {
+                background: v(app-gradient-right);
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
             }
         }
 
         .baseline {
-            @include proximaRegular(1.806vw, 2.778vw);
-            width: calc(100% - 7.222vw);
             margin-top: 1.458vw;
-            color: v(white-color);
-
-            @include min(xl) {
-                font-size: 30px;
-                line-height: 45px;
-                max-width: 900px;
-                margin-top: 10px;
-            }
+            color: v(black-color);
 
             @include max(md) {
-                width: 100%;
                 margin-top: 1.693vw;
-                font-size: 2.865vw;
-                line-height: 4.167vw;
             }
 
             @include max(sm) {
                 margin-top: 2.667vw;
-                font-size: 4.800vw;
-                line-height: 7.200vw;
             }
         }
     }

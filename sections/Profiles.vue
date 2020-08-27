@@ -1,12 +1,12 @@
 <template>
-    <div class="section interactive-modules">
+    <div class="section profiles">
         <div class="large-wrapper">
             <SectionHeader
                 :heading="header.heading"
                 :title="header.title"
                 :subtitle="header.subtitle"
             />
-            <TimerSlider :items="timerSlider.items" :playing="enteredSection" :key="1" :stopSlider="stopSlider" />
+            <TimerSlider :items="timerSlider.items" :playing="enteredSection" />
         </div>
     </div>
 </template>
@@ -23,21 +23,14 @@ export default {
     data() {
         return {
             enteredSection: false,
-            stopSlider: false
+            stopSlider: false,
         }
     },
     mounted() {
         enterView({
-            selector: '.interactive-modules .large-wrapper',
+            selector: '.profiles .large-wrapper',
             offset: 0.9,
-            enter: () => this.enteredSection = true,
-        });
-
-        enterView({
-            selector: '.boards .section-header-component',
-            offset: 1,
-            enter: () => this.stopSlider = true,
-            exit: () => this.stopSlider = false
+            enter: () => this.enteredSection = true
         });
     },
     computed: {

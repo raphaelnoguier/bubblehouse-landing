@@ -3,7 +3,14 @@
         <div class="hero-component-content">
             <div class="left">
                 <div class="text">
-                    <h1 class="bigText">{{store.hero_title}}</h1>
+                    <h1 class="bigText">
+                        {{store.hero_title.split('[]')[0]}}
+                        <span class="filling-text">
+                            <span class="copy">{{autoTypingSlider[activeIndex].keyword}}</span>
+                            {{autoTypingSlider[activeIndex].keyword}}
+                        </span>
+                        {{store.hero_title.split('[]')[1]}}
+                    </h1>
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
                 <div class="form">
@@ -33,31 +40,8 @@
                     </form>
                 </div>
             </div>
-            <div class="columns-slider">
-                <div class="column swiper-container">
-                    <div class="swiper-wrapper">
-                        <div
-                            class="swiper-slide"
-                            v-for="(slide, i) in slidingColumns.slice(0, 3)" :key="i"
-                        >
-                            <Phone>
-                                <img :src="slide.image.url" />
-                            </Phone>
-                        </div>
-                    </div>
-                </div>
-                <div class="column swiper-container reverse">
-                    <div class="swiper-wrapper">
-                        <div
-                            class="swiper-slide"
-                            v-for="(slide, i) in slidingColumns.slice(3, slidingColumns.length)" :key="i"
-                        >
-                            <Phone>
-                                <img :src="slide.image.url" />
-                            </Phone>
-                        </div>
-                    </div>
-                </div>
+            <div class="preview-slider">
+
             </div>
         </div>
     </div>
@@ -79,7 +63,7 @@ export default {
             emailValue: '',
             nameValue: '',
             isLoading: false,
-            autoplaySpeed: 10000
+            activeIndex: 0
         }
     },
     components: {
@@ -89,58 +73,30 @@ export default {
         store () {
             return this.$store.state.homepage;
         },
-        slidingColumns () {
-            return this.$store.state.homepage.body6.find(slice => slice.slice_type === 'auto_sliding_columns').items
+        autoTypingSlider () {
+            return this.$store.state.homepage.body6.find(slice => slice.slice_type === 'word_phone_slider').items
         }
     },
     mounted() {
-        this.columnsWrapper = this.$el.querySelector('.columns-slider');
-        this.columns = this.$el.querySelectorAll('.column');
-
-        this.sliders = [];
-        this.initSlidingColumns();
-
         enterView({
-            selector: '.section.boards',
+            selector: '.section.interactive-modules',
             offset: 0.8,
             enter: () => {
-                this.sliders.forEach(slider => {
-                    slider.wrapperEl.style.visibility = 'hidden';
-                });
                 this.$store.commit('SET_NAV_CTA_VISIBLE', true);
             },
             exit: () => {
-                this.sliders.forEach(slider => {
-                    slider.wrapperEl.style.visibility = 'visible';
-                });
                 this.$store.commit('SET_NAV_CTA_VISIBLE', false)
             },
         });
+
+        this.startSlider();
     },
     methods: {
-        initSlidingColumns() {
-            this.columns.forEach((column, i) => {
-                this.sliders[i] = new Swiper(column, {
-                    speed: this.autoplaySpeed,
-                    loop: true,
-                    direction: 'vertical',
-                    loopAdditionalSlides: window.innerWidth > 768 ? 1 : 0,
-                    allowTouchMove: false,
-                    autoplay: {
-                        delay: 0,
-                        disableOnInteraction: false
-                    },
-                    on: { init: () => this.columnsWrapper.style.opacity = 1 },
-                    breakpoints: {
-                        320: {
-                            spaceBetween: Utils.vw(4.948),
-                        },
-                        780: {
-                            spaceBetween: Utils.vw(0.972),
-                        }
-                    },
-                })
-            });
+        startSlider() {
+            setInterval(() => {
+                this.activeIndex += 1;
+                if (this.activeIndex === this.autoTypingSlider.length) this.activeIndex = 0;
+            }, 3000);
         },
         submitForm() {
             const { commit } = this.$store;

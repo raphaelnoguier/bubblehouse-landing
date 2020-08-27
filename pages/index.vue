@@ -1,11 +1,9 @@
 <template>
 	<main id="home">
 		<Hero />
-		<Boards />
-		<ProfileExample />
 		<InteractiveModules />
-		<!-- <Feed /> -->
-		<Testimonials />
+		<Boards />
+		<Profiles />
 		<Footer />
         <WaitingListConfirmation />
 	</main>
@@ -15,10 +13,8 @@
 /* Sections */
 import Hero from '~/sections/Hero';
 import Boards from '~/sections/Boards';
-import ProfileExample from '~/sections/ProfileExample';
 import InteractiveModules from '~/sections/InteractiveModules';
-import Feed from '~/sections/Feed';
-import Testimonials from '~/sections/Testimonials';
+import Profiles from '~/sections/Profiles';
 import Footer from '~/sections/Footer';
 import WaitingListConfirmation from '~/components/WaitingListConfirmation';
 
@@ -60,10 +56,8 @@ export default {
 	components: {
 		Hero,
 		Boards,
-		ProfileExample,
 		InteractiveModules,
-		Feed,
-		Testimonials,
+		Profiles,
         Footer,
         WaitingListConfirmation
 	}

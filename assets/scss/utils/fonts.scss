@@ -33,7 +33,7 @@
 }
 
 .bigText {
-    @include geomanistUltra(11.806vw, 11.111vw);
+    @include geomanistUltra(8.056vw, 8.750vw);
 
     @include max(sm) {
         font-size: 19.200vw;
