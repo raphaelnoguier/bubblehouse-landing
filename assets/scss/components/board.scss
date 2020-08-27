@@ -1,6 +1,6 @@
 .board-component {
     margin-top: 3.958vw;
-    position: relative;
+    position: relative; 
 
     @include max(md) {
         margin-top: 12.500vw;
