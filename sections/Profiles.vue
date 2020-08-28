@@ -35,10 +35,10 @@ export default {
     },
     computed: {
         header() {
-            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'header_section').primary;
+            return this.$store.state.homepage.body.find(slice => slice.slice_type === 'header_section').primary;
         },
         timerSlider() {
-            return this.$store.state.homepage.body3.find(slice => slice.slice_type === 'timer_slider');
+            return this.$store.state.homepage.body.find(slice => slice.slice_type === 'timer_slider');
         },
     },
     components: {
