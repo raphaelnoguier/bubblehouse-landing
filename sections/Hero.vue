@@ -4,12 +4,12 @@
             <div class="left">
                 <div class="text">
                     <h1 class="bigText">
-                        {{store.hero_title.split('[]')[0]}}
-                        <span class="filling-text">
-                            <span class="copy">{{autoTypingSlider[activeIndex].keyword}}</span>
-                            {{autoTypingSlider[activeIndex].keyword}}
+                        <span class="line">
+                            {{store.hero_first_line.split('[]')[0]}}
+                            <span class="filling-text"></span>
+                            {{store.hero_first_line.split('[]')[1]}}
                         </span>
-                        {{store.hero_title.split('[]')[1]}}
+                        <span class="line">{{store.hero_second_line}}</span>
                     </h1>
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
@@ -40,8 +40,21 @@
                     </form>
                 </div>
             </div>
-            <div class="preview-slider">
-
+            <div class="preview-slider swiper-container" ref="slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="(slide, i) in autoTypingSlider" :key="i">
+                        <Phone>
+                            <div class="media full">
+                                <template v-if="slide.image.url">
+                                    <img :src="slide.image.url" />
+                                </template>
+                                <template v-else>
+                                    <Video autoplay :url="slide.video.url" loop />
+                                </template>
+                            </div>
+                        </Phone>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -53,9 +66,11 @@ import qs from 'querystring';
 import Swiper from 'swiper';
 import Utils from '~/utils';
 import enterView from 'enter-view';
+import Typed from 'typed.js';
 
 /* Components */
 import Phone from '~/components/Phone';
+import Video from '~/components/Video';
 
 export default {
     data() {
@@ -67,7 +82,8 @@ export default {
         }
     },
     components: {
-        Phone
+        Phone,
+        Video
     },
     computed: {
         store () {
@@ -89,14 +105,44 @@ export default {
             },
         });
 
-        this.startSlider();
+        this.sliderEl = this.$refs.slider;
+        this.initSlider(this.sliderEl);
+
+        const typed = new Typed('.filling-text', {
+            strings: this.getKeywords(),
+            typeSpeed: 100,
+            backSpeed: 50,
+            loop: true,
+            smartBackspace: false,
+            backDelay: 2200,
+            cursorChar: '',
+            onStringTyped: () => {
+                const timeout = setTimeout(() => {
+                    this.slider.slideNext();
+                    clearTimeout(timeout);
+                }, 2500);
+            }
+        });
     },
     methods: {
-        startSlider() {
-            setInterval(() => {
-                this.activeIndex += 1;
-                if (this.activeIndex === this.autoTypingSlider.length) this.activeIndex = 0;
-            }, 3000);
+        getKeywords() {
+            const output = [];
+            this.autoTypingSlider.forEach(slide => {
+                output.push(slide.keyword);
+            });
+
+            return output;
+        },
+        initSlider(el) {
+            this.slider = new Swiper(el, {
+                allowTouchMove: false,
+                effect: 'fade',
+                loop: true
+            });
+
+            this.slider.on('slideChange', () => {
+                this.activeIndex = this.slider.realIndex;
+            });
         },
         submitForm() {
             const { commit } = this.$store;
