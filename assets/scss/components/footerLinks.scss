@@ -1,10 +1,14 @@
 .footer-links-component {
-    margin: 6.597vw auto 0 auto;
+    margin: 10.417vw auto 0 auto;
     max-width: 47.986vw;
+
+    @include max(md) {
+        margin: 18.519vw auto 0 auto;
+        max-width: 100%;
+    }
 
     @include max(sm) {
         margin: 13.333vw auto 0 auto;
-        max-width: 100%;
     }
 
     ul {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>_Icons/arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="3.061617e-15%" id="linearGradient-1">
+            <stop stop-color="#FD3C08" offset="0%"></stop>
+            <stop stop-color="#F04A8B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="🔗-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop/Inputs/Done" transform="translate(-625.000000, -22.000000)" fill="url(#linearGradient-1)">
+            <g id="InputsLine">
+                <g id="_Icons/done" transform="translate(625.000000, 21.000000)">
+                    <path d="M16.8478992,2.56383747 L6.24789916,13.1638375 C6.15401586,13.2584938 6.02621793,13.3117366 5.89289916,13.3117366 C5.75958039,13.3117366 5.63178246,13.2584938 5.53789916,13.1638375 L0.147899162,7.77383747 C0.0532428368,7.67995417 0,7.55215624 0,7.41883747 C0,7.2855187 0.0532428368,7.15772077 0.147899162,7.06383747 L0.847899162,6.36383747 C0.941782462,6.26918114 1.06958039,6.21593831 1.20289916,6.21593831 C1.33621793,6.21593831 1.46401586,6.26918114 1.55789916,6.36383747 L5.88789916,10.6938375 L15.4378992,1.14383747 C15.6357128,0.952054177 15.9500855,0.952054177 16.1478992,1.14383747 L16.8478992,1.85383747 C16.9425555,1.94772077 16.9957983,2.0755187 16.9957983,2.20883747 C16.9957983,2.34215624 16.9425555,2.46995417 16.8478992,2.56383747 Z" id="Icon-color"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

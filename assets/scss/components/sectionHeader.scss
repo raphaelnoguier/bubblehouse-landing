@@ -23,11 +23,7 @@
         }
 
         @include max(md) {
-            max-width: 89.063vw;
-        }
-
-        @include max(md) {
-            max-width: 100%;
+            max-width: 74.568vw;
         }
 
         .title {
@@ -39,11 +35,11 @@
         }
 
         .baseline {
-            margin-top: 1.458vw;
+            margin-top: 0.347vw;
             color: v(black-color);
 
             @include max(md) {
-                margin-top: 1.693vw;
+                margin-top: 0;
             }
 
             @include max(sm) {

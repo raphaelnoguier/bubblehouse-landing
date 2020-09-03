@@ -7,7 +7,10 @@ export const state = () => ({
 	homepage: {},
 	termsPage: {},
 	privacyPage: {},
-    navCtaVisible: false,
+	navCtaVisible: false,
+	hasFilledForm: false,
+	globalNameValue: '',
+	globalEmailValue: '',
     waitingConfirmation: false
 });
 
@@ -23,6 +26,15 @@ export const getters = {
 	},
 	navCtaVisible(state) {
 		return state.navCtaVisible
+	},
+	hasFilledForm(state) {
+		return state.hasFilledForm
+	},
+	globalNameValue(state) {
+		return state.globalNameValue
+	},
+	globalEmailValue(state) {
+		return state.globalEmailValue
     },
     waitingConfirmation(state) {
 		return state.waitingConfirmation
@@ -41,7 +53,16 @@ export const mutations = {
 	},
 	SET_NAV_CTA_VISIBLE(state, bool) {
 		state.navCtaVisible = bool;
-    },
+	},
+	SET_HAS_FILLED_FORM(state, bool) {
+		state.hasFilledForm = bool;
+	},
+	SET_GLOBAL_NAME_VALUE(state, bool) {
+		state.globalNameValue = bool;
+	},
+	SET_GLOBAL_EMAIL_VALUE(state, bool) {
+		state.globalEmailValue = bool;
+	},
     SET_WAITING_CONFIRMATION_VISIBLE(state, bool) {
 		state.waitingConfirmation = bool;
 	}

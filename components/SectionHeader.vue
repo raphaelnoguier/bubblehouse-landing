@@ -2,7 +2,7 @@
     <div class="section-header-component" :class="whiteTheme ? 'white-theme' : ''">
         <div class="section-header-content" :class="large ? 'lg' : ''">
             <div class="title">
-                <span class="labelUpper">
+                <span class="header2">
                     {{title}}
                 </span>
             </div>

@@ -7,6 +7,7 @@
                         <span class="line">
                             {{store.hero_first_line.split('[]')[0]}}
                             <span class="filling-text"></span>
+                            <span class="md">{{firstKeyWord}}</span>
                             {{store.hero_first_line.split('[]')[1]}}
                         </span>
                         <span class="line">{{store.hero_second_line}}</span>
@@ -14,9 +15,9 @@
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
                 <div class="form">
-                    <form v-on:submit.prevent="submitForm" ref="form">
+                    <form v-on:submit.prevent="submitForm" ref="form" :class="$store.getters.hasFilledForm ? 'disabled' : ''">
                         <input
-                            class="input-component"
+                            :class="`input-component bodyRegular ${(emailValue.length || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
                             placeholder="Mail address"
@@ -24,7 +25,7 @@
                             required
                         />
                         <input
-                            class="input-component"
+                            :class="`input-component bodyRegular ${(nameValue.length || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
                             type="text"
                             name="name"
                             placeholder="Name"
@@ -35,7 +36,10 @@
                             :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`"
                             type="submit"
                         >
-                            <span class="labelUpper">{{store.global_cta_name}}</span>
+                            <span :class="`labelUpper ${$store.getters.hasFilledForm ? 'hide' : ''}`">
+                                {{store.global_cta_name}}
+                            </span>
+                            <img :class="`${$store.getters.hasFilledForm ? 'visible' : ''}`" src="~/assets/images/icons/done.svg" />
                         </button>
                     </form>
                 </div>
@@ -78,7 +82,9 @@ export default {
             emailValue: '',
             nameValue: '',
             isLoading: false,
-            activeIndex: 0
+            activeIndex: 0,
+            firstKeyWord: '',
+            typedStopped: false
         }
     },
     components: {
@@ -94,44 +100,84 @@ export default {
         }
     },
     mounted() {
+        this.sliderEl = this.$refs.slider;
+        this.firstKeyWord = this.autoTypingSlider[0].keyword;
+
+        if (window.innerWidth > 810) {
+            this.initSlider(this.sliderEl);
+            this.initTyped();
+        }
+
+        window.addEventListener('resize', this.onResize);
+
         enterView({
             selector: '.section.interactive-modules',
             offset: 0.8,
             enter: () => {
                 this.$store.commit('SET_NAV_CTA_VISIBLE', true);
+                if (this.typed) {
+                    this.typed && this.typed.stop();
+                    this.typedStopped = true;
+                }
             },
             exit: () => {
                 this.$store.commit('SET_NAV_CTA_VISIBLE', false)
+                if (this.typed) {
+                    this.typed.start();
+                    this.typedStopped = false;
+                }
             },
-        });
-
-        this.sliderEl = this.$refs.slider;
-        this.initSlider(this.sliderEl);
-
-        const typed = new Typed('.filling-text', {
-            strings: this.getKeywords(),
-            typeSpeed: 100,
-            backSpeed: 50,
-            loop: true,
-            smartBackspace: false,
-            backDelay: 2200,
-            cursorChar: '',
-            onStringTyped: () => {
-                const timeout = setTimeout(() => {
-                    this.slider.slideNext();
-                    clearTimeout(timeout);
-                }, 2500);
-            }
         });
     },
     methods: {
+        onResize() {
+            if (window.innerWidth > 810) {
+                if (!this.slider) {
+                    this.initSlider(this.sliderEl);
+                }
+                if (!this.typed) {
+                    this.initTyped();
+                    this.typedStopped = false;
+                }
+            } else {
+                if(this.typed) {
+                    this.typedStopped = true;
+                    this.typed.destroy();
+                    this.typed = null;
+                }
+
+                if (this.slider) {
+                    this.slider.destroy();
+                    this.slider = null;
+                }
+            }
+        },
         getKeywords() {
             const output = [];
+
             this.autoTypingSlider.forEach(slide => {
                 output.push(slide.keyword);
             });
 
             return output;
+        },
+        initTyped() {
+            this.typed = new Typed('.filling-text', {
+                strings: this.getKeywords(),
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true,
+                smartBackspace: false,
+                backDelay: 2200,
+                cursorChar: '',
+                onStringTyped: () => {
+                    const timeout = setTimeout(() => {
+                        if (this.typedStopped) return;
+                        this.slider.slideNext();
+                        clearTimeout(timeout);
+                    }, 2500);
+                }
+            });
         },
         initSlider(el) {
             this.slider = new Swiper(el, {
@@ -147,6 +193,8 @@ export default {
         submitForm() {
             const { commit } = this.$store;
             const self = this;
+
+            if (self.$store.getters.hasFilledForm) return;
 
             self.isLoading = true;
 
@@ -165,6 +213,9 @@ export default {
                 axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
                     self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                    self.$store.commit('SET_HAS_FILLED_FORM', true);
+                    self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
+                    self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     self.isLoading = false;
                 })
                 .catch(function (error) {

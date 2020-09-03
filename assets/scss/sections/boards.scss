@@ -3,6 +3,10 @@
     margin: 10.417vw auto;
     transition: background-color 300ms v(ease-in-out-quad);
 
+    @include max(md) {
+        margin: 18.519vw auto;
+    }
+
     @include max(sm) {
         margin: 0 auto;
         padding: 26.667vw 0;

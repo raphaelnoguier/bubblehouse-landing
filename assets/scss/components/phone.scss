@@ -12,15 +12,16 @@
     }
 
     @include max(md) {
-        width: 41.406vw;
-        height: 88.802vw;
+        width: 35.432vw;
+        height: 75.556vw;
+        border-radius: 29px;
     }
 
     @include max(sm) {
         width: 53.333vw;
         height: 113.867vw;
         border-radius: 20px;
-        border-width: 3px; 
+        border-width: 3px;
     }
 
     &.white-border {

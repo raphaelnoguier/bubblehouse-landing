@@ -16,6 +16,10 @@
         z-index: 1;
         position: relative;
 
+        @include max(md) {
+            margin-top: 9.259vw;
+        }
+
         @include max(sm) {
             margin-top: 13.333vw;
         }

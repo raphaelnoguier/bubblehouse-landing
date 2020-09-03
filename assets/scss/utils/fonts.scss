@@ -35,6 +35,11 @@
 .bigText {
     @include geomanistUltra(8.056vw, 8.750vw);
 
+    @include max(md) {
+        font-size: 14.321vw;
+        line-height: 15.556vw;
+    }
+
     @include max(sm) {
         font-size: 19.200vw;
         line-height: 19.200vw;
@@ -46,6 +51,11 @@
     letter-spacing: 1px;
     text-transform: uppercase;
 
+    @include max(md) {
+        font-size: 1.975vw;
+        line-height: 2.963vw;
+    }
+
     @include max(sm) {
         font-size: 3.733vw;
         line-height: 5.600vw;
@@ -54,6 +64,11 @@
 
 .bodyRegular {
     @include geomanistRegular(1.111vw, 1.667vw);
+
+    @include max(md) {
+        font-size: 1.975vw;
+        line-height: 2.963vw;
+    }
 
     @include max(sm) {
         font-size: 3.733vw;
@@ -64,6 +79,11 @@
 .bodyRegularLG {
     @include geomanistRegular(1.389vw, 2.083vw);
 
+    @include max(md) {
+        font-size: 2.963vw;
+        line-height: 4.444vw;
+    }
+
     @include max(sm) {
         font-size: 4.800vw;
         line-height: 7.200vw;
@@ -72,6 +92,11 @@
 
 .header2 {
     @include geomanistBold(2.222vw, 2.917vw);
+
+    @include max(md) {
+        font-size: 3.951vw;
+        line-height: 5.185vw;
+    }
 
     @include max(sm) {
         font-size: 6.933vw;
@@ -82,6 +107,11 @@
 .header3 {
     @include geomanistBold(1.389vw, 1.667vw);
 
+    @include max(md) {
+        font-size: 2.469vw;
+        line-height: 2.963vw;
+    }
+
     @include max(sm) {
         font-size: 5.333vw;
         line-height: 8vw;
@@ -91,6 +121,11 @@
 .header5 {
     @include geomanistBold(0.833vw, 1.667vw);
     letter-spacing: 2px;
+
+    @include max(md) {
+        font-size: 1.481vw;
+        line-height: 2.963vw;
+    }
 
     @include max(sm) {
         font-size: 3.200vw;

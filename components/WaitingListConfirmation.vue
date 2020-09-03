@@ -2,12 +2,12 @@
     <div :class="`waiting-list-confirmation-component ${$store.getters.waitingConfirmation ? 'visible' : ''}`">
         <div class="waiting-list-confirmation-wrapper">
             <div class="left">
-                <span class="header3">You are on the waiting list</span>
-                <p class="bodyRegular">Complete the survey to be on top of the waitlist and <span class="">reserve your username</span>!</p>
+                <span class="header2">{{app.waiting_list_confirmation_title}}</span>
+                <p class="bodyRegular">{{app.waiting_list_confirmation_content}}</p>
             </div>
             <div class="actions">
                 <a class="button-component reverse-theme" :href="app.survey_link.url" target="_blank" rel="noopener">
-                    <span class="labelUpper">Complete survey</span>
+                    <span class="labelUpper">{{app.survey_button_text}}</span>
                 </a>
                 <a class="button-component reverse-theme" href="https://www.facebook.com/sharer/sharer.php?u=https://bubblehouse.com" target="_blank" rel="noopener">
                     <img src="~/assets/images/icons/facebook.svg" alt="facebook-logo" />

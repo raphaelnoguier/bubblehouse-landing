@@ -6,10 +6,16 @@
     height: 3.889vw;
     background-color: rgba(255, 255, 255, 0.3);
     font-family: "Geomanist-Bold";
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 400ms ease;
 
     &::placeholder {
         color: white;
         font-family: "Geomanist-Regular";
+    }
+
+    &:focus, &.filled {
+        border-color: white;
     }
 
     @include min(xl) {
@@ -18,8 +24,10 @@
     }
 
 	@include max(md) {
-		height: 7.292vw;
-		padding: 0 2.083vw;
+		height: 6.914vw;
+        padding: 0 2.083vw;
+        min-width: auto;
+        width: 100%;
 	}
 
 	@include max(sm) {
@@ -60,7 +68,8 @@
     }
 
 	@include max(md) {
-		height: 7.292vw;
+        height: 6.914vw;
+        min-width: 17.284vw;
 	}
 
 	@include max(sm) {
@@ -73,4 +82,42 @@
         position: relative;
         top: 3px;
 	}
+}
+
+.form .button-component {
+    position: relative;
+
+    .labelUpper {
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+        transition: opacity 300ms ease, transform 300ms ease;
+
+        &.hide {
+            transform: scale3d(0, 0, 1);
+            opacity: 0;
+        }
+    }
+
+    img {
+        opacity: 0;
+        transition: opacity 300ms ease, transform 300ms ease;
+        transform: scale3d(0, 0, 1) translate3d(0, -50%, 0);
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 50%;
+
+        &.visible {
+            opacity: 1;
+            transform: scale3d(1, 1, 1) translate3d(0, -50%, 0);
+        }
+    }
+}
+
+form {
+    &.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+    }
 }

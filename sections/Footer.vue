@@ -4,30 +4,38 @@
             <div class="large-wrapper">
                 <div class="texts" ref="texts">
                     <SectionHeader
+                        :title="footer.footer_baseline"
                         :subtitle="footer.footer_subtitle"
                         :whiteTheme="true"
                     />
                 </div>
                 <div class="form-wrapper">
-                    <form v-on:submit.prevent="submitForm">
+                    <form v-on:submit.prevent="submitForm" :class="`form ${$store.getters.hasFilledForm ? 'disabled' : ''}`">
                         <input
-                            class="input-component"
+                            :class="`input-component bodyRegular ${(emailValue.length || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
                             placeholder="Mail adress"
-                            v-model="emailValue"
+                            v-model="emailValue ? emailValue : $store.getters.globalEmailValue"
                             required
                         />
                         <input
-                            class="input-component"
+                            :class="`input-component bodyRegular ${(nameValue.length || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
                             type="text"
                             name="name"
                             placeholder="Name"
-                            v-model="nameValue"
+                            v-model="nameValue ? nameValue : $store.getters.globalNameValue"
                             required
                         />
-                        <button :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`" type="submit">
-                            <span class="labelUpper">{{footer.global_cta_name}}</span>
+
+                        <button
+                            :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`"
+                            type="submit"
+                        >
+                            <span :class="`labelUpper ${$store.getters.hasFilledForm ? 'hide' : ''}`">
+                                {{footer.global_cta_name}}
+                            </span>
+                            <img :class="`${$store.getters.hasFilledForm ? 'visible' : ''}`" src="~/assets/images/icons/done.svg" />
                         </button>
                     </form>
                 </div>
@@ -68,6 +76,8 @@ export default {
             const { commit } = this.$store;
             const self = this;
 
+            if (self.$store.getters.hasFilledForm) return;
+
             self.isLoading = true;
 
             const config = {
@@ -85,6 +95,9 @@ export default {
                 axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
                     self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                    self.$store.commit('SET_HAS_FILLED_FORM', true);
+                    self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
+                    self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     self.isLoading = false;
                 })
                 .catch(function (error) {

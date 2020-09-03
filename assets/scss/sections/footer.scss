@@ -2,7 +2,11 @@
     background: v(app-gradient);
 
     footer {
-        padding: 10.417vw 0 8.125vw 0;
+        padding: 10.417vw 0;
+
+        @include max(md) {
+            padding: 18.519vw 0;
+        }
 
         @include max(sm) {
             padding: 26.667vw 0 13.333vw 0;
@@ -21,16 +25,22 @@
             }
 
             .section-header-component {
-                margin-top: 2.083vw;
+                .section-header-content {
+                    max-width: 44.444vw;
 
-                @include max(sm) {
-                    margin-top: 13.333vw;
+                    @include max(md) {
+                        max-width: 74.568vw;
+                    }
                 }
             }
         }
 
         .form-wrapper {
             margin-top: 6.181vw;
+
+            @include max(md) {
+                margin-top: 3.086vw;
+            }
 
             @include max(sm) {
                 margin-top: 13.333vw;
@@ -46,14 +56,24 @@
                     justify-content: unset;
                 }
 
-                input {
+                .input-component {
                     width: 25.625vw;
 
-                    @include max(sm) {
+                    @include max(md) {
                         width: 100%;
                     }
 
+                    &:nth-of-type(2) {
+                        margin: 0 1.111vw;
+
+                        @include max(md) {
+                            margin: 0 1.975vw;
+                        }
+                    }
                     &:last-of-type {
+                        @include min(xl) {
+                            margin: 0 16px;
+                        }
                         @include max(sm) {
                             margin-top: 4.267vw;
                         }
@@ -64,7 +84,7 @@
                     width: 15.625vw;
 
                     @include max(md) {
-                        width: calc(100% / 3);
+                        width: 17.037vw;
                     }
 
                     @include max(sm) {

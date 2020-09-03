@@ -2,7 +2,7 @@
     margin: 10.417vw 0;
 
     @include max(md) {
-        margin-top: 24.870vw;
+        margin-top: 18.519vw;
     }
 
     @include max(sm) {
@@ -13,7 +13,7 @@
         margin-top: 5.208vw;
 
         @include max(md) {
-            flex-direction: column;
+            margin-top: 7.654vw;
         }
 
         @include max(sm) {

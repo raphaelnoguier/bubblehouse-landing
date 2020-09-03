@@ -16,43 +16,40 @@
     .waiting-list-confirmation-wrapper {
         @include flexCenter();
         justify-content: space-between;
-        padding: 1.944vw 6.944vw;
+        padding: 2.778vw 6.944vw;
 
-        @include max(sm) {
+        @include max(md) {
             position: relative;
             flex-direction: column;
+            padding: 4.938vw 5.926vw;
+        }
+
+        @include max(sm) {
             padding: 13.333vw 6.667vw;
         }
 
         .left {
-            max-width: 20.278vw;
-
-            @include max(sm) {
-                max-width: 100%;
+            @include max(md) {
+                max-width: 62.346vw;
+                align-self: flex-start;
             }
-
             p {
-                margin-top: 0.694vw;
-
-                span {
-                    @include geomanistBold(1.111vw, 1.667vw);
-
-                    @include max(sm) {
-                        font-size: 3.733vw;
-                        line-height: 5.600vw;
-                    }
-                }
+                margin-top: 0.347vw;
             }
         }
 
         .actions {
             display: flex;
 
-            @include max(sm) {
+            @include max(md) {
                 width: 100%;
+                margin-top: 3.704vw;
+                justify-content: space-between;
+            }
+
+            @include max(sm) {
                 margin-top: 5.333vw;
                 flex-wrap: wrap;
-                justify-content: space-between;
             }
 
             .button-component {
@@ -60,11 +57,18 @@
                 justify-content: center;
                 border: 1px solid #E7E7E7;
 
+                @include max(md) {
+                    width: 100%;
+                }
+
                 @include max(sm) {
                     width: calc(50% - 2.133vw);
                 }
 
                 &:first-child {
+                    @include max(md) {
+                        min-width: 41.975vw;
+                    }
                     @include max(sm) {
                         width: 100%;
                     }
@@ -72,6 +76,10 @@
 
                 &:not(:first-child) {
                     margin-left: 1.389vw;
+
+                    @include max(md) {
+                        margin-left: 1.975vw;
+                    }
 
                     @include max(sm) {
                         margin-top: 4.267vw;
@@ -110,8 +118,15 @@
                 height: 3.889vw;
                 cursor: pointer;
 
-                @include max(sm) {
+                @include max(md) {
                     position: absolute;
+                    width: 6.914vw;
+                    height: 6.914vw;
+                    top: 2.840vw;
+                    right: 5.926vw;
+                }
+
+                @include max(sm) {
                     top: 6.667vw;
                     right: 6.667vw;
                     border: none;

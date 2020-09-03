@@ -2,16 +2,15 @@
     @include flexCenter();
     justify-content: space-between;
 
-    @include max(md) {
-        flex-direction: column;
-        margin-left: 1px;
-    }
-
     .timer-slider-component {
         width: 22.153vw;
 
         @include min(xl) {
             width: 353px;
+        }
+
+        @include max(md) {
+            width: 35.432vw;
         }
 
         @include max(sm) {
@@ -27,8 +26,12 @@
                 height: 752px;
             }
 
-            @include max(sm) {
+            @include max(md) {
                 width: 100%;
+                height: 75.556vw;
+            }
+
+            @include max(sm) {
                 height: 113.867vw;
             }
 
@@ -47,6 +50,10 @@
     }
 
     .timer-slider-navigation {
+        @include max(md) {
+            margin-left: 6.914vw;
+        }
+
         @include max(sm) {
             display: flex;
             position: relative;
@@ -61,12 +68,13 @@
 
             &:not(:first-child) {
                 margin-top: 2.222vw;
-            }
 
-            @include max(md) {
-                margin-top: 0;
+                @include max(md) {
+                    margin-top: 4.938vw;
+                }
 
-                &:not(:first-child) {
+                @include max(sm) {
+                    margin-top: 0;
                     margin-left: 6.400vw;
                 }
             }
@@ -93,7 +101,7 @@
                     display: inherit;
                 }
 
-                svg g {
+                svg g, svg g path:not(#grid-rectangle) {
                     fill: black;
                     transition: fill 100ms ease;
                 }
@@ -103,10 +111,17 @@
                 width: 4.444vw;
                 height: 4.444vw;
                 overflow: visible;
+                position: relative;
+                z-index: -1;
 
                 @include min(xl) {
                     width: 80px;
                     height: 80px;
+                }
+
+                @include max(md) {
+                    width: 8.025vw;
+                    height: 8.025vw;
                 }
 
                 @include max(sm) {
@@ -141,9 +156,9 @@
                 }
                 .icon {
                     border-color: transparent;
-                    
+
                     .icon-wrapper {
-                        svg g {
+                        svg g, svg g path:not(#grid-rectangle) {
                             fill: white;
                         }
                     }
@@ -158,6 +173,10 @@
 
             .content {
                 margin-left: 1.389vw;
+
+                @include max(md) {
+                    margin-left: 1.975vw;
+                }
 
                 @include max(sm) {
                     display: none;
@@ -179,7 +198,7 @@
     }
 
     .mobile-active-infos {
-        display: none; 
+        display: none;
 
         @include max(sm) {
             display: block;

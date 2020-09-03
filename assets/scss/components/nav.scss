@@ -7,10 +7,6 @@
     pointer-events: none;
     transition: background-color 300ms ease;
 
-    @include max(sm) {
-        padding: 13.333vw 6.667vw;
-    }
-
     &:before {
         content: '';
         width: 100%;
@@ -25,7 +21,7 @@
     }
 
     @include max(md) {
-        padding: 6.510vw 6.510vw 0 6.510vw;
+        padding: 2.963vw 5.926vw;
     }
 
     @include max(sm) {
@@ -83,6 +79,12 @@
                 text-transform: initial;
                 margin-left: 1.111vw;
 
+                @include max(md) {
+                    font-size: 2.963vw;
+                    line-height: 2.963vw;
+                    margin-left: 1.975vw;
+                }
+
                 @include max(sm) {
                     margin-left: 2.133vw;
                     font-size: 4.800vw;
@@ -98,6 +100,11 @@
                 border-radius: 4px;
                 padding: 0.347vw 0.625vw;
                 margin-left: 0.972vw;
+
+                @include max(md) {
+                    font-size: 1.728vw;
+                    line-height: 2.222vw;
+                }
 
                 @include max(sm) {
                     display: none;
@@ -121,7 +128,8 @@
                 background-color: v(brand-color);
 
                 @include max(md) {
-                    width: 25.786vw;
+                    width: 17.284vw;
+                    height: 6.914vw;
                 }
 
                 @include max(sm) {
