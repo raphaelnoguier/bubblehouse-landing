@@ -47,7 +47,7 @@
         <div class="board-component-phone-video">
             <Phone>
                 <div class="media full">
-                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="!boardImagesVisible" />
+                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="startBoardVideo" />
                 </div>
             </Phone>
         </div>
@@ -77,6 +77,7 @@ export default {
             medias: [],
             mediasBounds: [],
             slidersInstance: [],
+            startBoardVideo: false,
             boardImagesVisible: true
         }
     },
@@ -94,6 +95,7 @@ export default {
             selector: '.board-component-phone-video',
             progress: (el, progress) => {
                 if (progress === 1) {
+                    this.startBoardVideo = true;
                     this.boardImagesVisible = false;
                 }
                 else {
