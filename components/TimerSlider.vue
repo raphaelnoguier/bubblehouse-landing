@@ -5,14 +5,19 @@
                 <div class="swiper-slide" v-for="(slide, i) in items" :key="i">
                     <Phone :key="i">
                         <div class="media full">
-                            <Video :key="i" :autoplay="false" :url="slide.board_video.url" :loop="false" :poster="slide.video_poster.url" />
+                            <template v-if="slide.board_video.url">
+                                <Video :key="i" :autoplay="true" :url="slide.board_video.url" :loop="true" :poster="slide.image.url" />
+                            </template>
+                            <template v-else>
+                                <img :src="slide.image.url" />
+                            </template>
                         </div>
                     </Phone>
                 </div>
             </div>
         </div>
         <div class="timer-slider-navigation">
-            <div class="slide-infos" v-for="(slide, i) in items" :key="i" @mouseover="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
+            <div class="slide-infos" v-for="(slide, i) in items" :key="i" v-on:click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
                <div class="icon">
                     <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
                         <circle
@@ -73,7 +78,8 @@ export default {
             activeSlideDescription: '',
             progress: 0,
             circleRadius: 32,
-            circleOffset: 250
+            circleOffset: 250,
+            intervalPaused: false
         }
     },
     mounted() {
@@ -96,64 +102,71 @@ export default {
         initSlider(el) {
             this.slider = new Swiper(el, {
                 allowTouchMove: false,
-                effect: 'fade'
+                effect: 'fade',
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                }
             });
+
+            this.slider.autoplay.stop();
 
             this.slider.on('slideChange', () => {
                 this.activeIndex = this.slider.activeIndex;
 
-                const newSlide = this.slider.slides[this.activeIndex];
-                const newSlideVideo = newSlide.querySelector('video');
                 const newSlideInfos = this.slideInfos[this.slider.activeIndex];
 
                 this.activeInfos.querySelector('svg').style.strokeDashoffset = this.circleOffset;
-                this.activeVideo.removeEventListener('ended', this.resetVideo); // remove old video listener
-                this.activeVideo.removeEventListener('timeupdate', this.updateProgress); // remove old video listener
 
-                this.activeVideo = newSlideVideo;
                 this.activeInfos = newSlideInfos;
 
+                clearInterval(this.interval);
+
                 this.setMobileInfos();
+                this.updateProgress();
             });
         },
         setMobileInfos() {
             this.activeSlideTitle = this.items[this.slider.activeIndex].slide_title;
             this.activeSlideDescription = this.items[this.slider.activeIndex].slide_description;
         },
-        startSlider() {
-            this.activeVideo.play();
-            this.activeVideo.addEventListener('timeupdate', () => this.updateProgress());
-            this.activeVideo.addEventListener('ended', this.resetVideo);
-        },
-        resetVideo() {
-            if (this.slider.activeIndex === this.slider.slides.length - 1) this.slider.slideTo(0);
-            else this.slider.slideNext();
-        },
-        updateProgress() {
-            const { currentTime, duration } = this.activeVideo;
-            const progress = Utils.map(currentTime, 0, duration, this.circleOffset, 45);
-
-            if (!this.activeInfos) return;
-
+        updateCircleStroke(progress) {
             const circle = this.activeInfos.querySelector('.progress-ring');
             circle.style.strokeDashoffset = progress;
         },
+        updateProgress() {
+            const circle = this.activeInfos.querySelector('.progress-ring');
+            let currentTime = 0;
+
+            this.interval = setInterval(() => {
+                if (this.intervalPaused) {
+                    currentTime = 0;
+                    return;
+                }
+
+                const progress = Utils.map(currentTime, 0, 5, this.circleOffset, 45);
+                currentTime += 0.2;
+
+                if (progress > 40) this.updateCircleStroke(progress);
+            }, 200);
+        }
     },
     watch: {
         playing() {
-            if (this.playing) this.startSlider();
+            if (this.playing) {
+                this.slider.autoplay.start();
+                this.updateProgress();
+            }
         },
         pauseSlider() {
-            if (this.pauseSlider) this.activeVideo && this.activeVideo.pause();
-            else this.activeVideo && this.activeVideo.play();
+            if (this.pauseSlider) {
+                this.intervalPaused = true;
+                this.slider.autoplay.stop();
+            } else {
+                this.intervalPaused = false;
+                this.slider.autoplay.start();
+            }
         },
-        activeVideo() { // Every time active video change
-            if (!this.playing) return;
-            this.activeVideo.currentTime = 0;
-            this.activeVideo.play();
-            this.activeVideo.addEventListener('ended', this.resetVideo);
-            this.activeVideo.addEventListener('timeupdate', this.updateProgress);
-        }
     },
     props: {
         items: Array,

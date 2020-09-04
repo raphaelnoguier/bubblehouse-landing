@@ -6,7 +6,7 @@
                 :title="header.title"
                 :subtitle="header.subtitle"
             />
-            <TimerSlider :items="timerSlider.items" :playing="enteredSection" :key="1" :stopSlider="stopSlider" />
+            <TimerSlider :items="timerSlider.items" :playing="enteredSection" :key="1" :pauseSlider="pauseSlider" />
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             enteredSection: false,
-            stopSlider: false
+            pauseSlider: false
         }
     },
     mounted() {
@@ -36,8 +36,8 @@ export default {
         enterView({
             selector: '.boards .section-header-component',
             offset: 1,
-            enter: () => this.stopSlider = true,
-            exit: () => this.stopSlider = false
+            enter: () => this.pauseSlider = true,
+            exit: () => this.pauseSlider = false
         });
     },
     computed: {

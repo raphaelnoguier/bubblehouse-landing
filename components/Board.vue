@@ -93,8 +93,13 @@ export default {
         enterView({
             selector: '.board-component-phone-video',
             progress: (el, progress) => {
-                if (progress === 1) this.boardImagesVisible = false;
-                if (this.boardImagesVisible) this.transform(progress);
+                if (progress === 1) {
+                    this.boardImagesVisible = false;
+                }
+                else {
+                    this.boardImagesVisible = true;
+                    this.transform(progress);
+                }
             }
         });
     },

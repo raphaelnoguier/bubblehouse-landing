@@ -84,7 +84,7 @@
                 display: inline-flex;
                 border: 1px solid #E7E7E7;
                 border-radius: 50%;
-                transition: border-color 500ms ease;
+                transition: border-color 200ms ease;
             }
 
             .icon-wrapper {
@@ -113,6 +113,7 @@
                 overflow: visible;
                 position: relative;
                 z-index: -1;
+                transform: translate3d(0, 0, 0);
 
                 @include min(xl) {
                     width: 80px;
