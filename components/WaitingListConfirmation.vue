@@ -1,21 +1,13 @@
 <template>
     <div :class="`waiting-list-confirmation-component ${$store.getters.waitingConfirmation ? 'visible' : ''}`">
         <div class="waiting-list-confirmation-wrapper">
-            <div class="left">
+            <div class="content">
                 <span class="header2">{{app.waiting_list_confirmation_title}}</span>
                 <p class="bodyRegular">{{app.waiting_list_confirmation_content}}</p>
             </div>
-            <div class="actions">
-                <a class="button-component reverse-theme" :href="app.survey_link.url" target="_blank" rel="noopener">
+            <div class="action">
+                <a class="button-component" :href="app.survey_link.url" target="_blank" rel="noopener">
                     <span class="labelUpper">{{app.survey_button_text}}</span>
-                </a>
-                <a class="button-component reverse-theme" href="https://www.facebook.com/sharer/sharer.php?u=https://bubblehouse.com" target="_blank" rel="noopener">
-                    <img src="~/assets/images/icons/facebook.svg" alt="facebook-logo" />
-                    <span class="labelUpper">Share it</span>
-                </a>
-                <a class="button-component reverse-theme" href="https://twitter.com/intent/tweet?url=https://bubblehouse.com" target="_blank" rel="noopener">
-                    <img src="~/assets/images/icons/twitter.svg" alt="twitter-logo" />
-                    <span class="labelUpper">Tweet it</span>
                 </a>
                 <div class="close" v-on:click="$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', false)">
                     <CloseIcon />
