@@ -27,10 +27,10 @@ export default {
     methods: {
         initApp() {
             const currentRoute = this.$route.name;
+            smoothscroll.polyfill();
             if (currentRoute === 'terms' || currentRoute === 'privacy') {
                 this.loaded = true;
                 document.body.classList.add('white-theme');
-                smoothscroll.polyfill();
             } else {
                 window.addEventListener('load', () => this.loaded = true);
             }
