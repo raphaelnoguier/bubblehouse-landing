@@ -23,7 +23,7 @@
         }
 
         @include max(sm) {
-            padding: 13.333vw 0;
+            padding: 13.333vw 6.667vw;
         }
 
         .content {
@@ -34,8 +34,20 @@
                 max-width: 62.346vw;
             }
 
+            @include max(sm) {
+                max-width: 100%;
+            }
+
             p {
                 margin-top: 0.347vw;
+
+                @include max(md) {
+                    margin-top: 0.741vw;
+                }
+
+                @include max(sm) {
+                    margin-top: 2.667vw;
+                }
             }
         }
 
@@ -50,8 +62,7 @@
             }
 
             @include max(sm) {
-                margin-top: 5.333vw;
-                flex-wrap: wrap;
+                margin-top: 4.267vw;
             }
 
             .button-component {
@@ -74,7 +85,7 @@
                 right: 2.222vw;
                 @include flexCenter();
                 margin-left: 1.389vw;
-                border: 1px solid #E7E7E7;
+                border: 2px solid #E7E7E7;
                 justify-content: center;
                 border-radius: 50%;
                 width: 3.889vw;
@@ -89,9 +100,10 @@
                 }
 
                 @include max(sm) {
-                    top: 6.667vw;
-                    right: 6.667vw;
-                    border: none;
+                    width: 12.8vw;
+                    height: 12.8vw;
+                    top: 4vw;
+                    right: 4vw;
                 }
             }
         }

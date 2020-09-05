@@ -9,6 +9,20 @@
         margin: 26.667vw 0;
     }
 
+    @include max(sm) {
+        margin: 26.667vw 0;
+
+        .large-wrapper {
+            padding: 0;
+        }
+    }
+
+    .section-header-component {
+        @include max(sm) {
+            padding: 0 6.667vw;
+        }
+    }
+
     .timer-slider-wrapper {
         margin-top: 5.208vw;
         flex-direction: row-reverse;
@@ -20,6 +34,7 @@
 
         @include max(sm) {
             margin-top: 13.333vw;
+            flex-direction: column;
         }
 
         .phone-component {

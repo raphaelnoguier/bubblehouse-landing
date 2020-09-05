@@ -6,7 +6,7 @@
 
 html, input {
     @include geomanistRegular(1.111vw, 1.667vw);
-    
+
     @include max(sm) {
         font-size: 3.733vw;
         line-height: 5.600vw;
@@ -59,9 +59,9 @@ body {
 .large-wrapper {
     max-width: v(large-wrapper);
     margin: auto;
-    
+
     @include max(sm) {
         max-width: 100%;
-        padding: 0 6.400vw;
+        padding: 0 6.667vw;
     }
 }

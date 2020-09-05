@@ -7,11 +7,23 @@
 
     @include max(sm) {
         margin: 26.667vw 0;
+
+        .large-wrapper {
+            padding: 0;
+        }
     }
 
     .section-header-component {
+        @include max(sm) {
+            padding: 0 6.667vw;
+        }
+
         .section-header-content {
             max-width: 43vw;
+
+            @include max(sm) {
+                max-width: 100%;
+            }
         }
     }
 
@@ -23,7 +35,8 @@
         }
 
         @include max(sm) {
-            margin-top: 13.333vw;
+            margin-top: 10.667vw;
+            flex-direction: column;
         }
 
         .phone-component {

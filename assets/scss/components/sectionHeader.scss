@@ -26,11 +26,22 @@
             max-width: 74.568vw;
         }
 
+        @include max(sm) {
+            max-width: 100%;
+        }
+
         .title {
             span {
                 background: v(app-gradient-right);
                 -webkit-text-fill-color: transparent;
                 -webkit-background-clip: text;
+
+                @include max(md) {
+                    -webkit-background-clip: unset;
+                    -webkit-text-fill-color: unset;
+                    color: v(brand-color);
+                    background: none;
+                }
             }
         }
 
@@ -40,10 +51,6 @@
 
             @include max(md) {
                 margin-top: 0;
-            }
-
-            @include max(sm) {
-                margin-top: 2.667vw;
             }
         }
     }
