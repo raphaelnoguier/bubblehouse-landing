@@ -135,7 +135,6 @@ export default {
             circle.style.strokeDashoffset = progress;
         },
         updateProgress() {
-            return;
             const circle = this.activeInfos.querySelector('.progress-ring');
             let currentTime = 0;
 
