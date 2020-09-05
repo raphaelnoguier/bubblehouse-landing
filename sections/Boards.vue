@@ -6,7 +6,7 @@
                 :title="header.title"
                 :subtitle="header.subtitle"
             />
-            <Board :boardItems="board" :phoneVideo="phoneVideo" />
+            <Board :boardItems="board" :phoneVideo="phoneVideo" :phonePoster="phonePoster" />
         </div>
     </div>
 </template>
@@ -26,6 +26,9 @@ export default {
         },
         phoneVideo () {
             return this.$store.state.homepage.body1[1].primary.phone_video;
+        },
+        phonePoster () {
+            return this.$store.state.homepage.body1[1].primary.phone_poster;
         }
     },
     components: {

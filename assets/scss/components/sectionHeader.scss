@@ -1,6 +1,7 @@
 .section-header-component {
     &.white-theme {
         .section-header-content {
+            color: white;
             .title span, .baseline {
                 color: white;
                 background: none;
@@ -35,13 +36,6 @@
                 background: v(app-gradient-right);
                 -webkit-text-fill-color: transparent;
                 -webkit-background-clip: text;
-
-                @include max(md) {
-                    -webkit-background-clip: unset;
-                    -webkit-text-fill-color: unset;
-                    color: v(brand-color);
-                    background: none;
-                }
             }
         }
 

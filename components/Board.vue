@@ -47,7 +47,7 @@
         <div class="board-component-phone-video">
             <Phone>
                 <div class="media full">
-                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="startBoardVideo" />
+                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="startBoardVideo" :poster="phonePoster.url" />
                 </div>
             </Phone>
         </div>
@@ -143,7 +143,8 @@ export default {
     },
     props: {
         boardItems: Array,
-        phoneVideo: Object
+        phoneVideo: Object,
+        phonePoster: Object
     }
 }
 </script>
