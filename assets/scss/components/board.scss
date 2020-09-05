@@ -26,6 +26,7 @@
 
         .phone-component {
             margin: 0 auto;
+            -webkit-mask-image: -webkit-radial-gradient(white, black); // Fix border radius overflow not hidden
         }
     }
 }

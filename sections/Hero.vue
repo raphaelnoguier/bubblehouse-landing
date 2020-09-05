@@ -105,7 +105,7 @@ export default {
 
         if (window.innerWidth > 810) {
             this.initSlider(this.sliderEl);
-            this.initTyped();
+            window.addEventListener('load', () => this.initTyped());
         }
 
         window.addEventListener('resize', this.onResize);
@@ -162,22 +162,24 @@ export default {
             return output;
         },
         initTyped() {
-            this.typed = new Typed('.filling-text', {
-                strings: this.getKeywords(),
-                typeSpeed: 100,
-                backSpeed: 50,
-                loop: true,
-                smartBackspace: false,
-                backDelay: 2200,
-                cursorChar: '',
-                onStringTyped: () => {
-                    const timeout = setTimeout(() => {
-                        if (this.typedStopped) return;
-                        this.slider.slideNext();
-                        clearTimeout(timeout);
-                    }, 2500);
-                }
-            });
+            setTimeout(() => {
+                this.typed = new Typed('.filling-text', {
+                    strings: this.getKeywords(),
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    loop: true,
+                    smartBackspace: false,
+                    backDelay: 2200,
+                    cursorChar: '',
+                    onStringTyped: () => {
+                        const timeout = setTimeout(() => {
+                            if (this.typedStopped) return;
+                            this.slider.slideNext();
+                            clearTimeout(timeout);
+                        }, 2500);
+                    }
+                });
+            }, 500);
         },
         initSlider(el) {
             this.slider = new Swiper(el, {

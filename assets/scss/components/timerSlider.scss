@@ -62,6 +62,7 @@
             margin-left: 0;
             padding: 3px 0 3px 6.667vw;
             overflow-x: scroll;
+            transform: translate3d(0, 0, 0);
             @include noScrollBar();
         }
 
@@ -129,6 +130,20 @@
                 position: relative;
                 z-index: -1;
                 transform: translate3d(0, 0, 0);
+                stroke-dashoffset: 250;
+                animation: none;
+
+                &.animate {
+                    .progress-ring__circle {
+                        animation: fillCircle 5500ms linear;
+
+                        @keyframes fillCircle {
+                            100% {
+                                stroke-dashoffset: 40;
+                            }
+                        }
+                    }
+                }
 
                 @include min(xl) {
                     width: 80px;
@@ -146,9 +161,10 @@
                 }
 
                 .progress-ring__circle {
-                    transition: stroke-dashoffset 200ms ease;
                     transform: rotate(-90deg);
                     transform-origin: 50% 50%;
+                    stroke-dashoffset: 250;
+                    animation: none;
                 }
 
                 defs stop {

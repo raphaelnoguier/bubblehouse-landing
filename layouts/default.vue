@@ -1,7 +1,7 @@
 <template>
 	<div :class="`app ${loaded ? 'loaded' : ''}`">
 		<Nav />
-		<nuxt/>
+		<nuxt />
 	</div>
 </template>
 

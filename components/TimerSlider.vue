@@ -19,7 +19,7 @@
         <div class="timer-slider-navigation">
             <div class="slide-infos" v-for="(slide, i) in items" :key="i" v-on:click="slider.slideTo(i)" :class="activeIndex === i ? 'active' : ''">
                <div class="icon">
-                    <svg class="progress-ring" stroke-dashoffset="250" :stroke-dasharray="circleOffset">
+                    <svg class="progress-ring" :stroke-dasharray="circleOffset">
                         <circle
                             class="progress-ring__circle"
                             stroke="transparent"
@@ -73,21 +73,19 @@ export default {
     data() {
         return {
             activeIndex: 0,
-            activeVideo: null,
             activeSlideTitle: '',
             activeSlideDescription: '',
             progress: 0,
             circleRadius: 32,
-            circleOffset: 250,
-            intervalPaused: false
+            circleOffset: 250
         }
     },
     mounted() {
         this.sliderEl = this.$refs.slider;
-        this.activeVideo = this.sliderEl.querySelector('.swiper-slide video'); // First video is active at the beginning
 
         this.slideInfos = this.$el.querySelectorAll('.slide-infos');
         this.activeInfos = this.slideInfos[0];
+        this.activeCircle = this.activeInfos.querySelector('.progress-ring');
 
         this.initSlider(this.sliderEl);
         this.setMobileInfos();
@@ -115,56 +113,39 @@ export default {
                 this.activeIndex = this.slider.activeIndex;
 
                 const newSlideInfos = this.slideInfos[this.slider.activeIndex];
-
-                this.activeInfos.querySelector('svg').style.strokeDashoffset = this.circleOffset;
-
                 this.activeInfos = newSlideInfos;
 
-                clearInterval(this.interval);
+                this.activeInfos.querySelector('svg').style.strokeDashoffset = this.circleOffset;
+                this.activeCircle.classList.remove('animate');
+                this.activeCircle = this.activeInfos.querySelector('.progress-ring');
 
                 this.setMobileInfos();
-                this.updateProgress();
+                this.toggleCircleAnimation(false);
             });
         },
         setMobileInfos() {
             this.activeSlideTitle = this.items[this.slider.activeIndex].slide_title;
             this.activeSlideDescription = this.items[this.slider.activeIndex].slide_description;
         },
-        updateCircleStroke(progress) {
-            const circle = this.activeInfos.querySelector('.progress-ring');
-            circle.style.strokeDashoffset = progress;
-        },
-        updateProgress() {
-            const circle = this.activeInfos.querySelector('.progress-ring');
-            let currentTime = 0;
-
-            this.interval = setInterval(() => {
-                if (this.intervalPaused) {
-                    currentTime = 0;
-                    return;
-                }
-
-                const progress = Utils.map(currentTime, 0, 5, this.circleOffset, 45);
-                currentTime += 0.2;
-
-                if (progress > 40) this.updateCircleStroke(progress);
-            }, 200);
+        toggleCircleAnimation(paused) {
+            if (paused) this.activeCircle.classList.remove('animate');
+            else this.activeCircle.classList.add('animate');
         }
     },
     watch: {
         playing() {
             if (this.playing) {
-                this.slider.autoplay.start();
-                this.updateProgress();
+                this.toggleCircleAnimation(false)
+                setTimeout(() => this.slider.autoplay.start(), 300);
             }
         },
         pauseSlider() {
-            if (this.pauseSlider) {
-                this.intervalPaused = true;
+            if (this.pauseSlider) {// Pause
+                this.toggleCircleAnimation(true);
                 this.slider.autoplay.stop();
-            } else {
-                this.intervalPaused = false;
-                this.slider.autoplay.start();
+            } else {// Play
+                this.toggleCircleAnimation(false)
+                setTimeout(() => this.slider.autoplay.start(), 300);
             }
         },
     },
