@@ -65,6 +65,10 @@
 .bodyRegular {
     @include geomanistRegular(1.111vw, 1.667vw);
 
+    @include min(xl) {
+        font-size: 24px;
+    }
+
     @include max(md) {
         font-size: 1.975vw;
         line-height: 2.963vw;
@@ -78,6 +82,10 @@
 
 .bodyRegularLG {
     @include geomanistRegular(1.389vw, 2.083vw);
+
+    @include min(xl) {
+        font-size: 32px;
+    }
 
     @include max(md) {
         font-size: 2.963vw;
@@ -93,6 +101,10 @@
 .header2 {
     @include geomanistBold(2.222vw, 2.917vw);
 
+    @include min(xl) {
+        font-size: 42px;
+    }
+
     @include max(md) {
         font-size: 3.951vw;
         line-height: 5.185vw;
@@ -106,6 +118,10 @@
 
 .header3 {
     @include geomanistBold(1.389vw, 1.667vw);
+
+    @include min(xl) {
+        font-size: 32px;
+    }
 
     @include max(md) {
         font-size: 2.469vw;

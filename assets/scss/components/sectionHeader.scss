@@ -12,7 +12,7 @@
     }
 
     .section-header-content {
-        max-width: 34.722vw;
+        max-width: 37.722vw;
         text-align: left;
 
         &.lg {
@@ -36,6 +36,7 @@
                 background: v(app-gradient-right);
                 -webkit-text-fill-color: transparent;
                 -webkit-background-clip: text;
+                display: inline-block;
             }
         }
 

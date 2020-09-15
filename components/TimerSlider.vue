@@ -23,7 +23,7 @@
                         <circle
                             class="progress-ring__circle"
                             stroke="transparent"
-                            stroke-width="4"
+                            stroke-width="2"
                             :r="circleRadius"
                             preserveAspectRatio="xMinYMin meet"
                             cx="50%"
