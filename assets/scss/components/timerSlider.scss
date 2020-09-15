@@ -99,8 +99,7 @@
                 display: inline-flex;
                 border: 1px solid #E7E7E7;
                 border-radius: 50%;
-                transition: border-color 200ms ease, transform 500ms ease;
-                transform: scale3d(1, 1, 1);
+                transition: border-color 200ms ease;
             }
 
             .icon-wrapper {
@@ -188,7 +187,6 @@
                 }
                 .icon {
                     border-color: transparent;
-                    transform: scale3d(1.05, 1.05, 1);
 
                     .icon-wrapper {
                         svg g, svg g path:not(#grid-rectangle) {

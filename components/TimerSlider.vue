@@ -113,6 +113,9 @@ export default {
                 this.activeIndex = this.slider.activeIndex;
 
                 const newSlideInfos = this.slideInfos[this.slider.activeIndex];
+                const newActiveSlideVideo = this.slider.slides[this.slider.activeIndex].querySelector('video');
+
+                if (newActiveSlideVideo) newActiveSlideVideo.currentTime = 0;
                 this.activeInfos = newSlideInfos;
 
                 this.activeInfos.querySelector('svg').style.strokeDashoffset = this.circleOffset;

@@ -49,6 +49,7 @@
 /* Utils */
 import axios from 'axios';
 import qs from 'querystring';
+import enterView from 'enter-view';
 
 /* Components */
 import SectionHeader from '~/components/SectionHeader';
@@ -70,6 +71,14 @@ export default {
             isLoading: false,
             error: false
         }
+    },
+    mounted() {
+        enterView({
+            selector: '.section.footer',
+            offset: 1,
+            enter: () => this.$store.commit('SET_NAV_CTA_VISIBLE', false),
+            exit: () => this.$store.commit('SET_NAV_CTA_VISIBLE', true),
+        });
     },
     methods: {
         submitForm() {

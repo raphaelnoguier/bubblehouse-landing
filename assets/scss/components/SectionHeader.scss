@@ -40,12 +40,7 @@
         }
 
         .baseline {
-            margin-top: 0.347vw;
             color: v(black-color);
-
-            @include max(md) {
-                margin-top: 0;
-            }
         }
     }
 }

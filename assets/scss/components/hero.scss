@@ -4,6 +4,10 @@
     width: 100%;
     background: v(app-gradient);
 
+    @include max(sm) {
+        padding-top: calc(8.267vw + 12vw + 5.6vw); // 8 is svg logo height / 12 is 2x padding of nav / 5.6 is line height of nav
+    }
+
     .hero-component-content {
         position: relative;
         @include flexCenter();
@@ -62,22 +66,21 @@
                     }
                 }
 
-                .filling-text {
-                    // -webkit-text-stroke-width: 2px;
-                    // -webkit-text-stroke-color: white;
-                    // color: transparent;
-                }
-
                 .typed-cursor {
                     position: relative;
                     &:before {
                         content: '';
                         position: absolute;
-                        width: 15px;
+                        width: 6px;
                         height: 100%;
                         left: 5px;
                         border-radius: 10px;
                         background: white;
+                        opacity: 0.5;
+
+                        @include min(xl) {
+                            width: 8px;
+                        }
                     }
                 }
 
@@ -139,6 +142,7 @@
         }
         .preview-slider {
             width: 22.153vw;
+            pointer-events: none;
 
             @include max(md) {
                 display: none;

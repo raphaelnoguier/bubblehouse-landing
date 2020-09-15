@@ -47,13 +47,13 @@
             <div class="preview-slider swiper-container" ref="slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="(slide, i) in autoTypingSlider" :key="i">
-                        <Phone>
+                        <Phone whiteBorder>
                             <div class="media full">
-                                <template v-if="slide.image.url">
-                                    <img :src="slide.image.url" />
+                                <template v-if="slide.is_video">
+                                    <Video autoplay :url="slide.video.url" loop :poster="slide.image.url"/>
                                 </template>
                                 <template v-else>
-                                    <Video autoplay :url="slide.video.url" loop />
+                                    <img :src="slide.image.url" />
                                 </template>
                             </div>
                         </Phone>
@@ -190,6 +190,9 @@ export default {
 
             this.slider.on('slideChange', () => {
                 this.activeIndex = this.slider.realIndex;
+                const newActiveSlideVideo = this.slider.slides[this.slider.activeIndex].querySelector('video');
+
+                if (newActiveSlideVideo) newActiveSlideVideo.currentTime = 0;
             });
         },
         submitForm() {
