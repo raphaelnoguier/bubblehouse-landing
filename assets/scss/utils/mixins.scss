@@ -43,6 +43,10 @@
 	}
 }
 
+@mixin iosTapTransparent() {
+	-webkit-tap-highlight-color: transparent;
+}
+
 @function v($var, $fallback: null) {
 	@if ($fallback) {
 		@return var(--#{$var}, #{$fallback});

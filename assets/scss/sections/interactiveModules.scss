@@ -21,6 +21,10 @@
         .section-header-content {
             max-width: 43vw;
 
+            @include max(md) {
+                max-width: 62vw;
+            }
+
             @include max(sm) {
                 max-width: 100%;
             }

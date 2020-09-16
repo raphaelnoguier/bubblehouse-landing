@@ -30,7 +30,7 @@
                             cy="50%"
                         />
                         <defs>
-                            <linearGradient spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <linearGradient class="timerSlider" spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" />
                                 <stop offset="100%" />
                             </linearGradient>

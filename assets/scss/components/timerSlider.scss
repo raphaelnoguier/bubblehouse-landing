@@ -71,6 +71,8 @@
             margin-top: 1.389vw;
             cursor: pointer;
 
+            @include iosTapTransparent();
+
             @include max(sm) {
                 margin-top: 0;
             }
@@ -116,6 +118,16 @@
                     display: inherit;
                 }
 
+                svg {
+                    width: 32px;
+                    height: 32px;
+
+                    @include min (xl) {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+
                 svg g, svg g path:not(#grid-rectangle) {
                     fill: black;
                     transition: fill 100ms ease;
@@ -123,8 +135,8 @@
             }
 
             .progress-ring {
-                width: 4.444vw;
-                height: 4.444vw;
+                width: 64px;
+                height: 64px;
                 overflow: visible;
                 position: relative;
                 z-index: -1;
@@ -147,16 +159,6 @@
                 @include min(xl) {
                     width: 80px;
                     height: 80px;
-                }
-
-                @include max(md) {
-                    width: 8.025vw;
-                    height: 8.025vw;
-                }
-
-                @include max(sm) {
-                    width: 17.067vw;
-                    height: 17.067vw;
                 }
 
                 .progress-ring__circle {

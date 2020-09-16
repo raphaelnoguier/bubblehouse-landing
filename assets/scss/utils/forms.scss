@@ -7,15 +7,19 @@
     background-color: rgba(255, 255, 255, 0.3);
     font-family: "Geomanist-Bold";
     border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: border-color 400ms ease;
+    transition: border 400ms ease;
 
     &::placeholder {
         color: white;
         font-family: "Geomanist-Regular";
     }
 
-    &:focus, &.filled {
-        border-color: white;
+    &:focus {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    &.filled {
+        border: 2px solid rgba(255, 255, 255, 1);
     }
 
     @include min(xl) {
@@ -77,6 +81,7 @@
 
 	@include max(sm) {
         height: 14.933vw;
+        border-radius: 16px;
         width: 100%;
 	}
 

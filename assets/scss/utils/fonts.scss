@@ -102,7 +102,8 @@
     @include geomanistBold(2.222vw, 2.917vw);
 
     @include min(xl) {
-        font-size: 42px;
+        font-size: 48px;
+        line-height: 58px;
     }
 
     @include max(md) {
@@ -137,6 +138,10 @@
 .header5 {
     @include geomanistBold(0.833vw, 1.667vw);
     letter-spacing: 2px;
+
+    @include min(xl) {
+        font-size: 18px;
+    }
 
     @include max(md) {
         font-size: 1.481vw;

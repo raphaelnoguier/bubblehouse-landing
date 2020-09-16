@@ -17,7 +17,7 @@
                 <div class="form">
                     <form v-on:submit.prevent="submitForm" ref="form" :class="$store.getters.hasFilledForm ? 'disabled' : ''">
                         <input
-                            :class="`input-component bodyRegular ${(emailValue.length || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${($store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
                             placeholder="Mail address"
@@ -25,7 +25,7 @@
                             required
                         />
                         <input
-                            :class="`input-component bodyRegular ${(nameValue.length || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${($store.getters.globalNameValue.length)  ? 'filled' : ''}`"
                             type="text"
                             name="name"
                             placeholder="Name"

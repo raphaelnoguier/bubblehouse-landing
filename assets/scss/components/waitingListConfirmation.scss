@@ -17,6 +17,10 @@
         padding: 2.778vw 0;
         text-align: center;
 
+        @include min(xl) {
+            padding: 56px 0;
+        }
+
         @include max(md) {
             position: relative;
             padding: 4.938vw 0;
@@ -102,6 +106,29 @@
                 width: 3.889vw;
                 height: 3.889vw;
                 cursor: pointer;
+                background-color: white;
+
+                &:hover {
+                    .classic-svg {
+                        opacity: 0;
+                    }
+                    .gradient-svg {
+                        opacity: 1;
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: opacity 300ms ease;
+                }
+
+                @include min(xl) {
+                    width: 2.889vw;
+                    height: 2.889vw;
+                }
 
                 @include max(md) {
                     width: 6.914vw;

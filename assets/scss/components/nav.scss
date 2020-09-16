@@ -28,7 +28,7 @@
     }
 
     @include max(sm) {
-        padding: 6vw 4.400vw;
+        padding: 5.333vw 4.267vw;
     }
 
     .nav-content {
@@ -65,11 +65,28 @@
             .logo {
                 @include flexCenter();
 
-                svg {
+                .logo-svg-wrapper {
+                    position: relative;
+                    width: 33px;
+                    height: 33px;
+
+                    .classic-svg {
+                        opacity: 1;
+                    }
+
+                    .gradient-svg {
+                        opacity: 0;
+                    }
+
                     @include max(sm) {
                         width: 8.267vw;
                         height: 8.267vw;
                     }
+                }
+
+                svg {
+                    position: absolute;
+                    transition: opacity 300ms ease;
                 }
             }
 
@@ -101,9 +118,9 @@
 
             .beta-pill {
                 @include geomanistBold(0.972vw, 1.250vw);
-                border: 2px solid;
-                transition: border-color 300ms ease;
-                border-color: white;
+                border: 2px solid white;
+                transition: background-image 300ms ease;
+                background-image: none;
                 border-radius: 4px;
                 padding: 0.347vw 0.625vw;
                 margin-left: 0.972vw;
@@ -159,15 +176,21 @@
         .nav-content {
             color: black;
 
-            .logo {
-                svg g {
-                    fill: v(brand-color)
+            .left {
+                .logo {
+                    .classic-svg {
+                        opacity: 0;
+                    }
+                    .gradient-svg {
+                        opacity: 1;
+                    }
                 }
             }
 
             .beta-pill {
-                color: v(brand-color);
-                border-color: v(brand-color);
+                color: white;
+                background-image: v(app-gradient);
+                border-color: transparent;
             }
         }
     }

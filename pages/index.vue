@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         resolveGradientsCircle() {
-            const gradients = document.querySelectorAll('defs linearGradient');
+            const gradients = document.querySelectorAll('defs linearGradient.timerSlider');
             const circlesProgress = document.querySelectorAll('.progress-ring__circle');
 
             gradients && gradients.forEach((gradient, i) => gradient.setAttribute('id', `appGradient${i + 1}`));
