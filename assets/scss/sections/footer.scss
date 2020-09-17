@@ -76,6 +76,10 @@
                         @include max(md) {
                             margin: 0 1.975vw;
                         }
+
+                        @include max(sm) {
+                            margin: 0;
+                        }
                     }
                     &:last-of-type {
                         @include min(xl) {
