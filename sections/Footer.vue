@@ -15,7 +15,7 @@
                             :class="`input-component bodyRegular ${(emailValue.length || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
-                            placeholder="Mail adress"
+                            placeholder="Mail address"
                             v-model="emailValue ? emailValue : $store.getters.globalEmailValue"
                             required
                         />
@@ -75,7 +75,7 @@ export default {
     mounted() {
         enterView({
             selector: '.section.footer',
-            offset: 1,
+            offset: 0.95,
             enter: () => this.$store.commit('SET_NAV_CTA_VISIBLE', false),
             exit: () => this.$store.commit('SET_NAV_CTA_VISIBLE', true),
         });
@@ -103,11 +103,14 @@ export default {
             if (self.emailValue.length > 0 && self.nameValue.length > 0) {
                 axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
-                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
                     self.$store.commit('SET_HAS_FILLED_FORM', true);
-                    self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
-                    self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     self.isLoading = false;
+
+                    setTimeout(() => {
+                        self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                        self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
+                        self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
+                    }, 500);
                 })
                 .catch(function (error) {
                     console.error(error);

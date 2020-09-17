@@ -50,7 +50,7 @@
 	border-radius: v(button-radius);
 	outline: none;
 	cursor: pointer;
-    transition: opacity 300ms v(ease-in-out-quad);
+    transition: opacity 300ms v(ease-in-out-quad), width 500ms ease;
 
     &.reverse-theme {
         background-image: none;

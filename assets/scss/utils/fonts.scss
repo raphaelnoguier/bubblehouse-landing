@@ -51,6 +51,10 @@
     letter-spacing: 1px;
     text-transform: uppercase;
 
+    @include min(xl) {
+        font-size: 28px;
+    }
+
     @include max(md) {
         font-size: 1.975vw;
         line-height: 2.963vw;
@@ -122,6 +126,7 @@
 
     @include min(xl) {
         font-size: 32px;
+        line-height: 40px;
     }
 
     @include max(md) {

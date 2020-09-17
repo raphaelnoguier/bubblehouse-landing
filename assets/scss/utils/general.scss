@@ -58,7 +58,7 @@ body {
 
 .large-wrapper {
     max-width: v(large-wrapper);
-    margin: auto;
+	margin: auto;
 
     @include max(sm) {
         max-width: 100%;

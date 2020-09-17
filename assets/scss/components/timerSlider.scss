@@ -6,7 +6,7 @@
         width: 22.153vw;
 
         @include min(xl) {
-            width: 353px;
+            width: 532px;
         }
 
         @include max(md) {
@@ -23,7 +23,7 @@
             height: 47.222vw;
 
             @include min(xl) {
-                height: 752px;
+                height: 1130px;
             }
 
             @include max(md) {
@@ -79,6 +79,10 @@
 
             &:not(:first-child) {
                 margin-top: 2.222vw;
+
+                @include min(xl) {
+                    margin-top: 40px;
+                }
 
                 @include max(md) {
                     margin-top: 4.938vw;

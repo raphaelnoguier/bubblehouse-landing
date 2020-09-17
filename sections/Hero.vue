@@ -112,7 +112,7 @@ export default {
 
         enterView({
             selector: '.section.interactive-modules',
-            offset: 0.8,
+            offset: 0.75,
             enter: () => {
                 this.$store.commit('SET_NAV_CTA_VISIBLE', true);
                 if (this.typed) {
@@ -217,11 +217,14 @@ export default {
             if (self.emailValue.length > 0 && self.nameValue.length > 0) {
                 axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
                 .then(function (response) {
-                    self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
                     self.$store.commit('SET_HAS_FILLED_FORM', true);
-                    self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
-                    self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     self.isLoading = false;
+
+                    setTimeout(() => {
+                        self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
+                        self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
+                        self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
+                    }, 500);
                 })
                 .catch(function (error) {
                     console.error(error);

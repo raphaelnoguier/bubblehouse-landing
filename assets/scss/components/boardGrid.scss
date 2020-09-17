@@ -14,9 +14,17 @@
         border-radius: v(app-radius);
         z-index: 0;
 
+        @include min(xl) {
+            border-radius: 16px;
+        }
+
         .media {
             background: #e7e7e7;
             border-radius: v(app-radius);
+
+            @include min(xl) {
+                border-radius: 16px;
+            }
         }
     }
 
@@ -56,7 +64,7 @@
                 height: 22.222vw;
             }
 
-            @include max(md) {
+            @include max(sm) {
                 height: 22.133vw;
             }
 
@@ -67,6 +75,10 @@
 
             &.square {
                 width: 20.625vw;
+
+                @include min(xl) {
+                    max-width: 532px;
+                }
 
                 @include max(md) {
                     width: 24.568vw;
@@ -95,6 +107,10 @@
                 object-fit: cover;
                 border-radius: v(app-radius);
                 z-index: 1;
+
+                @include min(xl) {
+                    border-radius: 16px;
+                }
             }
         }
     }
