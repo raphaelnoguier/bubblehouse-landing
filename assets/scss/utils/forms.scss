@@ -50,7 +50,7 @@
 	border-radius: v(button-radius);
 	outline: none;
 	cursor: pointer;
-    transition: opacity 300ms v(ease-in-out-quad), width 500ms ease;
+    transition: opacity 300ms v(ease-in-out-quad), width 700ms v(ease-in-out-quart);
 
     &.reverse-theme {
         background-image: none;
@@ -70,7 +70,7 @@
         width: 280px;
         height: 78px;
         border-radius: 20px;
-        font-size: 24px;
+        font-size: 26px;
         padding: 0;
     }
 

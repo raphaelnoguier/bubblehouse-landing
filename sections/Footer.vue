@@ -12,19 +12,19 @@
                 <div class="form-wrapper">
                     <form v-on:submit.prevent="submitForm" :class="`form ${$store.getters.hasFilledForm ? 'disabled' : ''}`">
                         <input
-                            :class="`input-component bodyRegular ${(emailValue.length || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${(emailValue.length > 1 || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
                             placeholder="Mail address"
-                            v-model="emailValue ? emailValue : $store.getters.globalEmailValue"
+                            v-model="emailValue"
                             required
                         />
                         <input
-                            :class="`input-component bodyRegular ${(nameValue.length || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${(nameValue.length > 1 || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
                             type="text"
                             name="name"
                             placeholder="Name"
-                            v-model="nameValue ? nameValue : $store.getters.globalNameValue"
+                            v-model="nameValue"
                             required
                         />
 
@@ -57,6 +57,22 @@ import FooterLinks from '~/components/FooterLinks';
 
 export default {
     computed: {
+        emailValue: {
+            get() {
+                return this.$store.getters.globalEmailValue || '';
+            },
+            set(value) {
+                return this.$store.commit('SET_GLOBAL_EMAIL_VALUE', value);
+            }
+        },
+        nameValue: {
+            get() {
+                return this.$store.getters.globalNameValue || '';
+            },
+            set(value) {
+                return this.$store.commit('SET_GLOBAL_NAME_VALUE', value);
+            }
+        },
         footer() {
             return this.$store.state.homepage;
         },
@@ -66,8 +82,6 @@ export default {
     },
     data() {
         return {
-            emailValue: '',
-            nameValue: '',
             isLoading: false,
             error: false
         }
@@ -108,8 +122,6 @@ export default {
 
                     setTimeout(() => {
                         self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
-                        self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
-                        self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     }, 500);
                 })
                 .catch(function (error) {

@@ -17,7 +17,7 @@
                 <div class="form">
                     <form v-on:submit.prevent="submitForm" ref="form" :class="$store.getters.hasFilledForm ? 'disabled' : ''">
                         <input
-                            :class="`input-component bodyRegular ${($store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${(emailValue.length > 1 || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
                             type="email"
                             name="email"
                             placeholder="Mail address"
@@ -25,7 +25,7 @@
                             required
                         />
                         <input
-                            :class="`input-component bodyRegular ${($store.getters.globalNameValue.length)  ? 'filled' : ''}`"
+                            :class="`input-component bodyRegular ${(nameValue.length > 1 || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
                             type="text"
                             name="name"
                             placeholder="Name"
@@ -79,8 +79,6 @@ import Video from '~/components/Video';
 export default {
     data() {
         return {
-            emailValue: '',
-            nameValue: '',
             isLoading: false,
             activeIndex: 0,
             firstKeyWord: '',
@@ -92,6 +90,22 @@ export default {
         Video
     },
     computed: {
+        emailValue: {
+            get() {
+                return this.$store.getters.globalEmailValue || '';
+            },
+            set(value) {
+                return this.$store.commit('SET_GLOBAL_EMAIL_VALUE', value);
+            }
+        },
+        nameValue: {
+            get() {
+                return this.$store.getters.globalNameValue || '';
+            },
+            set(value) {
+                return this.$store.commit('SET_GLOBAL_NAME_VALUE', value);
+            }
+        },
         store () {
             return this.$store.state.homepage;
         },
@@ -222,8 +236,6 @@ export default {
 
                     setTimeout(() => {
                         self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
-                        self.$store.commit('SET_GLOBAL_NAME_VALUE', self.nameValue);
-                        self.$store.commit('SET_GLOBAL_EMAIL_VALUE', self.emailValue);
                     }, 500);
                 })
                 .catch(function (error) {
