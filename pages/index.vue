@@ -27,16 +27,66 @@ export default {
 	head() {
 		return {
 			title: this.app.meta_title,
-			description: this.app.meta_description,
 			meta: [
 				{ charset: 'utf-8' },
-				{ name: 'author', content: this.app.meta_author }
+				{ hid: 'description', name: 'description', content: this.app.meta_description },
+				{ name: 'author', content: this.app.meta_author },
+				{
+					hid: `og:title`,
+					property: 'og:title',
+					content: this.app.meta_title,
+				},
+					{
+					hid: `og:url`,
+					property: 'og:url',
+					content: 'https://bubblehouse.com'
+				},
+				{
+					hid: `og:type`,
+					property: 'og:type',
+					content: "website"
+				},
+				{
+					hid: `og:description`,
+					property: 'og:description',
+					content: this.app.meta_description
+				},
+				{
+					hid: `og:image`,
+					property: 'og:image',
+					content: this.app.facebook_share_image.url
+				},
+				{
+					hid: `twitter:card`,
+					property: `twitter:card`,
+					content: 'summary_large_image'
+				},
+				{
+					hid: `twitter:url`,
+					property: `twitter:url`,
+					content: `https://ivskaya.com/${this.$route.path}`
+				},
+				{
+					hid: `twitter:title`,
+					property: `twitter:title`,
+					content: this.app.meta_title,
+				},
+				{
+					hid: `twitter:description`,
+					property: `twitter:description`,
+					content: this.app.meta_description
+				},
+				{
+					hid: `twitter:image`,
+					property: `twitter:image`,
+					content: this.app.twitter_share_image.url
+				},
 			],
 			link: [
 				{
-				rel: 'icon',
-				type: 'image/png',
-				href: this.app.favicon.url
+					rel: 'icon',
+					type: 'image/png',
+					href: this.app.favicon.url
 				},
 			],
 		}

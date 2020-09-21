@@ -7,7 +7,7 @@
             <div class="left">
                 <a href="/">
                     <div class="logo">
-                        <Logo />
+                        <!-- <Logo /> -->
                         <span class="site-name">{{nav.site_name}}</span>
                         <span class="beta-pill">beta</span>
                     </div>
@@ -27,11 +27,11 @@
 
 <script>
 /* Components */
-import Logo from '~/components/Svgs/Logo';
+// import Logo from '~/components/Svgs/Logo';
 
 export default {
     components: {
-        Logo
+        // Logo
     },
     computed: {
         nav() {
