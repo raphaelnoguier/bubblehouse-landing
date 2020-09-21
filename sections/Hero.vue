@@ -120,9 +120,7 @@ export default {
 
         if (window.innerWidth > 810) {
             this.initSlider(this.sliderEl);
-            window.addEventListener('load', () => {
-                this.initTyped();
-            });
+            window.addEventListener('load', () => this.initTyped());
         }
 
         window.addEventListener('resize', this.onResize);
