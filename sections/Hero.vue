@@ -82,6 +82,7 @@ export default {
             isLoading: false,
             activeIndex: 0,
             firstKeyWord: '',
+            typed: null,
             typedStopped: false
         }
     },
@@ -119,7 +120,9 @@ export default {
 
         if (window.innerWidth > 810) {
             this.initSlider(this.sliderEl);
-            window.addEventListener('load', () => setTimeout(() => this.initTyped(), 500));
+            window.addEventListener('load', () => {
+                this.initTyped();
+            });
         }
 
         window.addEventListener('resize', this.onResize);
@@ -178,13 +181,14 @@ export default {
         initTyped() {
             this.typed = new Typed('.filling-text', {
                 strings: this.getKeywords(),
-                typeSpeed: 100,
+                typeSpeed: 0,
                 backSpeed: 50,
                 loop: true,
                 smartBackspace: false,
-                backDelay: 2200,
+                backDelay: 2000,
                 cursorChar: '',
                 onStringTyped: () => {
+                    if (this.typed.typeSpeed === 0) this.typed.typeSpeed = 100;
                     const timeout = setTimeout(() => {
                         if (this.typedStopped) return;
                         this.slider.slideNext();
