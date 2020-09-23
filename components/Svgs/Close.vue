@@ -1,6 +1,6 @@
 <template>
     <span>
-        <svg class="gradient-svg" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="gradient-svg" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
             <title>Close</title>
             <defs>
                 <linearGradient id="closeGradient" spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -18,7 +18,7 @@
                 </g>
             </g>
         </svg>
-        <svg class="classic-svg"  width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#0A0A0A">
+        <svg class="classic-svg"  width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" fill="#0A0A0A">
             <title>Close</title>
             <g id="Landing" stroke="none" stroke-width="1" fill-rule="evenodd">
                 <g id="Desktop" transform="translate(-1304.000000, -7743.000000)">

@@ -39,7 +39,7 @@
                             <span :class="`labelUpper ${$store.getters.hasFilledForm ? 'hide' : ''}`">
                                 {{store.global_cta_name}}
                             </span>
-                            <img :class="`${$store.getters.hasFilledForm ? 'visible' : ''}`" src="~/assets/images/icons/done.svg" />
+                            <img :class="`${$store.getters.hasFilledForm ? 'visible' : ''}`" src="~/assets/images/icons/done.svg" alt="Done icon" />
                         </button>
                     </form>
                 </div>
@@ -53,7 +53,7 @@
                                     <Video autoplay :url="slide.video.url" loop :poster="slide.image.url"/>
                                 </template>
                                 <template v-else>
-                                    <img :src="slide.image.url" />
+                                    <img v-lazy="slide.image.url" alt="Hero slide image" />
                                 </template>
                             </div>
                         </Phone>

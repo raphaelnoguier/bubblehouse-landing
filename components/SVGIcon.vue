@@ -1,7 +1,7 @@
 <template>
     <span :class="name">
         <template v-if="name === 'user'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>User icon</title>
                 <desc>Created with Sketch.</desc>
                 <g id="user" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -10,7 +10,7 @@
             </svg>
         </template>
         <template v-if="name === 'grid'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
             <title>Grid icon</title>
             <g id="grid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Group" transform="translate(4.000000, 4.000000)" fill="#0A0A0A">
@@ -23,7 +23,7 @@
         </svg>
         </template>
         <template v-if="name === 'star'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Star icon</title>
                 <g id="featured" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <path d="M2.20143195,9.85424734 C2.03247956,9.73123352 1.96024715,9.51452107 2.02160596,9.31473145 L2.10152862,9.06495557 C2.15996101,8.86755813 2.33563449,8.72780804 2.54110328,8.71526935 L8.92492611,8.20572656 L11.3725577,2.32100689 C11.4546626,2.11485282 11.6607353,1.98554322 11.8820647,2.00129377 L12.1418134,2.00129377 C12.3504751,1.99686619 12.5389968,2.12523042 12.611359,2.32100689 L15.0689809,8.20572656 L21.4528038,8.71526935 C21.6582726,8.72780804 21.833946,8.86755813 21.8923784,9.06495557 L21.9723011,9.31473145 C22.0402694,9.50820842 21.9804573,9.72354689 21.8224461,9.85424734 L17.0071056,13.9905359 L18.4856748,20.1949687 C18.5343854,20.3935776 18.4596483,20.6020693 18.2958585,20.7244935 L18.0061389,20.8843501 C17.8371445,20.9985858 17.6156746,20.9985858 17.4466802,20.8843501 L12.011939,17.5873085 L6.54722684,20.9143232 C6.37823249,21.0285589 6.15676253,21.0285589 5.98776818,20.9143232 L5.76798086,20.7644577 C5.60419104,20.6420335 5.52945397,20.4335417 5.57816453,20.2349328 L7.01677249,13.9905359 L2.20143195,9.85424734 Z" id="star" fill="#000000" fill-rule="nonzero"></path>
@@ -31,7 +31,7 @@
             </svg>
         </template>
         <template v-if="name === 'media'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Media icon</title>
                 <g id="media" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <path d="M21,5 C21,3.8954305 20.1045695,3 19,3 L5,3 C3.8954305,3 3,3.8954305 3,5 L3,19 C3,20.1045695 3.8954305,21 5,21 L19,21 C20.1045695,21 21,20.1045695 21,19 L21,5 Z M9.5,8 C10.3284271,8 11,8.67157288 11,9.5 C11,10.3284271 10.3284271,11 9.5,11 C8.67157288,11 8,10.3284271 8,9.5 C8,8.67157288 8.67157288,8 9.5,8 Z M18,17.5 C18,17.7761424 17.7761424,18 17.5,18 L6.5,18 C6.22385763,18 6,17.7761424 6,17.5 L6,17.17 C6.00070558,17.0619306 6.03572281,16.9568789 6.1,16.87 L8.47,13.7 C8.56650017,13.5739108 8.716221,13.4999597 8.875,13.4999597 C9.033779,13.4999597 9.18349983,13.5739108 9.28,13.7 L10.28,15.06 C10.3747131,15.1820397 10.5205194,15.2534466 10.675,15.2534466 C10.8294806,15.2534466 10.9752869,15.1820397 11.07,15.06 L13.36,12.18 C13.4548984,12.0617144 13.5983517,11.9928898 13.75,11.9928898 C13.9016483,11.9928898 14.0451016,12.0617144 14.14,12.18 L17.88,16.85 C17.9513173,16.9414199 17.9900348,17.0540528 17.99,17.17 L18,17.5 Z" id="Icon-color" fill="#0A0A0A"></path>
@@ -39,7 +39,7 @@
             </svg>
         </template>
         <template v-if="name === 'evolution'">
-            <svg width="29px" height="24px" viewBox="0 0 29 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="29px" height="24px" viewBox="0 0 29 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Evolution icon</title>
                 <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Desktop" transform="translate(-754.000000, -1515.000000)" fill="#FFFFFF">
@@ -57,7 +57,7 @@
             </svg>
         </template>
         <template v-if="name === 'layout'">
-           <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+           <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
             <title>Layout icon</title>
             <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Desktop" transform="translate(-742.000000, -2117.000000)" fill="#FFFFFF">
@@ -71,7 +71,7 @@
         </svg>
         </template>
         <template v-if="name === 'slider'">
-            <svg width="28px" height="22px" viewBox="0 0 28 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="28px" height="22px" viewBox="0 0 28 22" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Slider icon</title>
                 <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Desktop" transform="translate(-740.000000, -2214.000000)" fill="#0A0A0A">
@@ -89,7 +89,7 @@
             </svg>
         </template>
         <template v-if="name === 'link'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Link icon</title>
                 <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Desktop" transform="translate(-742.000000, -2310.000000)" fill="#000000" fill-rule="nonzero">
@@ -107,7 +107,7 @@
             </svg>
         </template>
         <template v-if="name === 'before/after'">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Before/After icon</title>
                 <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Desktop" transform="translate(-225.000000, -4609.000000)" fill="#FFFFFF">
@@ -125,7 +125,7 @@
             </svg>
         </template>
         <template v-if="name === 'panorama'">
-            <svg width="30px" height="20px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg width="30px" height="20px" viewBox="0 0 30 20" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
                 <title>Panorama icon</title>
                 <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Desktop" transform="translate(-222.000000, -4805.000000)" fill="#0A0A0A">

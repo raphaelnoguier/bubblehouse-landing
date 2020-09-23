@@ -1,7 +1,11 @@
 const pkg = require('./package')
 
 module.exports = {
+
 	head: {
+		htmlAttrs: {
+			lang: 'en'
+		},
 		title: 'Siena',
 		meta: [
 			{ charset: 'utf-8' },

@@ -1,5 +1,5 @@
 <template>
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
         <title>AppIcon</title>
         <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="Desktop" transform="translate(-206.000000, -7089.000000)">

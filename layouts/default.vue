@@ -1,5 +1,5 @@
 <template>
-	<div :class="`app ${loaded ? 'loaded' : ''}`">
+	<div :class="`app ${loaded ? 'loaded' : ''} ${this.$route.name === 'terms' || this.$route.name === 'privacy' ? 'no-cta' : ''}`">
 		<Nav />
 		<nuxt />
 	</div>
@@ -20,6 +20,7 @@ export default {
     },
     mounted() {
         this.initApp();
+        this.preloadImages(this.$el.querySelectorAll('img'));
     },
 	updated() {
         this.initApp();
@@ -33,6 +34,23 @@ export default {
                 document.body.classList.add('white-theme');
             } else {
                 window.addEventListener('load', () => this.loaded = true);
+            }
+        },
+        preloadImages(collection) {
+            const list = [];
+
+            for (var i = 0; i < collection.length; i++) {
+                const img = new Image();
+
+                img.onload = () => {
+                    const index = list.indexOf(this);
+                    if (index !== -1) {
+                        list.splice(index, 1);
+                    }
+                }
+
+                list.push(img);
+                img.src = collection[i].src;
             }
         }
     },

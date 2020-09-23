@@ -1,6 +1,6 @@
 <template>
     <span class="logo-svg-wrapper">
-        <svg class="gradient-svg" width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="gradient-svg" width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
             <title>Shape</title>
             <defs>
                 <linearGradient id="logoGradient" spreadMethod="pad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -16,7 +16,7 @@
                 </g>
             </g>
         </svg>
-        <svg class="classic-svg" width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg class="classic-svg" width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
             <title>Shape</title>
             <g id="🔗-Symbols" stroke="none" stroke-width="1" fill-rule="evenodd" fill="white">
                 <g id="Desktop/Logo/White" fill-rule="nonzero">

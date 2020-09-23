@@ -9,7 +9,7 @@
                                 <Video :key="i" :autoplay="true" :url="slide.board_video.url" :loop="true" :poster="slide.image.url" />
                             </template>
                             <template v-else>
-                                <img :src="slide.image.url" />
+                                <img v-lazy="slide.image.url" alt="Timer slider image" />
                             </template>
                         </div>
                     </Phone>

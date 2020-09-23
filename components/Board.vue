@@ -27,7 +27,7 @@
                         :key="i"
                     >
                         <div class="media-wrapper">
-                            <img :src="media.image.url" />
+                            <img v-lazy="media.image.url" alt="Board image" />
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         :key="i"
                     >
                         <div class="media-wrapper">
-                            <img :src="media.image.url" />
+                            <img v-lazy="media.image.url" alt="Board image" />
                         </div>
                     </div>
                 </div>
@@ -61,13 +61,11 @@ import enterView from 'enter-view';
 import Swiper from 'swiper';
 
 /* Components */
-import LazyImg from '~/components/LazyImg';
 import Phone from '~/components/Phone';
 import Video from '~/components/Video';
 
 export default {
     components: {
-        LazyImg,
         Phone,
         Video
     },
