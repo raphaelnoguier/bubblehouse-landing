@@ -101,7 +101,8 @@ export default {
                 effect: 'fade',
                 autoplay: {
                     delay: 5200,
-                    disableOnInteraction: false
+                    disableOnInteraction: false,
+					waitForTransition: true,
                 },
             });
 
@@ -129,6 +130,11 @@ export default {
             });
 
 			this.thumbSlider.controller.control = this.slider;
+
+			this.thumbSlider.on('slideChange', () => {
+				this.slider.autoplay.pause();
+				this.slider.autoplay.start();
+			})
 		}
     },
     watch: {
