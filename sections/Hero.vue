@@ -3,7 +3,7 @@
         <div class="hero-component-content">
             <div class="left">
                 <div class="text">
-                    <h1 class="bigText">
+                    <h1 class="bigText gradient-text">
                         <span class="line">
                             {{store.hero_first_line.split('[]')[0]}}
                             <span class="filling-text"></span>
@@ -14,43 +14,27 @@
                     </h1>
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
                 </div>
-                <div class="form">
-                    <form v-on:submit.prevent="submitForm" ref="form" :class="$store.getters.hasFilledForm ? 'disabled' : ''">
-                        <input
-                            :class="`input-component bodyRegular ${(emailValue.length > 1 || $store.getters.globalEmailValue.length)  ? 'filled' : ''}`"
-                            type="email"
-                            name="email"
-                            placeholder="Mail address"
-                            v-model="emailValue"
-                            required
-                        />
-                        <input
-                            :class="`input-component bodyRegular ${(nameValue.length > 1 || $store.getters.globalNameValue.length)  ? 'filled' : ''}`"
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            v-model="nameValue"
-                            required
-                        />
-                        <button
-                            :class="`button-component ${isLoading ? 'loading' : ''} reverse-theme`"
-                            type="submit"
-                        >
-                            <span :class="`labelUpper ${$store.getters.hasFilledForm ? 'hide' : ''}`">
-                                {{store.global_cta_name}}
-                            </span>
-                            <img :class="`${$store.getters.hasFilledForm ? 'visible' : ''}`" src="~/assets/images/icons/done.svg" alt="Done icon" />
-                        </button>
-                    </form>
+                <div class="download-app">
+                    <div class="store-button">
+						<a :href="store.app_store_link.url" target="_blank" rel="noopener">
+							<img src="~/assets/images/appstore.png" />
+						</a>
+					</div>
+					<div class="store-button">
+						<a :href="store.google_play_store_link.url" target="_blank" rel="noopener">
+							<img src="~/assets/images/googlestore.png" />
+						</a>
+					</div>
                 </div>
             </div>
             <div class="preview-slider swiper-container" ref="slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" v-for="(slide, i) in autoTypingSlider" :key="i">
-                        <Phone whiteBorder>
+                        <Phone>
+							<img class="iphone-mask" src="~/assets/images/phone.png" />
                             <div class="media full">
                                 <template v-if="slide.is_video">
-                                    <Video autoplay :url="slide.video.url" loop :poster="slide.image.url"/>
+                                    <Video autoplay :url="slide.video.url" :poster="slide.image.url"/>
                                 </template>
                                 <template v-else>
                                     <img v-lazy="slide.image.url" alt="Hero slide image" />
@@ -65,10 +49,7 @@
 </template>
 <script>
 /* Utils */
-import axios from 'axios';
-import qs from 'querystring';
 import Swiper from 'swiper';
-import Utils from '~/utils';
 import enterView from 'enter-view';
 import Typed from 'typed.js';
 
@@ -91,22 +72,6 @@ export default {
         Video
     },
     computed: {
-        emailValue: {
-            get() {
-                return this.$store.getters.globalEmailValue || '';
-            },
-            set(value) {
-                return this.$store.commit('SET_GLOBAL_EMAIL_VALUE', value);
-            }
-        },
-        nameValue: {
-            get() {
-                return this.$store.getters.globalNameValue || '';
-            },
-            set(value) {
-                return this.$store.commit('SET_GLOBAL_NAME_VALUE', value);
-            }
-        },
         store () {
             return this.$store.state.homepage;
         },
@@ -129,14 +94,12 @@ export default {
             selector: '.section.interactive-modules',
             offset: 0.75,
             enter: () => {
-                this.$store.commit('SET_NAV_CTA_VISIBLE', true);
                 if (this.typed) {
                     this.typed && this.typed.stop();
                     this.typedStopped = true;
                 }
             },
             exit: () => {
-                this.$store.commit('SET_NAV_CTA_VISIBLE', false)
                 if (this.typed) {
                     this.typed.start();
                     this.typedStopped = false;
@@ -208,40 +171,6 @@ export default {
 
                 if (newActiveSlideVideo) newActiveSlideVideo.currentTime = 0;
             });
-        },
-        submitForm() {
-            const { commit } = this.$store;
-            const self = this;
-
-            if (self.$store.getters.hasFilledForm) return;
-
-            self.isLoading = true;
-
-            const config = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }
-
-            const body = {
-                email: self.emailValue,
-                name: self.nameValue
-            };
-
-            if (self.emailValue.length > 0 && self.nameValue.length > 0) {
-                axios.post('https://bubblehouse.com/v1/leads/', qs.stringify(body), config)
-                .then(function (response) {
-                    self.$store.commit('SET_HAS_FILLED_FORM', true);
-                    self.isLoading = false;
-
-                    setTimeout(() => {
-                        self.$store.commit('SET_WAITING_CONFIRMATION_VISIBLE', true);
-                    }, 500);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
-            }
         }
     }
 }

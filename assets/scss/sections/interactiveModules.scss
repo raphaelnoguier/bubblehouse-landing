@@ -2,30 +2,18 @@
     margin: 10.417vw 0;
 
     @include max(md) {
-        margin-top: 18.519vw;
+        margin-top: 0;
     }
 
     @include max(sm) {
-        margin: 26.667vw 0;
-
-        .large-wrapper {
-            padding: 0;
-        }
+        margin: 0 0 100px 0;
     }
 
     .section-header-component {
-        @include max(sm) {
-            padding: 0 6.667vw;
-        }
-
         .section-header-content {
             max-width: 43vw;
 
             @include max(md) {
-                max-width: 62vw;
-            }
-
-            @include max(sm) {
                 max-width: 100%;
             }
         }
@@ -35,17 +23,15 @@
         margin-top: 5.208vw;
 
         @include max(md) {
-            margin-top: 7.654vw;
+            margin-top: 100px;
         }
 
         @include max(sm) {
-            margin-top: 10.667vw;
+            margin-top: 50px;
             flex-direction: column;
         }
 
         .phone-component {
-            margin-left: auto;
-
             @include max(md) {
                 margin: 0;
             }

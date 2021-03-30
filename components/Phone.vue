@@ -1,6 +1,6 @@
 <template>
-    <div :class="`phone-component ${whiteBorder ? 'white-border' : ''} ${half ? 'half' : ''}`">
-        <slot />
+    <div class="phone-component">
+		<slot />
     </div>
 </template>
 

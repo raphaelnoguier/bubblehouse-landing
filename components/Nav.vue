@@ -1,38 +1,26 @@
 <template>
-    <div
-        class="nav-component"
-        :class="`${$store.getters.navCtaVisible || this.$route.name === 'terms' || this.$route.name === 'privacy' ? 'with-bg' : ''}`"
-    >
+    <div class="nav-component">
         <div class="nav-content">
             <div class="left">
                 <a href="/">
                     <div class="logo">
-                        <!-- <Logo /> -->
-                        <span class="site-name">{{nav.site_name}}</span>
-                        <span class="beta-pill">beta</span>
+                        <img src="~/assets/images/logo.png" />
                     </div>
                 </a>
             </div>
-            <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
-                <button
-                    class="button-component"
-                    v-on:click="scrollToBottom"
-                >
-                    <span class="labelUpper">{{nav.global_cta_name}}</span>
-                </button>
+            <div class="right">
+                <div class="store-button">
+					<a :href="nav.app_store_link.url" target="_blank" rel="noopener">
+						<img src="~/assets/images/appstore.png" />
+					</a>
+				</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-/* Components */
-// import Logo from '~/components/Svgs/Logo';
-
 export default {
-    components: {
-        // Logo
-    },
     computed: {
         nav() {
             return this.$store.state.homepage

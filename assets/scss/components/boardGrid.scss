@@ -1,6 +1,7 @@
-.board-component-grid {
+.board-component {
     max-width: v(large-wrapper);
-    margin: auto;
+    margin-left: auto;
+	margin-right: auto;
     position: relative;
 
     @include max(md) {
@@ -39,13 +40,13 @@
         justify-content: space-between;
 
         &:first-child {
-            .media:nth-of-type(2) {
+            .media:first-child {
                 z-index: 1;
             }
         }
 
         &:last-child {
-            margin-top: 1.111vw;
+            margin-top: 32px;
 
             @include max(md) {
                 margin-top: 2.716vw;
@@ -57,8 +58,16 @@
         }
 
         .media {
-            height: 17.5vw;
+			height: 260px;
             position: relative;
+
+			@include min(xl) {
+                height: 280px;
+            }
+
+			@include max(lg) {
+				height: 17.5vw;
+			}
 
             @include max(md) {
                 height: 22.222vw;
@@ -74,11 +83,15 @@
             }
 
             &.square {
-                width: 20.625vw;
+				width: 286px;
 
                 @include min(xl) {
-                    max-width: 532px;
+                    width: 450px;
                 }
+
+				@include max(lg) {
+					width: 19.861vw;
+				}
 
                 @include max(md) {
                     width: 24.568vw;
@@ -90,7 +103,15 @@
             }
 
             &.portrait {
-                width: 13.194vw;
+				width: 180px;
+
+				@include min(xl) {
+					width: 200px;
+				}
+
+				@include max(lg) {
+					width: 12.500vw;
+				}
 
                 @include max(md) {
                     width: 15.432vw;

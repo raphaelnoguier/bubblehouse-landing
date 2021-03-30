@@ -1,45 +1,28 @@
 .section.profiles {
-    margin: 10.417vw 0 13.889vw 0;
+    margin: 160px 0;
 
     @include max(md) {
-        margin: 0 0 18.519vw 0;
+        margin: 0 0 128px 0;
     }
 
     @include max(sm) {
-        margin: 26.667vw 0;
-    }
-
-    @include max(sm) {
-        margin: 26.667vw 0;
-
-        .large-wrapper {
-            padding: 0;
-        }
-    }
-
-    .section-header-component {
-        @include max(sm) {
-            padding: 0 6.667vw;
-        }
+        margin: 100px 0;
     }
 
     .timer-slider-wrapper {
-        margin-top: 5.208vw;
+        margin-top: 70px;
         flex-direction: row-reverse;
 
         @include max(md) {
-            flex-direction: row;
-            margin-top: 9.259vw;
+            flex-direction: column;
+            margin-top: 40px;
         }
 
-        @include max(sm) {
-            margin-top: 13.333vw;
-            flex-direction: column;
-        }
+		.timer-slider-navigation {
+			margin-left: 0;
+		}
 
         .phone-component {
-            margin-left: auto;
-
             @include max(md) {
                 margin: 0;
             }

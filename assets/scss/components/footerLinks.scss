@@ -1,14 +1,8 @@
 .footer-links-component {
-    margin: 10.417vw auto 0 auto;
-    max-width: 47.986vw;
-
-    @include max(md) {
-        margin: 18.519vw auto 0 auto;
-        max-width: 100%;
-    }
+    margin: 200px auto 0 auto;
 
     @include max(sm) {
-        margin: 20vw auto 0 auto;
+        margin: 32px auto 0 auto;
     }
 
     ul {
@@ -28,7 +22,6 @@
             }
             span, a {
                 color: white;
-                text-transform: uppercase;
             }
         }
     }

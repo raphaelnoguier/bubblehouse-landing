@@ -3,7 +3,6 @@
         :src="url"
         muted
         :autoplay="autoplay ? true : false"
-        :loop="loop ? true : false"
         playsinline
         :poster="poster"
     />
@@ -24,7 +23,6 @@ export default {
             type: Boolean,
             default: false
         },
-        loop: Boolean,
         poster: String
     }
 }

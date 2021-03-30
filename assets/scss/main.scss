@@ -8,7 +8,8 @@
 @import 'sections/boards',
         'sections/profiles',
         'sections/interactiveModules',
-        'sections/footer';
+        'sections/footer',
+		'sections/testimonials';
 
 /* COMPONENTS */
 @import 'components/nav',
@@ -19,6 +20,5 @@
         'components/boardGrid',
         'components/phone',
         'components/footerLinks',
-        'components/timerSlider',
-        'components/waitingListConfirmation';
+        'components/timerSlider';
 

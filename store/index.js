@@ -6,12 +6,7 @@ import prismicConfig from '../prismic.config.js';
 export const state = () => ({
 	homepage: {},
 	termsPage: {},
-	privacyPage: {},
-	navCtaVisible: false,
-	hasFilledForm: false,
-	globalNameValue: '',
-	globalEmailValue: '',
-    waitingConfirmation: false
+	privacyPage: {}
 });
 
 export const getters = {
@@ -24,9 +19,6 @@ export const getters = {
 	privacyPage(state) {
 		return state.privacyPage
 	},
-	navCtaVisible(state) {
-		return state.navCtaVisible
-	},
 	hasFilledForm(state) {
 		return state.hasFilledForm
 	},
@@ -36,9 +28,6 @@ export const getters = {
 	globalEmailValue(state) {
 		return state.globalEmailValue
     },
-    waitingConfirmation(state) {
-		return state.waitingConfirmation
-	}
 };
 
 export const mutations = {
@@ -50,21 +39,6 @@ export const mutations = {
 	},
 	SET_PRIVACYPAGE(state, privacyPage) {
 		state.privacyPage = privacyPage
-	},
-	SET_NAV_CTA_VISIBLE(state, bool) {
-		state.navCtaVisible = bool;
-	},
-	SET_HAS_FILLED_FORM(state, bool) {
-		state.hasFilledForm = bool;
-	},
-	SET_GLOBAL_NAME_VALUE(state, bool) {
-		state.globalNameValue = bool;
-	},
-	SET_GLOBAL_EMAIL_VALUE(state, bool) {
-		state.globalEmailValue = bool;
-	},
-    SET_WAITING_CONFIRMATION_VISIBLE(state, bool) {
-		state.waitingConfirmation = bool;
 	}
 };
 

@@ -1,12 +1,11 @@
 const pkg = require('./package')
 
 module.exports = {
-
 	head: {
 		htmlAttrs: {
 			lang: 'en'
 		},
-		title: 'Siena',
+		title: 'Bubblehouse',
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1"' }

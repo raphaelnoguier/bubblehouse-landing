@@ -47,8 +47,9 @@
         <div class="board-component-phone-video">
             <Phone>
                 <div class="media full">
-                    <Video :autoplay="false" :url="phoneVideo.url" :loop="true" :playing="startBoardVideo" :poster="phonePoster.url" />
+                    <Video :autoplay="false" :url="phoneVideo.url" :playing="startBoardVideo" :poster="phonePoster.url" />
                 </div>
+				<img class="iphone-mask" src="~/assets/images/phone.png" />
             </Phone>
         </div>
     </div>
@@ -58,7 +59,6 @@
 /* Utils */
 import Utils from '~/utils';
 import enterView from 'enter-view';
-import Swiper from 'swiper';
 
 /* Components */
 import Phone from '~/components/Phone';

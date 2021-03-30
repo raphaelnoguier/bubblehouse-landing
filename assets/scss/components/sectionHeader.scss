@@ -12,7 +12,7 @@
     }
 
     .section-header-content {
-        max-width: 37.722vw;
+        max-width: 40.722vw;
         text-align: left;
 
         &.lg {
@@ -24,10 +24,6 @@
         }
 
         @include max(md) {
-            max-width: 74.568vw;
-        }
-
-        @include max(sm) {
             max-width: 100%;
         }
 

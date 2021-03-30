@@ -6,24 +6,39 @@
         --brand-color: #E94E29;
         --dark-grey: #1F1F1F;
         --light-grey: #E7E7E7;
+		--violet-color: #6235C0;
 
         /* easings */
         --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
         --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
 
         /* global values */
-        --app-radius: 4px;
+        --app-radius: 8px;
         --button-radius: 16px;
         --app-gradient: linear-gradient(0deg, #FD3C08 0%, #F04A8B 100%);
         --app-gradient-right: linear-gradient(to right, #FD3C08 0%, #F04A8B 100%);
 
         /* wrapper values */
-        --xl-wrapper: 86.111vw;
-        --large-wrapper: 71.458vw;
+        --xl-wrapper: 1240px;
+        --large-wrapper: 1028px;
         --medium-wrapper: 71.528vw;
 
         @include max(md) {
             --large-wrapper: 88.148vw;
         }
+
+		@include between(md, classic) {
+			--large-wrapper: 760px;
+			--xl-wrapper: 800px;
+		}
+
+		@include min(xl) {
+            --large-wrapper: 1400px;
+			--xl-wrapper: 1660px;
+        }
+
+		@include min(xxl) {
+			--xl-wrapper: 60%;
+		}
     }
 }
