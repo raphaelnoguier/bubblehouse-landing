@@ -16,7 +16,7 @@
             <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
                 <div class="store-button">
 					<a :href="nav.app_store_link.url" target="_blank" rel="noopener">
-						<img src="~/assets/images/appstore.png" />
+						<img src="~/assets/images/appstore.svg" />
 					</a>
 				</div>
             </div>

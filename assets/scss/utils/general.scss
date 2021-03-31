@@ -59,6 +59,7 @@ body {
   	background: v(app-gradient);
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
+	padding-top: 3px;
 }
 
 .xl-wrapper {
@@ -117,8 +118,8 @@ body {
 	}
 
 	@include max(sm) {
-		height: 38px;
-		max-width: 117px;
+		height: 45px;
+		max-width: 140px;
 	}
 
 	img {

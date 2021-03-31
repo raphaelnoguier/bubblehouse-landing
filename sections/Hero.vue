@@ -12,12 +12,12 @@
                 <div class="download-app">
                     <div class="store-button">
 						<a :href="store.app_store_link.url" target="_blank" rel="noopener">
-							<img src="~/assets/images/appstore.png" />
+							<img src="~/assets/images/appstore.svg" />
 						</a>
 					</div>
 					<div class="store-button">
 						<a :href="store.google_play_store_link.url" target="_blank" rel="noopener">
-							<img src="~/assets/images/googlestore.png" />
+							<img src="~/assets/images/googlestore.svg" />
 						</a>
 					</div>
                 </div>
