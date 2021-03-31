@@ -4,7 +4,7 @@
 	width: 100%;
 	position: relative;
 
-	@include max(md) {
+	@include max(classic) {
 		display: flex;
 		align-items: flex-end;
 		height: auto;
@@ -25,7 +25,11 @@
 			padding: 0;
 		}
 
-		@include max(md) {
+		@include between(md, lg) {
+			padding: 0 50px;
+		}
+
+		@include max(classic) {
 			align-items: flex-start;
 			flex-direction: column;
 			justify-content: center;
@@ -46,7 +50,7 @@
 			.text {
 				color: black;
 
-				@include max(md) {
+				@include max(classic) {
 					max-width: 100%;
 				}
 
@@ -55,14 +59,15 @@
 					white-space: nowrap;
 					width: 100%;
 
-					@include max(md) {
+					@include max(classic) {
 						display: inline;
 					}
 				}
 
 				.md {
 					display: none;
-					@include max(md) {
+
+					@include max(classic) {
 						display: inline;
 						color: inherit;
 					}
@@ -142,7 +147,7 @@
 				min-width: 483px;
 			}
 
-			@include max(md) {
+			@include max(classic) {
 				display: none;
 			}
 

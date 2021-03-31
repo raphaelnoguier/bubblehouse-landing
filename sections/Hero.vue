@@ -83,7 +83,7 @@ export default {
         this.sliderEl = this.$refs.slider;
         this.firstKeyWord = this.autoTypingSlider[0].keyword;
 
-        if (window.innerWidth > 810) {
+        if (window.innerWidth > 1028) {
             this.initSlider(this.sliderEl);
             window.addEventListener('load', () => this.initTyped());
         }
@@ -111,7 +111,7 @@ export default {
     },
     methods: {
         onResize() {
-            if (window.innerWidth > 810) {
+            if (window.innerWidth > 1028) {
                 if (!this.slider) {
                     this.initSlider(this.sliderEl);
                 }

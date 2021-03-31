@@ -65,6 +65,10 @@ body {
 	max-width: v(xl-wrapper);
 	margin: auto;
 
+	@include between(md, lg) {
+		max-width: 90%;
+	}
+
 	@include max(md) {
         max-width: 100%;
         padding: 0 48px;
@@ -79,7 +83,7 @@ body {
     max-width: v(large-wrapper);
 	margin: auto;
 
-	@include between(md, classic) {
+	@include between(md, lg) {
 		max-width: 80%;
 	}
 

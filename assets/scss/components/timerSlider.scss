@@ -163,7 +163,8 @@
 
                 .content {
 					transform: translate3d(16px, 0, 0);
-                    @include max(md) {
+
+					@include max(md) {
                         opacity: 1;
                     }
 
@@ -180,9 +181,10 @@
                 span {
                     display: block;
 					transition: color 300ms ease;
+					line-height: 1;
 
                     &:last-child {
-                        margin-top: 10px;
+                        margin-top: 12px;
 
 						@include max(sm) {
 							margin-top: 6px;
