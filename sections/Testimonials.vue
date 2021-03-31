@@ -63,6 +63,7 @@ export default {
 				prevEl: '.testimonial-navigation .prev',
 				nextEl: '.testimonial-navigation .next'
 			},
+			slideToClickedSlide: true,
 			breakpoints: {
 				320: {
 					slidesPerView: 1.1,
