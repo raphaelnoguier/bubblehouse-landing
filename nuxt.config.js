@@ -28,6 +28,6 @@ module.exports = {
 		'@nuxtjs/google-analytics'
 	],
 	googleAnalytics: {
-		id: 'UA-193469936'
+		id: 'UA-G-N09HNCR5ZX'
 	}
 }
