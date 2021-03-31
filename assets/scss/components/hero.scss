@@ -20,7 +20,7 @@
 		padding: 0 100px;
 
 		@include min(xxl) {
-			max-width: 60%;
+			max-width: 80%;
 			margin: auto;
 			padding: 0;
 		}
@@ -51,9 +51,13 @@
 				}
 
 				.line {
-					display: inline;
+					display: block;
 					white-space: nowrap;
 					width: 100%;
+
+					@include max(sm) {
+						display: inline;
+					}
 				}
 
 				.md {
