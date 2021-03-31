@@ -20,7 +20,7 @@
 								<img :src="testimonial.avatar.url" :alt="testimonial.avatar.alt" />
 							</div>
 							<div class="testimonial-user-infos">
-								<span class="header4">{{testimonial.author}}</span>
+								<span class="header3">{{testimonial.author}}</span>
 								<span class="labelUpper">{{testimonial.role}}</span>
 							</div>
 						</div>

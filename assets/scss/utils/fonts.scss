@@ -54,6 +54,11 @@
 .mediumText {
     @include geomanistUltra(4.167vw, 4.861vw);
 
+	@include min(xl) {
+        font-size: 72px;
+        line-height: 82px;
+    }
+
     @include max(md) {
         font-size: 7.813vw;
         line-height: 9.115vw;
@@ -69,8 +74,8 @@
 	@include geomanistBold(2.222vw, 2.917vw);
 
 	@include min(xl) {
-		font-size: 42px;
-		line-height: 52px;
+		font-size: 36px;
+		line-height: 48px;
 	}
 
 	@include max(md) {
@@ -90,7 +95,7 @@
     text-transform: uppercase;
 
     @include min(xl) {
-        font-size: 26px;
+        font-size: 16px;
     }
 }
 
@@ -98,7 +103,7 @@
     @include geomanistRegular(1.111vw, 1.667vw);
 
     @include min(xl) {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     @include max(md) {
@@ -116,7 +121,7 @@
     @include geomanistRegular(1.389vw, 2.083vw);
 
     @include min(xl) {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     @include max(md) {
@@ -153,8 +158,8 @@
     @include geomanistBold(1.389vw, 1.667vw);
 
     @include min(xl) {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 28px;
+        line-height: 30px;
     }
 
     @include max(md) {
@@ -166,25 +171,6 @@
         font-size: 5.333vw;
         line-height: 8vw;
     }
-}
-
-.header4 {
-    @include geomanistBold(1.389vw, 1.389vw);
-
-	@include min(xl) {
-		font-size: 30px;
-		line-height: 30px;
-	}
-
-	@include max(md) {
-		font-size: 2.604vw;
-		line-height: 2.604vw;
-	}
-
-	@include max(sm) {
-		font-size: 4.267vw;
-		line-height: 4.267vw;
-	}
 }
 
 .header5 {
