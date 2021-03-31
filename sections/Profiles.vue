@@ -6,7 +6,7 @@
                 :title="header.title"
                 :subtitle="header.subtitle"
             />
-            <TimerSlider :items="timerSlider.items" :playing="enteredSection" :pauseSlider="pauseSlider" />
+            <TimerSlider :items="timerSlider.items" :playing="enteredSection" />
         </div>
     </div>
 </template>
@@ -23,22 +23,16 @@ export default {
     data() {
         return {
             enteredSection: false,
-            stopSlider: false,
-            pauseSlider: false
+            stopSlider: false
         }
     },
     mounted() {
-        enterView({
-            selector: '.profiles .large-wrapper',
-            offset: 0.9,
-            enter: () => this.enteredSection = true
-        });
-
-        enterView({
-            selector: '.profiles .section-header-component',
-            enter: () => this.pauseSlider = false,
-            exit: () => this.pauseSlider = true
-        });
+		enterView({
+			selector: '.profiles .timer-slider-wrapper',
+			offset: 0.5,
+			enter: () => this.enteredSection = true,
+			exit: () => this.enteredSection = false
+		})
     },
     computed: {
         header() {

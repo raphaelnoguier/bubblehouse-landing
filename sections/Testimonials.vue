@@ -57,13 +57,15 @@ export default {
 		this.testimonialSliderEl = this.$refs.testimonialSlider;
 
 		this.testimonialSlider = new Swiper(this.testimonialSliderEl, {
+			centeredSlides: true,
+			centeredSlidesBounds: true,
 			navigation: {
 				prevEl: '.testimonial-navigation .prev',
 				nextEl: '.testimonial-navigation .next'
 			},
 			breakpoints: {
 				320: {
-					slidesPerView: 1,
+					slidesPerView: 1.1,
 					spaceBetween: 24
 				},
 				450: {
@@ -72,7 +74,7 @@ export default {
 				},
 				769: {
 					spaceBetween: 32,
-					slidesPerView: 1.81,
+					slidesPerView: 1.75,
 				}
 			}
 		})

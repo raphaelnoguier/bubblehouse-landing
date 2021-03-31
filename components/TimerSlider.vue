@@ -22,7 +22,7 @@
 				<div
 					v-for="(slide, i) in items" :key="i"
 					v-on:click="slider.slideTo(i)"
-					:class="`swiper-slide slide-infos ${activeIndex === i ? 'active' : ''}`"
+					:class="`swiper-slide slide-infos ${playing && activeIndex === i ? 'active' : ''}`"
 					:style="`--slide-active-color: ${slide.slide_main_color}; --slide-bg-color: ${hexToRgbA(slide.slide_main_color)}`"
 				>
 					<div class="progress-line-wrapper">
@@ -73,7 +73,7 @@ export default {
     },
     methods: {
 		resize() {
-			if (window.innerWidth <= 768) {
+			if (window.innerWidth <= 810) {
 				this.thumbSlider.allowTouchMove = true;
 				this.slider.controller.control = this.thumbSlider;
 			} else {
@@ -102,16 +102,20 @@ export default {
                 autoplay: {
                     delay: 5200,
                     disableOnInteraction: false,
-					waitForTransition: true,
                 },
             });
 
+			// First mount block autoplay and video playing
+			this.newActiveSlideVideo = this.slider.slides[0].querySelector('video');
+			this.stopSlider();
+
             this.slider.on('slideChange', () => {
                 this.activeIndex = this.slider.activeIndex;
-                const newActiveSlideVideo = this.slider.slides[this.slider.activeIndex].querySelector('video');
-                if (newActiveSlideVideo) {
-					newActiveSlideVideo.currentTime = 0;
-					newActiveSlideVideo.play();
+                this.newActiveSlideVideo = this.slider.slides[this.slider.activeIndex].querySelector('video');
+
+				if (this.newActiveSlideVideo) {
+					this.newActiveSlideVideo.currentTime = 0;
+					this.newActiveSlideVideo.play();
 				}
             });
         },
@@ -135,26 +139,28 @@ export default {
 				this.slider.autoplay.pause();
 				this.slider.autoplay.start();
 			})
+		},
+		startSlider() {
+			this.slider.autoplay.start();
+			this.newActiveSlideVideo && this.newActiveSlideVideo.play();
+		},
+		stopSlider() {
+			this.slider.autoplay.stop();
+			this.newActiveSlideVideo && this.newActiveSlideVideo.pause();
 		}
     },
     watch: {
         playing() {
             if (this.playing) {
-                setTimeout(() => this.slider.autoplay.start(), 300);
-            }
-        },
-        pauseSlider() {
-            if (this.pauseSlider) {// Pause
-                this.slider.autoplay.stop();
-            } else {// Play
-                setTimeout(() => this.slider.autoplay.start(), 300);
-            }
-        },
+				this.startSlider();
+            } else {
+				this.stopSlider();
+			}
+        }
     },
     props: {
         items: Array,
-        playing: Boolean,
-        pauseSlider: Boolean
+        playing: Boolean
     }
 }
 </script>
