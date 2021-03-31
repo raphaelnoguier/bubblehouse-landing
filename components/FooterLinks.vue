@@ -14,10 +14,12 @@
 export default {
     methods: {
         getLink(link) {
-            const { url } = link.link_url;
-            if (!url) return '#';
+            const { link_type, type, url } = link.link_url;
 
-            return url;
+			if (link_type === "Web") return url;
+            if (!type) return '#';
+
+            return type;
         }
     },
     props: {

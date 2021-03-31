@@ -40,11 +40,6 @@
         line-height: 170px;
     }
 
-	@include between(md, lg) {
-		font-size: 7.056vw;
-        line-height: 7.750vw;
-	}
-
     @include max(md) {
         font-size: 14.321vw;
         line-height: 15.556vw;
