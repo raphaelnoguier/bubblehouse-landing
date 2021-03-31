@@ -8,7 +8,7 @@
                     </div>
                 </a>
             </div>
-            <div class="right">
+            <div :class="`right ${$store.getters.navCtaVisible || $route.name === 'terms' || $route.name === 'privacy' ? 'visible': ''}`">
                 <div class="store-button">
 					<a :href="nav.app_store_link.url" target="_blank" rel="noopener">
 						<img src="~/assets/images/appstore.png" />
@@ -24,7 +24,6 @@
 export default {
     computed: {
         nav() {
-			console.log(this.$store.state.homepage);
             return this.$store.state.homepage
         }
     },

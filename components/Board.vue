@@ -130,7 +130,7 @@ export default {
                 const mappedX = Utils.map(progress, 0, 1, 0, x);
                 const mappedY = Utils.map(progress, 0, 1, 0, 50);
                 const mappedWrapperY = Utils.map(progress, 0, 1, 0, this.distanceY);
-                const degree = i === 0 || i === 4 ? 0 : -3;
+                const degree = (i === 0 || i === 4) ? 5 : -5;
                 const rotate = Utils.map(progress, 0, 1, 0, degree);
 
                 image.style.transform = `translate3d(${mappedX}px, 0px, 0)`;

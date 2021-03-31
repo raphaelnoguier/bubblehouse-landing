@@ -6,7 +6,8 @@ import prismicConfig from '../prismic.config.js';
 export const state = () => ({
 	homepage: {},
 	termsPage: {},
-	privacyPage: {}
+	privacyPage: {},
+	navCtaVisible: false,
 });
 
 export const getters = {
@@ -19,15 +20,9 @@ export const getters = {
 	privacyPage(state) {
 		return state.privacyPage
 	},
-	hasFilledForm(state) {
-		return state.hasFilledForm
+	navCtaVisible(state) {
+		return state.navCtaVisible
 	},
-	globalNameValue(state) {
-		return state.globalNameValue
-	},
-	globalEmailValue(state) {
-		return state.globalEmailValue
-    },
 };
 
 export const mutations = {
@@ -39,7 +34,10 @@ export const mutations = {
 	},
 	SET_PRIVACYPAGE(state, privacyPage) {
 		state.privacyPage = privacyPage
-	}
+	},
+	SET_NAV_CTA_VISIBLE(state, bool) {
+		state.navCtaVisible = bool;
+	},
 };
 
 export const actions = {

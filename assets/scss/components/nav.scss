@@ -47,13 +47,26 @@
             }
         }
 
-		.right .store-button {
-			@include min(xl) {
-				max-width: 220px;
+		.right {
+			opacity: 0;
+			transition: opacity 300ms ease;
+
+			@include max(md) {
+				opacity: 1;
 			}
 
-			img {
-				object-position: right;
+			&.visible {
+				opacity: 1;
+			}
+
+			.store-button {
+				@include min(xl) {
+					max-width: 220px;
+				}
+
+				img {
+					object-position: right;
+				}
 			}
 		}
     }

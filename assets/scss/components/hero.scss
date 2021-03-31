@@ -55,7 +55,7 @@
 					white-space: nowrap;
 					width: 100%;
 
-					@include max(sm) {
+					@include max(md) {
 						display: inline;
 					}
 				}

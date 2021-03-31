@@ -92,14 +92,16 @@ export default {
 
         enterView({
             selector: '.section.interactive-modules',
-            offset: 0.75,
+            offset: 0.65,
             enter: () => {
+				this.$store.commit('SET_NAV_CTA_VISIBLE', true);
                 if (this.typed) {
                     this.typed && this.typed.stop();
                     this.typedStopped = true;
                 }
             },
             exit: () => {
+				this.$store.commit('SET_NAV_CTA_VISIBLE', false);
                 if (this.typed) {
                     this.typed.start();
                     this.typedStopped = false;

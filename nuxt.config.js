@@ -22,6 +22,12 @@ module.exports = {
 		{
 			src: '~/plugins/vue-lazyload',
 			ssr: false
-		},
+		}
 	],
+	modules: [
+		'@nuxtjs/google-analytics'
+	],
+	googleAnalytics: {
+		id: 'UA-193469936'
+	}
 }
