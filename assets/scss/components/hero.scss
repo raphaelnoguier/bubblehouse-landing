@@ -1,5 +1,5 @@
 .hero-component {
-	height: 100vh;
+	height: 90vh;
 	max-height: -webkit-fill-available;
 	width: 100%;
 	position: relative;
@@ -54,6 +54,10 @@
 					display: inline;
 					white-space: nowrap;
 					width: 100%;
+
+					&:last-child {
+						display: block;
+					}
 				}
 
 				p {

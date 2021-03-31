@@ -1,10 +1,4 @@
 .section.interactive-modules {
-    margin: 10.417vw 0;
-
-    @include max(md) {
-        margin-top: 0;
-    }
-
     @include max(sm) {
         margin: 0 0 100px 0;
     }

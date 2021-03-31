@@ -28,31 +28,51 @@
 
             .logo-wrapper {
                 @include flexCenter();
-				max-width: 192px;
-
-				@include min(xl) {
-					min-width: 230px;
-					max-width: 230px;
-				}
-
-				@include max(sm) {
-					max-width: 184px;
-				}
 
 				&:hover {
 					.logo img {
-						transform: rotate3d(0, 0, 1, 360deg);
+						transform: rotate3d(0, 0, 1, 180deg);
 					}
 				}
 
-				.logo img {
-					will-change: transform;
-					transform: rotate3d(0, 0, 0, 0deg);
-					transition: transform 400ms ease;
+				.logo {
+					width: 40px;
+
+					@include min(xl) {
+						width: 60px;
+					}
+
+					@include min(xxl) {
+						width: 70px;
+					}
+
+					@include max(md) {
+						width: 32px;
+					}
+
+					img {
+						will-change: transform;
+						transform: rotate3d(0, 0, 0, 0deg);
+						transition: transform 400ms ease;
+					}
 				}
 
 				.wordmark {
 					margin-left: 16px;
+					width: 180px;
+
+					@include min(xl) {
+						width: 220px;
+					}
+
+					@include min(xxl) {
+						width: 280px;
+						margin-left: 24px;
+					}
+
+					@include max(md) {
+						width: 144px;
+					}
 				}
 
 				img {

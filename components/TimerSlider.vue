@@ -22,7 +22,7 @@
 				<div
 					v-for="(slide, i) in items" :key="i"
 					v-on:click="slider.slideTo(i)"
-					:class="`swiper-slide slide-infos ${playing && activeIndex === i ? 'active' : ''}`"
+					:class="`swiper-slide slide-infos ${sliderPlaying && activeIndex === i ? 'active' : ''}`"
 					:style="`--slide-active-color: ${slide.slide_main_color}; --slide-bg-color: ${hexToRgbA(slide.slide_main_color)}`"
 				>
 					<div class="progress-line-wrapper">
@@ -58,7 +58,8 @@ export default {
             activeIndex: 0,
             progress: 0,
             circleRadius: 32,
-            circleOffset: 250
+            circleOffset: 250,
+			sliderPlaying: this.playing
         }
     },
     mounted() {
@@ -69,6 +70,16 @@ export default {
 		this.initThumbSlider(this.sliderThumb);
 
 		this.resize();
+
+		const self = this;
+		document.addEventListener("visibilitychange", () => {
+			if (document.visibilityState === 'visible') {
+				self.startSlider();
+			} else {
+				self.stopSlider();
+			}
+		});
+
 		window.addEventListener('resize', this.resize, false);
     },
     methods: {
@@ -114,8 +125,7 @@ export default {
                 this.newActiveSlideVideo = this.slider.slides[this.slider.activeIndex].querySelector('video');
 
 				if (this.newActiveSlideVideo) {
-					this.newActiveSlideVideo.currentTime = 0;
-					this.newActiveSlideVideo.play();
+					this.resetVideo();
 				}
             });
         },
@@ -140,12 +150,20 @@ export default {
 				this.slider.autoplay.start();
 			})
 		},
+		resetVideo() {
+			if (this.newActiveSlideVideo) {
+				this.newActiveSlideVideo.currentTime = 0;
+				this.newActiveSlideVideo.play();
+			}
+		},
 		startSlider() {
+			this.sliderPlaying = true;
 			this.slider.autoplay.start();
-			this.newActiveSlideVideo && this.newActiveSlideVideo.play();
+			this.resetVideo();
 		},
 		stopSlider() {
-			this.slider.autoplay.stop();
+			this.sliderPlaying = false;
+			this.slider.autoplay.pause();
 			this.newActiveSlideVideo && this.newActiveSlideVideo.pause();
 		}
     },
