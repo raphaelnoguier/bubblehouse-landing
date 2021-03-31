@@ -1,9 +1,36 @@
 <template>
     <div class="board-component">
+        <div class="board-component-grid" ref="board">
+            <div :class="`board-wrapper ${!boardImagesVisible ? 'hidden' : ''}`" ref="boardWrapper">
+                <div class="row">
+                    <div
+                        v-for="(media, i) in boardItems.slice(0, nbItemsInRows)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
+                        <div class="media-wrapper">
+                            <img v-lazy="media.image.url" alt="Board image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div
+                        v-for="(media, i) in boardItems.slice(nbItemsInRows, boardItems.length)"
+                        :class="`media ${media.image_ratio.toLowerCase()}`"
+                        :key="i"
+                    >
+                        <div class="media-wrapper">
+                            <img v-lazy="media.image.url" alt="Board image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="board-component-phone-video">
             <Phone>
                 <div class="media full">
-                    <Video :autoplay="false" :url="phoneVideo.url" :playing="startBoardVideo" :poster="phonePoster.url" />
+					<img :class="`poster ${!boardImagesVisible ? 'fade-out' : ''}`" :src="phonePoster.url" />
+                    <Video :autoplay="false" :url="phoneVideo.url" :playing="startBoardVideo" />
                 </div>
 				<img class="iphone-mask" src="~/assets/images/phone.png" />
             </Phone>
@@ -37,6 +64,8 @@ export default {
     },
     mounted() {
         this.medias = this.$el.querySelectorAll('.media-wrapper');
+		this.video = this.$el.querySelector('video');
+        this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
         this.calcBounds();
         this.resolveDistanceY();
@@ -53,6 +82,8 @@ export default {
                 }
                 else {
                     this.boardImagesVisible = true;
+					this.startBoardVideo = false;
+					this.video.currentTime = 0;
                     this.transform(progress);
                 }
             }
@@ -61,7 +92,6 @@ export default {
     methods: {
         calcBounds() {
             this.mediasBounds = [];
-            const isMobile = window.innerWidth <= 768;
             this.medias.forEach((media) => {
                 const { left, width, top, height } = media.getBoundingClientRect();
 

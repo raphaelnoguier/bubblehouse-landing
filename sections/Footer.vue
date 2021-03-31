@@ -5,7 +5,7 @@
 			<div class="download-app">
 				<div class="store-button">
 					<a :href="footer.app_store_link.url" target="_blank" rel="noopener">
-						<img src="~/assets/images/appstore-white.png" />
+						<img src="~/assets/images/appstore.png" />
 					</a>
 				</div>
 				<div class="store-button">

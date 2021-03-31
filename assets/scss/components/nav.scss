@@ -28,6 +28,15 @@
 
             .logo-wrapper {
                 @include flexCenter();
+				max-width: 192px;
+
+				@include min(xl) {
+					max-width: 240px;
+				}
+
+				@include max(sm) {
+					max-width: 184px;
+				}
 
 				&:hover {
 					.logo img {
@@ -37,18 +46,6 @@
 
 				.logo {
 					width: 40px;
-
-					@include min(xl) {
-						width: 60px;
-					}
-
-					@include min(xxl) {
-						width: 70px;
-					}
-
-					@include max(md) {
-						width: 32px;
-					}
 
 					img {
 						will-change: transform;
@@ -60,19 +57,6 @@
 				.wordmark {
 					margin-left: 16px;
 					width: 180px;
-
-					@include min(xl) {
-						width: 220px;
-					}
-
-					@include min(xxl) {
-						width: 280px;
-						margin-left: 24px;
-					}
-
-					@include max(md) {
-						width: 144px;
-					}
 				}
 
 				img {

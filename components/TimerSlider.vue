@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="thumb-slider swiper-container" ref="sliderThumb">
-			<div class="timer-slider-navigation swiper-wrapper">
+			<div class="timer-slider-navigation swiper-wrapper" v-on:click="manualStart">
 				<div
 					v-for="(slide, i) in items" :key="i"
 					v-on:click="slider.slideTo(i)"
@@ -83,6 +83,11 @@ export default {
 		window.addEventListener('resize', this.resize, false);
     },
     methods: {
+		manualStart() {
+			if (!this.playing) {
+				this.startSlider();
+			}
+		},
 		resize() {
 			if (window.innerWidth <= 810) {
 				this.thumbSlider.allowTouchMove = true;

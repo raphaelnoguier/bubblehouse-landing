@@ -23,6 +23,18 @@
         .phone-component {
             margin: 0 auto;
             -webkit-mask-image: -webkit-radial-gradient(white, black); // Fix border radius overflow not hidden
+
+			.poster {
+				opacity: 1;
+				transition: opacity 500ms ease;
+				position: absolute;
+				z-index: 2;
+				background: grey;
+
+				&.fade-out {
+					opacity: 0;
+				}
+			}
         }
     }
 }

@@ -185,7 +185,10 @@
                 span {
                     display: block;
 					transition: color 300ms ease;
-					line-height: 1;
+
+					@include max(sm) {
+						line-height: 1.5;
+					}
 
                     &:last-child {
                         margin-top: 12px;

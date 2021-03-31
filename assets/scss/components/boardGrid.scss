@@ -9,8 +9,11 @@
     }
 
     .board-wrapper {
+		opacity: 1;
+		transition: opacity 300ms ease;
+
         &.hidden {
-            visibility: hidden;
+			opacity: 0;
         }
     }
 

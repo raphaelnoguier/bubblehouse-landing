@@ -93,12 +93,10 @@
 						}
 					}
 					&:last-child {
-						opacity: 0.2;
 						margin-left: 32px;
-						pointer-events: none;
 
 						@include max(md) {
-							margin-left: 28px;
+							margin-left: 25px;
 						}
 
 						@include max(sm) {
@@ -108,6 +106,7 @@
 				}
 			}
 		}
+
 		.preview-slider {
 			width: 347px;
 			pointer-events: none;
