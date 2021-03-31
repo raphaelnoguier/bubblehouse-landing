@@ -15,6 +15,13 @@
         }
 
         li {
+			opacity: 1;
+			transition: opacity 300ms ease;
+
+			&:hover {
+				opacity: 0.3;
+			}
+
             &:not(:first-child) {
                 @include max(sm) {
                     margin-top: 4.267vw;

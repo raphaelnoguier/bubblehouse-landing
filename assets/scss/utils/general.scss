@@ -101,6 +101,11 @@ body {
 .store-button {
 	height: 56px;
 	max-width: 168px;
+	transition: transform 300ms ease;
+
+	&:hover {
+		transform: scale3d(1.02, 1.02, 1);
+	}
 
 	@include min(xl) {
 		height: 80px;

@@ -1,49 +1,5 @@
 <template>
     <div class="board-component">
-        <div class="board-component-grid" ref="board">
-            <div class="board-placeholder">
-                <div class="row">
-                    <div
-                        v-for="(media, i) in boardItems.slice(0, nbItemsInRows)"
-                        :class="`media ${media.image_ratio.toLowerCase()}`"
-                        :key="i"
-                    >
-                    </div>
-                </div>
-                <div class="row">
-                    <div
-                        v-for="(media, i) in boardItems.slice(nbItemsInRows, boardItems.length)"
-                        :class="`media ${media.image_ratio.toLowerCase()}`"
-                        :key="i"
-                    >
-                    </div>
-                </div>
-            </div>
-            <div :class="`board-wrapper ${!boardImagesVisible ? 'hidden' : ''}`" ref="boardWrapper">
-                <div class="row">
-                    <div
-                        v-for="(media, i) in boardItems.slice(0, nbItemsInRows)"
-                        :class="`media ${media.image_ratio.toLowerCase()}`"
-                        :key="i"
-                    >
-                        <div class="media-wrapper">
-                            <img v-lazy="media.image.url" alt="Board image" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div
-                        v-for="(media, i) in boardItems.slice(nbItemsInRows, boardItems.length)"
-                        :class="`media ${media.image_ratio.toLowerCase()}`"
-                        :key="i"
-                    >
-                        <div class="media-wrapper">
-                            <img v-lazy="media.image.url" alt="Board image" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="board-component-phone-video">
             <Phone>
                 <div class="media full">
@@ -81,7 +37,6 @@ export default {
     },
     mounted() {
         this.medias = this.$el.querySelectorAll('.media-wrapper');
-        this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
         this.calcBounds();
         this.resolveDistanceY();

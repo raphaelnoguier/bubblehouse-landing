@@ -78,7 +78,7 @@
             cursor: pointer;
 			background-color: white;
 			border: 2px solid #F5F5F5;
-			transition: background-color 300ms ease;
+			transition: background-color 300ms ease, border-color 300ms ease;
 			outline: none;
 
             @include iosTapTransparent();
@@ -141,6 +141,10 @@
 						height: 80px;
 					}
 				}
+			}
+
+			&:hover {
+				border-color: v(slide-bg-color);
 			}
 
             &.active {

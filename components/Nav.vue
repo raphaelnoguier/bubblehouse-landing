@@ -3,8 +3,13 @@
         <div class="nav-content">
             <div class="left">
                 <a href="/">
-                    <div class="logo">
-						<img :src="nav.logo.url" />
+                    <div class="logo-wrapper">
+						<div class="logo">
+							<img :src="nav.logo.url" />
+						</div>
+						<div class="wordmark">
+							<img :src="nav.wordmark.url" />
+						</div>
                     </div>
                 </a>
             </div>

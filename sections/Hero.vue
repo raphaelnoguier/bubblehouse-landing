@@ -3,8 +3,8 @@
         <div class="hero-component-content">
             <div class="left">
                 <div class="text">
-                    <h1 class="bigText gradient-text">
-                        <span class="line">{{store.hero_first_line}}</span>
+                    <h1 class="bigText">
+                        <span class="line gradient-text">{{store.hero_first_line}}</span>
                         <span class="line">{{store.hero_second_line}}</span>
                     </h1>
                     <p class="bodyRegularLG">{{store.hero_description}}</p>
