@@ -10,7 +10,7 @@
 		height: 830px;
     }
 
-	@include max(classic) {
+	@include max(lg) {
 		width: 310px;
 		height: 660px;
     }
@@ -57,7 +57,7 @@
 		height: 830px;
     }
 
-	@include max(classic) {
+	@include max(lg) {
 		width: 310px;
 		height: 660px;
     }

@@ -1,5 +1,5 @@
 <template>
-	<main id="home">
+	<main id="home" :class="isSafari ? 'safari' : ''">
 		<Hero />
 		<InteractiveModules />
 		<Boards />
@@ -96,6 +96,7 @@ export default {
         this.resolveGradientsCircle();
     },
     methods: {
+		isSafari: () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
         resolveGradientsCircle() {
             const gradients = document.querySelectorAll('defs linearGradient.timerSlider');
             const circlesProgress = document.querySelectorAll('.progress-ring__circle');

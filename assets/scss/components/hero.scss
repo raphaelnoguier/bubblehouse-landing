@@ -59,6 +59,10 @@
 					white-space: nowrap;
 					width: 100%;
 
+					.safari & {
+						display: inline;
+					}
+
 					@include max(classic) {
 						display: inline;
 					}
