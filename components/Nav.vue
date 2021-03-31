@@ -4,7 +4,7 @@
             <div class="left">
                 <a href="/">
                     <div class="logo">
-                        <img src="~/assets/images/logo.png" />
+						<Logo />
                     </div>
                 </a>
             </div>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import Logo from '~/components/Svgs/Logo';
+
 export default {
     computed: {
         nav() {
@@ -30,6 +32,9 @@ export default {
         scrollToBottom() {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
-    }
+    },
+	components: {
+		Logo
+	}
 }
 </script>

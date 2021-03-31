@@ -31,14 +31,14 @@
 				max-width: 192px;
 
 				@include min(xl) {
-					max-width: 280px;
+					max-width: 240px;
 				}
 
 				@include max(sm) {
 					max-width: 184px;
 				}
 
-				img {
+				svg {
 					width: 100%;
 					height: auto;
 					object-fit: contain;
@@ -48,7 +48,7 @@
 
 		.right .store-button {
 			@include min(xl) {
-				max-width: 280px;
+				max-width: 220px;
 			}
 
 			img {
