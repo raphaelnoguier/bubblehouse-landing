@@ -51,21 +51,17 @@
 				color: black;
 
 				@include max(classic) {
+					max-width: 90%;
+				}
+
+				@include max(md) {
 					max-width: 100%;
 				}
 
 				.line {
-					display: block;
+					display: inline;
 					white-space: nowrap;
 					width: 100%;
-
-					.safari & {
-						display: inline;
-					}
-
-					@include max(classic) {
-						display: inline;
-					}
 				}
 
 				.md {
