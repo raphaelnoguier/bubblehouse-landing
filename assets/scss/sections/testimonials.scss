@@ -14,6 +14,8 @@
 	}
 
 	.single-testimonial {
+		display: flex;
+		flex-direction: column;
 		padding: 32px;
 		border-radius: 16px;
 		background-color: v(testimonial-bg-color);
@@ -50,6 +52,7 @@
 
 		.testimonial-content {
 			margin-top: 32px;
+			height: 100%;
 		}
 
 		.testimonial-footer {
@@ -80,6 +83,10 @@
 
 					&:last-child {
 						margin-top: 8px;
+
+						@include max(sm) {
+							margin-top: 0;
+						}
 					}
 				}
 			}

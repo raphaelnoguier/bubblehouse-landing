@@ -53,6 +53,10 @@
 					opacity: 0.2;
 					margin-left: 32px;
 					pointer-events: none;
+
+					@include max(sm) {
+						margin-left: 5px;
+					}
 				}
 
 				@include max(md) {

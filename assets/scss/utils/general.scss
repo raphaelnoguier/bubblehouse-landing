@@ -109,6 +109,7 @@ body {
 
 	@include max(sm) {
 		height: 38px;
+		max-width: 117px;
 	}
 
 	img {

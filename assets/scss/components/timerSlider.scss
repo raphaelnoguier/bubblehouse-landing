@@ -94,7 +94,7 @@
             }
 
             &:not(:first-child) {
-                margin-top: 32px;
+                margin-top: 24px;
 
                 @include min(xl) {
                     margin-top: 40px;
