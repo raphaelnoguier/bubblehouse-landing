@@ -103,6 +103,7 @@ body {
 	height: 56px;
 	max-width: 168px;
 	transition: transform 300ms ease;
+	transform: scale3d(1, 1, 1);
 
 	&:hover {
 		transform: scale3d(1.02, 1.02, 1);
@@ -110,7 +111,8 @@ body {
 
 	@include min(xl) {
 		height: 80px;
-		max-width: 220px;
+		max-width: 200px;
+    	width: 100%;
 	}
 
 	@include max(md) {

@@ -81,7 +81,7 @@
 
 			.store-button {
 				@include min(xl) {
-					max-width: 220px;
+					width: 200px;
 				}
 
 				@include max(sm) {
