@@ -18,13 +18,15 @@ module.exports = {
 	/*
 		Plugins
 	*/
+	buildModules: [
+		'@nuxtjs/google-analytics'
+	],
+	googleAnalytics: {
+		id: 'UA-G-N09HNCR5ZX'
+	},
 	plugins: [
 		{
 			src: '~/plugins/vue-lazyload',
-			ssr: false
-		},
-		{
-			src: '~/plugins/ga.js',
 			ssr: false
 		}
 	]
