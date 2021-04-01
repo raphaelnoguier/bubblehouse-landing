@@ -13,7 +13,7 @@
                             </template>
                         </div>
                     </Phone>
-					<img class="iphone-mask" src="~/assets/images/phone.png" />
+					<img class="iphone-mask" :src="$store.getters.iphoneMask" />
                 </div>
             </div>
         </div>

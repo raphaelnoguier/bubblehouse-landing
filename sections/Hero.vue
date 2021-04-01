@@ -24,7 +24,7 @@
             </div>
             <div class="preview-slider">
 				<Phone>
-					<img class="iphone-mask" src="~/assets/images/phone.png" />
+					<img class="iphone-mask" :src="$store.getters.iphoneMask" />
 					<div class="media full">
 						<Video autoplay loop :url="store.hero_video.url" :poster="store.hero_video_poster.url" />
 					</div>

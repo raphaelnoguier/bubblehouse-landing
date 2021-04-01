@@ -32,7 +32,7 @@
 					<img :class="`poster ${!boardImagesVisible ? 'fade-out' : ''}`" :src="phonePoster.url" />
                     <Video :autoplay="false" :url="phoneVideo.url" :playing="startBoardVideo" />
                 </div>
-				<img class="iphone-mask" src="~/assets/images/phone.png" />
+				<img class="iphone-mask" :src="$store.getters.iphoneMask" />
             </Phone>
         </div>
     </div>

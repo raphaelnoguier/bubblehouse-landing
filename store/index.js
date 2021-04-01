@@ -23,6 +23,9 @@ export const getters = {
 	navCtaVisible(state) {
 		return state.navCtaVisible
 	},
+	iphoneMask(state) {
+		return state.iphoneMask
+	},
 };
 
 export const mutations = {
@@ -37,6 +40,9 @@ export const mutations = {
 	},
 	SET_NAV_CTA_VISIBLE(state, bool) {
 		state.navCtaVisible = bool;
+	},
+	SET_IPHONE_MASK(state, url) {
+		state.iphoneMask = url;
 	},
 };
 
@@ -54,6 +60,8 @@ export const actions = {
 
 		if (homepage) {
 			commit('SET_HOMEPAGE', homepage);
+
+			if (homepage.phone_mask && homepage.phone_mask.url) commit('SET_IPHONE_MASK', homepage.phone_mask.url);
 			return { homepage };
 		}
 	},
