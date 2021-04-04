@@ -67,6 +67,8 @@ export default {
 		this.video = this.$el.querySelector('video');
         this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
+		this.phoneOffset = window.innerWidth <= 768 ? 0.2 : 0;
+
         this.calcBounds();
         this.resolveDistanceY();
 
@@ -75,6 +77,7 @@ export default {
 
         enterView({
             selector: '.board-component-phone-video',
+			offset: this.phoneOffset,
             progress: (el, progress) => {
                 if (progress === 1) {
                     this.startBoardVideo = true;
@@ -92,8 +95,9 @@ export default {
     methods: {
         calcBounds() {
             this.mediasBounds = [];
+
             this.medias.forEach((media) => {
-                const { left, width, top, height } = media.getBoundingClientRect();
+                const { left, width } = media.getBoundingClientRect();
 
                 this.mediasBounds.push({
                     x: (window.innerWidth / 2) - (left + (width / 2) )
