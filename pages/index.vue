@@ -30,7 +30,7 @@ export default {
 				{ charset: 'utf-8' },
 				{ hid: 'description', name: 'description', content: this.app.meta_description },
 				{ name: 'author', content: this.app.meta_author },
-				{ name: "apple-itunes-app", content: "app-id=284882215, affiliate-data=myAffiliateData, app-argument=myURL" },
+				{ name: "apple-itunes-app", content: "app-id=1524317241" },
 				{
 					hid: `og:title`,
 					property: 'og:title',

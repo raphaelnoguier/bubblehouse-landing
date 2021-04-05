@@ -67,7 +67,7 @@ export default {
 		this.video = this.$el.querySelector('video');
         this.board = this.$refs.board;
         this.boardWrapper = this.$refs.boardWrapper;
-		this.phoneOffset = window.innerWidth <= 768 ? 0.2 : 0;
+		this.phoneOffset = window.innerWidth <= 768 ? 0.3 : 0.1;
 
         this.calcBounds();
         this.resolveDistanceY();
