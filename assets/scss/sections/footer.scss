@@ -52,6 +52,10 @@
 				&:last-child {
 					margin-left: 32px;
 
+                    @include min(xl) {
+                        max-width: 225px;
+                    }
+
 					@include max(md) {
 						margin-left: 25px;
 					}
